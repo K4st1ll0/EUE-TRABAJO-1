@@ -1,0 +1,2581 @@
+{
+  "generated_at": "2026-04-10T19:56:51",
+  "run_id": "run_000003",
+  "status": "completed_with_warnings",
+  "deck_strategy": "generated_modal_wrapper",
+  "deck_decision": "El BDF base parece bulk-only; se generara un wrapper SOL 103.",
+  "deck_messages": [
+    "El BDF base parece bulk-only; se generara un wrapper SOL 103."
+  ],
+  "paths": {
+    "base_bdf": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\Trabajo 1\\Trabajo_EUE_25-26\\02_SFEM-de-apoyo\\SFEM_EUE.bdf",
+    "deck_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\Trabajo 1\\Trabajo_EUE_25-26\\05_Modelo_FEM\\Iteraciones\\baseline\\run_000003\\output\\baseline_deck.bdf",
+    "input_deck_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\Trabajo 1\\Trabajo_EUE_25-26\\05_Modelo_FEM\\Iteraciones\\baseline\\run_000003\\input\\baseline_deck.bdf",
+    "execution_deck_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\Trabajo 1\\Trabajo_EUE_25-26\\05_Modelo_FEM\\Iteraciones\\baseline\\run_000003\\output\\baseline_deck.bdf",
+    "input_dir": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\Trabajo 1\\Trabajo_EUE_25-26\\05_Modelo_FEM\\Iteraciones\\baseline\\run_000003\\input",
+    "output_dir": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\Trabajo 1\\Trabajo_EUE_25-26\\05_Modelo_FEM\\Iteraciones\\baseline\\run_000003\\output",
+    "reference_modes_f06": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\Trabajo 1\\Trabajo_EUE_25-26\\01_DFEM-de-referencia\\02_Resultados-modos-propios-globales.f06",
+    "baseline_f06_fallback": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\Trabajo 1\\Trabajo_EUE_25-26\\05_Modelo_FEM\\modal_baseline.f06"
+  },
+  "hashes": {
+    "config_hash": "7bd9e3ac0a7e2101ce37033f5e99b1f1283c193af10a541e71a6c1cf811d9bce",
+    "base_bdf_hash": "0eb282cba830c26725dbfb53a095da7eead678e2535be686d3b0f76393846608",
+    "source_copy_hash": "0eb282cba830c26725dbfb53a095da7eead678e2535be686d3b0f76393846608",
+    "deck_hash": "6b1deb5d413bdad2f8ce07ac6b445a8bbd9cd157e4f39fd26830989c0df78193"
+  },
+  "nastran_search": {
+    "executable": "C:\\Program Files\\MSC.Software\\NaPa_SE\\20252\\Nastran\\bin\\nastran.exe",
+    "checked_locations": [
+      "PATH: nastran",
+      "PATH: nastranw",
+      "PATH: nast20252",
+      "PATH: nast20252w",
+      "PATH: msc20252",
+      "PATH: msc20252w",
+      "Windows root: C:\\Program Files\\MSC.Software",
+      "Scanned bin: C:\\Program Files\\MSC.Software\\NaPa_SE\\20252\\Nastran\\bin",
+      "Windows root: C:\\Program Files (x86)\\MSC.Software",
+      "Windows root: C:\\Program Files\\Hexagon",
+      "Windows root: C:\\Program Files (x86)\\Hexagon"
+    ],
+    "candidates": [
+      "C:\\Program Files\\MSC.Software\\NaPa_SE\\20252\\Nastran\\bin\\nastran.exe",
+      "C:\\Program Files\\MSC.Software\\NaPa_SE\\20252\\Nastran\\bin\\nast20252.exe",
+      "C:\\Program Files\\MSC.Software\\NaPa_SE\\20252\\Nastran\\bin\\nast20252w.exe",
+      "C:\\Program Files\\MSC.Software\\NaPa_SE\\20252\\Nastran\\bin\\nastranw.exe",
+      "C:\\Program Files\\MSC.Software\\NaPa_SE\\20252\\Nastran\\bin\\msc20252.exe",
+      "C:\\Program Files\\MSC.Software\\NaPa_SE\\20252\\Nastran\\bin\\msc20252w.exe"
+    ],
+    "messages": [
+      "Raiz no disponible: C:\\Program Files (x86)\\MSC.Software",
+      "Raiz no disponible: C:\\Program Files\\Hexagon",
+      "Raiz no disponible: C:\\Program Files (x86)\\Hexagon",
+      "Ejecutable seleccionado: C:\\Program Files\\MSC.Software\\NaPa_SE\\20252\\Nastran\\bin\\nastran.exe"
+    ],
+    "selected_reason": "auto_detected"
+  },
+  "execution": {
+    "status": "completed",
+    "command": "\"C:\\Program Files\\MSC.Software\\NaPa_SE\\20252\\Nastran\\bin\\nastran.exe\" \"C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\Trabajo 1\\Trabajo_EUE_25-26\\05_Modelo_FEM\\Iteraciones\\baseline\\run_000003\\output\\baseline_deck.bdf\"",
+    "return_code": 0,
+    "stdout_log": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\Trabajo 1\\Trabajo_EUE_25-26\\05_Modelo_FEM\\Iteraciones\\baseline\\run_000003\\logs\\nastran_stdout.log",
+    "stderr_log": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\Trabajo 1\\Trabajo_EUE_25-26\\05_Modelo_FEM\\Iteraciones\\baseline\\run_000003\\logs\\nastran_stderr.log",
+    "launched_at": "2026-04-10T19:56:46",
+    "finished_at": "2026-04-10T19:56:51",
+    "fatal_detected": false
+  },
+  "f06_source": "run_output",
+  "baseline_f06_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\Trabajo 1\\Trabajo_EUE_25-26\\05_Modelo_FEM\\Iteraciones\\baseline\\run_000003\\output\\baseline_deck.f06",
+  "reference_f06_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\Trabajo 1\\Trabajo_EUE_25-26\\01_DFEM-de-referencia\\02_Resultados-modos-propios-globales.f06",
+  "baseline_records": [
+    {
+      "mode": 1,
+      "extraction_order": 1,
+      "eigenvalue": 1969961.0,
+      "radians": 1403.553,
+      "cycles": 223.3824,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 1969961.0
+    },
+    {
+      "mode": 2,
+      "extraction_order": 2,
+      "eigenvalue": 2182137.0,
+      "radians": 1477.206,
+      "cycles": 235.1046,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 2182137.0
+    },
+    {
+      "mode": 3,
+      "extraction_order": 3,
+      "eigenvalue": 3139304.0,
+      "radians": 1771.808,
+      "cycles": 281.992,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 3139304.0
+    },
+    {
+      "mode": 4,
+      "extraction_order": 4,
+      "eigenvalue": 3188776.0,
+      "radians": 1785.714,
+      "cycles": 284.2053,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 3188776.0
+    },
+    {
+      "mode": 5,
+      "extraction_order": 5,
+      "eigenvalue": 3214261.0,
+      "radians": 1792.836,
+      "cycles": 285.3387,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 3214261.0
+    },
+    {
+      "mode": 6,
+      "extraction_order": 6,
+      "eigenvalue": 5870614.0,
+      "radians": 2422.935,
+      "cycles": 385.6221,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 5870614.0
+    },
+    {
+      "mode": 7,
+      "extraction_order": 7,
+      "eigenvalue": 6401713.0,
+      "radians": 2530.161,
+      "cycles": 402.6876,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 6401713.0
+    },
+    {
+      "mode": 8,
+      "extraction_order": 8,
+      "eigenvalue": 9292113.0,
+      "radians": 3048.297,
+      "cycles": 485.1515,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 9292113.0
+    },
+    {
+      "mode": 9,
+      "extraction_order": 9,
+      "eigenvalue": 9467690.0,
+      "radians": 3076.961,
+      "cycles": 489.7136,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 9467690.0
+    },
+    {
+      "mode": 10,
+      "extraction_order": 10,
+      "eigenvalue": 9558218.0,
+      "radians": 3091.637,
+      "cycles": 492.0493,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 9558218.0
+    },
+    {
+      "mode": 11,
+      "extraction_order": 11,
+      "eigenvalue": 10269560.0,
+      "radians": 3204.615,
+      "cycles": 510.0303,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 10269560.0
+    },
+    {
+      "mode": 12,
+      "extraction_order": 12,
+      "eigenvalue": 12161380.0,
+      "radians": 3487.317,
+      "cycles": 555.0238,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 12161380.0
+    },
+    {
+      "mode": 13,
+      "extraction_order": 13,
+      "eigenvalue": 12771700.0,
+      "radians": 3573.751,
+      "cycles": 568.7802,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 12771700.0
+    },
+    {
+      "mode": 14,
+      "extraction_order": 14,
+      "eigenvalue": 16168810.0,
+      "radians": 4021.046,
+      "cycles": 639.9694,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 16168810.0
+    },
+    {
+      "mode": 15,
+      "extraction_order": 15,
+      "eigenvalue": 17350210.0,
+      "radians": 4165.358,
+      "cycles": 662.9373,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 17350210.0
+    },
+    {
+      "mode": 16,
+      "extraction_order": 16,
+      "eigenvalue": 17546420.0,
+      "radians": 4188.845,
+      "cycles": 666.6754,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 17546420.0
+    },
+    {
+      "mode": 17,
+      "extraction_order": 17,
+      "eigenvalue": 18173600.0,
+      "radians": 4263.05,
+      "cycles": 678.4856,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 18173600.0
+    },
+    {
+      "mode": 18,
+      "extraction_order": 18,
+      "eigenvalue": 18236910.0,
+      "radians": 4270.47,
+      "cycles": 679.6664,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 18236910.0
+    },
+    {
+      "mode": 19,
+      "extraction_order": 19,
+      "eigenvalue": 18268470.0,
+      "radians": 4274.163,
+      "cycles": 680.2541,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 18268470.0
+    },
+    {
+      "mode": 20,
+      "extraction_order": 20,
+      "eigenvalue": 18277050.0,
+      "radians": 4275.166,
+      "cycles": 680.4138,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 18277050.0
+    }
+  ],
+  "reference_records": [
+    {
+      "mode": 1,
+      "extraction_order": 1,
+      "eigenvalue": 1677460.0,
+      "radians": 1295.168,
+      "cycles": 206.1324,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 1677460.0
+    },
+    {
+      "mode": 2,
+      "extraction_order": 2,
+      "eigenvalue": 2429647.0,
+      "radians": 1558.732,
+      "cycles": 248.08,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 2429647.0
+    },
+    {
+      "mode": 3,
+      "extraction_order": 3,
+      "eigenvalue": 2592842.0,
+      "radians": 1610.231,
+      "cycles": 256.2762,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 2592842.0
+    },
+    {
+      "mode": 4,
+      "extraction_order": 4,
+      "eigenvalue": 2876692.0,
+      "radians": 1696.081,
+      "cycles": 269.9397,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 2876692.0
+    },
+    {
+      "mode": 5,
+      "extraction_order": 5,
+      "eigenvalue": 3342569.0,
+      "radians": 1828.27,
+      "cycles": 290.9781,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 3342569.0
+    },
+    {
+      "mode": 6,
+      "extraction_order": 6,
+      "eigenvalue": 4122686.0,
+      "radians": 2030.44,
+      "cycles": 323.1545,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 4122686.0
+    },
+    {
+      "mode": 7,
+      "extraction_order": 7,
+      "eigenvalue": 4453029.0,
+      "radians": 2110.22,
+      "cycles": 335.852,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 4453029.0
+    },
+    {
+      "mode": 8,
+      "extraction_order": 8,
+      "eigenvalue": 4607741.0,
+      "radians": 2146.565,
+      "cycles": 341.6364,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 4607741.0
+    },
+    {
+      "mode": 9,
+      "extraction_order": 9,
+      "eigenvalue": 4942959.0,
+      "radians": 2223.277,
+      "cycles": 353.8455,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 4942959.0
+    },
+    {
+      "mode": 10,
+      "extraction_order": 10,
+      "eigenvalue": 5329992.0,
+      "radians": 2308.678,
+      "cycles": 367.4374,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 5329992.0
+    },
+    {
+      "mode": 11,
+      "extraction_order": 11,
+      "eigenvalue": 5340996.0,
+      "radians": 2311.059,
+      "cycles": 367.8165,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 5340996.0
+    },
+    {
+      "mode": 12,
+      "extraction_order": 12,
+      "eigenvalue": 5681561.0,
+      "radians": 2383.603,
+      "cycles": 379.3621,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 5681561.0
+    },
+    {
+      "mode": 13,
+      "extraction_order": 13,
+      "eigenvalue": 6537351.0,
+      "radians": 2556.824,
+      "cycles": 406.9312,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 6537351.0
+    },
+    {
+      "mode": 14,
+      "extraction_order": 14,
+      "eigenvalue": 6663558.0,
+      "radians": 2581.387,
+      "cycles": 410.8405,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 6663558.0
+    },
+    {
+      "mode": 15,
+      "extraction_order": 15,
+      "eigenvalue": 7173348.0,
+      "radians": 2678.311,
+      "cycles": 426.2664,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 7173348.0
+    },
+    {
+      "mode": 16,
+      "extraction_order": 16,
+      "eigenvalue": 7282918.0,
+      "radians": 2698.688,
+      "cycles": 429.5096,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 7282918.0
+    },
+    {
+      "mode": 17,
+      "extraction_order": 17,
+      "eigenvalue": 7473904.0,
+      "radians": 2733.844,
+      "cycles": 435.1048,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 7473904.0
+    },
+    {
+      "mode": 18,
+      "extraction_order": 18,
+      "eigenvalue": 7644787.0,
+      "radians": 2764.921,
+      "cycles": 440.0508,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 7644787.0
+    },
+    {
+      "mode": 19,
+      "extraction_order": 19,
+      "eigenvalue": 8095477.0,
+      "radians": 2845.255,
+      "cycles": 452.8364,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 8095477.0
+    },
+    {
+      "mode": 20,
+      "extraction_order": 20,
+      "eigenvalue": 8558245.0,
+      "radians": 2925.448,
+      "cycles": 465.5995,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 8558245.0
+    },
+    {
+      "mode": 21,
+      "extraction_order": 21,
+      "eigenvalue": 8705878.0,
+      "radians": 2950.572,
+      "cycles": 469.5982,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 8705878.0
+    },
+    {
+      "mode": 22,
+      "extraction_order": 22,
+      "eigenvalue": 9402703.0,
+      "radians": 3066.383,
+      "cycles": 488.03,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 9402703.0
+    },
+    {
+      "mode": 23,
+      "extraction_order": 23,
+      "eigenvalue": 9428038.0,
+      "radians": 3070.511,
+      "cycles": 488.687,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 9428038.0
+    },
+    {
+      "mode": 24,
+      "extraction_order": 24,
+      "eigenvalue": 9450409.0,
+      "radians": 3074.152,
+      "cycles": 489.2664,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 9450409.0
+    },
+    {
+      "mode": 25,
+      "extraction_order": 25,
+      "eigenvalue": 9818712.0,
+      "radians": 3133.482,
+      "cycles": 498.7092,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 9818712.0
+    },
+    {
+      "mode": 26,
+      "extraction_order": 26,
+      "eigenvalue": 11392560.0,
+      "radians": 3375.286,
+      "cycles": 537.1935,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 11392560.0
+    },
+    {
+      "mode": 27,
+      "extraction_order": 27,
+      "eigenvalue": 11898270.0,
+      "radians": 3449.387,
+      "cycles": 548.987,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 11898270.0
+    },
+    {
+      "mode": 28,
+      "extraction_order": 28,
+      "eigenvalue": 12384900.0,
+      "radians": 3519.218,
+      "cycles": 560.101,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 12384900.0
+    },
+    {
+      "mode": 29,
+      "extraction_order": 29,
+      "eigenvalue": 12751580.0,
+      "radians": 3570.936,
+      "cycles": 568.3321,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 12751580.0
+    },
+    {
+      "mode": 30,
+      "extraction_order": 30,
+      "eigenvalue": 13405170.0,
+      "radians": 3661.308,
+      "cycles": 582.7152,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 13405170.0
+    },
+    {
+      "mode": 31,
+      "extraction_order": 31,
+      "eigenvalue": 13552050.0,
+      "radians": 3681.311,
+      "cycles": 585.8988,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 13552050.0
+    },
+    {
+      "mode": 32,
+      "extraction_order": 32,
+      "eigenvalue": 13804930.0,
+      "radians": 3715.499,
+      "cycles": 591.3401,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 13804930.0
+    },
+    {
+      "mode": 33,
+      "extraction_order": 33,
+      "eigenvalue": 14241130.0,
+      "radians": 3773.742,
+      "cycles": 600.6097,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 14241130.0
+    },
+    {
+      "mode": 34,
+      "extraction_order": 34,
+      "eigenvalue": 14439330.0,
+      "radians": 3799.911,
+      "cycles": 604.7747,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 14439330.0
+    },
+    {
+      "mode": 35,
+      "extraction_order": 35,
+      "eigenvalue": 15843080.0,
+      "radians": 3980.337,
+      "cycles": 633.4903,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 15843080.0
+    },
+    {
+      "mode": 36,
+      "extraction_order": 36,
+      "eigenvalue": 16175180.0,
+      "radians": 4021.838,
+      "cycles": 640.0954,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 16175180.0
+    },
+    {
+      "mode": 37,
+      "extraction_order": 37,
+      "eigenvalue": 16368040.0,
+      "radians": 4045.743,
+      "cycles": 643.9,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 16368040.0
+    },
+    {
+      "mode": 38,
+      "extraction_order": 38,
+      "eigenvalue": 16476020.0,
+      "radians": 4059.067,
+      "cycles": 646.0206,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 16476020.0
+    },
+    {
+      "mode": 39,
+      "extraction_order": 39,
+      "eigenvalue": 17036180.0,
+      "radians": 4127.491,
+      "cycles": 656.9105,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 17036180.0
+    },
+    {
+      "mode": 40,
+      "extraction_order": 40,
+      "eigenvalue": 17164220.0,
+      "radians": 4142.972,
+      "cycles": 659.3745,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 17164220.0
+    },
+    {
+      "mode": 41,
+      "extraction_order": 41,
+      "eigenvalue": 17354310.0,
+      "radians": 4165.851,
+      "cycles": 663.0157,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 17354310.0
+    },
+    {
+      "mode": 42,
+      "extraction_order": 42,
+      "eigenvalue": 17852450.0,
+      "radians": 4225.217,
+      "cycles": 672.4641,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 17852450.0
+    },
+    {
+      "mode": 43,
+      "extraction_order": 43,
+      "eigenvalue": 18602760.0,
+      "radians": 4313.092,
+      "cycles": 686.4499,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 18602760.0
+    },
+    {
+      "mode": 44,
+      "extraction_order": 44,
+      "eigenvalue": 19598920.0,
+      "radians": 4427.067,
+      "cycles": 704.5895,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 19598920.0
+    },
+    {
+      "mode": 45,
+      "extraction_order": 45,
+      "eigenvalue": 20529470.0,
+      "radians": 4530.946,
+      "cycles": 721.1224,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 20529470.0
+    },
+    {
+      "mode": 46,
+      "extraction_order": 46,
+      "eigenvalue": 21043140.0,
+      "radians": 4587.281,
+      "cycles": 730.0884,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 21043140.0
+    },
+    {
+      "mode": 47,
+      "extraction_order": 47,
+      "eigenvalue": 21207260.0,
+      "radians": 4605.134,
+      "cycles": 732.9298,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 21207260.0
+    },
+    {
+      "mode": 48,
+      "extraction_order": 48,
+      "eigenvalue": 21320810.0,
+      "radians": 4617.447,
+      "cycles": 734.8894,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 21320810.0
+    },
+    {
+      "mode": 49,
+      "extraction_order": 49,
+      "eigenvalue": 21433280.0,
+      "radians": 4629.609,
+      "cycles": 736.8251,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 21433280.0
+    },
+    {
+      "mode": 50,
+      "extraction_order": 50,
+      "eigenvalue": 21733490.0,
+      "radians": 4661.92,
+      "cycles": 741.9675,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 21733490.0
+    },
+    {
+      "mode": 51,
+      "extraction_order": 51,
+      "eigenvalue": 21935600.0,
+      "radians": 4683.546,
+      "cycles": 745.4095,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 21935600.0
+    },
+    {
+      "mode": 52,
+      "extraction_order": 52,
+      "eigenvalue": 21975430.0,
+      "radians": 4687.796,
+      "cycles": 746.0859,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 21975430.0
+    },
+    {
+      "mode": 53,
+      "extraction_order": 53,
+      "eigenvalue": 22636960.0,
+      "radians": 4757.831,
+      "cycles": 757.2324,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 22636960.0
+    },
+    {
+      "mode": 54,
+      "extraction_order": 54,
+      "eigenvalue": 23280200.0,
+      "radians": 4824.956,
+      "cycles": 767.9156,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 23280200.0
+    },
+    {
+      "mode": 55,
+      "extraction_order": 55,
+      "eigenvalue": 23658620.0,
+      "radians": 4864.013,
+      "cycles": 774.1316,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 23658620.0
+    },
+    {
+      "mode": 56,
+      "extraction_order": 56,
+      "eigenvalue": 23980420.0,
+      "radians": 4896.98,
+      "cycles": 779.3786,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 23980420.0
+    },
+    {
+      "mode": 57,
+      "extraction_order": 57,
+      "eigenvalue": 24051540.0,
+      "radians": 4904.237,
+      "cycles": 780.5336,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 24051540.0
+    },
+    {
+      "mode": 58,
+      "extraction_order": 58,
+      "eigenvalue": 24577850.0,
+      "radians": 4957.605,
+      "cycles": 789.0274,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 24577850.0
+    },
+    {
+      "mode": 59,
+      "extraction_order": 59,
+      "eigenvalue": 24958760.0,
+      "radians": 4995.875,
+      "cycles": 795.1182,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 24958760.0
+    },
+    {
+      "mode": 60,
+      "extraction_order": 60,
+      "eigenvalue": 25404880.0,
+      "radians": 5040.326,
+      "cycles": 802.1927,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 25404880.0
+    },
+    {
+      "mode": 61,
+      "extraction_order": 61,
+      "eigenvalue": 25685180.0,
+      "radians": 5068.055,
+      "cycles": 806.6061,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 25685180.0
+    },
+    {
+      "mode": 62,
+      "extraction_order": 62,
+      "eigenvalue": 26171430.0,
+      "radians": 5115.802,
+      "cycles": 814.2053,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 26171430.0
+    },
+    {
+      "mode": 63,
+      "extraction_order": 63,
+      "eigenvalue": 26549500.0,
+      "radians": 5152.621,
+      "cycles": 820.0651,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 26549500.0
+    },
+    {
+      "mode": 64,
+      "extraction_order": 64,
+      "eigenvalue": 27195320.0,
+      "radians": 5214.914,
+      "cycles": 829.9793,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 27195320.0
+    },
+    {
+      "mode": 65,
+      "extraction_order": 65,
+      "eigenvalue": 27616050.0,
+      "radians": 5255.097,
+      "cycles": 836.3747,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 27616050.0
+    },
+    {
+      "mode": 66,
+      "extraction_order": 66,
+      "eigenvalue": 28866560.0,
+      "radians": 5372.761,
+      "cycles": 855.1015,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 28866560.0
+    },
+    {
+      "mode": 67,
+      "extraction_order": 67,
+      "eigenvalue": 29524610.0,
+      "radians": 5433.655,
+      "cycles": 864.7931,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 29524610.0
+    },
+    {
+      "mode": 68,
+      "extraction_order": 68,
+      "eigenvalue": 30022240.0,
+      "radians": 5479.255,
+      "cycles": 872.0505,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 30022240.0
+    },
+    {
+      "mode": 69,
+      "extraction_order": 69,
+      "eigenvalue": 30470500.0,
+      "radians": 5520.009,
+      "cycles": 878.5368,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 30470500.0
+    },
+    {
+      "mode": 70,
+      "extraction_order": 70,
+      "eigenvalue": 30569100.0,
+      "radians": 5528.933,
+      "cycles": 879.957,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 30569100.0
+    },
+    {
+      "mode": 71,
+      "extraction_order": 71,
+      "eigenvalue": 31037580.0,
+      "radians": 5571.138,
+      "cycles": 886.6742,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 31037580.0
+    },
+    {
+      "mode": 72,
+      "extraction_order": 72,
+      "eigenvalue": 31423430.0,
+      "radians": 5605.661,
+      "cycles": 892.1686,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 31423430.0
+    },
+    {
+      "mode": 73,
+      "extraction_order": 73,
+      "eigenvalue": 31713180.0,
+      "radians": 5631.446,
+      "cycles": 896.2724,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 31713180.0
+    },
+    {
+      "mode": 74,
+      "extraction_order": 74,
+      "eigenvalue": 32013240.0,
+      "radians": 5658.024,
+      "cycles": 900.5026,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 32013240.0
+    },
+    {
+      "mode": 75,
+      "extraction_order": 75,
+      "eigenvalue": 33024800.0,
+      "radians": 5746.721,
+      "cycles": 914.6191,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 33024800.0
+    },
+    {
+      "mode": 76,
+      "extraction_order": 76,
+      "eigenvalue": 33588040.0,
+      "radians": 5795.519,
+      "cycles": 922.3855,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 33588040.0
+    },
+    {
+      "mode": 77,
+      "extraction_order": 77,
+      "eigenvalue": 34113960.0,
+      "radians": 5840.715,
+      "cycles": 929.5787,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 34113960.0
+    },
+    {
+      "mode": 78,
+      "extraction_order": 78,
+      "eigenvalue": 35163530.0,
+      "radians": 5929.884,
+      "cycles": 943.7704,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 35163530.0
+    },
+    {
+      "mode": 79,
+      "extraction_order": 79,
+      "eigenvalue": 35552000.0,
+      "radians": 5962.549,
+      "cycles": 948.9692,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 35552000.0
+    },
+    {
+      "mode": 80,
+      "extraction_order": 80,
+      "eigenvalue": 37379010.0,
+      "radians": 6113.838,
+      "cycles": 973.0475,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 37379010.0
+    },
+    {
+      "mode": 81,
+      "extraction_order": 81,
+      "eigenvalue": 38257090.0,
+      "radians": 6185.231,
+      "cycles": 984.4102,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 38257090.0
+    },
+    {
+      "mode": 82,
+      "extraction_order": 82,
+      "eigenvalue": 39170500.0,
+      "radians": 6258.634,
+      "cycles": 996.0925,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 39170500.0
+    },
+    {
+      "mode": 83,
+      "extraction_order": 83,
+      "eigenvalue": 39257650.0,
+      "radians": 6265.592,
+      "cycles": 997.2,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 39257650.0
+    },
+    {
+      "mode": 84,
+      "extraction_order": 84,
+      "eigenvalue": 39872320.0,
+      "radians": 6314.453,
+      "cycles": 1004.976,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 39872320.0
+    },
+    {
+      "mode": 85,
+      "extraction_order": 85,
+      "eigenvalue": 40221540.0,
+      "radians": 6342.045,
+      "cycles": 1009.368,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 40221540.0
+    },
+    {
+      "mode": 86,
+      "extraction_order": 86,
+      "eigenvalue": 41093620.0,
+      "radians": 6410.431,
+      "cycles": 1020.252,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 41093620.0
+    },
+    {
+      "mode": 87,
+      "extraction_order": 87,
+      "eigenvalue": 41896560.0,
+      "radians": 6472.755,
+      "cycles": 1030.171,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 41896560.0
+    },
+    {
+      "mode": 88,
+      "extraction_order": 88,
+      "eigenvalue": 42515180.0,
+      "radians": 6520.366,
+      "cycles": 1037.749,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 42515180.0
+    },
+    {
+      "mode": 89,
+      "extraction_order": 89,
+      "eigenvalue": 42855100.0,
+      "radians": 6546.38,
+      "cycles": 1041.889,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 42855100.0
+    },
+    {
+      "mode": 90,
+      "extraction_order": 90,
+      "eigenvalue": 43121310.0,
+      "radians": 6566.682,
+      "cycles": 1045.12,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 43121310.0
+    },
+    {
+      "mode": 91,
+      "extraction_order": 91,
+      "eigenvalue": 44070720.0,
+      "radians": 6638.578,
+      "cycles": 1056.563,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 44070720.0
+    },
+    {
+      "mode": 92,
+      "extraction_order": 92,
+      "eigenvalue": 44893020.0,
+      "radians": 6700.225,
+      "cycles": 1066.374,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 44893020.0
+    },
+    {
+      "mode": 93,
+      "extraction_order": 93,
+      "eigenvalue": 45305380.0,
+      "radians": 6730.927,
+      "cycles": 1071.26,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 45305380.0
+    },
+    {
+      "mode": 94,
+      "extraction_order": 94,
+      "eigenvalue": 45830110.0,
+      "radians": 6769.794,
+      "cycles": 1077.446,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 45830110.0
+    },
+    {
+      "mode": 95,
+      "extraction_order": 95,
+      "eigenvalue": 46033970.0,
+      "radians": 6784.834,
+      "cycles": 1079.84,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 46033970.0
+    },
+    {
+      "mode": 96,
+      "extraction_order": 96,
+      "eigenvalue": 46893310.0,
+      "radians": 6847.869,
+      "cycles": 1089.872,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 46893310.0
+    },
+    {
+      "mode": 97,
+      "extraction_order": 97,
+      "eigenvalue": 46991740.0,
+      "radians": 6855.052,
+      "cycles": 1091.015,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 46991740.0
+    },
+    {
+      "mode": 98,
+      "extraction_order": 98,
+      "eigenvalue": 47500180.0,
+      "radians": 6892.037,
+      "cycles": 1096.902,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 47500180.0
+    },
+    {
+      "mode": 99,
+      "extraction_order": 99,
+      "eigenvalue": 48429380.0,
+      "radians": 6959.122,
+      "cycles": 1107.579,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 48429380.0
+    },
+    {
+      "mode": 100,
+      "extraction_order": 100,
+      "eigenvalue": 48584690.0,
+      "radians": 6970.272,
+      "cycles": 1109.353,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 48584690.0
+    },
+    {
+      "mode": 101,
+      "extraction_order": 101,
+      "eigenvalue": 49044540.0,
+      "radians": 7003.18,
+      "cycles": 1114.591,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 49044540.0
+    },
+    {
+      "mode": 102,
+      "extraction_order": 102,
+      "eigenvalue": 49571320.0,
+      "radians": 7040.69,
+      "cycles": 1120.561,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 49571320.0
+    },
+    {
+      "mode": 103,
+      "extraction_order": 103,
+      "eigenvalue": 49723440.0,
+      "radians": 7051.485,
+      "cycles": 1122.279,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 49723440.0
+    },
+    {
+      "mode": 104,
+      "extraction_order": 104,
+      "eigenvalue": 50122650.0,
+      "radians": 7079.735,
+      "cycles": 1126.775,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 50122650.0
+    },
+    {
+      "mode": 105,
+      "extraction_order": 105,
+      "eigenvalue": 50275550.0,
+      "radians": 7090.525,
+      "cycles": 1128.492,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 50275550.0
+    },
+    {
+      "mode": 106,
+      "extraction_order": 106,
+      "eigenvalue": 50293860.0,
+      "radians": 7091.817,
+      "cycles": 1128.698,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 50293860.0
+    },
+    {
+      "mode": 107,
+      "extraction_order": 107,
+      "eigenvalue": 51235100.0,
+      "radians": 7157.87,
+      "cycles": 1139.21,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 51235100.0
+    },
+    {
+      "mode": 108,
+      "extraction_order": 108,
+      "eigenvalue": 51550100.0,
+      "radians": 7179.84,
+      "cycles": 1142.707,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 51550100.0
+    },
+    {
+      "mode": 109,
+      "extraction_order": 109,
+      "eigenvalue": 51611470.0,
+      "radians": 7184.112,
+      "cycles": 1143.387,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 51611470.0
+    },
+    {
+      "mode": 110,
+      "extraction_order": 110,
+      "eigenvalue": 51720660.0,
+      "radians": 7191.708,
+      "cycles": 1144.596,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 51720660.0
+    },
+    {
+      "mode": 111,
+      "extraction_order": 111,
+      "eigenvalue": 52155560.0,
+      "radians": 7221.881,
+      "cycles": 1149.398,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 52155560.0
+    },
+    {
+      "mode": 112,
+      "extraction_order": 112,
+      "eigenvalue": 52232180.0,
+      "radians": 7227.183,
+      "cycles": 1150.242,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 52232180.0
+    },
+    {
+      "mode": 113,
+      "extraction_order": 113,
+      "eigenvalue": 53070780.0,
+      "radians": 7284.97,
+      "cycles": 1159.439,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 53070780.0
+    },
+    {
+      "mode": 114,
+      "extraction_order": 114,
+      "eigenvalue": 53526570.0,
+      "radians": 7316.186,
+      "cycles": 1164.407,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 53526570.0
+    },
+    {
+      "mode": 115,
+      "extraction_order": 115,
+      "eigenvalue": 54647920.0,
+      "radians": 7392.423,
+      "cycles": 1176.541,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 54647920.0
+    },
+    {
+      "mode": 116,
+      "extraction_order": 116,
+      "eigenvalue": 54897630.0,
+      "radians": 7409.293,
+      "cycles": 1179.226,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 54897630.0
+    },
+    {
+      "mode": 117,
+      "extraction_order": 117,
+      "eigenvalue": 55145780.0,
+      "radians": 7426.021,
+      "cycles": 1181.888,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 55145780.0
+    },
+    {
+      "mode": 118,
+      "extraction_order": 118,
+      "eigenvalue": 55269150.0,
+      "radians": 7434.322,
+      "cycles": 1183.209,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 55269150.0
+    },
+    {
+      "mode": 119,
+      "extraction_order": 119,
+      "eigenvalue": 55537930.0,
+      "radians": 7452.378,
+      "cycles": 1186.083,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 55537930.0
+    },
+    {
+      "mode": 120,
+      "extraction_order": 120,
+      "eigenvalue": 56228950.0,
+      "radians": 7498.596,
+      "cycles": 1193.439,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 56228950.0
+    },
+    {
+      "mode": 121,
+      "extraction_order": 121,
+      "eigenvalue": 56792580.0,
+      "radians": 7536.085,
+      "cycles": 1199.405,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 56792580.0
+    },
+    {
+      "mode": 122,
+      "extraction_order": 122,
+      "eigenvalue": 57202110.0,
+      "radians": 7563.207,
+      "cycles": 1203.722,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 57202110.0
+    },
+    {
+      "mode": 123,
+      "extraction_order": 123,
+      "eigenvalue": 57803860.0,
+      "radians": 7602.885,
+      "cycles": 1210.037,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 57803860.0
+    },
+    {
+      "mode": 124,
+      "extraction_order": 124,
+      "eigenvalue": 59469410.0,
+      "radians": 7711.641,
+      "cycles": 1227.346,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 59469410.0
+    },
+    {
+      "mode": 125,
+      "extraction_order": 125,
+      "eigenvalue": 60251230.0,
+      "radians": 7762.167,
+      "cycles": 1235.387,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 60251230.0
+    },
+    {
+      "mode": 126,
+      "extraction_order": 126,
+      "eigenvalue": 60493590.0,
+      "radians": 7777.762,
+      "cycles": 1237.869,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 60493590.0
+    },
+    {
+      "mode": 127,
+      "extraction_order": 127,
+      "eigenvalue": 60921520.0,
+      "radians": 7805.224,
+      "cycles": 1242.24,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 60921520.0
+    },
+    {
+      "mode": 128,
+      "extraction_order": 128,
+      "eigenvalue": 61260290.0,
+      "radians": 7826.895,
+      "cycles": 1245.689,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 61260290.0
+    },
+    {
+      "mode": 129,
+      "extraction_order": 129,
+      "eigenvalue": 61422740.0,
+      "radians": 7837.266,
+      "cycles": 1247.34,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 61422740.0
+    },
+    {
+      "mode": 130,
+      "extraction_order": 130,
+      "eigenvalue": 63511560.0,
+      "radians": 7969.414,
+      "cycles": 1268.372,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 63511560.0
+    },
+    {
+      "mode": 131,
+      "extraction_order": 131,
+      "eigenvalue": 65190480.0,
+      "radians": 8074.062,
+      "cycles": 1285.027,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 65190480.0
+    },
+    {
+      "mode": 132,
+      "extraction_order": 132,
+      "eigenvalue": 65907860.0,
+      "radians": 8118.366,
+      "cycles": 1292.078,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 65907860.0
+    },
+    {
+      "mode": 133,
+      "extraction_order": 133,
+      "eigenvalue": 66744510.0,
+      "radians": 8169.732,
+      "cycles": 1300.253,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 66744510.0
+    },
+    {
+      "mode": 134,
+      "extraction_order": 134,
+      "eigenvalue": 67474850.0,
+      "radians": 8214.307,
+      "cycles": 1307.348,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 67474850.0
+    },
+    {
+      "mode": 135,
+      "extraction_order": 135,
+      "eigenvalue": 67690880.0,
+      "radians": 8227.447,
+      "cycles": 1309.439,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 67690880.0
+    },
+    {
+      "mode": 136,
+      "extraction_order": 136,
+      "eigenvalue": 70241700.0,
+      "radians": 8381.032,
+      "cycles": 1333.883,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 70241700.0
+    },
+    {
+      "mode": 137,
+      "extraction_order": 137,
+      "eigenvalue": 72393710.0,
+      "radians": 8508.45,
+      "cycles": 1354.162,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 72393710.0
+    },
+    {
+      "mode": 138,
+      "extraction_order": 138,
+      "eigenvalue": 72719450.0,
+      "radians": 8527.57,
+      "cycles": 1357.205,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 72719450.0
+    },
+    {
+      "mode": 139,
+      "extraction_order": 139,
+      "eigenvalue": 73306620.0,
+      "radians": 8561.928,
+      "cycles": 1362.673,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 73306620.0
+    },
+    {
+      "mode": 140,
+      "extraction_order": 140,
+      "eigenvalue": 73315510.0,
+      "radians": 8562.448,
+      "cycles": 1362.756,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 73315510.0
+    },
+    {
+      "mode": 141,
+      "extraction_order": 141,
+      "eigenvalue": 73643870.0,
+      "radians": 8581.601,
+      "cycles": 1365.804,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 73643870.0
+    },
+    {
+      "mode": 142,
+      "extraction_order": 142,
+      "eigenvalue": 74142770.0,
+      "radians": 8610.62,
+      "cycles": 1370.423,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 74142770.0
+    },
+    {
+      "mode": 143,
+      "extraction_order": 143,
+      "eigenvalue": 76740990.0,
+      "radians": 8760.194,
+      "cycles": 1394.228,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 76740990.0
+    },
+    {
+      "mode": 144,
+      "extraction_order": 144,
+      "eigenvalue": 77246180.0,
+      "radians": 8788.98,
+      "cycles": 1398.81,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 77246180.0
+    },
+    {
+      "mode": 145,
+      "extraction_order": 145,
+      "eigenvalue": 77551450.0,
+      "radians": 8806.33,
+      "cycles": 1401.571,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 77551450.0
+    },
+    {
+      "mode": 146,
+      "extraction_order": 146,
+      "eigenvalue": 78833360.0,
+      "radians": 8878.815,
+      "cycles": 1413.107,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 78833360.0
+    },
+    {
+      "mode": 147,
+      "extraction_order": 147,
+      "eigenvalue": 79335950.0,
+      "radians": 8907.073,
+      "cycles": 1417.605,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 79335950.0
+    },
+    {
+      "mode": 148,
+      "extraction_order": 148,
+      "eigenvalue": 79753290.0,
+      "radians": 8930.47,
+      "cycles": 1421.328,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 79753290.0
+    },
+    {
+      "mode": 149,
+      "extraction_order": 149,
+      "eigenvalue": 80079970.0,
+      "radians": 8948.741,
+      "cycles": 1424.236,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 80079970.0
+    },
+    {
+      "mode": 150,
+      "extraction_order": 150,
+      "eigenvalue": 80679520.0,
+      "radians": 8982.178,
+      "cycles": 1429.558,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 80679520.0
+    },
+    {
+      "mode": 151,
+      "extraction_order": 151,
+      "eigenvalue": 81160300.0,
+      "radians": 9008.901,
+      "cycles": 1433.811,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 81160300.0
+    },
+    {
+      "mode": 152,
+      "extraction_order": 152,
+      "eigenvalue": 81763080.0,
+      "radians": 9042.294,
+      "cycles": 1439.126,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 81763080.0
+    },
+    {
+      "mode": 153,
+      "extraction_order": 153,
+      "eigenvalue": 82672720.0,
+      "radians": 9092.454,
+      "cycles": 1447.109,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 82672720.0
+    },
+    {
+      "mode": 154,
+      "extraction_order": 154,
+      "eigenvalue": 83286110.0,
+      "radians": 9126.122,
+      "cycles": 1452.467,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 83286110.0
+    },
+    {
+      "mode": 155,
+      "extraction_order": 155,
+      "eigenvalue": 84169470.0,
+      "radians": 9174.392,
+      "cycles": 1460.15,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 84169470.0
+    },
+    {
+      "mode": 156,
+      "extraction_order": 156,
+      "eigenvalue": 84480160.0,
+      "radians": 9191.309,
+      "cycles": 1462.842,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 84480160.0
+    },
+    {
+      "mode": 157,
+      "extraction_order": 157,
+      "eigenvalue": 84717760.0,
+      "radians": 9204.225,
+      "cycles": 1464.898,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 84717760.0
+    },
+    {
+      "mode": 158,
+      "extraction_order": 158,
+      "eigenvalue": 85454270.0,
+      "radians": 9244.148,
+      "cycles": 1471.252,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 85454270.0
+    },
+    {
+      "mode": 159,
+      "extraction_order": 159,
+      "eigenvalue": 85940040.0,
+      "radians": 9270.385,
+      "cycles": 1475.428,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 85940040.0
+    },
+    {
+      "mode": 160,
+      "extraction_order": 160,
+      "eigenvalue": 86370690.0,
+      "radians": 9293.583,
+      "cycles": 1479.12,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 86370690.0
+    },
+    {
+      "mode": 161,
+      "extraction_order": 161,
+      "eigenvalue": 86944800.0,
+      "radians": 9324.419,
+      "cycles": 1484.027,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 86944800.0
+    },
+    {
+      "mode": 162,
+      "extraction_order": 162,
+      "eigenvalue": 87174490.0,
+      "radians": 9336.728,
+      "cycles": 1485.986,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 87174490.0
+    },
+    {
+      "mode": 163,
+      "extraction_order": 163,
+      "eigenvalue": 87685200.0,
+      "radians": 9364.038,
+      "cycles": 1490.333,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 87685200.0
+    },
+    {
+      "mode": 164,
+      "extraction_order": 164,
+      "eigenvalue": 88437140.0,
+      "radians": 9404.102,
+      "cycles": 1496.709,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 88437140.0
+    },
+    {
+      "mode": 165,
+      "extraction_order": 165,
+      "eigenvalue": 89438740.0,
+      "radians": 9457.206,
+      "cycles": 1505.161,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 89438740.0
+    },
+    {
+      "mode": 166,
+      "extraction_order": 166,
+      "eigenvalue": 91240790.0,
+      "radians": 9552.005,
+      "cycles": 1520.249,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 91240790.0
+    },
+    {
+      "mode": 167,
+      "extraction_order": 167,
+      "eigenvalue": 91903280.0,
+      "radians": 9586.62,
+      "cycles": 1525.758,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 91903280.0
+    },
+    {
+      "mode": 168,
+      "extraction_order": 168,
+      "eigenvalue": 92515390.0,
+      "radians": 9618.492,
+      "cycles": 1530.831,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 92515390.0
+    },
+    {
+      "mode": 169,
+      "extraction_order": 169,
+      "eigenvalue": 92908860.0,
+      "radians": 9638.924,
+      "cycles": 1534.082,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 92908860.0
+    },
+    {
+      "mode": 170,
+      "extraction_order": 170,
+      "eigenvalue": 94002810.0,
+      "radians": 9695.504,
+      "cycles": 1543.087,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 94002810.0
+    },
+    {
+      "mode": 171,
+      "extraction_order": 171,
+      "eigenvalue": 94286930.0,
+      "radians": 9710.146,
+      "cycles": 1545.418,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 94286930.0
+    },
+    {
+      "mode": 172,
+      "extraction_order": 172,
+      "eigenvalue": 94988860.0,
+      "radians": 9746.223,
+      "cycles": 1551.16,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 94988860.0
+    },
+    {
+      "mode": 173,
+      "extraction_order": 173,
+      "eigenvalue": 95765740.0,
+      "radians": 9785.997,
+      "cycles": 1557.49,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 95765740.0
+    },
+    {
+      "mode": 174,
+      "extraction_order": 174,
+      "eigenvalue": 96521620.0,
+      "radians": 9824.542,
+      "cycles": 1563.624,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 96521620.0
+    },
+    {
+      "mode": 175,
+      "extraction_order": 175,
+      "eigenvalue": 97137780.0,
+      "radians": 9855.85,
+      "cycles": 1568.607,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 97137780.0
+    },
+    {
+      "mode": 176,
+      "extraction_order": 176,
+      "eigenvalue": 98245630.0,
+      "radians": 9911.893,
+      "cycles": 1577.527,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 98245630.0
+    },
+    {
+      "mode": 177,
+      "extraction_order": 177,
+      "eigenvalue": 98664640.0,
+      "radians": 9933.007,
+      "cycles": 1580.887,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 98664640.0
+    },
+    {
+      "mode": 178,
+      "extraction_order": 178,
+      "eigenvalue": 98969930.0,
+      "radians": 9948.363,
+      "cycles": 1583.331,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 98969930.0
+    },
+    {
+      "mode": 179,
+      "extraction_order": 179,
+      "eigenvalue": 99914810.0,
+      "radians": 9995.74,
+      "cycles": 1590.871,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 99914810.0
+    },
+    {
+      "mode": 180,
+      "extraction_order": 180,
+      "eigenvalue": 100374000.0,
+      "radians": 10018.68,
+      "cycles": 1594.523,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 100374000.0
+    },
+    {
+      "mode": 181,
+      "extraction_order": 181,
+      "eigenvalue": 101547700.0,
+      "radians": 10077.09,
+      "cycles": 1603.819,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 101547700.0
+    },
+    {
+      "mode": 182,
+      "extraction_order": 182,
+      "eigenvalue": 101961100.0,
+      "radians": 10097.58,
+      "cycles": 1607.08,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 101961100.0
+    },
+    {
+      "mode": 183,
+      "extraction_order": 183,
+      "eigenvalue": 102104900.0,
+      "radians": 10104.7,
+      "cycles": 1608.213,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 102104900.0
+    },
+    {
+      "mode": 184,
+      "extraction_order": 184,
+      "eigenvalue": 103736900.0,
+      "radians": 10185.13,
+      "cycles": 1621.014,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 103736900.0
+    },
+    {
+      "mode": 185,
+      "extraction_order": 185,
+      "eigenvalue": 104641600.0,
+      "radians": 10229.45,
+      "cycles": 1628.068,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 104641600.0
+    },
+    {
+      "mode": 186,
+      "extraction_order": 186,
+      "eigenvalue": 105263300.0,
+      "radians": 10259.79,
+      "cycles": 1632.897,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 105263300.0
+    },
+    {
+      "mode": 187,
+      "extraction_order": 187,
+      "eigenvalue": 106276800.0,
+      "radians": 10309.06,
+      "cycles": 1640.738,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 106276800.0
+    },
+    {
+      "mode": 188,
+      "extraction_order": 188,
+      "eigenvalue": 108373300.0,
+      "radians": 10410.25,
+      "cycles": 1656.843,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 108373300.0
+    },
+    {
+      "mode": 189,
+      "extraction_order": 189,
+      "eigenvalue": 108881900.0,
+      "radians": 10434.65,
+      "cycles": 1660.726,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 108881900.0
+    },
+    {
+      "mode": 190,
+      "extraction_order": 190,
+      "eigenvalue": 109550000.0,
+      "radians": 10466.61,
+      "cycles": 1665.813,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 109550000.0
+    },
+    {
+      "mode": 191,
+      "extraction_order": 191,
+      "eigenvalue": 110162700.0,
+      "radians": 10495.84,
+      "cycles": 1670.465,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 110162700.0
+    },
+    {
+      "mode": 192,
+      "extraction_order": 192,
+      "eigenvalue": 111198400.0,
+      "radians": 10545.07,
+      "cycles": 1678.3,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 111198400.0
+    },
+    {
+      "mode": 193,
+      "extraction_order": 193,
+      "eigenvalue": 111721500.0,
+      "radians": 10569.84,
+      "cycles": 1682.242,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 111721500.0
+    },
+    {
+      "mode": 194,
+      "extraction_order": 194,
+      "eigenvalue": 112401900.0,
+      "radians": 10601.98,
+      "cycles": 1687.357,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 112401900.0
+    },
+    {
+      "mode": 195,
+      "extraction_order": 195,
+      "eigenvalue": 113512600.0,
+      "radians": 10654.23,
+      "cycles": 1695.673,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 113512600.0
+    },
+    {
+      "mode": 196,
+      "extraction_order": 196,
+      "eigenvalue": 114193200.0,
+      "radians": 10686.12,
+      "cycles": 1700.749,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 114193200.0
+    },
+    {
+      "mode": 197,
+      "extraction_order": 197,
+      "eigenvalue": 117069200.0,
+      "radians": 10819.85,
+      "cycles": 1722.033,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 117069200.0
+    },
+    {
+      "mode": 198,
+      "extraction_order": 198,
+      "eigenvalue": 117292600.0,
+      "radians": 10830.17,
+      "cycles": 1723.675,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 117292600.0
+    },
+    {
+      "mode": 199,
+      "extraction_order": 199,
+      "eigenvalue": 118179800.0,
+      "radians": 10871.05,
+      "cycles": 1730.182,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 118179800.0
+    },
+    {
+      "mode": 200,
+      "extraction_order": 200,
+      "eigenvalue": 118940600.0,
+      "radians": 10905.99,
+      "cycles": 1735.742,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 118940600.0
+    },
+    {
+      "mode": 201,
+      "extraction_order": 201,
+      "eigenvalue": 120209600.0,
+      "radians": 10964.01,
+      "cycles": 1744.977,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 120209600.0
+    },
+    {
+      "mode": 202,
+      "extraction_order": 202,
+      "eigenvalue": 120338000.0,
+      "radians": 10969.87,
+      "cycles": 1745.909,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 120338000.0
+    },
+    {
+      "mode": 203,
+      "extraction_order": 203,
+      "eigenvalue": 121645400.0,
+      "radians": 11029.3,
+      "cycles": 1755.367,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 121645400.0
+    },
+    {
+      "mode": 204,
+      "extraction_order": 204,
+      "eigenvalue": 122381500.0,
+      "radians": 11062.62,
+      "cycles": 1760.67,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 122381500.0
+    },
+    {
+      "mode": 205,
+      "extraction_order": 205,
+      "eigenvalue": 123028900.0,
+      "radians": 11091.84,
+      "cycles": 1765.321,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 123028900.0
+    },
+    {
+      "mode": 206,
+      "extraction_order": 206,
+      "eigenvalue": 124017200.0,
+      "radians": 11136.3,
+      "cycles": 1772.398,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 124017200.0
+    },
+    {
+      "mode": 207,
+      "extraction_order": 207,
+      "eigenvalue": 124149200.0,
+      "radians": 11142.23,
+      "cycles": 1773.34,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 124149200.0
+    },
+    {
+      "mode": 208,
+      "extraction_order": 208,
+      "eigenvalue": 126311100.0,
+      "radians": 11238.82,
+      "cycles": 1788.714,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 126311100.0
+    },
+    {
+      "mode": 209,
+      "extraction_order": 209,
+      "eigenvalue": 127428500.0,
+      "radians": 11288.42,
+      "cycles": 1796.608,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 127428500.0
+    },
+    {
+      "mode": 210,
+      "extraction_order": 210,
+      "eigenvalue": 128020100.0,
+      "radians": 11314.6,
+      "cycles": 1800.774,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 128020100.0
+    },
+    {
+      "mode": 211,
+      "extraction_order": 211,
+      "eigenvalue": 128419400.0,
+      "radians": 11332.23,
+      "cycles": 1803.58,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 128419400.0
+    },
+    {
+      "mode": 212,
+      "extraction_order": 212,
+      "eigenvalue": 128902800.0,
+      "radians": 11353.54,
+      "cycles": 1806.971,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 128902800.0
+    },
+    {
+      "mode": 213,
+      "extraction_order": 213,
+      "eigenvalue": 129683100.0,
+      "radians": 11387.85,
+      "cycles": 1812.432,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 129683100.0
+    },
+    {
+      "mode": 214,
+      "extraction_order": 214,
+      "eigenvalue": 130672100.0,
+      "radians": 11431.19,
+      "cycles": 1819.33,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 130672100.0
+    },
+    {
+      "mode": 215,
+      "extraction_order": 215,
+      "eigenvalue": 131071300.0,
+      "radians": 11448.64,
+      "cycles": 1822.107,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 131071300.0
+    },
+    {
+      "mode": 216,
+      "extraction_order": 216,
+      "eigenvalue": 131598100.0,
+      "radians": 11471.62,
+      "cycles": 1825.765,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 131598100.0
+    },
+    {
+      "mode": 217,
+      "extraction_order": 217,
+      "eigenvalue": 132472100.0,
+      "radians": 11509.65,
+      "cycles": 1831.818,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 132472100.0
+    },
+    {
+      "mode": 218,
+      "extraction_order": 218,
+      "eigenvalue": 133614100.0,
+      "radians": 11559.16,
+      "cycles": 1839.697,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 133614100.0
+    },
+    {
+      "mode": 219,
+      "extraction_order": 219,
+      "eigenvalue": 133799800.0,
+      "radians": 11567.19,
+      "cycles": 1840.975,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 133799800.0
+    },
+    {
+      "mode": 220,
+      "extraction_order": 220,
+      "eigenvalue": 134200300.0,
+      "radians": 11584.49,
+      "cycles": 1843.728,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 134200300.0
+    },
+    {
+      "mode": 221,
+      "extraction_order": 221,
+      "eigenvalue": 135148000.0,
+      "radians": 11625.32,
+      "cycles": 1850.226,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 135148000.0
+    },
+    {
+      "mode": 222,
+      "extraction_order": 222,
+      "eigenvalue": 135945200.0,
+      "radians": 11659.55,
+      "cycles": 1855.675,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 135945200.0
+    },
+    {
+      "mode": 223,
+      "extraction_order": 223,
+      "eigenvalue": 136862300.0,
+      "radians": 11698.82,
+      "cycles": 1861.925,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 136862300.0
+    },
+    {
+      "mode": 224,
+      "extraction_order": 224,
+      "eigenvalue": 138218600.0,
+      "radians": 11756.64,
+      "cycles": 1871.127,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 138218600.0
+    },
+    {
+      "mode": 225,
+      "extraction_order": 225,
+      "eigenvalue": 138657100.0,
+      "radians": 11775.27,
+      "cycles": 1874.093,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 138657100.0
+    },
+    {
+      "mode": 226,
+      "extraction_order": 226,
+      "eigenvalue": 140230200.0,
+      "radians": 11841.88,
+      "cycles": 1884.694,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 140230200.0
+    },
+    {
+      "mode": 227,
+      "extraction_order": 227,
+      "eigenvalue": 140928900.0,
+      "radians": 11871.35,
+      "cycles": 1889.384,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 140928900.0
+    },
+    {
+      "mode": 228,
+      "extraction_order": 228,
+      "eigenvalue": 141663300.0,
+      "radians": 11902.24,
+      "cycles": 1894.3,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 141663300.0
+    },
+    {
+      "mode": 229,
+      "extraction_order": 229,
+      "eigenvalue": 142671400.0,
+      "radians": 11944.52,
+      "cycles": 1901.029,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 142671400.0
+    },
+    {
+      "mode": 230,
+      "extraction_order": 230,
+      "eigenvalue": 143696100.0,
+      "radians": 11987.33,
+      "cycles": 1907.843,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 143696100.0
+    },
+    {
+      "mode": 231,
+      "extraction_order": 231,
+      "eigenvalue": 145349500.0,
+      "radians": 12056.1,
+      "cycles": 1918.787,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 145349500.0
+    },
+    {
+      "mode": 232,
+      "extraction_order": 232,
+      "eigenvalue": 145887100.0,
+      "radians": 12078.37,
+      "cycles": 1922.333,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 145887100.0
+    },
+    {
+      "mode": 233,
+      "extraction_order": 233,
+      "eigenvalue": 147115500.0,
+      "radians": 12129.12,
+      "cycles": 1930.409,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 147115500.0
+    },
+    {
+      "mode": 234,
+      "extraction_order": 234,
+      "eigenvalue": 148081700.0,
+      "radians": 12168.88,
+      "cycles": 1936.738,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 148081700.0
+    },
+    {
+      "mode": 235,
+      "extraction_order": 235,
+      "eigenvalue": 148798500.0,
+      "radians": 12198.3,
+      "cycles": 1941.419,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 148798500.0
+    },
+    {
+      "mode": 236,
+      "extraction_order": 236,
+      "eigenvalue": 149100100.0,
+      "radians": 12210.65,
+      "cycles": 1943.386,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 149100100.0
+    },
+    {
+      "mode": 237,
+      "extraction_order": 237,
+      "eigenvalue": 150023300.0,
+      "radians": 12248.4,
+      "cycles": 1949.394,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 150023300.0
+    },
+    {
+      "mode": 238,
+      "extraction_order": 238,
+      "eigenvalue": 151182100.0,
+      "radians": 12295.61,
+      "cycles": 1956.908,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 151182100.0
+    },
+    {
+      "mode": 239,
+      "extraction_order": 239,
+      "eigenvalue": 151786400.0,
+      "radians": 12320.16,
+      "cycles": 1960.815,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 151786400.0
+    },
+    {
+      "mode": 240,
+      "extraction_order": 240,
+      "eigenvalue": 152631000.0,
+      "radians": 12354.39,
+      "cycles": 1966.262,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 152631000.0
+    },
+    {
+      "mode": 241,
+      "extraction_order": 241,
+      "eigenvalue": 153020600.0,
+      "radians": 12370.15,
+      "cycles": 1968.77,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 153020600.0
+    },
+    {
+      "mode": 242,
+      "extraction_order": 242,
+      "eigenvalue": 154142200.0,
+      "radians": 12415.4,
+      "cycles": 1975.973,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 154142200.0
+    },
+    {
+      "mode": 243,
+      "extraction_order": 243,
+      "eigenvalue": 154811000.0,
+      "radians": 12442.3,
+      "cycles": 1980.254,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 154811000.0
+    },
+    {
+      "mode": 244,
+      "extraction_order": 244,
+      "eigenvalue": 155282800.0,
+      "radians": 12461.25,
+      "cycles": 1983.27,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 155282800.0
+    },
+    {
+      "mode": 245,
+      "extraction_order": 245,
+      "eigenvalue": 155868300.0,
+      "radians": 12484.72,
+      "cycles": 1987.005,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 155868300.0
+    },
+    {
+      "mode": 246,
+      "extraction_order": 246,
+      "eigenvalue": 157457200.0,
+      "radians": 12548.19,
+      "cycles": 1997.107,
+      "generalized_mass": 1.0,
+      "generalized_stiffness": 157457200.0
+    }
+  ],
+  "comparison_rows": [
+    {
+      "mode": 1,
+      "baseline_mode": 1,
+      "reference_cycles": 206.1324,
+      "baseline_cycles": 223.3824,
+      "reference_eigenvalue": 1677460.0,
+      "baseline_eigenvalue": 1969961.0,
+      "relative_error": 0.08368407877655333,
+      "relative_error_percent": 8.368407877655333
+    },
+    {
+      "mode": 2,
+      "baseline_mode": 2,
+      "reference_cycles": 248.08,
+      "baseline_cycles": 235.1046,
+      "reference_eigenvalue": 2429647.0,
+      "baseline_eigenvalue": 2182137.0,
+      "relative_error": -0.052303289261528566,
+      "relative_error_percent": 5.230328926152857
+    },
+    {
+      "mode": 3,
+      "baseline_mode": 3,
+      "reference_cycles": 256.2762,
+      "baseline_cycles": 281.992,
+      "reference_eigenvalue": 2592842.0,
+      "baseline_eigenvalue": 3139304.0,
+      "relative_error": 0.10034408189289525,
+      "relative_error_percent": 10.034408189289525
+    },
+    {
+      "mode": 4,
+      "baseline_mode": 4,
+      "reference_cycles": 269.9397,
+      "baseline_cycles": 284.2053,
+      "reference_eigenvalue": 2876692.0,
+      "baseline_eigenvalue": 3188776.0,
+      "relative_error": 0.0528473581322051,
+      "relative_error_percent": 5.28473581322051
+    },
+    {
+      "mode": 5,
+      "baseline_mode": 5,
+      "reference_cycles": 290.9781,
+      "baseline_cycles": 285.3387,
+      "reference_eigenvalue": 3342569.0,
+      "baseline_eigenvalue": 3214261.0,
+      "relative_error": -0.019380840001360814,
+      "relative_error_percent": 1.9380840001360815
+    },
+    {
+      "mode": 6,
+      "baseline_mode": 6,
+      "reference_cycles": 323.1545,
+      "baseline_cycles": 385.6221,
+      "reference_eigenvalue": 4122686.0,
+      "baseline_eigenvalue": 5870614.0,
+      "relative_error": 0.19330567886258743,
+      "relative_error_percent": 19.33056788625874
+    },
+    {
+      "mode": 7,
+      "baseline_mode": 7,
+      "reference_cycles": 335.852,
+      "baseline_cycles": 402.6876,
+      "reference_eigenvalue": 4453029.0,
+      "baseline_eigenvalue": 6401713.0,
+      "relative_error": 0.19900313233209868,
+      "relative_error_percent": 19.900313233209868
+    },
+    {
+      "mode": 8,
+      "baseline_mode": 8,
+      "reference_cycles": 341.6364,
+      "baseline_cycles": 485.1515,
+      "reference_eigenvalue": 4607741.0,
+      "baseline_eigenvalue": 9292113.0,
+      "relative_error": 0.42008140818718387,
+      "relative_error_percent": 42.00814081871839
+    },
+    {
+      "mode": 9,
+      "baseline_mode": 9,
+      "reference_cycles": 353.8455,
+      "baseline_cycles": 489.7136,
+      "reference_eigenvalue": 4942959.0,
+      "baseline_eigenvalue": 9467690.0,
+      "relative_error": 0.3839757747378445,
+      "relative_error_percent": 38.39757747378445
+    },
+    {
+      "mode": 10,
+      "baseline_mode": 10,
+      "reference_cycles": 367.4374,
+      "baseline_cycles": 492.0493,
+      "reference_eigenvalue": 5329992.0,
+      "baseline_eigenvalue": 9558218.0,
+      "relative_error": 0.3391377687736741,
+      "relative_error_percent": 33.91377687736741
+    }
+  ],
+  "modal_summary": {
+    "count": 10,
+    "mean_abs_percent": 18.440634109579314,
+    "max_abs_percent": 42.00814081871839,
+    "compared_modes": 10
+  },
+  "warnings": [
+    "El BDF base parece bulk-only; se generara un wrapper SOL 103."
+  ],
+  "errors": [],
+  "pending_items": []
+}

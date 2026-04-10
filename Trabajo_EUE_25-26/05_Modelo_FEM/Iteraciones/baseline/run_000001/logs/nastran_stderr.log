@@ -1,0 +1,25 @@
+
+*** SYSTEM INFORMATION MESSAGE (pgm: nastran, fn: validate_authorize)
+    Switching to Student Edition. Not for commercial use.
+
+*** SYSTEM INFORMATION MESSAGE (pgm: nastran, fn: estimate_job_requirements)
+    Starting ESTIMATE, please wait...
+
+*** USER FATAL MESSAGE (pgm: estimate, fn: GETLIN)
+    End-of-file encountered while building INCLUDE file name.  Partial
+    filename 'C:/Users/Pablo Castillo/Desktop/MUSE/SEGUNDO
+    CUATRIMESTRE/ESTRUSPCADD,2,1ENDDATA' is included in file 'c:/users/pablo
+    castillo/desktop/muse.../iteraciones/baseline/run_000001/input/baseline_dec
+    k.bdf' at statement number 12.  The "INCLUDE" request is skipped.
+
+*** SYSTEM WARNING MESSAGE (pgm: nastran, fn: estimate_job_requirements)
+    a.estimate=c:/program files/msc.software/napa_se/20252/nastran/msc20252/win64i8/estimate.exe
+    (program default)
+
+    ESTIMATE processing failed.
+
+*** SYSTEM INFORMATION MESSAGE (pgm: nastran, fn: estimate_job_requirements)
+    Assuming "memory=4GB", "bpool=10x", "dmpmem=0", and "pmem=0+".
+
+*** SYSTEM INFORMATION MESSAGE (pgm: nastran, fn: validate_buffsize_memory)
+    Assuming "memory=527433728" as specified by "memorymaximum=0.5*physical".

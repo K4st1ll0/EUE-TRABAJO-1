@@ -1,0 +1,7 @@
+Para importar el modelo en Patran con grupos:
+
+1- Importar .bdf en Patran "File/Import.../Apply (Source=MSC.Nastran Input)"
+
+2- "File/Session/Play.."
+
+3- Seleccionar el archivo "group.ses.01"

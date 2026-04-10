@@ -1,0 +1,167 @@
+$REJECT (SEMTRN)  IGNORE INPUT CARD(S) BEFORE BEGIN BULK 
+$REJECT (SEMTRN)  CASE CONTROL CARD(S) AFTER  CEND 
+$ MSC.Nastran input file created on March     22, 2023 at 09:54:42 by
+$ Patran 2021.4
+$
+$ Using Nastran default values for RESVEC
+$ Direct Text Input for this Subcase
+$ Direct Text Input for Bulk Data
+$ Elements and Element Properties for region : 01_t-wall-delgadas
+$>PSHELL*  1               1               6.9999998-4     1
+$ Pset: "01_t-wall-delgadas" will be imported as: "pshell.1"
+$>CQUAD4   1009    1       111     201     202     106
+$ Elements and Element Properties for region : 05_t-tapa
+$>PSHELL*  2               1               5.0000002-4     1
+$ Pset: "05_t-tapa" will be imported as: "pshell.2"
+$>CQUAD4   4056    2       445     469     470     446
+$ Elements and Element Properties for region : 06_t-rig-base
+$>PSHELL   3       1       .005    1               1
+$ Pset: "06_t-rig-base" will be imported as: "pshell.3"
+$>CQUAD4   1008    3       109     200     201     111
+$ Elements and Element Properties for region : 07_t-bandejas
+$>PSHELL*  4               1               6.9999998-4     1
+$ Pset: "07_t-bandejas" will be imported as: "pshell.4"
+$>CQUAD4   1000    4       100     101     103     102
+$ Elements and Element Properties for region : 11_ESQ_xp_yp
+$>PBARL    5       1               BAR
+$ Pset: "11_ESQ_xp_yp" will be imported as: "pbarl.5"
+$>CBAR     104     5       109     200     1.      0.      0.
+$ Elements and Element Properties for region : 11_ESQ_xn_yp
+$>PBARL    6       1               BAR
+$ Pset: "11_ESQ_xn_yp" will be imported as: "pbarl.6"
+$>CBAR     102     6       207     121     1.      0.      0.
+$ Elements and Element Properties for region : 11_ESQ_xn_yn
+$>PBARL    7       1               BAR
+$ Pset: "11_ESQ_xn_yn" will be imported as: "pbarl.7"
+$>CBAR     100     7       141     219     1.      0.      0.
+$ Elements and Element Properties for region : 11_ESQ_xp_yn
+$>PBARL    8       1               BAR
+$ Pset: "11_ESQ_xp_yn" will be imported as: "pbarl.8"
+$>CBAR     103     8       213     133     1.      0.      0.
+$ Elements and Element Properties for region : 12_RIG-V1_xp
+$>PBARL    9       1               BAR
+$ Pset: "12_RIG-V1_xp" will be imported as: "pbarl.9"
+$>CBAR     109     9       110     205     1.      0.      0.
+$ Elements and Element Properties for region : 12_RIG-V1_xn
+$>PBARL    10      1               BAR
+$ Pset: "12_RIG-V1_xn" will be imported as: "pbarl.10"
+$>CBAR     105     10      142     223     1.      0.      0.
+$ Elements and Element Properties for region : 12_RIG-V1_yp
+$>PBARL    11      1               BAR
+$ Pset: "12_RIG-V1_yp" will be imported as: "pbarl.11"
+$>CBAR     117     11      106     202     1.      0.      0.
+$ Elements and Element Properties for region : 12_RIG-V1_yn
+$>PBARL    12      1               BAR
+$ Pset: "12_RIG-V1_yn" will be imported as: "pbarl.12"
+$>CBAR     113     12      130     215     1.      0.      0.
+$ Elements and Element Properties for region : 13_RIG-H1_xp
+$>PBARL    13      1               BAR
+$ Pset: "13_RIG-H1_xp" will be imported as: "pbarl.13"
+$>CBAR     125     13      133     134     0.      0.      1.
+$ Elements and Element Properties for region : 13_RIG-H1_xn
+$>PBARL    14      1               BAR
+$ Pset: "13_RIG-H1_xn" will be imported as: "pbarl.14"
+$>CBAR     121     14      142     141     0.      0.      1.
+$ Elements and Element Properties for region : 13_RIG-H1_yp
+$>PBARL    15      1               BAR
+$ Pset: "13_RIG-H1_yp" will be imported as: "pbarl.15"
+$>CBAR     136     15      109     111     0.      0.      1.
+$ Elements and Element Properties for region : 13_RIG-H1_yn
+$>PBARL    16      1               BAR
+$ Pset: "13_RIG-H1_yn" will be imported as: "pbarl.16"
+$>CBAR     101     16      141     143     0.      0.      1.
+$ Elements and Element Properties for region : 14_RIG-H3_xp
+$>PBARL    17      1               BAR
+$ Pset: "14_RIG-H3_xp" will be imported as: "pbarl.17"
+$>CBAR     220     17      213     218     0.      0.      1.
+$ Elements and Element Properties for region : 14_RIG-H3_xn
+$>PBARL    18      1               BAR
+$ Pset: "14_RIG-H3_xn" will be imported as: "pbarl.18"
+$>CBAR     216     18      223     219     0.      0.      1.
+$ Elements and Element Properties for region : 14_RIG-H3_yp
+$>PBARL    19      1               BAR
+$ Pset: "14_RIG-H3_yp" will be imported as: "pbarl.19"
+$>CBAR     234     19      200     201     0.      0.      1.
+$ Elements and Element Properties for region : 14_RIG-H3_yn
+$>PBARL    20      1               BAR
+$ Pset: "14_RIG-H3_yn" will be imported as: "pbarl.20"
+$>CBAR     226     20      215     214     0.      0.      1.
+$ Elements and Element Properties for region : 16_RIG-H5
+$>PBARL    21      1               BAR
+$ Pset: "16_RIG-H5" will be imported as: "pbarl.21"
+$>CBAR     144     21      125     126     0.      0.      1.
+$ Elements and Element Properties for region : 17_RIG-H6
+$>PBARL    22      1               BAR
+$ Pset: "17_RIG-H6" will be imported as: "pbarl.22"
+$>CBAR     504     22      469     470     0.      0.      1.
+$ Elements and Element Properties for region : 09_A_t-boards-PSU
+$>PSHELL   23      2       .0016   2               2
+$ Pset: "09_A_t-boards-PSU" will be imported as: "pshell.23"
+$>CQUAD4   10000   23      1000    1001    1004    1003
+$ Elements and Element Properties for region : 20_CBUSH
+$>PBUSH    24      K       1.+9    1.+9    1.+9    100.    1.+7    1.+7
+$ Pset: "20_CBUSH" will be imported as: "pbush.24"
+$>CBUSH    1       24      1       10                              1
+$ Elements and Element Properties for region : 09_B_t-boards-MOD
+$>PSHELL   25      3       .0016   3               3
+$ Pset: "09_B_t-boards-MOD" will be imported as: "pshell.25"
+$>CQUAD4   20000   25      2000    2001    2004    2003
+$ Elements and Element Properties for region : 09_C_t-boards-PROC
+$>PSHELL   26      4       .0016   4               4
+$ Pset: "09_C_t-boards-PROC" will be imported as: "pshell.26"
+$>CQUAD4   40000   26      4000    4001    4004    4003
+$ Elements and Element Properties for region : 09_D_t-boards-FPGA
+$>PSHELL   27      5       .0016   5               5
+$ Pset: "09_D_t-boards-FPGA" will be imported as: "pshell.27"
+$>CQUAD4   30000   27      3000    3001    3004    3003
+$ Elements and Element Properties for region : 21_CBUSH_CONTACT
+$>PBUSH    28      K       1.+9    1.+9    1.+9    0.     1000000.1000000.
+$ Pset: "21_CBUSH_CONTACT" will be imported as: "pbush.28"
+$>CBUSH    100000  28      141     1044                            1
+$ Elements and Element Properties for region : 07_t-bandejas_FPGA
+$>PSHELL*  29              6               6.9999998-4     6
+$ Pset: "07_t-bandejas_FPGA" will be imported as: "pshell.29"
+$>CQUAD4   3000    29      324     325     327     326
+$ Referenced Material Records
+$ Material Record : Al_7075-T7351
+$ Description of Material : Date: 18-Oct-22           Time: 10:40:20
+$>MAT1*    1               7.0999998+10                    .33
+$ Material Record : PCB_PSU
+$ Description of Material : Date: 18-Oct-22           Time: 10:40:20
+$>MAT1*    2               8.+10                           .33
+$ Material Record : PCB_MOD
+$ Description of Material : Date: 18-Oct-22           Time: 10:40:20
+$>MAT1*    3               8.+10                           .33
+$ Material Record : PCB_PROC
+$ Description of Material : Date: 18-Oct-22           Time: 10:40:20
+$>MAT1*    4               8.+10                           .33
+$ Material Record : PCB_FPGA
+$ Description of Material : Date: 18-Oct-22           Time: 10:40:20
+$>MAT1*    5               4.+10                           .33
+$ Material Record : Bandeja_FPGA
+$ Description of Material : Date: 18-Oct-22           Time: 10:40:20
+$>MAT1*    6               7.0999998+10                    .33
+$ Multipoint Constraints of the Entire Model
+$ ID conflict : the PATRAN MPC ID was 1
+$>RBE2     400027  17      123456  109     111     200     201
+$ ID conflict : the PATRAN MPC ID was 2
+$>RBE2     400028  15      123456  106     107     202     203
+$ ID conflict : the PATRAN MPC ID was 3
+$>RBE2     400029  13      123456  119     120     209     210
+$ ID conflict : the PATRAN MPC ID was 4
+$>RBE2     400030  11      123456  121     123     207     208
+$ ID conflict : the PATRAN MPC ID was 5
+$>RBE2     400031  10      123456  141     143     219     220
+$ ID conflict : the PATRAN MPC ID was 6
+$>RBE2     400032  12      123456  139     140     221     222
+$ ID conflict : the PATRAN MPC ID was 7
+$>RBE2     400033  14      123456  130     131     215     216
+$ ID conflict : the PATRAN MPC ID was 8
+$>RBE2     400034  16      123456  133     135     213     214
+$ Nodes of the Entire Model
+$>GRID*    1                               -.1017500013113-.09324999898672
+$ Loads for Load Case : 01_FIX_bolts
+$ Displacement Constraints of Load Set : FIX_123456
+$>SPC1     1       123456  1       THRU    8
+$ Referenced Coordinate Frames
+$>CORD2R   1               0.      0.      0.      -1.     0.      0.

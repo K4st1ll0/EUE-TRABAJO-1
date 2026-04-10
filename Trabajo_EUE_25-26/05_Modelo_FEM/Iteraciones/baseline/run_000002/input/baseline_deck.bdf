@@ -1,0 +1,14 @@
+$ Auto-generated baseline modal wrapper
+SOL 103
+CEND
+ECHO = NONE
+SUBCASE 1
+   SUBTITLE = Phase1Baseline
+   METHOD = 1
+   SPC = 2
+BEGIN BULK
+PARAM,PRTMAXIM,YES
+EIGRL,1,,20,0,,MASS
+INCLUDE 'model_source.bdf'
+SPCADD,2,1
+ENDDATA

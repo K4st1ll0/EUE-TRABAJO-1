@@ -1,0 +1,19 @@
+paths:
+  base_bdf: "02_SFEM-de-apoyo/SFEM_EUE.bdf"
+  reference_modes_f06: "01_DFEM-de-referencia/02_Resultados-modos-propios-globales.f06"
+  reference_accelerometers_f06: "01_DFEM-de-referencia/01_Resultados-autovectores-acelerometros.f06"
+  mass_budget_xlsx: "04_Mass-Budget/MUSE_25-26_EUE_Mass Budget.xlsx"
+  docs_root: "06_Codigo/docs"
+  runs_root: "05_Modelo_FEM/Iteraciones"
+  baseline_f06_fallback: "05_Modelo_FEM/modal_baseline.f06"
+
+solver:
+  nastran_executable: "C:/Program Files/MSC.Software/NAPA_SE/20252/Nastran/bin/nastran.exe"
+  requested_modes: 20
+  timeout_seconds: 900
+
+comparison:
+  compare_first_modes: 10
+
+reporting:
+  project_status_label: "Fase 1 - Base operativa"
