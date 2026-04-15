@@ -1,0 +1,7 @@
+numpy>=1.26
+scipy>=1.12
+PyYAML>=6.0
+Jinja2>=3.1
+openpyxl>=3.1
+pyNastran>=1.4; python_version < "3.13"
+pytest>=8.0

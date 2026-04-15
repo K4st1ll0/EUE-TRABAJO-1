@@ -1,0 +1,36 @@
+project:
+  name: MSC Nastran FEM Automation
+
+paths:
+  bdf_input: ../05_Modelo_FEM/SFEM_EUE.bdf
+  reference_frequencies_f06: ../01_DFEM-de-referencia/02_Resultados-modos-propios-globales.f06
+  reference_vectors_f06: ../01_DFEM-de-referencia/01_Resultados-autovectores-acelerometros.f06
+  runs_dir: runs
+  reports_dir: reports
+
+nastran:
+  executable: C:/Program Files/MSC.Software/NaPa_SE/20252/Nastran/msc20252/win64i8/nastran.exe
+  arguments:
+    - prog=edu
+    - auth=edu
+    - bat=no
+
+analysis:
+  num_modes: 10
+  dry_run: false
+
+pairing:
+  frequency_penalty_weight: 0.05
+
+scoring:
+  mode: weighted_error
+  weights:
+    mac: 1.0
+    frequency: 0.25
+    mass: 0.10
+
+mass:
+  target_kg: 3.19357
+  budget_workbook: ../04_Mass-Budget/MUSE_25-26_EUE_Mass Budget.xlsx
+  budget_sheet: Mass Budget
+  budget_basis: basic

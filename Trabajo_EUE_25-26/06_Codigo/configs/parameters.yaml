@@ -1,0 +1,45 @@
+material_groups:
+  aluminum: [1, 6]
+  pcb: [2, 3, 4, 5]
+
+parameters:
+  aluminum_density_factor:
+    group: aluminum
+    target: rho
+    mode: fixed
+    value: 0.8
+    range:
+      min: 0.90
+      max: 1.10
+      num_steps: 5
+
+  pcb_density_factor:
+    group: pcb
+    target: rho
+    mode: fixed
+    value: 1.0
+    range:
+      min: 0.90
+      max: 1.10
+      num_steps: 5
+
+  aluminum_E_factor:
+    group: aluminum
+    target: E
+    mode: fixed
+    value: 1.0
+    range:
+      min: 0.85
+      max: 1.15
+      num_steps: 7
+
+  pcb_E_factor:
+    group: pcb
+    target: E
+    mode: fixed
+    value: 1.0
+    range:
+      min: 0.85
+      max: 1.15
+      num_steps: 7
+
