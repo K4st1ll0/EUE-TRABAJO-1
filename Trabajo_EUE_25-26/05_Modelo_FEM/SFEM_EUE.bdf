@@ -1,4 +1,4 @@
-$ MSC.Nastran input file created on April     10, 2026 at 14:02:10 by
+$ MSC.Nastran input file created on April     15, 2026 at 16:10:22 by
 $ Patran 2025.2  (Student Edition)
 $ Direct Text Input for Nastran System Cell Section
 $ Normal Modes Analysis, Database
@@ -16,7 +16,7 @@ $ Direct Text Input for this Subcase
 BEGIN BULK
 HDF5OUT PRCISION 32     CMPRMTHD LZ4     LEVEL   5
 PARAM   PRTMAXIM YES
-EIGRL    1                       20      0                       MASS
+EIGRL    1                       10      0                       MASS
 $ Elements and Element Properties for region : 11_ESQ_xp_yp
 PBARL    1       1               BAR
          .006    .003744 0.
@@ -2820,4 +2820,4 @@ SPC1     1       123456  1       THRU    8
 $ Referenced Coordinate Frames
 CORD2R   1               0.      0.      0.      -1.     0.      0.
          0.      0.      1.
-ENDDATA d99ea672
+ENDDATA e43856d8

@@ -1,1 +1,0 @@
-"""Integracion con MSC Nastran."""

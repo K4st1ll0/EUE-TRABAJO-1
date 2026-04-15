@@ -1,6 +1,0 @@
-pyyaml
-pandas
-numpy
-pyNastran
-typer
-pytest
