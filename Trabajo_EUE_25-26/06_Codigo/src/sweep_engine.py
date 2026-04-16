@@ -402,7 +402,7 @@ def run_single_case(
     write_execution_summary(execution_result, run_dir / "nastran_execution.json")
 
     errors: list[str] = []
-    warnings: list[str] = list(mass_summary.warnings) + list(reference_data.warnings)
+    warnings: list[str] = list(reference_data.warnings)
     model_data: ParsedModalData | None = None
     modal_metrics = None
     status = "success"

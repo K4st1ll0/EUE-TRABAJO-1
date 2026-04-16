@@ -94,6 +94,9 @@ mass:
     - label: common trays
       regions:
         - 07_t-bandejas
+    - label: rig base
+      regions:
+        - 06_t-rig-base
     - label: top cover
       regions:
         - 05_t-tapa
@@ -134,6 +137,9 @@ mass:
           z_max: 0.08445
         - target: PROC module
           z_min: 0.08445
+    - family: rig base
+      mode: direct
+      target: Backplane modules
     - family: top cover
       mode: proportional
       weights:

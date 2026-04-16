@@ -239,3 +239,94 @@ def test_mass_imputation_builds_budget_rows_from_families_and_rules(tmp_path: Pa
     assert budget_rows["H-PSU module"].imputed_mass == pytest.approx(0.00275)
     assert budget_rows["Backplane modules"].imputed_mass == pytest.approx(0.00125)
     assert summary.imputation_residual_mass == pytest.approx(0.0)
+    assert summary.budget_imputation_warnings == ()
+    assert summary.budget_imputation_notes == (
+        "z_band_split is an approximate geometric rule based on z-bands.",
+        "rig base -> Backplane modules is a working functional hypothesis, not a geometrically demonstrated truth.",
+    )
+
+
+def test_rig_base_imputation_is_functional_only_and_preserves_subset_mapping(tmp_path: Path) -> None:
+    bdf_text = "\n".join(
+        [
+            "$ Elements and Element Properties for region : 09_A_t-boards-PSU",
+            "PSHELL 25 1 0.002 1 1",
+            "CQUAD4 1 25 1 2 3 4 0. 0.",
+            "$ Elements and Element Properties for region : 06_t-rig-base",
+            "PSHELL 26 1 0.001 1 1",
+            "CQUAD4 2 26 5 6 7 8 0. 0.",
+            "MAT1,1,1.0,,0.3,1.0",
+            _grid_star(1, 0.0, 0.0, 0.0),
+            _grid_star(2, 1.0, 0.0, 0.0),
+            _grid_star(3, 1.0, 1.0, 0.0),
+            _grid_star(4, 0.0, 1.0, 0.0),
+            _grid_star(5, 0.0, 0.0, 1.0),
+            _grid_star(6, 1.0, 0.0, 1.0),
+            _grid_star(7, 1.0, 1.0, 1.0),
+            _grid_star(8, 0.0, 1.0, 1.0),
+            "ENDDATA",
+        ]
+    )
+    bdf_path = tmp_path / "rig_base_imputation.bdf"
+    bdf_path.write_text(bdf_text, encoding="utf-8")
+
+    base_config = MassConfig(
+        target_kg=0.003,
+        subsets=(
+            MassSubsetConfig(
+                label="H-PSU module",
+                target_kg=0.003,
+                regions=("09_A_t-boards-PSU", "06_t-rig-base"),
+            ),
+            MassSubsetConfig(
+                label="Backplane modules",
+                target_kg=0.001,
+                regions=("07_t-bandejas",),
+            ),
+        ),
+        families=(
+            MassFamilyConfig(label="PSU board", regions=("09_A_t-boards-PSU",)),
+        ),
+        imputation_rules=(
+            MassImputationRuleConfig(
+                family_label="PSU board",
+                mode="direct",
+                target_label="H-PSU module",
+            ),
+        ),
+    )
+
+    before = calculate_total_mass(bdf_path=bdf_path, mass_config=base_config)
+    after = calculate_total_mass(
+        bdf_path=bdf_path,
+        mass_config=MassConfig(
+            target_kg=base_config.target_kg,
+            subsets=base_config.subsets,
+            families=base_config.families
+            + (MassFamilyConfig(label="rig base", regions=("06_t-rig-base",)),),
+            imputation_rules=base_config.imputation_rules
+            + (
+                MassImputationRuleConfig(
+                    family_label="rig base",
+                    mode="direct",
+                    target_label="Backplane modules",
+                ),
+            ),
+        ),
+    )
+
+    assert before.subset_rows == after.subset_rows
+    assert before.warnings == ()
+    assert after.warnings == ()
+    assert before.budget_imputation_warnings == ("budget_imputation_residual_detected",)
+    assert after.budget_imputation_warnings == ()
+    assert after.imputation_residual_mass == pytest.approx(0.0)
+    assert after.budget_imputation_notes == (
+        "z_band_split is an approximate geometric rule based on z-bands.",
+        "rig base -> Backplane modules is a working functional hypothesis, not a geometrically demonstrated truth.",
+    )
+
+    before_budget_rows = {row.label: row for row in before.budget_imputation_rows}
+    after_budget_rows = {row.label: row for row in after.budget_imputation_rows}
+    assert before_budget_rows["Backplane modules"].imputed_mass == pytest.approx(0.0)
+    assert after_budget_rows["Backplane modules"].imputed_mass == pytest.approx(0.001)

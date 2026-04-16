@@ -157,6 +157,32 @@ def _prepare_mass_budget_rows(run_payload: dict[str, Any]) -> tuple[list[dict[st
     return rows, []
 
 
+def _prepare_functional_mass_assessment(run_payload: dict[str, Any]) -> dict[str, Any]:
+    mass_payload = run_payload.get("mass") or {}
+    rows = mass_payload.get("budget_imputation_rows")
+    warnings = mass_payload.get("budget_imputation_warnings")
+    normalized_rows = rows if isinstance(rows, list) else []
+    normalized_warnings = warnings if isinstance(warnings, list) else []
+
+    worst_row = None
+    candidates = [
+        row
+        for row in normalized_rows
+        if row.get("label") is not None and row.get("relative_delta") is not None
+    ]
+    if candidates:
+        worst_row = max(candidates, key=lambda row: abs(float(row["relative_delta"])))
+
+    return {
+        "label": "Functional Mass Budget Imputation",
+        "residual_mass": mass_payload.get("imputation_residual_mass"),
+        "warnings": normalized_warnings,
+        "worst_row_label": None if worst_row is None else worst_row.get("label"),
+        "worst_row_relative_delta": None if worst_row is None else worst_row.get("relative_delta"),
+        "worst_row_delta_mass": None if worst_row is None else worst_row.get("delta_mass"),
+    }
+
+
 def _load_template(template_dir: Path, template_name: str) -> Any:
     try:
         from jinja2 import Environment, FileSystemLoader, select_autoescape
@@ -273,6 +299,7 @@ def generate_run_report(
     context = {
         "run": run_payload,
         "mode_rows": _prepare_mode_rows(run_payload),
+        "functional_mass_assessment": _prepare_functional_mass_assessment(run_payload),
         "mass_budget_rows": mass_budget_rows,
         "mass_budget_notes": mass_budget_notes,
         "mac_heatmap_rows": mac_rows,

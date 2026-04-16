@@ -119,6 +119,8 @@ class MassSummary:
     family_rows: tuple[MassFamilyRow, ...]
     budget_imputation_rows: tuple[BudgetImputationRow, ...]
     family_budget_allocations: tuple[FamilyBudgetAllocationRow, ...]
+    budget_imputation_warnings: tuple[str, ...]
+    budget_imputation_notes: tuple[str, ...]
     imputation_residual_mass: float
     unsupported_extra_mass_rows: tuple[UnsupportedExtraMassRow, ...]
     ledgers: MassLedger
@@ -126,6 +128,12 @@ class MassSummary:
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
+
+
+BUDGET_IMPUTATION_NOTES = (
+    "z_band_split is an approximate geometric rule based on z-bands.",
+    "rig base -> Backplane modules is a working functional hypothesis, not a geometrically demonstrated truth.",
+)
 
 
 def _is_primary_card(line: str) -> bool:
@@ -867,12 +875,36 @@ def _build_subset_rows(subsets: tuple[MassSubsetConfig, ...], totals: dict[str, 
     return tuple(rows)
 
 
-def _build_compensation_warnings(
+def _build_compensation_warning(
+    *,
+    total_mass: float,
+    target_mass: float,
+    rows: tuple[MassSubsetRow | BudgetImputationRow, ...],
+    mass_config: MassConfig,
+) -> str | None:
+    total_relative_delta = _relative_delta(total_mass, target_mass)
+    thresholds = mass_config.compensation_warning_thresholds
+    if total_relative_delta is not None and abs(total_relative_delta) <= thresholds.total_relative_delta_within:
+        positive = [
+            row.label
+            for row in rows
+            if row.relative_delta is not None and row.relative_delta >= thresholds.subset_relative_delta_exceeds
+        ]
+        negative = [
+            row.label
+            for row in rows
+            if row.relative_delta is not None and row.relative_delta <= -thresholds.subset_relative_delta_exceeds
+        ]
+        if positive and negative:
+            return "mass_compensation_detected: " + f"positive={positive}, negative={negative}"
+    return None
+
+
+def _build_mapping_warnings(
     *,
     total_mass: float,
     target_mass: float,
     subset_rows: tuple[MassSubsetRow, ...],
-    imputation_residual_mass: float,
     mass_config: MassConfig,
     unmapped_rows: list[UnmappedMassRow],
     unsupported_extra_mass_rows: list[UnsupportedExtraMassRow],
@@ -882,27 +914,38 @@ def _build_compensation_warnings(
         warnings.append("unmapped_mass_detected")
     if unsupported_extra_mass_rows:
         warnings.append("unsupported_extra_mass_detected")
+
+    compensation_warning = _build_compensation_warning(
+        total_mass=total_mass,
+        target_mass=target_mass,
+        rows=subset_rows,
+        mass_config=mass_config,
+    )
+    if compensation_warning is not None:
+        warnings.append(compensation_warning)
+    return tuple(warnings)
+
+
+def _build_budget_imputation_warnings(
+    *,
+    total_mass: float,
+    target_mass: float,
+    budget_imputation_rows: tuple[BudgetImputationRow, ...],
+    imputation_residual_mass: float,
+    mass_config: MassConfig,
+) -> tuple[str, ...]:
+    warnings: list[str] = []
     if imputation_residual_mass > 1.0e-12:
         warnings.append("budget_imputation_residual_detected")
 
-    total_relative_delta = _relative_delta(total_mass, target_mass)
-    thresholds = mass_config.compensation_warning_thresholds
-    if total_relative_delta is not None and abs(total_relative_delta) <= thresholds.total_relative_delta_within:
-        positive = [
-            row.label
-            for row in subset_rows
-            if row.relative_delta is not None and row.relative_delta >= thresholds.subset_relative_delta_exceeds
-        ]
-        negative = [
-            row.label
-            for row in subset_rows
-            if row.relative_delta is not None and row.relative_delta <= -thresholds.subset_relative_delta_exceeds
-        ]
-        if positive and negative:
-            warnings.append(
-                "mass_compensation_detected: "
-                + f"positive={positive}, negative={negative}"
-            )
+    compensation_warning = _build_compensation_warning(
+        total_mass=total_mass,
+        target_mass=target_mass,
+        rows=budget_imputation_rows,
+        mass_config=mass_config,
+    )
+    if compensation_warning is not None:
+        warnings.append(compensation_warning)
     return tuple(warnings)
 
 
@@ -942,14 +985,20 @@ def calculate_total_mass(
         family_assignments,
         mass_config,
     )
-    warnings = _build_compensation_warnings(
+    warnings = _build_mapping_warnings(
         total_mass=total_mass,
         target_mass=mass_config.target_kg,
         subset_rows=subset_rows,
-        imputation_residual_mass=imputation_residual_mass,
         mass_config=mass_config,
         unmapped_rows=unmapped_rows,
         unsupported_extra_mass_rows=unsupported_extra_mass_rows,
+    )
+    budget_imputation_warnings = _build_budget_imputation_warnings(
+        total_mass=total_mass,
+        target_mass=mass_config.target_kg,
+        budget_imputation_rows=budget_imputation_rows,
+        imputation_residual_mass=imputation_residual_mass,
+        mass_config=mass_config,
     )
     relative_error = abs(total_mass - mass_config.target_kg) / mass_config.target_kg
     ledgers = MassLedger(
@@ -969,6 +1018,8 @@ def calculate_total_mass(
         family_rows=family_rows,
         budget_imputation_rows=budget_imputation_rows,
         family_budget_allocations=family_budget_allocations,
+        budget_imputation_warnings=budget_imputation_warnings,
+        budget_imputation_notes=BUDGET_IMPUTATION_NOTES,
         imputation_residual_mass=imputation_residual_mass,
         unsupported_extra_mass_rows=tuple(unsupported_extra_mass_rows),
         ledgers=ledgers,
