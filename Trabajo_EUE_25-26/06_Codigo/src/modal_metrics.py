@@ -31,6 +31,7 @@ class ModalComparisonResult:
     mean_mac: float
     worst_mac: float
     mean_relative_frequency_error: float
+    stiffness_fit_indicator: float
     score: float
     score_mode: str
     ranking_key: tuple[float, ...]
@@ -187,6 +188,7 @@ def compare_modal_results(
     mean_relative_frequency_error = float(
         np.mean([item.relative_frequency_error for item in pairing])
     )
+    stiffness_fit_indicator = mean_relative_frequency_error + 0.10 * (1.0 - mean_mac)
     score, ranking_key, score_breakdown = _score_modal_comparison(
         mean_mac=mean_mac,
         mean_relative_frequency_error=mean_relative_frequency_error,
@@ -203,6 +205,7 @@ def compare_modal_results(
         mean_mac=mean_mac,
         worst_mac=worst_mac,
         mean_relative_frequency_error=mean_relative_frequency_error,
+        stiffness_fit_indicator=stiffness_fit_indicator,
         score=score,
         score_mode=scoring_mode,
         ranking_key=ranking_key,
@@ -217,4 +220,3 @@ def rank_runs(run_payloads: list[dict[str, Any]]) -> list[dict[str, Any]]:
 def write_metrics_json(result: ModalComparisonResult, path: str) -> None:
     with open(path, "w", encoding="utf-8") as stream:
         json.dump(result.to_dict(), stream, indent=2)
-

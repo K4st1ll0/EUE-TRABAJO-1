@@ -1,4 +1,5 @@
 import numpy as np
+import pytest
 
 from src.modal_metrics import compare_modal_results, mac
 
@@ -55,4 +56,4 @@ def test_modal_pairing_uses_mac_to_recover_permuted_modes() -> None:
     assert result.pairing[0].model_mode == 2
     assert result.pairing[1].model_mode == 1
     assert result.mean_mac == 1.0
-
+    assert result.stiffness_fit_indicator == pytest.approx(result.mean_relative_frequency_error)

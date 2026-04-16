@@ -24,6 +24,8 @@ Trabajo_EUE_25-26/06_Codigo/
 - `mass-fit` y `sweep` estan registrados en CLI, pero siguen marcados como fase 2.
 - El BDF original nunca se modifica.
 - Cada corrida vive en `runs/<run_id>/` dentro de `06_Codigo`.
+- Las nuevas corridas se nombran como `NNN_AlX_PCBY_ALEZ_PCBEO`, por ejemplo `001_Al0.800_PCB1.000_ALE1.000_PCBE1.000`.
+- El prefijo `NNN` sube de forma secuencial para que la corrida mas reciente quede al final al ordenar por nombre.
 - El reporte HTML compara la masa total y el reparto por modulo frente al mass budget Excel.
 
 ## Instalacion

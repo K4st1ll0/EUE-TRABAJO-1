@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 import csv
 import json
+import re
 
 from .bdf_editor import (
     MaterialFieldUpdate,
@@ -29,8 +30,50 @@ class Phase2PendingError(RuntimeError):
     """Raised when a phase-2 workflow is requested in the phase-1 implementation."""
 
 
-def _timestamp_run_id(command_name: str) -> str:
-    return f"{datetime.now().strftime('%Y%m%dT%H%M%S')}_{command_name.replace('-', '_')}"
+RUN_ID_COMPONENTS = (
+    ("Al", "aluminum_density_factor"),
+    ("PCB", "pcb_density_factor"),
+    ("ALE", "aluminum_E_factor"),
+    ("PCBE", "pcb_E_factor"),
+)
+RUN_SEQUENCE_PATTERN = re.compile(r"^(\d{3})_")
+
+
+def _format_run_value(value: float) -> str:
+    return f"{value:.3f}"
+
+
+def _build_run_id(parameter_values: dict[str, float]) -> str:
+    components = []
+    for label, parameter_name in RUN_ID_COMPONENTS:
+        if parameter_name not in parameter_values:
+            raise KeyError(f"Missing required parameter for run naming: {parameter_name}")
+        components.append(f"{label}{_format_run_value(parameter_values[parameter_name])}")
+    return "_".join(components)
+
+
+def _next_run_sequence(runs_dir: Path) -> int:
+    highest = 0
+    for child in runs_dir.iterdir():
+        if not child.is_dir():
+            continue
+        match = RUN_SEQUENCE_PATTERN.match(child.name)
+        if match:
+            highest = max(highest, int(match.group(1)))
+
+    next_value = highest + 1
+    if next_value > 999:
+        raise RuntimeError("Run folder limit reached. This naming scheme only supports prefixes from 001 to 999.")
+    return next_value
+
+
+def _allocate_run_id(runs_dir: Path, parameter_values: dict[str, float]) -> str:
+    base_run_id = _build_run_id(parameter_values)
+    sequence = _next_run_sequence(runs_dir)
+    run_id = f"{sequence:03d}_{base_run_id}"
+    if (runs_dir / run_id).exists():
+        raise RuntimeError(f"Run folder collision detected for '{run_id}'.")
+    return run_id
 
 
 def _collect_parameter_values(bundle: LoadedConfigBundle) -> tuple[dict[str, float], list[dict[str, Any]]]:
@@ -86,6 +129,7 @@ def _write_metrics_csv(run_payload: dict[str, Any], path: Path) -> None:
         "mean_mac": modal_metrics.get("mean_mac"),
         "worst_mac": modal_metrics.get("worst_mac"),
         "mean_relative_frequency_error": modal_metrics.get("mean_relative_frequency_error"),
+        "stiffness_fit_indicator": modal_metrics.get("stiffness_fit_indicator"),
         "relative_mass_error": run_payload["mass"]["relative_error"],
         "mass_total_kg": run_payload["mass"]["total_mass"],
         "mass_target_kg": run_payload["mass"]["target_mass"],
@@ -142,11 +186,11 @@ def _finalize_run_payload(
 
 def run_single_case(bundle: LoadedConfigBundle, command_name: str) -> dict[str, Any]:
     created_at = datetime.now().astimezone().isoformat()
-    run_id = _timestamp_run_id(command_name)
+    parameter_values, parameter_rows = _collect_parameter_values(bundle)
+    run_id = _allocate_run_id(bundle.project.paths.runs_dir, parameter_values)
     run_dir = bundle.project.paths.runs_dir / run_id
     run_dir.mkdir(parents=True, exist_ok=False)
 
-    parameter_values, parameter_rows = _collect_parameter_values(bundle)
     material_updates = _build_material_updates(bundle, parameter_values)
     generated_bdf = run_dir / bundle.project.paths.bdf_input.name
 

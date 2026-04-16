@@ -257,6 +257,22 @@
             {% endif %}
           </div>
         </article>
+        <article class="card">
+          <div class="metric-note">Stiffness Fit Indicator</div>
+          <div class="metric-value">
+            {% if run.modal_metrics %}
+              {{ "%.4f"|format(run.modal_metrics.stiffness_fit_indicator * 100) }}%
+            {% else %}
+              n/a
+            {% endif %}
+          </div>
+          <div class="metric-note">
+            Para seguir cambios de E. Menor es mejor.
+            {% if run.modal_metrics %}
+              Formula: freq medio + 0.10 * (1 - mean MAC)
+            {% endif %}
+          </div>
+        </article>
       </section>
 
       <section class="grid grid-2 section">
