@@ -1,8 +1,15 @@
 from pathlib import Path
 
-from openpyxl import Workbook
 import pytest
 
+from src.config import (
+    MassCompensationThresholds,
+    MassConfig,
+    MassFamilyConfig,
+    MassImputationBandConfig,
+    MassImputationRuleConfig,
+    MassSubsetConfig,
+)
 from src.mass_calculator import calculate_total_mass
 
 
@@ -12,33 +19,7 @@ def _grid_star(node_id: int, x: float, y: float, z: float) -> str:
     return f"{first}\n{second}"
 
 
-def test_mass_summary_includes_budget_comparison_and_region_classification(tmp_path: Path) -> None:
-    workbook = Workbook()
-    sheet = workbook.active
-    sheet.title = "Mass Budget"
-    values_grams = {
-        7: 2.0,
-        8: 0.0,
-        9: 0.0,
-        10: 0.0,
-        11: 1.0,
-        12: 3.0,
-    }
-    labels = {
-        7: "H-PSU module",
-        8: "MOD module",
-        9: "FPGA module",
-        10: "PROC module",
-        11: "Backplane modules",
-        12: "Total mass",
-    }
-    for row, label in labels.items():
-        sheet.cell(row=row, column=2, value=label)
-        sheet.cell(row=row, column=3, value=values_grams[row])
-        sheet.cell(row=row, column=5, value=values_grams[row])
-    budget_path = tmp_path / "budget.xlsx"
-    workbook.save(budget_path)
-
+def test_mass_summary_reports_subset_mapping_unmapped_and_unsupported_mass(tmp_path: Path) -> None:
     bdf_text = "\n".join(
         [
             "$ Elements and Element Properties for region : 09_A_t-boards-PSU",
@@ -47,42 +28,214 @@ def test_mass_summary_includes_budget_comparison_and_region_classification(tmp_p
             "$ Elements and Element Properties for region : 07_t-bandejas",
             "PSHELL 24 1 0.001 1 1",
             "CQUAD4 2 24 5 6 7 8 0. 0.",
+            "$ Elements and Element Properties for region : 05_t-tapa",
+            "PSHELL 26 1 0.001 1 1",
+            "CQUAD4 3 26 1 2 3 4 0. 0.",
+            "$ Elements and Element Properties for region : concentrated",
+            "CONM2 10 9 0 0.500000",
+            "PMASS 30 0.250000",
+            "CMASS1 20 30 12 0 13 0",
+            "NSM 100 PSHELL 24 0.100000",
             "MAT1,1,1.0,,0.3,1.0",
             "MAT1,2,1.0,,0.3,2.0",
-            _grid_star(1, 0.0, 0.0, 0.00815),
-            _grid_star(2, 1.0, 0.0, 0.00815),
-            _grid_star(3, 1.0, 1.0, 0.00815),
-            _grid_star(4, 0.0, 1.0, 0.00815),
-            _grid_star(5, 0.0, 0.0, 0.0),
-            _grid_star(6, 1.0, 0.0, 0.0),
-            _grid_star(7, 1.0, 1.0, 0.0),
-            _grid_star(8, 0.0, 1.0, 0.0),
+            _grid_star(1, 0.0, 0.0, 0.0),
+            _grid_star(2, 1.0, 0.0, 0.0),
+            _grid_star(3, 1.0, 1.0, 0.0),
+            _grid_star(4, 0.0, 1.0, 0.0),
+            _grid_star(5, 0.0, 0.0, 1.0),
+            _grid_star(6, 1.0, 0.0, 1.0),
+            _grid_star(7, 1.0, 1.0, 1.0),
+            _grid_star(8, 0.0, 1.0, 1.0),
+            _grid_star(9, 0.0, 0.0, 2.0),
+            _grid_star(12, 0.0, 0.0, 3.0),
+            _grid_star(13, 1.0, 0.0, 3.0),
             "ENDDATA",
         ]
     )
     bdf_path = tmp_path / "sample.bdf"
     bdf_path.write_text(bdf_text, encoding="utf-8")
 
-    summary = calculate_total_mass(
-        bdf_path=bdf_path,
-        target_mass=0.003,
-        budget_workbook=budget_path,
-        budget_sheet="Mass Budget",
-        budget_basis="basic",
+    mass_config = MassConfig(
+        target_kg=0.754,
+        subsets=(
+            MassSubsetConfig(
+                label="H-PSU module",
+                target_kg=0.002,
+                regions=("09_A_t-boards-PSU",),
+            ),
+            MassSubsetConfig(
+                label="Backplane modules",
+                target_kg=0.001,
+                regions=("07_t-bandejas",),
+            ),
+            MassSubsetConfig(
+                label="Concentrated",
+                target_kg=0.750,
+                node_ids=(9, 12, 13),
+            ),
+        ),
+        compensation_warning_thresholds=MassCompensationThresholds(
+            total_relative_delta_within=0.01,
+            subset_relative_delta_exceeds=0.05,
+        ),
     )
 
-    assert summary.total_mass == pytest.approx(0.003)
+    summary = calculate_total_mass(
+        bdf_path=bdf_path,
+        mass_config=mass_config,
+    )
+
+    assert summary.total_mass == pytest.approx(0.754)
     assert summary.relative_error == pytest.approx(0.0)
-    assert summary.budget_comparison is not None
-    assert summary.budget_comparison.basis == "basic"
+    assert summary.target_basis == "nominal"
+    assert summary.baseline_status == "active"
+    rows = {row.label: row for row in summary.subset_rows}
+    assert rows["H-PSU module"].computed_mass == pytest.approx(0.002)
+    assert rows["Backplane modules"].computed_mass == pytest.approx(0.001)
+    assert rows["Concentrated"].computed_mass == pytest.approx(0.75)
+    assert any(row.contribution_id == "CQUAD4:3" for row in summary.unmapped_rows)
+    assert summary.ledgers.unmapped_mass == pytest.approx(0.001)
+    assert any(row.source == "NSM" for row in summary.unsupported_extra_mass_rows)
+    assert "unmapped_mass_detected" in summary.warnings
 
-    rows = {row.category: row for row in summary.budget_comparison.rows}
-    assert rows["H-PSU module"].model_mass == pytest.approx(0.002)
-    assert rows["Backplane modules"].model_mass == pytest.approx(0.001)
-    assert rows["Total mass"].delta_mass == pytest.approx(0.0)
 
-    classifications = {
-        (row.region_name, row.assigned_to): row.mass for row in summary.budget_comparison.classification_rows
-    }
-    assert classifications[("09_A_t-boards-PSU", "H-PSU module")] == pytest.approx(0.002)
-    assert classifications[("07_t-bandejas", "Backplane modules")] == pytest.approx(0.001)
+def test_mass_subset_overlap_raises_hard_error(tmp_path: Path) -> None:
+    bdf_text = "\n".join(
+        [
+            "$ Elements and Element Properties for region : 09_A_t-boards-PSU",
+            "PSHELL 25 2 0.001 2 2",
+            "CQUAD4 1 25 1 2 3 4 0. 0.",
+            "MAT1,2,1.0,,0.3,2.0",
+            _grid_star(1, 0.0, 0.0, 0.0),
+            _grid_star(2, 1.0, 0.0, 0.0),
+            _grid_star(3, 1.0, 1.0, 0.0),
+            _grid_star(4, 0.0, 1.0, 0.0),
+            "ENDDATA",
+        ]
+    )
+    bdf_path = tmp_path / "overlap.bdf"
+    bdf_path.write_text(bdf_text, encoding="utf-8")
+
+    mass_config = MassConfig(
+        target_kg=0.002,
+        subsets=(
+            MassSubsetConfig(label="A", target_kg=0.001, regions=("09_A_t-boards-PSU",)),
+            MassSubsetConfig(label="B", target_kg=0.001, property_ids=(25,)),
+        ),
+    )
+
+    with pytest.raises(ValueError, match="matches more than one subset"):
+        calculate_total_mass(bdf_path=bdf_path, mass_config=mass_config)
+
+
+def test_basic_budget_basis_is_reported_as_historical(tmp_path: Path) -> None:
+    bdf_text = "\n".join(
+        [
+            "$ Elements and Element Properties for region : 09_A_t-boards-PSU",
+            "PSHELL 25 2 0.001 2 2",
+            "CQUAD4 1 25 1 2 3 4 0. 0.",
+            "MAT1,2,1.0,,0.3,2.0",
+            _grid_star(1, 0.0, 0.0, 0.0),
+            _grid_star(2, 1.0, 0.0, 0.0),
+            _grid_star(3, 1.0, 1.0, 0.0),
+            _grid_star(4, 0.0, 1.0, 0.0),
+            "ENDDATA",
+        ]
+    )
+    bdf_path = tmp_path / "basic_basis.bdf"
+    bdf_path.write_text(bdf_text, encoding="utf-8")
+
+    summary = calculate_total_mass(
+        bdf_path=bdf_path,
+        mass_config=MassConfig(
+            target_kg=0.002,
+            budget_basis="basic",
+            subsets=(MassSubsetConfig(label="A", target_kg=0.002, regions=("09_A_t-boards-PSU",)),),
+        ),
+    )
+
+    assert summary.target_basis == "basic"
+    assert summary.baseline_status == "historical"
+
+
+def test_mass_imputation_builds_budget_rows_from_families_and_rules(tmp_path: Path) -> None:
+    bdf_text = "\n".join(
+        [
+            "$ Elements and Element Properties for region : 09_A_t-boards-PSU",
+            "PSHELL 25 2 0.001 2 2",
+            "CQUAD4 1 25 1 2 3 4 0. 0.",
+            "$ Elements and Element Properties for region : 07_t-bandejas",
+            "PSHELL 24 1 0.001 1 1",
+            "CQUAD4 2 24 5 6 7 8 0. 0.",
+            "$ Elements and Element Properties for region : 05_t-tapa",
+            "PSHELL 26 1 0.001 1 1",
+            "CQUAD4 3 26 9 10 11 12 0. 0.",
+            "MAT1,1,1.0,,0.3,1.0",
+            "MAT1,2,1.0,,0.3,2.0",
+            _grid_star(1, 0.0, 0.0, 0.0),
+            _grid_star(2, 1.0, 0.0, 0.0),
+            _grid_star(3, 1.0, 1.0, 0.0),
+            _grid_star(4, 0.0, 1.0, 0.0),
+            _grid_star(5, 0.0, 0.0, 0.6),
+            _grid_star(6, 1.0, 0.0, 0.6),
+            _grid_star(7, 1.0, 1.0, 0.6),
+            _grid_star(8, 0.0, 1.0, 0.6),
+            _grid_star(9, 0.0, 0.0, 1.0),
+            _grid_star(10, 1.0, 0.0, 1.0),
+            _grid_star(11, 1.0, 1.0, 1.0),
+            _grid_star(12, 0.0, 1.0, 1.0),
+            "ENDDATA",
+        ]
+    )
+    bdf_path = tmp_path / "imputation.bdf"
+    bdf_path.write_text(bdf_text, encoding="utf-8")
+
+    summary = calculate_total_mass(
+        bdf_path=bdf_path,
+        mass_config=MassConfig(
+            target_kg=0.005,
+            subsets=(
+                MassSubsetConfig(label="H-PSU module", target_kg=0.001, regions=("09_A_t-boards-PSU",)),
+                MassSubsetConfig(label="Backplane modules", target_kg=0.001, regions=("07_t-bandejas",)),
+            ),
+            families=(
+                MassFamilyConfig(label="PSU board", regions=("09_A_t-boards-PSU",)),
+                MassFamilyConfig(label="common trays", regions=("07_t-bandejas",)),
+                MassFamilyConfig(label="top cover", regions=("05_t-tapa",)),
+            ),
+            imputation_rules=(
+                MassImputationRuleConfig(
+                    family_label="PSU board",
+                    mode="direct",
+                    target_label="H-PSU module",
+                ),
+                MassImputationRuleConfig(
+                    family_label="common trays",
+                    mode="z_band_split",
+                    z_bands=(
+                        MassImputationBandConfig(target_label="H-PSU module", z_max=0.5),
+                        MassImputationBandConfig(target_label="Backplane modules", z_min=0.5),
+                    ),
+                ),
+                MassImputationRuleConfig(
+                    family_label="top cover",
+                    mode="proportional",
+                    weights={
+                        "H-PSU module": 3.0,
+                        "Backplane modules": 1.0,
+                    },
+                ),
+            ),
+        ),
+    )
+
+    family_rows = {row.label: row for row in summary.family_rows}
+    assert family_rows["PSU board"].computed_mass == pytest.approx(0.002)
+    assert family_rows["common trays"].computed_mass == pytest.approx(0.001)
+    assert family_rows["top cover"].computed_mass == pytest.approx(0.001)
+    assert family_rows["unmapped residual"].computed_mass == pytest.approx(0.0)
+
+    budget_rows = {row.label: row for row in summary.budget_imputation_rows}
+    assert budget_rows["H-PSU module"].imputed_mass == pytest.approx(0.00275)
+    assert budget_rows["Backplane modules"].imputed_mass == pytest.approx(0.00125)
+    assert summary.imputation_residual_mass == pytest.approx(0.0)

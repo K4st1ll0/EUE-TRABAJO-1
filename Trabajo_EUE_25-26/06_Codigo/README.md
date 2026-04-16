@@ -21,7 +21,8 @@ Trabajo_EUE_25-26/06_Codigo/
 ## Estado actual
 
 - `full-run` y `modal-fit` ya funcionan para una unica combinacion fija por configuracion.
-- `mass-fit` y `sweep` estan registrados en CLI, pero siguen marcados como fase 2.
+- `mass-fit` ya ejecuta barridos de densidad usando las `range` de los parametros `rho`.
+- `sweep` permite barridos deterministas por preset.
 - El BDF original nunca se modifica.
 - Cada corrida vive en `runs/<run_id>/` dentro de `06_Codigo`.
 - Las nuevas corridas se nombran como `NNN_AlX_PCBY_ALEZ_PCBEO`, por ejemplo `001_Al0.800_PCB1.000_ALE1.000_PCBE1.000`.
@@ -59,7 +60,7 @@ Lo que normalmente tendras que completar tu:
 
 - `nastran.executable` si en tu maquina no coincide con la ruta precargada
 - `nastran.arguments` si tu licencia o flags locales cambian
-- `mass.budget_basis` si quieres comparar contra `basic` o `nominal`
+- `mass.budget_basis` si quieres forzar una comparacion distinta al baseline activo; por defecto se usa `nominal`
 
 Rutas precargadas desde esta carpeta:
 
@@ -90,11 +91,16 @@ Trazado sin ejecutar Nastran:
 py -3 -m src.main full-run --dry-run
 ```
 
-Comandos reservados para fase 2:
+Barrido de masa contra el target activo del budget:
 
 ```powershell
 py -3 -m src.main mass-fit
-py -3 -m src.main sweep
+```
+
+Barridos por preset:
+
+```powershell
+py -3 -m src.main sweep --preset aluminum_e_fine
 ```
 
 ## Que guarda cada run
@@ -121,6 +127,7 @@ El HTML resume:
 - masa global frente al mass budget
 - diferencia por modulo frente al mass budget
 - criterio de reparto FEM -> budget usado para la comparacion
+- basis de masa usado en esa corrida: `BASIC` o `NOMINAL`
 - parametros usados
 - trazabilidad de cambios sobre `MAT1`
 - frecuencias referencia vs modelo

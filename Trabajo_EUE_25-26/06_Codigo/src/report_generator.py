@@ -1,13 +1,19 @@
 from __future__ import annotations
 
-from html import escape
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 import json
-import math
+
+from .config import ACTIVE_MASS_BUDGET_BASIS, mass_budget_baseline_status
 
 
-def _build_heatmap_cell(value: float) -> dict[str, str]:
+def _build_mac_cell(value: float | None) -> dict[str, str]:
+    if value is None:
+        return {
+            "value": "n/a",
+            "style": "background: #f1f5f9; color: #64748b;",
+        }
     value = max(0.0, min(1.0, value))
     low = (247, 239, 228)
     high = (34, 113, 91)
@@ -19,82 +25,136 @@ def _build_heatmap_cell(value: float) -> dict[str, str]:
     }
 
 
-def _build_score_history_svg(history: list[dict[str, Any]]) -> str:
-    if not history:
-        return ""
-
-    scores = [float(item.get("score", 0.0)) for item in history]
-    width = 460
-    height = 140
-    padding = 20
-    inner_width = width - 2 * padding
-    inner_height = height - 2 * padding
-    minimum = min(scores)
-    maximum = max(scores)
-    span = maximum - minimum if not math.isclose(maximum, minimum) else 1.0
-
-    points = []
-    for index, score in enumerate(scores):
-        x = padding if len(scores) == 1 else padding + inner_width * index / (len(scores) - 1)
-        normalized = (score - minimum) / span
-        y = height - padding - normalized * inner_height
-        points.append((x, y, score))
-
-    polyline = " ".join(f"{x:.2f},{y:.2f}" for x, y, _ in points)
-    circles = "\n".join(
-        f"<circle cx='{x:.2f}' cy='{y:.2f}' r='4' fill='#0f766e' />"
-        for x, y, _ in points
-    )
-
-    return f"""
-<svg viewBox="0 0 {width} {height}" role="img" aria-label="Score history">
-  <rect x="0" y="0" width="{width}" height="{height}" fill="#f8fafc" rx="16" />
-  <line x1="{padding}" y1="{height - padding}" x2="{width - padding}" y2="{height - padding}" stroke="#cbd5e1" />
-  <line x1="{padding}" y1="{padding}" x2="{padding}" y2="{height - padding}" stroke="#cbd5e1" />
-  <polyline fill="none" stroke="#0f766e" stroke-width="3" points="{polyline}" />
-  {circles}
-</svg>
-""".strip()
+def _build_frequency_error_cell(value: float | None, gate: float) -> dict[str, str]:
+    if value is None:
+        return {
+            "value": "n/a",
+            "style": "background: #f1f5f9; color: #64748b;",
+        }
+    if gate <= 0:
+        normalized = 1.0
+    else:
+        normalized = min(value / gate, 2.0) / 2.0
+    low = (231, 245, 242)
+    high = (180, 83, 9)
+    rgb = tuple(int(low[index] + (high[index] - low[index]) * normalized) for index in range(3))
+    foreground = "#ffffff" if normalized > 0.6 else "#13232f"
+    return {
+        "value": f"{value:.4f}",
+        "style": f"background: rgb{rgb}; color: {foreground};",
+    }
 
 
-def _prepare_frequency_rows(run_payload: dict[str, Any]) -> list[dict[str, Any]]:
-    modal_metrics = run_payload.get("modal_metrics")
-    if not modal_metrics:
-        return []
+def _build_allowed_cell(value: bool) -> dict[str, str]:
+    if value:
+        return {"value": "yes", "style": "background: #d1fae5; color: #065f46;"}
+    return {"value": "no", "style": "background: #fee2e2; color: #991b1b;"}
 
-    pairing = modal_metrics["pairing"]
-    diagonal = modal_metrics["diagonal_mac"]
+
+def _prepare_heatmap_rows(matrix: list[list[Any]], cell_builder: Any) -> list[dict[str, Any]]:
     rows = []
-    for entry in pairing:
-        reference_mode = int(entry["reference_mode"])
-        rows.append(
-            {
-                "reference_mode": reference_mode,
-                "model_mode": entry["model_mode"],
-                "reference_frequency_hz": f"{entry['reference_frequency_hz']:.4f}",
-                "model_frequency_hz": f"{entry['model_frequency_hz']:.4f}",
-                "relative_frequency_error_pct": f"{entry['relative_frequency_error'] * 100:.3f}",
-                "paired_mac": f"{entry['mac']:.4f}",
-                "diagonal_mac": f"{diagonal[reference_mode - 1]:.4f}",
-            }
-        )
-    return rows
-
-
-def _prepare_heatmap_rows(run_payload: dict[str, Any]) -> list[dict[str, Any]]:
-    modal_metrics = run_payload.get("modal_metrics")
-    if not modal_metrics:
-        return []
-
-    rows = []
-    for index, row in enumerate(modal_metrics["mac_matrix"], start=1):
+    for index, row in enumerate(matrix, start=1):
         rows.append(
             {
                 "reference_mode": index,
-                "cells": [_build_heatmap_cell(float(value)) for value in row],
+                "cells": [cell_builder(value) for value in row],
             }
         )
     return rows
+
+
+def _prepare_mode_rows(run_payload: dict[str, Any]) -> list[dict[str, Any]]:
+    reference = run_payload.get("reference") or {}
+    model = run_payload.get("model") or {}
+    modal_metrics = run_payload.get("modal_metrics") or {}
+    pair_map = {
+        int(entry["reference_mode"]): entry for entry in modal_metrics.get("pairing", [])
+    }
+    reference_frequencies = reference.get("frequencies_hz", {})
+    model_frequencies = model.get("frequencies_hz", {})
+    reference_valid_modes = set(reference.get("valid_modes", []))
+    model_valid_modes = set(model.get("valid_modes", []))
+    num_modes = len(reference.get("requested_modes", [])) or len(modal_metrics.get("mac_matrix", [])) or 10
+
+    rows = []
+    for mode in range(1, num_modes + 1):
+        pairing_entry = pair_map.get(mode)
+        model_mode = None if pairing_entry is None else pairing_entry["model_mode"]
+        rows.append(
+            {
+                "reference_mode": mode,
+                "reference_valid": mode in reference_valid_modes,
+                "model_valid": model_mode in model_valid_modes if model_mode is not None else False,
+                "reference_frequency_hz": reference_frequencies.get(mode),
+                "model_mode": model_mode,
+                "model_frequency_hz": None
+                if model_mode is None
+                else model_frequencies.get(model_mode),
+                "relative_frequency_error": None
+                if pairing_entry is None
+                else pairing_entry["relative_frequency_error"],
+                "mac": None if pairing_entry is None else pairing_entry["mac"],
+                "bad_pair": False if pairing_entry is None else pairing_entry["bad_pair"],
+                "warning_pair": False if pairing_entry is None else pairing_entry["warning_pair"],
+                "outside_gate": False if pairing_entry is None else pairing_entry["outside_gate"],
+                "suspicious": False if pairing_entry is None else pairing_entry["suspicious"],
+                "reference_family_label": None
+                if pairing_entry is None
+                else pairing_entry.get("reference_family_label"),
+                "model_family_label": None
+                if pairing_entry is None
+                else pairing_entry.get("model_family_label"),
+            }
+        )
+    return rows
+
+
+def _prepare_mass_budget_rows(run_payload: dict[str, Any]) -> tuple[list[dict[str, Any]], list[str]]:
+    mass_payload = run_payload.get("mass") or {}
+    budget_comparison = mass_payload.get("budget_comparison") or {}
+    legacy_rows = budget_comparison.get("rows")
+    if isinstance(legacy_rows, list) and legacy_rows:
+        rows = []
+        for row in legacy_rows:
+            rows.append(
+                {
+                    "label": row.get("category"),
+                    "target_mass": row.get("budget_mass"),
+                    "computed_mass": row.get("model_mass"),
+                    "delta_mass": row.get("delta_mass"),
+                    "relative_delta": row.get("relative_delta"),
+                }
+            )
+        notes = budget_comparison.get("notes")
+        return rows, notes if isinstance(notes, list) else []
+
+    rows = []
+    for row in mass_payload.get("subset_rows", []):
+        rows.append(
+            {
+                "label": row.get("label"),
+                "target_mass": row.get("target_mass"),
+                "computed_mass": row.get("computed_mass"),
+                "delta_mass": row.get("delta_mass"),
+                "relative_delta": row.get("relative_delta"),
+            }
+        )
+
+    total_mass = mass_payload.get("total_mass")
+    target_mass = mass_payload.get("target_mass")
+    if total_mass is not None and target_mass is not None:
+        rows.append(
+            {
+                "label": "Total mass",
+                "target_mass": target_mass,
+                "computed_mass": total_mass,
+                "delta_mass": float(total_mass) - float(target_mass),
+                "relative_delta": None
+                if abs(float(target_mass)) < 1e-12
+                else (float(total_mass) - float(target_mass)) / float(target_mass),
+            }
+        )
+    return rows, []
 
 
 def _load_template(template_dir: Path, template_name: str) -> Any:
@@ -114,6 +174,83 @@ def _load_template(template_dir: Path, template_name: str) -> Any:
     return environment.get_template(template_name)
 
 
+def _to_number_list(value: Any) -> list[float]:
+    if not isinstance(value, list):
+        return [1.0e30]
+    numbers: list[float] = []
+    for item in value:
+        try:
+            numbers.append(float(item))
+        except (TypeError, ValueError):
+            numbers.append(1.0e30)
+    return numbers or [1.0e30]
+
+
+def _extract_mass_target_metadata(payload: dict[str, Any]) -> tuple[str | None, str]:
+    mass_payload = payload.get("mass") or {}
+    target_basis = mass_payload.get("target_basis")
+    if target_basis is None:
+        budget_comparison = mass_payload.get("budget_comparison") or {}
+        target_basis = budget_comparison.get("basis")
+    if target_basis is None:
+        target_basis = payload.get("mass_target_basis")
+    if target_basis is None:
+        snapshot_dir = payload.get("config_snapshot_dir")
+        if snapshot_dir:
+            snapshot_path = Path(snapshot_dir) / "resolved_snapshot.json"
+            if snapshot_path.exists():
+                try:
+                    snapshot = json.loads(snapshot_path.read_text(encoding="utf-8"))
+                    target_basis = (
+                        ((snapshot.get("project") or {}).get("mass") or {}).get("budget_basis")
+                    )
+                except Exception:
+                    target_basis = None
+    normalized_basis = None if target_basis is None else str(target_basis).lower()
+    if normalized_basis is None:
+        return None, "unknown"
+    baseline_status = mass_payload.get("baseline_status")
+    if baseline_status is None:
+        baseline_status = mass_budget_baseline_status(normalized_basis)
+    return normalized_basis, str(baseline_status)
+
+
+def _manifest_to_index_entry(manifest: dict[str, Any]) -> dict[str, Any]:
+    modal_metrics = manifest.get("modal_metrics") or {}
+    mass_target_basis, mass_baseline_status = _extract_mass_target_metadata(manifest)
+    mass_payload = manifest.get("mass") or {}
+    ranking_key = modal_metrics.get("ranking_key")
+    if not ranking_key:
+        mass_relative_error = mass_payload.get("relative_error")
+        ranking_key = [] if mass_relative_error is None else [mass_relative_error]
+    return {
+        "run_id": manifest.get("run_id"),
+        "created_at": manifest.get("created_at"),
+        "command": manifest.get("command"),
+        "status": manifest.get("status"),
+        "sweep_preset": manifest.get("sweep_preset"),
+        "selected_ranking_mode": modal_metrics.get(
+            "selected_ranking_mode",
+            modal_metrics.get("score_mode"),
+        ),
+        "accepted": manifest.get("accepted", False),
+        "ranking_key": ranking_key,
+        "score_robust": modal_metrics.get("score_robust"),
+        "score_legacy": modal_metrics.get("score_legacy", modal_metrics.get("score")),
+        "mean_mac": modal_metrics.get("mean_mac"),
+        "mean_relative_frequency_error": modal_metrics.get("mean_relative_frequency_error"),
+        "bad_pair_count": modal_metrics.get("bad_pair_count"),
+        "mass_target_basis": mass_target_basis,
+        "mass_baseline_status": mass_baseline_status,
+        "report_path": manifest.get("report_path"),
+        "parameter_values": manifest.get("parameter_values", {}),
+    }
+
+
+def _entry_sort_key(entry: dict[str, Any]) -> tuple[Any, ...]:
+    return tuple(_to_number_list(entry.get("ranking_key"))) + (entry.get("run_id", ""),)
+
+
 def generate_run_report(
     run_payload: dict[str, Any],
     history: list[dict[str, Any]],
@@ -121,11 +258,26 @@ def generate_run_report(
     output_path: Path,
 ) -> None:
     template = _load_template(template_dir, "report.html.j2")
+    modal_metrics = run_payload.get("modal_metrics") or {}
+    freq_gate = ((run_payload.get("pairing_config") or {}).get("freq_gate")) or 0.20
+    mass_budget_rows, mass_budget_notes = _prepare_mass_budget_rows(run_payload)
+    mac_rows = _prepare_heatmap_rows(modal_metrics.get("mac_matrix", []), _build_mac_cell)
+    frequency_rows = _prepare_heatmap_rows(
+        modal_metrics.get("frequency_error_matrix", []),
+        lambda value: _build_frequency_error_cell(value, freq_gate),
+    )
+    allowed_rows = _prepare_heatmap_rows(
+        modal_metrics.get("allowed_pairs_matrix", []),
+        _build_allowed_cell,
+    )
     context = {
         "run": run_payload,
-        "frequency_rows": _prepare_frequency_rows(run_payload),
-        "heatmap_rows": _prepare_heatmap_rows(run_payload),
-        "score_history_svg": _build_score_history_svg(history),
+        "mode_rows": _prepare_mode_rows(run_payload),
+        "mass_budget_rows": mass_budget_rows,
+        "mass_budget_notes": mass_budget_notes,
+        "mac_heatmap_rows": mac_rows,
+        "frequency_error_heatmap_rows": frequency_rows,
+        "allowed_pairs_heatmap_rows": allowed_rows,
         "history": history,
         "report_generated_at": run_payload["created_at"],
     }
@@ -134,104 +286,46 @@ def generate_run_report(
 
 def rebuild_reports_index(runs_dir: Path, reports_dir: Path) -> Path:
     reports_dir.mkdir(parents=True, exist_ok=True)
+    template_dir = runs_dir.parent / "src" / "templates"
     manifests = []
     for manifest_path in sorted(runs_dir.glob("*/run_manifest.json")):
         manifests.append(json.loads(manifest_path.read_text(encoding="utf-8")))
 
-    manifests.sort(key=lambda item: item.get("created_at", ""), reverse=True)
-    rows = []
-    for item in manifests:
-        relative_report = Path(item["report_path"]).relative_to(runs_dir.parent).as_posix()
-        rows.append(
-            "<tr>"
-            f"<td>{escape(item['run_id'])}</td>"
-            f"<td>{escape(item['command'])}</td>"
-            f"<td>{escape(item['status'])}</td>"
-            f"<td>{item.get('score_display', 'n/a')}</td>"
-            f"<td>{item.get('mean_mac_display', 'n/a')}</td>"
-            f"<td><a href='../{escape(relative_report)}'>Abrir reporte</a></td>"
-            "</tr>"
-        )
+    entries = [_manifest_to_index_entry(manifest) for manifest in manifests]
+    for entry in entries:
+        report_path = entry.get("report_path")
+        relative_report_path = None
+        if report_path:
+            try:
+                relative_report_path = Path(report_path).relative_to(runs_dir.parent).as_posix()
+            except Exception:
+                relative_report_path = None
+        entry["relative_report_path"] = relative_report_path
+    entries.sort(key=lambda item: item.get("created_at", ""), reverse=True)
 
-    html = f"""<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Run Reports</title>
-    <style>
-      :root {{
-        color-scheme: light;
-        --bg: #f3f6f8;
-        --card: #ffffff;
-        --ink: #12202d;
-        --muted: #5e7285;
-        --line: #dbe4ea;
-        --accent: #0f766e;
-      }}
-      body {{
-        margin: 0;
-        padding: 32px;
-        background: radial-gradient(circle at top left, #dbeef0, transparent 38%), var(--bg);
-        color: var(--ink);
-        font: 15px/1.5 "Aptos", "Trebuchet MS", sans-serif;
-      }}
-      .shell {{
-        max-width: 1080px;
-        margin: 0 auto;
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: 24px;
-        padding: 32px;
-        box-shadow: 0 24px 64px rgba(15, 23, 42, 0.08);
-      }}
-      h1 {{
-        margin-top: 0;
-        font-family: "Georgia", "Times New Roman", serif;
-      }}
-      table {{
-        width: 100%;
-        border-collapse: collapse;
-      }}
-      th, td {{
-        padding: 12px 14px;
-        border-bottom: 1px solid var(--line);
-        text-align: left;
-      }}
-      th {{
-        color: var(--muted);
-        font-size: 12px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }}
-      a {{
-        color: var(--accent);
-        text-decoration: none;
-      }}
-    </style>
-  </head>
-  <body>
-    <main class="shell">
-      <h1>Histórico de Corridas</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Run ID</th>
-            <th>Comando</th>
-            <th>Estado</th>
-            <th>Score</th>
-            <th>Mean MAC</th>
-            <th>Reporte</th>
-          </tr>
-        </thead>
-        <tbody>
-          {''.join(rows) if rows else '<tr><td colspan="6">Todavía no hay corridas registradas.</td></tr>'}
-        </tbody>
-      </table>
-    </main>
-  </body>
-</html>
-"""
+    ranked_entries = sorted(entries, key=_entry_sort_key)
+    best_global = ranked_entries[0] if ranked_entries else None
+    accepted_ranked = [entry for entry in ranked_entries if entry.get("accepted") is True]
+    best_accepted = accepted_ranked[0] if accepted_ranked else None
+
+    index_payload = {
+        "generated_at": datetime.now().astimezone().isoformat(),
+        "active_mass_target_basis": ACTIVE_MASS_BUDGET_BASIS,
+        "best_accepted_run_id": None if best_accepted is None else best_accepted.get("run_id"),
+        "best_global_run_id": None if best_global is None else best_global.get("run_id"),
+        "runs": entries,
+    }
+    json_path = reports_dir / "runs_index.json"
+    json_path.write_text(json.dumps(index_payload, indent=2), encoding="utf-8")
+
+    template = _load_template(template_dir, "index.html.j2")
+    html = template.render(
+        runs=entries,
+        best_global=best_global,
+        best_accepted=best_accepted,
+        generated_at=index_payload["generated_at"],
+        active_mass_target_basis=index_payload["active_mass_target_basis"],
+    )
     index_path = reports_dir / "index.html"
     index_path.write_text(html, encoding="utf-8")
     return index_path
-

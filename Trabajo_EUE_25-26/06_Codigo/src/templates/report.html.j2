@@ -7,40 +7,41 @@
     <style>
       :root {
         color-scheme: light;
-        --bg: #eef3f5;
+        --bg: #edf4f5;
         --card: #ffffff;
         --ink: #152432;
         --muted: #607382;
         --line: #d8e3ea;
         --accent: #0f766e;
-        --accent-soft: #d7efe9;
-        --danger-soft: #fff1eb;
-        --shadow: 0 24px 60px rgba(15, 23, 42, 0.09);
+        --warn: #b45309;
+        --danger: #b91c1c;
+        --soft: #e2f2ef;
+        --shadow: 0 18px 48px rgba(15, 23, 42, 0.08);
       }
-      * {
-        box-sizing: border-box;
-      }
+      * { box-sizing: border-box; }
       body {
         margin: 0;
         background:
-          radial-gradient(circle at top left, rgba(144, 205, 244, 0.24), transparent 32%),
-          radial-gradient(circle at top right, rgba(15, 118, 110, 0.14), transparent 24%),
+          radial-gradient(circle at top left, rgba(15, 118, 110, 0.12), transparent 28%),
+          radial-gradient(circle at top right, rgba(14, 116, 144, 0.10), transparent 22%),
           var(--bg);
         color: var(--ink);
-        font: 15px/1.55 "Aptos", "Trebuchet MS", sans-serif;
+        font: 15px/1.5 "Aptos", "Trebuchet MS", sans-serif;
       }
       main {
-        max-width: 1240px;
+        max-width: 1320px;
         margin: 0 auto;
-        padding: 28px 22px 48px;
+        padding: 24px 18px 40px;
+      }
+      .hero, .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
       }
       .hero {
-        background: linear-gradient(135deg, rgba(15, 118, 110, 0.08), rgba(255, 255, 255, 0.94));
-        border: 1px solid rgba(15, 118, 110, 0.14);
-        border-radius: 28px;
-        box-shadow: var(--shadow);
-        padding: 30px;
-        margin-bottom: 22px;
+        padding: 28px;
+        margin-bottom: 18px;
       }
       .eyebrow {
         color: var(--accent);
@@ -53,73 +54,33 @@
         font-family: Georgia, "Times New Roman", serif;
         margin: 0 0 10px;
       }
-      h1 {
-        font-size: clamp(28px, 5vw, 42px);
-      }
-      h2 {
-        font-size: 24px;
-        margin-bottom: 14px;
-      }
-      h3 {
-        font-size: 19px;
-      }
-      p {
-        margin: 0;
-      }
-      .subtitle {
-        color: var(--muted);
-        max-width: 820px;
-      }
-      .grid {
-        display: grid;
-        gap: 18px;
-      }
-      .grid-4 {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      }
-      .grid-2 {
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      }
-      .card {
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: 24px;
-        box-shadow: var(--shadow);
-        padding: 22px;
-      }
-      .metric-value {
-        font-size: 28px;
-        font-weight: 700;
-        margin-top: 10px;
-      }
-      .metric-note {
-        color: var(--muted);
-        font-size: 13px;
-      }
-      .status-pill {
+      h1 { font-size: clamp(30px, 5vw, 42px); }
+      h2 { font-size: 24px; }
+      h3 { font-size: 18px; }
+      .subtitle { color: var(--muted); max-width: 860px; }
+      .grid { display: grid; gap: 16px; }
+      .grid-4 { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+      .grid-2 { grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); }
+      .card { padding: 20px; }
+      .section { margin-top: 18px; }
+      .metric-note { color: var(--muted); font-size: 13px; }
+      .metric-value { font-size: 28px; font-weight: 700; margin-top: 8px; }
+      .pill {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
         padding: 8px 14px;
         border-radius: 999px;
-        background: var(--accent-soft);
-        color: var(--accent);
         font-weight: 700;
       }
-      .status-pill.failed {
-        background: var(--danger-soft);
-        color: #b45309;
-      }
-      .status-pill.dry_run {
-        background: #eef2ff;
-        color: #4338ca;
-      }
+      .pill.success, .pill.true { background: #d1fae5; color: #065f46; }
+      .pill.false, .pill.failed, .pill.rejected { background: #fee2e2; color: var(--danger); }
+      .pill.dry_run { background: #e0e7ff; color: #4338ca; }
       table {
         width: 100%;
         border-collapse: collapse;
       }
       th, td {
-        padding: 12px 14px;
+        padding: 10px 12px;
         border-bottom: 1px solid var(--line);
         text-align: left;
         vertical-align: top;
@@ -130,62 +91,39 @@
         letter-spacing: 0.08em;
         text-transform: uppercase;
       }
-      .mono {
-        font-family: Consolas, "Courier New", monospace;
-        font-size: 13px;
+      .mono { font-family: Consolas, "Courier New", monospace; font-size: 13px; }
+      .small { font-size: 13px; color: var(--muted); }
+      .heatmap td { text-align: center; font-weight: 700; }
+      .list {
+        margin: 0;
+        padding-left: 18px;
       }
-      .section {
-        margin-top: 20px;
+      .warning { color: var(--warn); font-weight: 700; }
+      .danger { color: var(--danger); font-weight: 700; }
+      .soft { color: var(--muted); }
+      details.fold {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #f8fbfc;
+        overflow: hidden;
       }
-      .soft {
-        color: var(--muted);
-      }
-      .heatmap td {
-        text-align: center;
+      details.fold summary {
+        cursor: pointer;
+        list-style: none;
+        padding: 14px 16px;
         font-weight: 700;
-      }
-      .codebox {
-        background: #0f172a;
-        color: #e2e8f0;
-        border-radius: 18px;
-        padding: 16px;
-        overflow: auto;
-      }
-      .delta-positive {
-        color: #b45309;
-        font-weight: 700;
-      }
-      .delta-negative {
-        color: #0f766e;
-        font-weight: 700;
-      }
-      .delta-neutral {
         color: var(--ink);
-        font-weight: 700;
       }
-      .stack {
-        display: grid;
-        gap: 14px;
+      details.fold summary::-webkit-details-marker { display: none; }
+      details.fold[open] summary {
+        border-bottom: 1px solid var(--line);
+        background: #eef6f7;
       }
-      .small {
-        font-size: 13px;
-      }
-      .history-svg svg {
-        width: 100%;
-        height: auto;
-      }
-      @media (max-width: 720px) {
-        main {
-          padding: 18px 14px 34px;
-        }
-        .hero,
-        .card {
-          border-radius: 20px;
-          padding: 18px;
-        }
-        th, td {
-          padding: 10px 8px;
-        }
+      .fold-body { padding: 12px 0 0; }
+      @media (max-width: 760px) {
+        main { padding: 16px 12px 28px; }
+        .hero, .card { border-radius: 18px; padding: 16px; }
+        th, td { padding: 8px 6px; }
       }
     </style>
   </head>
@@ -195,449 +133,484 @@
         <div class="eyebrow">MSC Nastran FEM Automation</div>
         <h1>{{ run.project_name }}</h1>
         <p class="subtitle">
-          Corrida <span class="mono">{{ run.run_id }}</span> ejecutada con el comando
-          <span class="mono">{{ run.command }}</span>. Este reporte resume la trazabilidad del BDF generado,
-          la ejecución de Nastran, el parseo modal y las métricas MAC para los 10 primeros modos.
+          Corrida <span class="mono">{{ run.run_id }}</span> ejecutada con
+          <span class="mono">{{ run.command }}</span>{% if run.sweep_preset %} dentro del preset
+          <span class="mono">{{ run.sweep_preset }}</span>{% endif %}. El flujo se ha mantenido 100% CLI:
+          edici&oacute;n MAT1, ejecuci&oacute;n de Nastran, parser F06, MAC 10x10, pairing Hungarian y auditor&iacute;a FEM.
+        </p>
+        <p class="subtitle">
+          Target de masa usado:
+          <span class="mono">{{ (run.mass.target_basis or "unknown")|upper }}</span>.
+          Estado del baseline:
+          <span class="mono">{{ run.mass.baseline_status or "unknown" }}</span>.
         </p>
       </section>
 
       <section class="grid grid-4">
         <article class="card">
-          <div class="metric-note">Estado</div>
-          <div class="metric-value">
-            <span class="status-pill {{ run.status }}">{{ run.status }}</span>
-          </div>
+          <div class="metric-note">Estado de ejecuci&oacute;n</div>
+          <div class="metric-value"><span class="pill {{ run.status }}">{{ run.status }}</span></div>
           <div class="metric-note">Generado en {{ run.created_at }}</div>
         </article>
         <article class="card">
-          <div class="metric-note">Masa total</div>
-          <div class="metric-value">{{ "%.6f"|format(run.mass.total_mass) }} kg</div>
-          <div class="metric-note">
-            Objetivo: {{ "%.6f"|format(run.mass.target_mass) }} kg |
-            Error relativo: {{ "%.4f"|format(run.mass.relative_error * 100) }}%
+          <div class="metric-note">Aceptaci&oacute;n modal</div>
+          <div class="metric-value">
+            <span class="pill {{ run.accepted }}">{{ "accepted" if run.accepted else "rejected" }}</span>
           </div>
-          <div class="metric-note">
-            Metodo: {{ run.mass.method }}
-            {% if run.mass.budget_comparison %}
-              | Budget {{ run.mass.budget_comparison.basis|upper }}:
-              {{ "%.6f"|format(run.mass.budget_comparison.budget_total_mass) }} kg |
-              Delta: {{ "%+.6f"|format(run.mass.budget_comparison.delta_mass) }} kg
-            {% endif %}
-          </div>
+          <div class="metric-note">Ranking: {{ run.modal_metrics.selected_ranking_mode if run.modal_metrics else "n/a" }}</div>
         </article>
         <article class="card">
-          <div class="metric-note">Score global</div>
-          <div class="metric-value">
-            {% if run.modal_metrics %}
-              {{ "%.6f"|format(run.modal_metrics.score) }}
-            {% else %}
-              n/a
-            {% endif %}
-          </div>
-          <div class="metric-note">
-            Modo de score:
-            {% if run.modal_metrics %}{{ run.modal_metrics.score_mode }}{% else %}sin comparar{% endif %}
-          </div>
+          <div class="metric-note">Score robust / legacy</div>
+          <div class="metric-value">{{ run.score_robust_display }} / {{ run.score_legacy_display }}</div>
+          <div class="metric-note">Mean MAC: {{ run.mean_mac_display }}</div>
         </article>
         <article class="card">
-          <div class="metric-note">Mean / Worst MAC</div>
+          <div class="metric-note">Validaci&oacute;n modal</div>
           <div class="metric-value">
-            {% if run.modal_metrics %}
-              {{ "%.4f"|format(run.modal_metrics.mean_mac) }} / {{ "%.4f"|format(run.modal_metrics.worst_mac) }}
-            {% else %}
-              n/a
-            {% endif %}
+            {{ run.paired_valid_mode_count }}/{{ run.valid_model_mode_count }}/{{ run.valid_reference_mode_count }}
           </div>
-          <div class="metric-note">
-            Error medio de frecuencia:
-            {% if run.modal_metrics %}
-              {{ "%.4f"|format(run.modal_metrics.mean_relative_frequency_error * 100) }}%
-            {% else %}
-              n/a
-            {% endif %}
-          </div>
-        </article>
-        <article class="card">
-          <div class="metric-note">Stiffness Fit Indicator</div>
-          <div class="metric-value">
-            {% if run.modal_metrics %}
-              {{ "%.4f"|format(run.modal_metrics.stiffness_fit_indicator * 100) }}%
-            {% else %}
-              n/a
-            {% endif %}
-          </div>
-          <div class="metric-note">
-            Para seguir cambios de E. Menor es mejor.
-            {% if run.modal_metrics %}
-              Formula: freq medio + 0.10 * (1 - mean MAC)
-            {% endif %}
-          </div>
-        </article>
-      </section>
-
-      <section class="grid grid-2 section">
-        <article class="card stack">
-          <div>
-            <h2>Resumen Ejecutivo</h2>
-            <p class="soft">
-              El flujo preserva el BDF original, genera una carpeta de corrida propia y registra tanto
-              la edición de materiales como la ejecución de Nastran y el postproceso modal.
-            </p>
-          </div>
-          <div>
-            <h3>Parámetros usados</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Grupo</th>
-                  <th>Campo</th>
-                  <th>Valor</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for row in run.parameter_rows %}
-                <tr>
-                  <td class="mono">{{ row.name }}</td>
-                  <td>{{ row.group }}</td>
-                  <td>{{ row.target }}</td>
-                  <td>{{ "%.6f"|format(row.value) }}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
-          <div>
-            <h3>Mejor corrida destacada</h3>
-            <p class="soft">
-              En esta iteración solo hay una corrida efectiva por configuración. El reporte queda preparado
-              para que la fase 2 resalte automáticamente la mejor combinación tras el barrido.
-            </p>
-          </div>
-        </article>
-
-        <article class="card stack">
-          <div>
-            <h2>Evolución del Score</h2>
-            <div class="history-svg">{{ score_history_svg | safe }}</div>
-          </div>
-          <div>
-            <h3>Tabla de corridas</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>Run ID</th>
-                  <th>Estado</th>
-                  <th>Score</th>
-                  <th>Mean MAC</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for item in history %}
-                <tr>
-                  <td class="mono">{{ item.run_id }}</td>
-                  <td>{{ item.status }}</td>
-                  <td>{{ "%.6f"|format(item.score) }}</td>
-                  <td>{% if item.mean_mac is not none %}{{ "%.4f"|format(item.mean_mac) }}{% else %}n/a{% endif %}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
+          <div class="metric-note">paired/model/reference valid mode count</div>
         </article>
       </section>
 
       <section class="grid grid-2 section">
         <article class="card">
-          <h2>Edición del BDF</h2>
-          <p class="soft small">
-            Solo se han editado tarjetas MAT1 para densidad y módulo de Young. El BDF original no se toca.
-          </p>
+          <h2>Resumen Ejecutivo</h2>
           <table>
-            <thead>
-              <tr>
-                <th>MAT1</th>
-                <th>Campo</th>
-                <th>Original</th>
-                <th>Nuevo</th>
-                <th>Factor</th>
-              </tr>
-            </thead>
             <tbody>
-              {% for item in run.modifications %}
               <tr>
-                <td>{{ item.mat1_id }}</td>
-                <td>{{ item.field_name }}</td>
-                <td>{{ "%.6e"|format(item.original_value) }}</td>
-                <td>{{ "%.6e"|format(item.new_value) }}</td>
-                <td>{{ "%.6f"|format(item.factor_applied) }}</td>
+                <td>Accepted</td>
+                <td>{{ run.accepted }}</td>
               </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        </article>
-
-        <article class="card">
-          <h2>Archivos Generados</h2>
-          <table>
-            <thead>
               <tr>
-                <th>Ruta relativa</th>
+                <td>Reject reasons</td>
+                <td>
+                  {% if run.reject_reasons %}
+                    <ul class="list">
+                      {% for reason in run.reject_reasons %}
+                      <li class="mono">{{ reason }}</li>
+                      {% endfor %}
+                    </ul>
+                  {% else %}
+                    none
+                  {% endif %}
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {% for path in run.generated_files %}
               <tr>
-                <td class="mono">{{ path }}</td>
+                <td>Mean MAC</td>
+                <td>{% if run.modal_metrics and run.modal_metrics.mean_mac is not none %}{{ "%.4f"|format(run.modal_metrics.mean_mac) }}{% else %}n/a{% endif %}</td>
               </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        </article>
-      </section>
-
-      <section class="card section">
-        <h2>Mass Budget</h2>
-        {% if run.mass.budget_comparison %}
-          <p class="soft small">
-            Comparacion automatica contra
-            <span class="mono">{{ run.mass.budget_comparison.workbook }}</span>,
-            hoja <span class="mono">{{ run.mass.budget_comparison.sheet }}</span>,
-            usando la columna <span class="mono">{{ run.mass.budget_comparison.basis }}</span>.
-          </p>
-          <table>
-            <thead>
               <tr>
-                <th>Categoria</th>
-                <th>Budget [kg]</th>
-                <th>Modelo [kg]</th>
-                <th>Delta [kg]</th>
-                <th>Delta [%]</th>
+                <td>Worst MAC</td>
+                <td>{% if run.modal_metrics and run.modal_metrics.worst_mac is not none %}{{ "%.4f"|format(run.modal_metrics.worst_mac) }}{% else %}n/a{% endif %}</td>
               </tr>
-            </thead>
-            <tbody>
-              {% for row in run.mass.budget_comparison.rows %}
-              {% set delta_class = "delta-neutral" %}
-              {% if row.delta_mass > 0 %}
-                {% set delta_class = "delta-positive" %}
-              {% elif row.delta_mass < 0 %}
-                {% set delta_class = "delta-negative" %}
-              {% endif %}
               <tr>
-                <td>{{ row.category }}</td>
-                <td>{{ "%.6f"|format(row.budget_mass) }}</td>
-                <td>{{ "%.6f"|format(row.model_mass) }}</td>
-                <td class="{{ delta_class }}">{{ "%+.6f"|format(row.delta_mass) }}</td>
-                <td class="{{ delta_class }}">
-                  {% if row.relative_delta is not none %}
-                    {{ "%+.3f"|format(row.relative_delta * 100) }}
+                <td>Mean / max relative frequency error</td>
+                <td>
+                  {% if run.modal_metrics and run.modal_metrics.mean_relative_frequency_error is not none %}
+                    {{ "%.4f"|format(run.modal_metrics.mean_relative_frequency_error) }} /
+                    {{ "%.4f"|format(run.modal_metrics.max_relative_frequency_error) }}
                   {% else %}
                     n/a
                   {% endif %}
                 </td>
               </tr>
+              <tr>
+                <td>Bad / warning pair count</td>
+                <td>{% if run.modal_metrics %}{{ run.modal_metrics.bad_pair_count }} / {{ run.modal_metrics.warning_pair_count }}{% else %}n/a{% endif %}</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="card">
+          <h2>Par&aacute;metros de la Run</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Par&aacute;metro</th>
+                <th>Grupo</th>
+                <th>Campo</th>
+                <th>Valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in run.parameter_rows %}
+              <tr>
+                <td class="mono">{{ row.name }}</td>
+                <td>{{ row.group }}</td>
+                <td>{{ row.target }}</td>
+                <td>{{ "%.6f"|format(row.value) }}</td>
+              </tr>
               {% endfor %}
             </tbody>
           </table>
-        {% else %}
-          <p class="soft">
-            No hay una configuracion de mass budget asociada a esta corrida.
-          </p>
-        {% endif %}
+        </article>
       </section>
 
       <section class="grid grid-2 section">
         <article class="card">
-          <h2>Clasificacion FEM -&gt; Budget</h2>
-          {% if run.mass.budget_comparison %}
-            <table>
-              <thead>
-                <tr>
-                  <th>Region FEM</th>
-                  <th>Asignado a</th>
-                  <th>Regla</th>
-                  <th>Masa [kg]</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for row in run.mass.budget_comparison.classification_rows %}
-                <tr>
-                  <td class="mono">{{ row.region_name }}</td>
-                  <td>{{ row.assigned_to }}</td>
-                  <td>{{ row.assignment_rule }}</td>
-                  <td>{{ "%.6f"|format(row.mass) }}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          {% else %}
-            <p class="soft">Sin clasificacion de masa disponible en esta corrida.</p>
+          <h2>Masa Total y Ledger</h2>
+          <table>
+            <tbody>
+              <tr>
+                <td>Masa total calculada</td>
+                <td>{{ "%.6f"|format(run.mass.total_mass) }} kg</td>
+              </tr>
+              <tr>
+                <td>Masa objetivo</td>
+                <td>{{ "%.6f"|format(run.mass.target_mass) }} kg</td>
+              </tr>
+              <tr>
+                <td>Mass budget target</td>
+                <td>{{ (run.mass.target_basis or "unknown")|upper }}</td>
+              </tr>
+              <tr>
+                <td>Baseline status</td>
+                <td>{{ run.mass.baseline_status or "unknown" }}</td>
+              </tr>
+              <tr>
+                <td>Error relativo total</td>
+                <td>{{ "%.4f"|format(run.mass.relative_error * 100) }}%</td>
+              </tr>
+              <tr>
+                <td>Masa mapeada</td>
+                <td>{{ "%.6f"|format(run.mass.ledgers.mapped_mass) }} kg</td>
+              </tr>
+              <tr>
+                <td>Masa no mapeada</td>
+                <td>{{ "%.6f"|format(run.mass.ledgers.unmapped_mass) }} kg</td>
+              </tr>
+              <tr>
+                <td>Masa extra no soportada</td>
+                <td>{{ "%.6f"|format(run.mass.ledgers.unsupported_extra_mass) }} kg</td>
+              </tr>
+            </tbody>
+          </table>
+          {% if run.mass.warnings %}
+          <h3 class="section">Warnings de masa</h3>
+          <ul class="list">
+            {% for warning in run.mass.warnings %}
+            <li class="mono warning">{{ warning }}</li>
+            {% endfor %}
+          </ul>
           {% endif %}
         </article>
 
-        <article class="card stack">
-          <div>
-            <h2>Notas de Masa</h2>
-            <table>
-              <thead>
-                <tr>
-                  <th>Concepto</th>
-                  <th>Valor</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Metodo de calculo</td>
-                  <td>{{ run.mass.method }}</td>
-                </tr>
-                <tr>
-                  <td>Masa objetivo para score</td>
-                  <td>{{ "%.6f"|format(run.mass.target_mass) }} kg</td>
-                </tr>
-                {% if run.mass.budget_comparison %}
-                <tr>
-                  <td>Masa budget total</td>
-                  <td>{{ "%.6f"|format(run.mass.budget_comparison.budget_total_mass) }} kg</td>
-                </tr>
-                <tr>
-                  <td>Delta global vs budget</td>
-                  <td>{{ "%+.6f"|format(run.mass.budget_comparison.delta_mass) }} kg</td>
-                </tr>
-                {% endif %}
-              </tbody>
-            </table>
-          </div>
-          {% if run.mass.budget_comparison %}
-          <div>
-            <h3>Criterio de reparto</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>Nota</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for note in run.mass.budget_comparison.notes %}
-                <tr>
-                  <td>{{ note }}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
+        <article class="card">
+          <h2>Relaci&oacute;n con el Mass Budget</h2>
+          <p class="small">
+            Comparaci&oacute;n directa entre el objetivo del budget
+            <span class="mono">{{ (run.mass.target_basis or "unknown")|upper }}</span>
+            y la masa FEM calculada en esta run.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Categor&iacute;a</th>
+                <th>Target [kg]</th>
+                <th>Computed [kg]</th>
+                <th>Delta [kg]</th>
+                <th>Delta [%]</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in mass_budget_rows %}
+              <tr>
+                <td>{{ row.label }}</td>
+                <td>{{ "%.6f"|format(row.target_mass) }}</td>
+                <td>{{ "%.6f"|format(row.computed_mass) }}</td>
+                <td>{{ "%+.6f"|format(row.delta_mass) }}</td>
+                <td>{% if row.relative_delta is not none %}{{ "%+.3f"|format(row.relative_delta * 100) }}{% else %}n/a{% endif %}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% if mass_budget_notes %}
+          <h3 class="section">Notas</h3>
+          <ul class="list">
+            {% for note in mass_budget_notes %}
+            <li>{{ note }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </article>
+      </section>
+
+      {% if run.mass.budget_imputation_rows %}
+      <section class="grid grid-2 section">
+        <article class="card">
+          <h2>Imputaci&oacute;n Funcional al Mass Budget</h2>
+          <p class="small">
+            Capa expl&iacute;cita de imputaci&oacute;n FEM -&gt; budget usando familias intermedias y reglas trazables
+            desde configuraci&oacute;n.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Categor&iacute;a budget</th>
+                <th>Target [kg]</th>
+                <th>Imputed [kg]</th>
+                <th>Delta [kg]</th>
+                <th>Delta [%]</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in run.mass.budget_imputation_rows %}
+              <tr>
+                <td>{{ row.label }}</td>
+                <td>{{ "%.6f"|format(row.target_mass) }}</td>
+                <td>{{ "%.6f"|format(row.imputed_mass) }}</td>
+                <td>{{ "%+.6f"|format(row.delta_mass) }}</td>
+                <td>{% if row.relative_delta is not none %}{{ "%+.3f"|format(row.relative_delta * 100) }}{% else %}n/a{% endif %}</td>
+              </tr>
+              {% endfor %}
+              <tr>
+                <td>Residual after imputation</td>
+                <td>n/a</td>
+                <td>{{ "%.6f"|format(run.mass.imputation_residual_mass) }}</td>
+                <td>n/a</td>
+                <td>n/a</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="card">
+          <h2>Familias F&iacute;sicas FEM</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Familia</th>
+                <th>Contribuciones</th>
+                <th>Masa [kg]</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in run.mass.family_rows %}
+              <tr>
+                <td>{{ row.label }}</td>
+                <td>{{ row.contribution_count }}</td>
+                <td>{{ "%.6f"|format(row.computed_mass) }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </article>
+      </section>
+      {% endif %}
+
+      <section class="grid grid-2 section">
+        <article class="card">
+          <h2>Masa No Mapeada</h2>
+          {% if run.mass.unmapped_rows %}
+          <details class="fold">
+            <summary>
+              Ver masa no mapeada:
+              {{ run.mass.unmapped_rows|length }} contribuciones,
+              {{ "%.6f"|format(run.mass.ledgers.unmapped_mass) }} kg
+            </summary>
+            <div class="fold-body">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Tipo</th>
+                    <th>Regi&oacute;n</th>
+                    <th>PID</th>
+                    <th>MID</th>
+                    <th>Masa [kg]</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for row in run.mass.unmapped_rows %}
+                  <tr>
+                    <td class="mono">{{ row.contribution_id }}</td>
+                    <td>{{ row.element_type }}</td>
+                    <td class="mono">{{ row.region_name }}</td>
+                    <td>{{ row.property_id if row.property_id is not none else "n/a" }}</td>
+                    <td>{{ row.material_id if row.material_id is not none else "n/a" }}</td>
+                    <td>{{ "%.6f"|format(row.mass) }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </details>
+          {% else %}
+          <p class="soft">No hay contribuciones estructurales o concentradas sin subset.</p>
+          {% endif %}
+        </article>
+
+        <article class="card">
+          <h2>Masa Extra No Soportada</h2>
+          {% if run.mass.unsupported_extra_mass_rows %}
+          <table>
+            <thead>
+              <tr>
+                <th>Fuente</th>
+                <th>ID</th>
+                <th>Masa parseada</th>
+                <th>Raw</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in run.mass.unsupported_extra_mass_rows %}
+              <tr>
+                <td>{{ row.source }}</td>
+                <td class="mono">{{ row.identifier }}</td>
+                <td>{% if row.parsed_mass is not none %}{{ "%.6f"|format(row.parsed_mass) }}{% else %}n/a{% endif %}</td>
+                <td class="mono">{{ row.raw_line }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% else %}
+          <p class="soft">No se han detectado tarjetas extra no soportadas.</p>
           {% endif %}
         </article>
       </section>
 
       <section class="card section">
-        <h2>Comparación Modal</h2>
-        {% if run.modal_metrics %}
-          <table>
-            <thead>
-              <tr>
-                <th>Modo ref</th>
-                <th>Modo modelo</th>
-                <th>f ref [Hz]</th>
-                <th>f modelo [Hz]</th>
-                <th>Error [%]</th>
-                <th>MAC pareado</th>
-                <th>MAC diagonal i-i</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for row in frequency_rows %}
-              <tr>
-                <td>{{ row.reference_mode }}</td>
-                <td>{{ row.model_mode }}</td>
-                <td>{{ row.reference_frequency_hz }}</td>
-                <td>{{ row.model_frequency_hz }}</td>
-                <td>{{ row.relative_frequency_error_pct }}</td>
-                <td>{{ row.paired_mac }}</td>
-                <td>{{ row.diagonal_mac }}</td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        {% else %}
-          <p class="soft">
-            No hay métricas modales completas para esta corrida. Revisa la sección de logs y errores.
-          </p>
-        {% endif %}
+        <h2>Frecuencias, Pairing y Calidad Modal</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Modo ref</th>
+              <th>Modo modelo</th>
+              <th>f ref [Hz]</th>
+              <th>f modelo [Hz]</th>
+              <th>Error rel</th>
+              <th>MAC</th>
+              <th>Bad</th>
+              <th>Warning</th>
+              <th>Outside gate</th>
+              <th>Suspicious</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in mode_rows %}
+            <tr>
+              <td>{{ row.reference_mode }}</td>
+              <td>{{ row.model_mode if row.model_mode is not none else "unpaired" }}</td>
+              <td>{% if row.reference_frequency_hz is not none %}{{ "%.4f"|format(row.reference_frequency_hz) }}{% else %}n/a{% endif %}</td>
+              <td>{% if row.model_frequency_hz is not none %}{{ "%.4f"|format(row.model_frequency_hz) }}{% else %}n/a{% endif %}</td>
+              <td>{% if row.relative_frequency_error is not none %}{{ "%.4f"|format(row.relative_frequency_error) }}{% else %}n/a{% endif %}</td>
+              <td>{% if row.mac is not none %}{{ "%.4f"|format(row.mac) }}{% else %}n/a{% endif %}</td>
+              <td>{{ row.bad_pair }}</td>
+              <td>{{ row.warning_pair }}</td>
+              <td>{{ row.outside_gate }}</td>
+              <td>
+                {{ row.suspicious }}
+                {% if row.reference_family_label or row.model_family_label %}
+                <div class="small">{{ row.reference_family_label or "n/a" }} -> {{ row.model_family_label or "n/a" }}</div>
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
       </section>
 
       <section class="card section">
         <h2>Heatmap MAC 10x10</h2>
-        {% if run.modal_metrics %}
-          <table class="heatmap">
-            <thead>
-              <tr>
-                <th>Ref \ Modelo</th>
-                {% for idx in range(1, 11) %}
-                <th>{{ idx }}</th>
-                {% endfor %}
-              </tr>
-            </thead>
-            <tbody>
-              {% for row in heatmap_rows %}
-              <tr>
-                <th>{{ row.reference_mode }}</th>
-                {% for cell in row.cells %}
-                <td style="{{ cell.style }}">{{ cell.value }}</td>
-                {% endfor %}
-              </tr>
+        <table class="heatmap">
+          <thead>
+            <tr>
+              <th>Ref \ Modelo</th>
+              {% for idx in range(1, 11) %}
+              <th>{{ idx }}</th>
               {% endfor %}
-            </tbody>
-          </table>
-        {% else %}
-          <p class="soft">Sin matriz MAC disponible en esta corrida.</p>
-        {% endif %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in mac_heatmap_rows %}
+            <tr>
+              <th>{{ row.reference_mode }}</th>
+              {% for cell in row.cells %}
+              <td style="{{ cell.style }}">{{ cell.value }}</td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card section">
+        <h2>Heatmap Error Relativo de Frecuencia 10x10</h2>
+        <table class="heatmap">
+          <thead>
+            <tr>
+              <th>Ref \ Modelo</th>
+              {% for idx in range(1, 11) %}
+              <th>{{ idx }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in frequency_error_heatmap_rows %}
+            <tr>
+              <th>{{ row.reference_mode }}</th>
+              {% for cell in row.cells %}
+              <td style="{{ cell.style }}">{{ cell.value }}</td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card section">
+        <h2>Matriz de Pares Permitidos</h2>
+        <table class="heatmap">
+          <thead>
+            <tr>
+              <th>Ref \ Modelo</th>
+              {% for idx in range(1, 11) %}
+              <th>{{ idx }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in allowed_pairs_heatmap_rows %}
+            <tr>
+              <th>{{ row.reference_mode }}</th>
+              {% for cell in row.cells %}
+              <td style="{{ cell.style }}">{{ cell.value }}</td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
       </section>
 
       <section class="grid grid-2 section">
         <article class="card">
-          <h2>Logs y Errores</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Recurso</th>
-                <th>Ruta</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>stdout</td>
-                <td class="mono">{{ run.nastran.stdout_path }}</td>
-              </tr>
-              <tr>
-                <td>stderr</td>
-                <td class="mono">{{ run.nastran.stderr_path }}</td>
-              </tr>
-              {% for extension, path in run.nastran.outputs.items() %}
-              <tr>
-                <td>{{ extension }}</td>
-                <td class="mono">{{ path }}</td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-          {% if run.errors %}
-          <div class="codebox section">
-            {% for error in run.errors %}
-{{ error }}
+          <h2>Warnings y Errores</h2>
+          {% if run.warnings %}
+          <h3>Warnings</h3>
+          <ul class="list">
+            {% for warning in run.warnings %}
+            <li class="mono warning">{{ warning }}</li>
             {% endfor %}
-          </div>
+          </ul>
+          {% endif %}
+          {% if run.errors %}
+          <h3>Errores</h3>
+          <ul class="list">
+            {% for error in run.errors %}
+            <li class="mono danger">{{ error }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+          {% if not run.warnings and not run.errors %}
+          <p class="soft">No se han registrado warnings ni errores adicionales.</p>
           {% endif %}
         </article>
 
         <article class="card">
-          <h2>Rutas de Referencia</h2>
+          <h2>Trazabilidad</h2>
           <table>
-            <thead>
-              <tr>
-                <th>Entrada</th>
-                <th>Ruta</th>
-              </tr>
-            </thead>
             <tbody>
               <tr>
                 <td>BDF base</td>

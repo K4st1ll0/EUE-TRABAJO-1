@@ -13,7 +13,7 @@ def _build_parser() -> argparse.ArgumentParser:
     common.add_argument(
         "--config-dir",
         default="configs",
-        help="Directory containing project_config.yaml, sensors.yaml, and parameters.yaml.",
+        help="Directory containing project_config.yaml, sensors.yaml, parameters.yaml, and optional sweep_presets.yaml.",
     )
     common.add_argument(
         "--dry-run",
@@ -26,8 +26,14 @@ def _build_parser() -> argparse.ArgumentParser:
         parents=[common],
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
-    for command in ("full-run", "modal-fit", "mass-fit", "sweep"):
+    for command in ("full-run", "modal-fit", "mass-fit"):
         subparsers.add_parser(command, parents=[common])
+    sweep_parser = subparsers.add_parser("sweep", parents=[common])
+    sweep_parser.add_argument(
+        "--preset",
+        required=True,
+        help="Name of the sweep preset defined in sweep_presets.yaml.",
+    )
     return parser
 
 
@@ -49,11 +55,17 @@ def main(argv: list[str] | None = None) -> int:
             return 0
 
         if args.command == "mass-fit":
-            run_mass_fit()
+            run_payloads = run_mass_fit(bundle)
+            print(f"Completed {len(run_payloads)} runs for command: mass-fit")
+            if run_payloads:
+                best = run_payloads[0]
+                print(f"Best mass-fit run: {best['run_id']}")
+                print(f"Report: {best['report_path']}")
             return 0
 
         if args.command == "sweep":
-            run_sweep()
+            run_payloads = run_sweep(bundle, args.preset)
+            print(f"Completed {len(run_payloads)} runs for preset: {args.preset}")
             return 0
 
         parser.error(f"Unknown command: {args.command}")

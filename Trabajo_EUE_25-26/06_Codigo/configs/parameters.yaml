@@ -12,7 +12,7 @@ parameters:
     group: aluminum
     target: rho
     mode: fixed
-    value: 1.149256275
+    value: 1.601347715575
     range:
       min: 0.9
       max: 1.1
@@ -21,7 +21,7 @@ parameters:
     group: pcb
     target: rho
     mode: fixed
-    value: 0.9277072359650675
+    value: 1.0
     range:
       min: 0.9
       max: 1.1

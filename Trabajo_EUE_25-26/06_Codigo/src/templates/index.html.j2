@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Run Reports</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f3f6f8;
+        --card: #ffffff;
+        --ink: #12202d;
+        --muted: #5e7285;
+        --line: #dbe4ea;
+        --accent: #0f766e;
+        --shadow: 0 18px 48px rgba(15, 23, 42, 0.08);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        padding: 28px;
+        background: radial-gradient(circle at top left, #dbeef0, transparent 34%), var(--bg);
+        color: var(--ink);
+        font: 15px/1.5 "Aptos", "Trebuchet MS", sans-serif;
+      }
+      .shell {
+        max-width: 1240px;
+        margin: 0 auto;
+        display: grid;
+        gap: 16px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+        padding: 24px;
+      }
+      .grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+      h1, h2 {
+        margin-top: 0;
+        font-family: Georgia, "Times New Roman", serif;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th, td {
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+      }
+      th {
+        color: var(--muted);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      a { color: var(--accent); text-decoration: none; }
+      .mono { font-family: Consolas, "Courier New", monospace; font-size: 13px; }
+      .pill {
+        display: inline-flex;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-weight: 700;
+      }
+      .pill.true { background: #d1fae5; color: #065f46; }
+      .pill.false { background: #fee2e2; color: #991b1b; }
+      .muted { color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="card">
+        <h1>Hist&oacute;rico de Corridas</h1>
+        <p class="muted">Indice actualizado en {{ generated_at }}. El JSON trazable vive junto a este HTML como <span class="mono">runs_index.json</span>.</p>
+        <p class="muted">Baseline activo de masa: <span class="mono">{{ (active_mass_target_basis or "unknown")|upper }}</span>. Las corridas ajustadas contra <span class="mono">BASIC</span> se muestran como hist&oacute;ricas.</p>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Mejor Run Aceptada</h2>
+          {% if best_accepted %}
+          <table>
+            <tbody>
+              <tr><td>Run ID</td><td class="mono">{{ best_accepted.run_id }}</td></tr>
+              <tr><td>Preset</td><td>{{ best_accepted.sweep_preset or "manual" }}</td></tr>
+              <tr><td>Mass target</td><td>{{ (best_accepted.mass_target_basis or "unknown")|upper }}</td></tr>
+              <tr><td>Baseline</td><td>{{ best_accepted.mass_baseline_status or "unknown" }}</td></tr>
+              <tr><td>Ranking</td><td>{{ best_accepted.selected_ranking_mode or "n/a" }}</td></tr>
+              <tr><td>Score robust</td><td>{% if best_accepted.score_robust is not none %}{{ "%.6f"|format(best_accepted.score_robust) }}{% else %}n/a{% endif %}</td></tr>
+              <tr><td>Score legacy</td><td>{% if best_accepted.score_legacy is not none %}{{ "%.6f"|format(best_accepted.score_legacy) }}{% else %}n/a{% endif %}</td></tr>
+            </tbody>
+          </table>
+          {% else %}
+          <p class="muted">Todav&iacute;a no hay corridas aceptadas.</p>
+          {% endif %}
+        </article>
+
+        <article class="card">
+          <h2>Mejor Run Global</h2>
+          {% if best_global %}
+          <table>
+            <tbody>
+              <tr><td>Run ID</td><td class="mono">{{ best_global.run_id }}</td></tr>
+              <tr><td>Preset</td><td>{{ best_global.sweep_preset or "manual" }}</td></tr>
+              <tr><td>Accepted</td><td><span class="pill {{ best_global.accepted }}">{{ best_global.accepted }}</span></td></tr>
+              <tr><td>Mass target</td><td>{{ (best_global.mass_target_basis or "unknown")|upper }}</td></tr>
+              <tr><td>Baseline</td><td>{{ best_global.mass_baseline_status or "unknown" }}</td></tr>
+              <tr><td>Ranking</td><td>{{ best_global.selected_ranking_mode or "n/a" }}</td></tr>
+              <tr><td>Score robust</td><td>{% if best_global.score_robust is not none %}{{ "%.6f"|format(best_global.score_robust) }}{% else %}n/a{% endif %}</td></tr>
+              <tr><td>Score legacy</td><td>{% if best_global.score_legacy is not none %}{{ "%.6f"|format(best_global.score_legacy) }}{% else %}n/a{% endif %}</td></tr>
+            </tbody>
+          </table>
+          {% else %}
+          <p class="muted">Todav&iacute;a no hay corridas registradas.</p>
+          {% endif %}
+        </article>
+      </section>
+
+      <section class="card">
+        <h2>Tabla de Corridas</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Run ID</th>
+              <th>Preset</th>
+              <th>Status</th>
+              <th>Accepted</th>
+              <th>Mass target</th>
+              <th>Baseline</th>
+              <th>Ranking</th>
+              <th>Score robust</th>
+              <th>Score legacy</th>
+              <th>Report</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for run in runs %}
+            <tr>
+              <td class="mono">{{ run.run_id }}</td>
+              <td>{{ run.sweep_preset or "manual" }}</td>
+              <td>{{ run.status }}</td>
+              <td><span class="pill {{ run.accepted }}">{{ run.accepted }}</span></td>
+              <td>{{ (run.mass_target_basis or "unknown")|upper }}</td>
+              <td>{{ run.mass_baseline_status or "unknown" }}</td>
+              <td>{{ run.selected_ranking_mode or "n/a" }}</td>
+              <td>{% if run.score_robust is not none %}{{ "%.6f"|format(run.score_robust) }}{% else %}n/a{% endif %}</td>
+              <td>{% if run.score_legacy is not none %}{{ "%.6f"|format(run.score_legacy) }}{% else %}n/a{% endif %}</td>
+              <td>
+                {% if run.relative_report_path %}
+                <a href="../{{ run.relative_report_path }}">Abrir</a>
+                {% else %}
+                n/a
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>

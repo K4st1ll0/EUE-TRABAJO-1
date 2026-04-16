@@ -77,6 +77,7 @@ parameters:
 
     assert bundle.project.name == "Test Project"
     assert bundle.project.paths.bdf_input == input_bdf.resolve()
+    assert bundle.project.mass.budget_basis == "nominal"
     assert bundle.sensors.model_node_order == (486,)
     assert bundle.parameters.parameters["aluminum_density_factor"].expand_values() == [0.9, 1.0, 1.1]
-
+    assert bundle.sweep_presets.presets == {}
