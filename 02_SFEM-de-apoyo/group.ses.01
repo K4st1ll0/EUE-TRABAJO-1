@@ -1,0 +1,53 @@
+$# Session file 
+$# 
+$# OR_4L_REDUCIDO_15-03-23\group.ses.01 started recording at 12-Mar-26 11:03:02
+$# Build: 31.1.001309-487e2fc3 Tue Jun 17 21:30:09 CUT 2025
+$# Recorded by: Patran 2025.1
+sys_poll_option( 2 )
+ga_group_create( "01_PSU" )
+ga_group_entity_add( "01_PSU", " Point 100108:100163 100478:100485 Curve 2" // @
+"50:269 Surface 1404:1435 Node 10:17 100:144 200:223 Element 100:114 114:1" // @
+"16 116:132 132:134 134:135 135:175 1000:1036 1036:1055 MPC 1:8" )
+ga_group_create( "02_MOD" )
+ga_group_entity_add( "02_MOD", " Point 100164:100168 100174:100182 100188:" // @
+"100196 100202:100210 100216:100222 Curve 270:273 275:278 280:283 285:289 " // @
+"Surface 1436:1439 1444:1447 1452:1455 1460:1467 Node 200:244 300:323 Elem" // @
+"ent 200:201 201:226 226:227 227:229 229:231 231:233 233:271 2000:2055" )
+ga_group_create( "03_FPGA" )
+ga_group_entity_add( "03_FPGA", " Point 100223:100261 Curve 290:306 Surfac" // @
+"e 1468:1487 Node 300:344 400:423 Element 300:302 302:313 313:327 327:328 " // @
+"328:329 329:333 333:377 3000:3055" )
+ga_group_create( "04_PROC" )
+ga_group_entity_add( "04_PROC", " Point 100265:100303 100305:100306 100310" // @
+":100327 100329:100331 100476:100477 Curve 307:331 396:399 Surface 1488:15" // @
+"14 1516:1518 Node 400:525 Element 400:401 401:403 403:412 412:413 413:414" // @
+" 414:424 424:426 426:429 429:440 440:441 441:442 442:443 443:446 446:455 " // @
+"455:459 459:471 471:505 505:507 507:510 510:513 513:516 516:518 518:519 5" // @
+"19:521 521:523 523:526 526:529 529:531 531:567 567:615 615:616 616:618 61" // @
+"8:619 619:620 620:622 622:625 625 4000:4057 4057:4063 4063:4067 4067:4068" // @
+" 4068:4091 4091:4119" )
+ga_group_create( "05_PCBs_PSU_det" )
+ga_group_entity_add( "05_PCBs_PSU_det", " Point 100332:100367 Curve 332:34" // @
+"7 Surface 1519:1534 Node 1000:1044 Element 10000:10031" )
+ga_group_create( "06_PCB_MOD_det" )
+ga_group_entity_add( "06_PCB_MOD_det", " Point 100368:100403 Curve 348:363" // @
+" Surface 1535:1550 Node 2000:2044 Element 20000:20031" )
+ga_group_create( "07_PCB_FPGA_det" )
+ga_group_entity_add( "07_PCB_FPGA_det", " Point 100404:100439 Curve 364:37" // @
+"9 Surface 1551:1566 Node 3000:3044 Element 30000:30031" )
+ga_group_create( "08_PCB_PROC_det" )
+ga_group_entity_add( "08_PCB_PROC_det", " Point 100440:100475 Curve 380:39" // @
+"5 Surface 1567:1582 Node 4000:4044 Element 40000:40031" )
+ga_group_create( "09_CBUSH_bolts" )
+ga_group_entity_add( "09_CBUSH_bolts", " Point 100478:100485 Node 1:8 10:1" // @
+"7 Element 1:8" )
+ga_group_create( "10_CBUSH_CONTACT" )
+ga_group_entity_add( "10_CBUSH_CONTACT",  @
+" Element 100000:100026 200000:200026 300000:300026 400000:400026" )
+ga_group_create( "default_group" )
+ga_group_entity_add( "default_group", " Node 100:144 200:244 300:344 400:4" // @
+"68 Element 1000:1036 1036:1055 2000:2055 3000:3055 4000:4055" )
+sys_poll_option( 0 )
+$# Session file 
+$# 
+$# OR_4L_REDUCIDO_15-03-23\group.ses.01 stopped recording at 12-Mar-26 11:03:02

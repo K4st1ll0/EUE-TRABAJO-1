@@ -1,0 +1,22 @@
+Initialise IFPStarServices - success
+Messages are being generated while reading the input file: C:\Users\Pablo Castillo\Desktop\MUSE\SEGUNDO CUATRIMESTRE\ESTRUCTURAS\Backup\Trabajo_EUE_25-26\Trabajo_EUE_25-26\02_SFEM-de-apoyo\SFEM_EUE.bdf
+
+
+                                        M O D E L   S U M M A R Y          BULK
+                                   ENTRY NAME        NUMBER OF ENTRIES
+                                   ----------        -----------------
+                                         CBAR                      452
+                                        CBUSH                      116
+                                       CORD2R                        1
+                                       CQUAD4                      416
+                                         GRID                      457
+                                         MAT1                        6
+                                        PBARL                       18
+                                        PBUSH                        2
+                                       PSHELL                        9
+                                         RBE2                        8
+                                         SPC1                        1
+
+
+Creating Nastran Database using IFPStar SCA Service: Success
+
