@@ -1,5 +1,0 @@
-MSC Nastran V2025.2 (Intel Windows 11  10.0 26200) Fri Apr 17 17:16:38 2026
-MSC Nastran beginning job sfem_eue.
-MSC Nastran started  Fri Apr 17 17:16:40 Hdvr 2026
-MSC Nastran finished Fri Apr 17 17:17:09 Hdvr 2026
-MSC Nastran job sfem_eue completed.

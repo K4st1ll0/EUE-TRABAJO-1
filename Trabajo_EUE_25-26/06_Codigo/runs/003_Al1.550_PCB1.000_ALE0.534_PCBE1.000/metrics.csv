@@ -1,2 +1,0 @@
-run_id,command,sweep_preset,status,accepted,selected_ranking_mode,score_legacy,score_robust,mean_mac,worst_mac,mean_relative_frequency_error,max_relative_frequency_error,bad_pair_count,warning_pair_count,valid_reference_mode_count,valid_model_mode_count,paired_valid_mode_count,mass_total_kg,mass_target_kg,mass_target_basis,mass_baseline_status,relative_mass_error
-003_Al1.550_PCB1.000_ALE0.534_PCBE1.000,mass-fit,density_opt_aluminum_stage1,dry_run,False,,,,,,,,,,,,,3.75777336524097,3.8098065,nominal,active,0.013657684388703187
