@@ -1,0 +1,295 @@
+{
+  "mass_target_basis": "nominal",
+  "mass_target_kg": 3.8098065,
+  "base_group_masses": {
+    "aluminum": 1.0133485818558114,
+    "pcb": 2.1870830633644602
+  },
+  "fixed_mass": 0.0,
+  "unsupported_extra_mass_cards": 0,
+  "stage1": {
+    "pcb_density_fixed": 1.0,
+    "analytic_best_aluminum_density_factor": 1.601347715574576,
+    "tested_values": [
+      1.45,
+      1.5,
+      1.55,
+      1.58,
+      1.59,
+      1.6,
+      1.601347715575,
+      1.602,
+      1.605,
+      1.61,
+      1.62
+    ],
+    "best": {
+      "run_id": "007_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+      "stage": "density_opt_aluminum_stage1",
+      "aluminum_density_factor": 1.601347715575,
+      "pcb_density_factor": 1.0,
+      "total_mass": 3.809806499996813,
+      "target_mass": 3.8098065,
+      "delta_mass": -3.1872282590938994e-12,
+      "abs_delta_mass": 3.1872282590938994e-12,
+      "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\007_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\report.html"
+    },
+    "results": [
+      {
+        "run_id": "001_Al1.450_PCB1.000_ALE0.534_PCBE1.000",
+        "stage": "density_opt_aluminum_stage1",
+        "aluminum_density_factor": 1.45,
+        "pcb_density_factor": 1.0,
+        "total_mass": 3.6564385070553893,
+        "target_mass": 3.8098065,
+        "delta_mass": -0.1533679929446108,
+        "abs_delta_mass": 0.1533679929446108,
+        "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\001_Al1.450_PCB1.000_ALE0.534_PCBE1.000\\report.html"
+      },
+      {
+        "run_id": "002_Al1.500_PCB1.000_ALE0.534_PCBE1.000",
+        "stage": "density_opt_aluminum_stage1",
+        "aluminum_density_factor": 1.5,
+        "pcb_density_factor": 1.0,
+        "total_mass": 3.7071059361481797,
+        "target_mass": 3.8098065,
+        "delta_mass": -0.10270056385182036,
+        "abs_delta_mass": 0.10270056385182036,
+        "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\002_Al1.500_PCB1.000_ALE0.534_PCBE1.000\\report.html"
+      },
+      {
+        "run_id": "003_Al1.550_PCB1.000_ALE0.534_PCBE1.000",
+        "stage": "density_opt_aluminum_stage1",
+        "aluminum_density_factor": 1.55,
+        "pcb_density_factor": 1.0,
+        "total_mass": 3.75777336524097,
+        "target_mass": 3.8098065,
+        "delta_mass": -0.05203313475902993,
+        "abs_delta_mass": 0.05203313475902993,
+        "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\003_Al1.550_PCB1.000_ALE0.534_PCBE1.000\\report.html"
+      },
+      {
+        "run_id": "004_Al1.580_PCB1.000_ALE0.534_PCBE1.000",
+        "stage": "density_opt_aluminum_stage1",
+        "aluminum_density_factor": 1.58,
+        "pcb_density_factor": 1.0,
+        "total_mass": 3.7881738226966446,
+        "target_mass": 3.8098065,
+        "delta_mass": -0.021632677303355496,
+        "abs_delta_mass": 0.021632677303355496,
+        "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\004_Al1.580_PCB1.000_ALE0.534_PCBE1.000\\report.html"
+      },
+      {
+        "run_id": "005_Al1.590_PCB1.000_ALE0.534_PCBE1.000",
+        "stage": "density_opt_aluminum_stage1",
+        "aluminum_density_factor": 1.59,
+        "pcb_density_factor": 1.0,
+        "total_mass": 3.798307308515203,
+        "target_mass": 3.8098065,
+        "delta_mass": -0.011499191484797056,
+        "abs_delta_mass": 0.011499191484797056,
+        "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\005_Al1.590_PCB1.000_ALE0.534_PCBE1.000\\report.html"
+      },
+      {
+        "run_id": "006_Al1.600_PCB1.000_ALE0.534_PCBE1.000",
+        "stage": "density_opt_aluminum_stage1",
+        "aluminum_density_factor": 1.6,
+        "pcb_density_factor": 1.0,
+        "total_mass": 3.808440794333761,
+        "target_mass": 3.8098065,
+        "delta_mass": -0.0013657056662390588,
+        "abs_delta_mass": 0.0013657056662390588,
+        "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\006_Al1.600_PCB1.000_ALE0.534_PCBE1.000\\report.html"
+      },
+      {
+        "run_id": "007_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "stage": "density_opt_aluminum_stage1",
+        "aluminum_density_factor": 1.601347715575,
+        "pcb_density_factor": 1.0,
+        "total_mass": 3.809806499996813,
+        "target_mass": 3.8098065,
+        "delta_mass": -3.1872282590938994e-12,
+        "abs_delta_mass": 3.1872282590938994e-12,
+        "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\007_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\report.html"
+      },
+      {
+        "run_id": "008_Al1.602_PCB1.000_ALE0.534_PCBE1.000",
+        "stage": "density_opt_aluminum_stage1",
+        "aluminum_density_factor": 1.602,
+        "pcb_density_factor": 1.0,
+        "total_mass": 3.8104674914974725,
+        "target_mass": 3.8098065,
+        "delta_mass": 0.0006609914974724518,
+        "abs_delta_mass": 0.0006609914974724518,
+        "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\008_Al1.602_PCB1.000_ALE0.534_PCBE1.000\\report.html"
+      },
+      {
+        "run_id": "009_Al1.605_PCB1.000_ALE0.534_PCBE1.000",
+        "stage": "density_opt_aluminum_stage1",
+        "aluminum_density_factor": 1.605,
+        "pcb_density_factor": 1.0,
+        "total_mass": 3.8135075372430403,
+        "target_mass": 3.8098065,
+        "delta_mass": 0.0037010372430401617,
+        "abs_delta_mass": 0.0037010372430401617,
+        "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\009_Al1.605_PCB1.000_ALE0.534_PCBE1.000\\report.html"
+      },
+      {
+        "run_id": "010_Al1.610_PCB1.000_ALE0.534_PCBE1.000",
+        "stage": "density_opt_aluminum_stage1",
+        "aluminum_density_factor": 1.61,
+        "pcb_density_factor": 1.0,
+        "total_mass": 3.818574280152319,
+        "target_mass": 3.8098065,
+        "delta_mass": 0.008767780152318938,
+        "abs_delta_mass": 0.008767780152318938,
+        "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\010_Al1.610_PCB1.000_ALE0.534_PCBE1.000\\report.html"
+      },
+      {
+        "run_id": "011_Al1.620_PCB1.000_ALE0.534_PCBE1.000",
+        "stage": "density_opt_aluminum_stage1",
+        "aluminum_density_factor": 1.62,
+        "pcb_density_factor": 1.0,
+        "total_mass": 3.8287077659708775,
+        "target_mass": 3.8098065,
+        "delta_mass": 0.01890126597087738,
+        "abs_delta_mass": 0.01890126597087738,
+        "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\011_Al1.620_PCB1.000_ALE0.534_PCBE1.000\\report.html"
+      }
+    ]
+  },
+  "stage2": {
+    "aluminum_density_fixed": 1.601347715575,
+    "analytic_best_pcb_density_factor": 0.9999999999998036,
+    "tested_values": [
+      0.98,
+      0.99,
+      0.995,
+      0.999,
+      1.0,
+      1.001,
+      1.005,
+      1.01,
+      1.02
+    ],
+    "best": {
+      "run_id": "016_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+      "stage": "density_opt_pcb_stage2",
+      "aluminum_density_factor": 1.601347715575,
+      "pcb_density_factor": 1.0,
+      "total_mass": 3.809806499996813,
+      "target_mass": 3.8098065,
+      "delta_mass": -3.1872282590938994e-12,
+      "abs_delta_mass": 3.1872282590938994e-12,
+      "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\016_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\report.html"
+    },
+    "results": [
+      {
+        "run_id": "012_Al1.601_PCB0.980_ALE0.534_PCBE1.000",
+        "stage": "density_opt_pcb_stage2",
+        "aluminum_density_factor": 1.601347715575,
+        "pcb_density_factor": 0.98,
+        "total_mass": 3.7660648387295237,
+        "target_mass": 3.8098065,
+        "delta_mass": -0.043741661270476406,
+        "abs_delta_mass": 0.043741661270476406,
+        "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\012_Al1.601_PCB0.980_ALE0.534_PCBE1.000\\report.html"
+      },
+      {
+        "run_id": "013_Al1.601_PCB0.990_ALE0.534_PCBE1.000",
+        "stage": "density_opt_pcb_stage2",
+        "aluminum_density_factor": 1.601347715575,
+        "pcb_density_factor": 0.99,
+        "total_mass": 3.7879356693631685,
+        "target_mass": 3.8098065,
+        "delta_mass": -0.021870830636831595,
+        "abs_delta_mass": 0.021870830636831595,
+        "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\013_Al1.601_PCB0.990_ALE0.534_PCBE1.000\\report.html"
+      },
+      {
+        "run_id": "014_Al1.601_PCB0.995_ALE0.534_PCBE1.000",
+        "stage": "density_opt_pcb_stage2",
+        "aluminum_density_factor": 1.601347715575,
+        "pcb_density_factor": 0.995,
+        "total_mass": 3.7988710846799907,
+        "target_mass": 3.8098065,
+        "delta_mass": -0.010935415320009412,
+        "abs_delta_mass": 0.010935415320009412,
+        "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\014_Al1.601_PCB0.995_ALE0.534_PCBE1.000\\report.html"
+      },
+      {
+        "run_id": "015_Al1.601_PCB0.999_ALE0.534_PCBE1.000",
+        "stage": "density_opt_pcb_stage2",
+        "aluminum_density_factor": 1.601347715575,
+        "pcb_density_factor": 0.999,
+        "total_mass": 3.807619416933449,
+        "target_mass": 3.8098065,
+        "delta_mass": -0.002187083066551132,
+        "abs_delta_mass": 0.002187083066551132,
+        "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\015_Al1.601_PCB0.999_ALE0.534_PCBE1.000\\report.html"
+      },
+      {
+        "run_id": "016_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "stage": "density_opt_pcb_stage2",
+        "aluminum_density_factor": 1.601347715575,
+        "pcb_density_factor": 1.0,
+        "total_mass": 3.809806499996813,
+        "target_mass": 3.8098065,
+        "delta_mass": -3.1872282590938994e-12,
+        "abs_delta_mass": 3.1872282590938994e-12,
+        "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\016_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\report.html"
+      },
+      {
+        "run_id": "017_Al1.601_PCB1.001_ALE0.534_PCBE1.000",
+        "stage": "density_opt_pcb_stage2",
+        "aluminum_density_factor": 1.601347715575,
+        "pcb_density_factor": 1.001,
+        "total_mass": 3.811993583060177,
+        "target_mass": 3.8098065,
+        "delta_mass": 0.0021870830601771196,
+        "abs_delta_mass": 0.0021870830601771196,
+        "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\017_Al1.601_PCB1.001_ALE0.534_PCBE1.000\\report.html"
+      },
+      {
+        "run_id": "018_Al1.601_PCB1.005_ALE0.534_PCBE1.000",
+        "stage": "density_opt_pcb_stage2",
+        "aluminum_density_factor": 1.601347715575,
+        "pcb_density_factor": 1.005,
+        "total_mass": 3.8207419153136355,
+        "target_mass": 3.8098065,
+        "delta_mass": 0.0109354153136354,
+        "abs_delta_mass": 0.0109354153136354,
+        "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\018_Al1.601_PCB1.005_ALE0.534_PCBE1.000\\report.html"
+      },
+      {
+        "run_id": "019_Al1.601_PCB1.010_ALE0.534_PCBE1.000",
+        "stage": "density_opt_pcb_stage2",
+        "aluminum_density_factor": 1.601347715575,
+        "pcb_density_factor": 1.01,
+        "total_mass": 3.8316773306304577,
+        "target_mass": 3.8098065,
+        "delta_mass": 0.021870830630457583,
+        "abs_delta_mass": 0.021870830630457583,
+        "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\019_Al1.601_PCB1.010_ALE0.534_PCBE1.000\\report.html"
+      },
+      {
+        "run_id": "020_Al1.601_PCB1.020_ALE0.534_PCBE1.000",
+        "stage": "density_opt_pcb_stage2",
+        "aluminum_density_factor": 1.601347715575,
+        "pcb_density_factor": 1.02,
+        "total_mass": 3.8535481612641025,
+        "target_mass": 3.8098065,
+        "delta_mass": 0.043741661264102394,
+        "abs_delta_mass": 0.043741661264102394,
+        "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\020_Al1.601_PCB1.020_ALE0.534_PCBE1.000\\report.html"
+      }
+    ]
+  },
+  "final": {
+    "aluminum_density_factor": 1.601347715575,
+    "pcb_density_factor": 1.0,
+    "delta_mass": -3.1872282590938994e-12,
+    "abs_delta_mass": 3.1872282590938994e-12,
+    "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\016_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\report.html"
+  }
+}

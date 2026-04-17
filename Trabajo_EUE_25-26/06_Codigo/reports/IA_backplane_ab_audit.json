@@ -1,0 +1,1549 @@
+{
+  "generated_at": "2026-04-17T17:20:22.928466+02:00",
+  "ia_context": {
+    "source_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\reports\\IA.json",
+    "source_generated_at": "2026-04-17T17:17:58.469446+02:00",
+    "project_name": "MSC Nastran FEM Automation",
+    "config_dir": "C:/Users/Pablo Castillo/Desktop/MUSE/SEGUNDO CUATRIMESTRE/ESTRUCTURAS/EUE-TRABAJO-1/Trabajo_EUE_25-26/06_Codigo/configs_backplane_ab_20260417",
+    "latest_run_id": "031_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+    "latest_success_run_id": "031_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+    "run_count": 31,
+    "mass_source_of_truth_policy": "For existing runs, the functional mass source of truth is runs/<run_id>/mass_summary.json. Reports and functional audits must summarize that file instead of reconstructing a parallel mass state.",
+    "current_focus": "No accepted modal run exists yet; the project focus remains modal-fit convergence with functional mass already traceable.",
+    "next_actions": [
+      "Resume modal-fit sweeps and aim for the first accepted modal run.",
+      "Use mass-audit on runs with non-zero functional residuals to align functional mass summaries and reports.",
+      "Define interface nodes explicitly to prepare the Craig-Bampton reduction workflow.",
+      "Generate a .pch artifact for the reduction chain once the interface definition is fixed."
+    ],
+    "traceability_note": "IA.json was refreshed after the post-fix A/B run and used again as the primary project-state snapshot for this updated audit."
+  },
+  "baseline_run_id": "028_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+  "variant_run_id": "029_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+  "comparison_artifact": {
+    "path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\reports\\backplane_equivalent_mass_compare_028_Al1.601_PCB1.000_ALE0.534_PCBE1.000__029_Al1.601_PCB1.000_ALE0.534_PCBE1.000.json",
+    "created_at": "2026-04-17T16:22:46.830434+02:00",
+    "comparison_type": "backplane_equivalent_mass",
+    "parameter_values": {
+      "aluminum_density_factor": 1.601347715575,
+      "pcb_density_factor": 1.0,
+      "aluminum_E_factor": 0.5336,
+      "pcb_E_factor": 1.0
+    },
+    "baseline_run_id": "028_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+    "variant_run_id": "029_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+    "modal_snapshot_identical": true
+  },
+  "artifact_audit": {
+    "baseline": {
+      "run_id": "028_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+      "run_dir": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\028_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+      "run_manifest_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\028_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\run_manifest.json",
+      "metrics_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\028_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\metrics.json",
+      "mass_summary_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\028_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\mass_summary.json",
+      "parsed_results_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\028_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\parsed_results.json",
+      "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\028_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\report.html",
+      "generated_bdf_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\028_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\SFEM_EUE.bdf",
+      "generated_bdf_sha256": "6556F9C35CF17411A798243748918479FB519F191E123F400E8E0696D5419CB4",
+      "generated_bdf_size_bytes": 161135,
+      "result_f06_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\028_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\sfem_eue.f06",
+      "result_f06_sha256": "13441CCCAF5EA4AD56A7D353E8F9865704A42BC9FF136663ADAC8F5385B133E5",
+      "result_f06_size_bytes": 646546,
+      "f04_sha256": "20F1C9835272CFB65BF243EC96D6CC05997A3155119467DA1971A067132E2C7F",
+      "h5_sha256": "0A88BEB9442CE350A2F2EF7029166AA809B207C35411249BEE7F36A7119FF0AB",
+      "log_sha256": "0193A827932B25D99D516728EF993C66D00D2681773C7243BE57021E09168CC1",
+      "status": "success",
+      "accepted": false,
+      "reject_reasons": [
+        "outside_frequency_gate"
+      ],
+      "nastran_command": [
+        "C:\\Program Files\\MSC.Software\\NaPa_SE\\20252\\Nastran\\msc20252\\win64i8\\nastran.exe",
+        "SFEM_EUE.bdf",
+        "prog=edu",
+        "auth=edu",
+        "bat=no"
+      ],
+      "nastran_run_dir": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\028_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+      "nastran_outputs": {
+        "f04": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\028_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\sfem_eue.f04",
+        "f06": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\028_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\sfem_eue.f06",
+        "h5": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\028_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\sfem_eue.h5",
+        "log": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\028_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\sfem_eue.log"
+      },
+      "parser_reference_summary_available": [
+        "coordinate_system",
+        "frequencies_hz",
+        "invalid_modes",
+        "missing_frequency_modes",
+        "missing_points_by_mode",
+        "missing_vector_modes",
+        "requested_modes",
+        "requested_point_ids",
+        "source_format",
+        "valid_mode_count",
+        "valid_modes",
+        "vector_basis",
+        "vectors",
+        "warnings"
+      ],
+      "parser_model_summary_available": [
+        "coordinate_system",
+        "frequencies_hz",
+        "invalid_modes",
+        "missing_frequency_modes",
+        "missing_points_by_mode",
+        "missing_vector_modes",
+        "requested_modes",
+        "requested_point_ids",
+        "source_format",
+        "valid_mode_count",
+        "valid_modes",
+        "vector_basis",
+        "vectors",
+        "warnings"
+      ],
+      "modal_metrics_summary": {
+        "mean_mac": 0.44662059654222863,
+        "worst_mac": 0.0018782742699327,
+        "mean_relative_frequency_error": 0.14039252916127984,
+        "max_relative_frequency_error": 0.5800138942827656,
+        "paired_valid_mode_count": 10,
+        "valid_reference_mode_count": 10,
+        "valid_model_mode_count": 10
+      },
+      "model_frequencies_hz": {
+        "1": 135.7204,
+        "2": 191.3088,
+        "3": 232.4594,
+        "4": 244.9485,
+        "5": 248.2648,
+        "6": 249.5862,
+        "7": 294.4368,
+        "8": 328.9451,
+        "9": 369.429,
+        "10": 382.7021
+      },
+      "reference_frequencies_hz": {
+        "1": 206.1324,
+        "2": 248.08,
+        "3": 256.2762,
+        "4": 269.9397,
+        "5": 290.9781,
+        "6": 323.1545,
+        "7": 335.852,
+        "8": 341.6364,
+        "9": 353.8455,
+        "10": 367.4374
+      },
+      "pairing_final": [
+        {
+          "reference_mode": 1,
+          "model_mode": 2,
+          "reference_frequency_hz": 206.1324,
+          "model_frequency_hz": 191.3088,
+          "relative_frequency_error": 0.07191300348707917,
+          "mac": 0.7620789685344995,
+          "outside_gate": false,
+          "bad_pair": false,
+          "warning_pair": false,
+          "suspicious": false,
+          "suspicious_reason": null,
+          "reference_family_label": "top_cover",
+          "model_family_label": null
+        },
+        {
+          "reference_mode": 2,
+          "model_mode": 3,
+          "reference_frequency_hz": 248.08,
+          "model_frequency_hz": 232.4594,
+          "relative_frequency_error": 0.06296597871654315,
+          "mac": 0.0018782742699327,
+          "outside_gate": false,
+          "bad_pair": true,
+          "warning_pair": true,
+          "suspicious": false,
+          "suspicious_reason": null,
+          "reference_family_label": "fpga",
+          "model_family_label": null
+        },
+        {
+          "reference_mode": 3,
+          "model_mode": 6,
+          "reference_frequency_hz": 256.2762,
+          "model_frequency_hz": 249.5862,
+          "relative_frequency_error": 0.026104648032084236,
+          "mac": 0.22965306713012398,
+          "outside_gate": false,
+          "bad_pair": false,
+          "warning_pair": true,
+          "suspicious": false,
+          "suspicious_reason": null,
+          "reference_family_label": "psu",
+          "model_family_label": null
+        },
+        {
+          "reference_mode": 4,
+          "model_mode": 5,
+          "reference_frequency_hz": 269.9397,
+          "model_frequency_hz": 248.2648,
+          "relative_frequency_error": 0.08029534003334822,
+          "mac": 0.9990892171335832,
+          "outside_gate": false,
+          "bad_pair": false,
+          "warning_pair": false,
+          "suspicious": false,
+          "suspicious_reason": null,
+          "reference_family_label": "mod",
+          "model_family_label": null
+        },
+        {
+          "reference_mode": 5,
+          "model_mode": 4,
+          "reference_frequency_hz": 290.9781,
+          "model_frequency_hz": 244.9485,
+          "relative_frequency_error": 0.15818922454988876,
+          "mac": 0.5375125433956487,
+          "outside_gate": false,
+          "bad_pair": false,
+          "warning_pair": false,
+          "suspicious": false,
+          "suspicious_reason": null,
+          "reference_family_label": "fpga",
+          "model_family_label": null
+        },
+        {
+          "reference_mode": 6,
+          "model_mode": 1,
+          "reference_frequency_hz": 323.1545,
+          "model_frequency_hz": 135.7204,
+          "relative_frequency_error": 0.5800138942827656,
+          "mac": 0.2810504600025072,
+          "outside_gate": true,
+          "bad_pair": false,
+          "warning_pair": true,
+          "suspicious": false,
+          "suspicious_reason": null,
+          "reference_family_label": "proc",
+          "model_family_label": null
+        },
+        {
+          "reference_mode": 7,
+          "model_mode": 9,
+          "reference_frequency_hz": 335.852,
+          "model_frequency_hz": 369.429,
+          "relative_frequency_error": 0.0999755844836416,
+          "mac": 0.22935415520628663,
+          "outside_gate": false,
+          "bad_pair": false,
+          "warning_pair": true,
+          "suspicious": false,
+          "suspicious_reason": null,
+          "reference_family_label": "fpga",
+          "model_family_label": null
+        },
+        {
+          "reference_mode": 8,
+          "model_mode": 7,
+          "reference_frequency_hz": 341.6364,
+          "model_frequency_hz": 294.4368,
+          "relative_frequency_error": 0.13815740945636934,
+          "mac": 0.13909492810333138,
+          "outside_gate": false,
+          "bad_pair": false,
+          "warning_pair": true,
+          "suspicious": false,
+          "suspicious_reason": null,
+          "reference_family_label": "fpga",
+          "model_family_label": null
+        },
+        {
+          "reference_mode": 9,
+          "model_mode": 10,
+          "reference_frequency_hz": 353.8455,
+          "model_frequency_hz": 382.7021,
+          "relative_frequency_error": 0.0815514115623908,
+          "mac": 0.48673925053813266,
+          "outside_gate": false,
+          "bad_pair": false,
+          "warning_pair": false,
+          "suspicious": false,
+          "suspicious_reason": null,
+          "reference_family_label": "top_cover",
+          "model_family_label": null
+        },
+        {
+          "reference_mode": 10,
+          "model_mode": 8,
+          "reference_frequency_hz": 367.4374,
+          "model_frequency_hz": 328.9451,
+          "relative_frequency_error": 0.10475879700868773,
+          "mac": 0.7997551011082406,
+          "outside_gate": false,
+          "bad_pair": false,
+          "warning_pair": false,
+          "suspicious": false,
+          "suspicious_reason": null,
+          "reference_family_label": "top_cover_plus_mod",
+          "model_family_label": null
+        }
+      ],
+      "metrics_json_schema_keys": [
+        "acceptance_config",
+        "accepted",
+        "command",
+        "config_snapshot_dir",
+        "created_at",
+        "dry_run",
+        "errors",
+        "generated_bdf",
+        "generated_files",
+        "mass",
+        "mass_baseline_status",
+        "mass_target_basis",
+        "material_groups",
+        "mean_mac_display",
+        "modal_metrics",
+        "model",
+        "modifications",
+        "nastran",
+        "paired_valid_mode_count",
+        "pairing_config",
+        "parameter_rows",
+        "parameter_values",
+        "project_name",
+        "ranking_config",
+        "reference",
+        "reference_frequencies_f06",
+        "reference_vectors_f06",
+        "reject_reasons",
+        "report_path",
+        "run_id",
+        "score_legacy_display",
+        "score_robust_display",
+        "source_bdf",
+        "status",
+        "sweep_preset",
+        "valid_model_mode_count",
+        "valid_reference_mode_count",
+        "warnings"
+      ],
+      "mass_summary_snapshot": {
+        "total_mass_kg": 3.809806499996813,
+        "target_mass_kg": 3.8098065,
+        "relative_error": 8.365853381513994e-13,
+        "warnings": [
+          "unmapped_mass_detected",
+          "mass_compensation_detected: positive=['Backplane modules'], negative=['H-PSU module', 'MOD module', 'FPGA module', 'PROC module']"
+        ],
+        "budget_imputation_warnings": [
+          "mass_compensation_detected: positive=['MOD module'], negative=['H-PSU module', 'Backplane modules']"
+        ],
+        "imputation_residual_mass_kg": 0.0,
+        "backplane_equivalent_mass": {
+          "enabled": false,
+          "strategy": null,
+          "dependent_node_policy": null,
+          "total_mass_kg": 0.0,
+          "total_assigned_mass_kg": 0.0,
+          "region_name": null,
+          "assignments": [],
+          "warnings": []
+        }
+      },
+      "log_summary": {
+        "cmd_line_from_log": "C:\\Program Files\\MSC.Software\\NaPa_SE\\20252\\Nastran\\msc20252\\win64i8\\nastran.exe SFEM_EUE.bdf prog=edu auth=edu bat=no",
+        "current_dir_from_log": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\028_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "jid_records_read": [
+          2817,
+          16
+        ],
+        "degrees_of_freedom_reported": 2742
+      }
+    },
+    "variant": {
+      "run_id": "029_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+      "run_dir": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\029_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+      "run_manifest_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\029_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\run_manifest.json",
+      "metrics_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\029_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\metrics.json",
+      "mass_summary_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\029_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\mass_summary.json",
+      "parsed_results_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\029_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\parsed_results.json",
+      "report_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\029_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\report.html",
+      "generated_bdf_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\029_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\SFEM_EUE.bdf",
+      "generated_bdf_sha256": "596BEFCEB0A6AB2510DFD4D51CCAD3F3D306220132526227E6ED8A627E19F273",
+      "generated_bdf_size_bytes": 163079,
+      "result_f06_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\029_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\sfem_eue.f06",
+      "result_f06_sha256": "13441CCCAF5EA4AD56A7D353E8F9865704A42BC9FF136663ADAC8F5385B133E5",
+      "result_f06_size_bytes": 646546,
+      "f04_sha256": "D08E8204DE13B978EDBCD10449DC54F2C96FA161A312DF28D9075670FDE5082C",
+      "h5_sha256": "42AAFEFB135D2EDE706CB292B0629328AD48D7A737154F9A4176A20E5102E3A2",
+      "log_sha256": "1B1AAA8A3B746A20B0B663C81745BAF76760B411634D71A97CEAE2090F08D1F1",
+      "status": "success",
+      "accepted": false,
+      "reject_reasons": [
+        "outside_frequency_gate"
+      ],
+      "nastran_command": [
+        "C:\\Program Files\\MSC.Software\\NaPa_SE\\20252\\Nastran\\msc20252\\win64i8\\nastran.exe",
+        "SFEM_EUE.bdf",
+        "prog=edu",
+        "auth=edu",
+        "bat=no"
+      ],
+      "nastran_run_dir": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\029_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+      "nastran_outputs": {
+        "f04": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\029_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\sfem_eue.f04",
+        "f06": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\029_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\sfem_eue.f06",
+        "h5": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\029_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\sfem_eue.h5",
+        "log": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\029_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\sfem_eue.log"
+      },
+      "parser_reference_summary_available": [
+        "coordinate_system",
+        "frequencies_hz",
+        "invalid_modes",
+        "missing_frequency_modes",
+        "missing_points_by_mode",
+        "missing_vector_modes",
+        "requested_modes",
+        "requested_point_ids",
+        "source_format",
+        "valid_mode_count",
+        "valid_modes",
+        "vector_basis",
+        "vectors",
+        "warnings"
+      ],
+      "parser_model_summary_available": [
+        "coordinate_system",
+        "frequencies_hz",
+        "invalid_modes",
+        "missing_frequency_modes",
+        "missing_points_by_mode",
+        "missing_vector_modes",
+        "requested_modes",
+        "requested_point_ids",
+        "source_format",
+        "valid_mode_count",
+        "valid_modes",
+        "vector_basis",
+        "vectors",
+        "warnings"
+      ],
+      "modal_metrics_summary": {
+        "mean_mac": 0.44662059654222863,
+        "worst_mac": 0.0018782742699327,
+        "mean_relative_frequency_error": 0.14039252916127984,
+        "max_relative_frequency_error": 0.5800138942827656,
+        "paired_valid_mode_count": 10,
+        "valid_reference_mode_count": 10,
+        "valid_model_mode_count": 10
+      },
+      "model_frequencies_hz": {
+        "1": 135.7204,
+        "2": 191.3088,
+        "3": 232.4594,
+        "4": 244.9485,
+        "5": 248.2648,
+        "6": 249.5862,
+        "7": 294.4368,
+        "8": 328.9451,
+        "9": 369.429,
+        "10": 382.7021
+      },
+      "reference_frequencies_hz": {
+        "1": 206.1324,
+        "2": 248.08,
+        "3": 256.2762,
+        "4": 269.9397,
+        "5": 290.9781,
+        "6": 323.1545,
+        "7": 335.852,
+        "8": 341.6364,
+        "9": 353.8455,
+        "10": 367.4374
+      },
+      "pairing_final": [
+        {
+          "reference_mode": 1,
+          "model_mode": 2,
+          "reference_frequency_hz": 206.1324,
+          "model_frequency_hz": 191.3088,
+          "relative_frequency_error": 0.07191300348707917,
+          "mac": 0.7620789685344995,
+          "outside_gate": false,
+          "bad_pair": false,
+          "warning_pair": false,
+          "suspicious": false,
+          "suspicious_reason": null,
+          "reference_family_label": "top_cover",
+          "model_family_label": null
+        },
+        {
+          "reference_mode": 2,
+          "model_mode": 3,
+          "reference_frequency_hz": 248.08,
+          "model_frequency_hz": 232.4594,
+          "relative_frequency_error": 0.06296597871654315,
+          "mac": 0.0018782742699327,
+          "outside_gate": false,
+          "bad_pair": true,
+          "warning_pair": true,
+          "suspicious": false,
+          "suspicious_reason": null,
+          "reference_family_label": "fpga",
+          "model_family_label": null
+        },
+        {
+          "reference_mode": 3,
+          "model_mode": 6,
+          "reference_frequency_hz": 256.2762,
+          "model_frequency_hz": 249.5862,
+          "relative_frequency_error": 0.026104648032084236,
+          "mac": 0.22965306713012398,
+          "outside_gate": false,
+          "bad_pair": false,
+          "warning_pair": true,
+          "suspicious": false,
+          "suspicious_reason": null,
+          "reference_family_label": "psu",
+          "model_family_label": null
+        },
+        {
+          "reference_mode": 4,
+          "model_mode": 5,
+          "reference_frequency_hz": 269.9397,
+          "model_frequency_hz": 248.2648,
+          "relative_frequency_error": 0.08029534003334822,
+          "mac": 0.9990892171335832,
+          "outside_gate": false,
+          "bad_pair": false,
+          "warning_pair": false,
+          "suspicious": false,
+          "suspicious_reason": null,
+          "reference_family_label": "mod",
+          "model_family_label": null
+        },
+        {
+          "reference_mode": 5,
+          "model_mode": 4,
+          "reference_frequency_hz": 290.9781,
+          "model_frequency_hz": 244.9485,
+          "relative_frequency_error": 0.15818922454988876,
+          "mac": 0.5375125433956487,
+          "outside_gate": false,
+          "bad_pair": false,
+          "warning_pair": false,
+          "suspicious": false,
+          "suspicious_reason": null,
+          "reference_family_label": "fpga",
+          "model_family_label": null
+        },
+        {
+          "reference_mode": 6,
+          "model_mode": 1,
+          "reference_frequency_hz": 323.1545,
+          "model_frequency_hz": 135.7204,
+          "relative_frequency_error": 0.5800138942827656,
+          "mac": 0.2810504600025072,
+          "outside_gate": true,
+          "bad_pair": false,
+          "warning_pair": true,
+          "suspicious": false,
+          "suspicious_reason": null,
+          "reference_family_label": "proc",
+          "model_family_label": null
+        },
+        {
+          "reference_mode": 7,
+          "model_mode": 9,
+          "reference_frequency_hz": 335.852,
+          "model_frequency_hz": 369.429,
+          "relative_frequency_error": 0.0999755844836416,
+          "mac": 0.22935415520628663,
+          "outside_gate": false,
+          "bad_pair": false,
+          "warning_pair": true,
+          "suspicious": false,
+          "suspicious_reason": null,
+          "reference_family_label": "fpga",
+          "model_family_label": null
+        },
+        {
+          "reference_mode": 8,
+          "model_mode": 7,
+          "reference_frequency_hz": 341.6364,
+          "model_frequency_hz": 294.4368,
+          "relative_frequency_error": 0.13815740945636934,
+          "mac": 0.13909492810333138,
+          "outside_gate": false,
+          "bad_pair": false,
+          "warning_pair": true,
+          "suspicious": false,
+          "suspicious_reason": null,
+          "reference_family_label": "fpga",
+          "model_family_label": null
+        },
+        {
+          "reference_mode": 9,
+          "model_mode": 10,
+          "reference_frequency_hz": 353.8455,
+          "model_frequency_hz": 382.7021,
+          "relative_frequency_error": 0.0815514115623908,
+          "mac": 0.48673925053813266,
+          "outside_gate": false,
+          "bad_pair": false,
+          "warning_pair": false,
+          "suspicious": false,
+          "suspicious_reason": null,
+          "reference_family_label": "top_cover",
+          "model_family_label": null
+        },
+        {
+          "reference_mode": 10,
+          "model_mode": 8,
+          "reference_frequency_hz": 367.4374,
+          "model_frequency_hz": 328.9451,
+          "relative_frequency_error": 0.10475879700868773,
+          "mac": 0.7997551011082406,
+          "outside_gate": false,
+          "bad_pair": false,
+          "warning_pair": false,
+          "suspicious": false,
+          "suspicious_reason": null,
+          "reference_family_label": "top_cover_plus_mod",
+          "model_family_label": null
+        }
+      ],
+      "metrics_json_schema_keys": [
+        "acceptance_config",
+        "accepted",
+        "command",
+        "config_snapshot_dir",
+        "created_at",
+        "dry_run",
+        "errors",
+        "generated_bdf",
+        "generated_files",
+        "mass",
+        "mass_baseline_status",
+        "mass_target_basis",
+        "material_groups",
+        "mean_mac_display",
+        "modal_metrics",
+        "model",
+        "modifications",
+        "nastran",
+        "paired_valid_mode_count",
+        "pairing_config",
+        "parameter_rows",
+        "parameter_values",
+        "project_name",
+        "ranking_config",
+        "reference",
+        "reference_frequencies_f06",
+        "reference_vectors_f06",
+        "reject_reasons",
+        "report_path",
+        "run_id",
+        "score_legacy_display",
+        "score_robust_display",
+        "source_bdf",
+        "status",
+        "sweep_preset",
+        "valid_model_mode_count",
+        "valid_reference_mode_count",
+        "warnings"
+      ],
+      "mass_summary_snapshot": {
+        "total_mass_kg": 4.0347719999968135,
+        "target_mass_kg": 3.8098065,
+        "relative_error": 0.05904906193971094,
+        "warnings": [
+          "unmapped_mass_detected"
+        ],
+        "budget_imputation_warnings": [
+          "budget_imputation_residual_detected"
+        ],
+        "imputation_residual_mass_kg": 0.22496549999999998,
+        "backplane_equivalent_mass": {
+          "enabled": true,
+          "strategy": "concentrated",
+          "dependent_node_policy": "warn",
+          "total_mass_kg": 0.2249655,
+          "total_assigned_mass_kg": 0.22496550000000004,
+          "region_name": "07_equivalent_backplane_mass",
+          "assignments": [
+            {
+              "element_id": 9700000,
+              "node_id": 204,
+              "node_coordinates": [
+                0.0,
+                0.085749998688698,
+                0.031500000506639
+              ],
+              "region_name": "12_RIG-V1_yp",
+              "group_name": "12_RIG-V1_yp",
+              "raw_weight": 1.0,
+              "normalized_weight": 0.3333333333333333,
+              "assigned_mass_kg": 0.0749885,
+              "source": "target_location",
+              "label": "bp_psu_mod",
+              "target_coordinates": [
+                0.0,
+                0.08575,
+                0.0238
+              ],
+              "resolved_distance": 0.007700000506639112
+            },
+            {
+              "element_id": 9700001,
+              "node_id": 302,
+              "node_coordinates": [
+                -1.8688961489e-09,
+                0.085749998688698,
+                0.061500001698732
+              ],
+              "region_name": "12_RIG-V1_yp",
+              "group_name": "12_RIG-V1_yp",
+              "raw_weight": 1.0,
+              "normalized_weight": 0.3333333333333333,
+              "assigned_mass_kg": 0.0749885,
+              "source": "target_location",
+              "label": "bp_mod_fpga",
+              "target_coordinates": [
+                0.0,
+                0.08575,
+                0.05445
+              ],
+              "resolved_distance": 0.0070500016987323725
+            },
+            {
+              "element_id": 9700002,
+              "node_id": 402,
+              "node_coordinates": [
+                -1.8688961489e-09,
+                0.085749998688698,
+                0.091500001698732
+              ],
+              "region_name": "12_RIG-V1_yp",
+              "group_name": "12_RIG-V1_yp",
+              "raw_weight": 1.0,
+              "normalized_weight": 0.3333333333333333,
+              "assigned_mass_kg": 0.07498850000000003,
+              "source": "target_location",
+              "label": "bp_fpga_proc",
+              "target_coordinates": [
+                0.0,
+                0.08575,
+                0.08445
+              ],
+              "resolved_distance": 0.0070500016987323725
+            }
+          ],
+          "warnings": []
+        }
+      },
+      "log_summary": {
+        "cmd_line_from_log": "C:\\Program Files\\MSC.Software\\NaPa_SE\\20252\\Nastran\\msc20252\\win64i8\\nastran.exe SFEM_EUE.bdf prog=edu auth=edu bat=no",
+        "current_dir_from_log": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\029_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "jid_records_read": [
+          2817,
+          16
+        ],
+        "degrees_of_freedom_reported": 2742
+      }
+    }
+  },
+  "f06_provenance_check": {
+    "same_sha256": true,
+    "same_file_path": false,
+    "baseline_f06_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\028_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\sfem_eue.f06",
+    "variant_f06_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\029_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\sfem_eue.f06",
+    "baseline_f06_sha256": "13441CCCAF5EA4AD56A7D353E8F9865704A42BC9FF136663ADAC8F5385B133E5",
+    "variant_f06_sha256": "13441CCCAF5EA4AD56A7D353E8F9865704A42BC9FF136663ADAC8F5385B133E5",
+    "baseline_current_dir_from_log": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\028_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+    "variant_current_dir_from_log": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\029_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+    "baseline_jid_records_read": [
+      2817,
+      16
+    ],
+    "variant_jid_records_read": [
+      2817,
+      16
+    ],
+    "assessment": "The parser is not pointing both runs to the same path: each run has its own run directory, its own sfem_eue.f06 path, and its own Nastran Current Dir in the solver log. The identical SHA256 means Nastran produced byte-identical .f06 content for two different runs, not that the parser reused the same file path."
+  },
+  "bdf_delta_check": {
+    "same_bdf_sha256": false,
+    "baseline_bdf_sha256": "6556F9C35CF17411A798243748918479FB519F191E123F400E8E0696D5419CB4",
+    "variant_bdf_sha256": "596BEFCEB0A6AB2510DFD4D51CCAD3F3D306220132526227E6ED8A627E19F273",
+    "variant_enddata_line_number": 2817,
+    "conm2_found_in_variant": [
+      {
+        "conm2_id": 9700000,
+        "node_id": 204,
+        "mass": 0.0749885,
+        "node_exists": true,
+        "grid_line_number": 2026,
+        "in_rbe2": false,
+        "spc_constrained": false,
+        "line_number_in_bdf": 2826,
+        "after_enddata": true,
+        "x": 0.0,
+        "y": 0.085749998688698,
+        "z": 0.031500000506639,
+        "region_name": "12_RIG-V1_yp",
+        "group_name": "12_RIG-V1_yp",
+        "raw_weight": 1.0,
+        "normalized_weight": 0.3333333333333333,
+        "assigned_mass_kg": 0.0749885,
+        "target_label": "bp_psu_mod",
+        "target_coordinates": [
+          0.0,
+          0.08575,
+          0.0238
+        ],
+        "resolved_distance": 0.007700000506639112,
+        "connected_cbush_links": [
+          {
+            "element_id": 200020,
+            "property_id": 20,
+            "other_node": 2000,
+            "line_number": 1298
+          }
+        ],
+        "connected_partner_nodes": [
+          2000
+        ],
+        "connected_pbush_property_ids": [
+          20
+        ],
+        "pbush_property_summaries": {
+          "20": "PBUSH    20      K       1.+9    1.+9    1.+9           1000000.1000000."
+        },
+        "dynamic_relevance_assessment": "Primary no-effect cause: this CONM2 is written after ENDDATA and is therefore outside the bulk data Nastran actually solves. Even after fixing that bug, the chosen node sits on rig region 12_RIG-V1_yp and is tied through very stiff PBUSH-20 contact links, so it is likely a lower-sensitivity location than an explicit backplane/interconnect path."
+      },
+      {
+        "conm2_id": 9700001,
+        "node_id": 302,
+        "mass": 0.0749885,
+        "node_exists": true,
+        "grid_line_number": 2112,
+        "in_rbe2": false,
+        "spc_constrained": false,
+        "line_number_in_bdf": 2827,
+        "after_enddata": true,
+        "x": -1.8688961489e-09,
+        "y": 0.085749998688698,
+        "z": 0.061500001698732,
+        "region_name": "12_RIG-V1_yp",
+        "group_name": "12_RIG-V1_yp",
+        "raw_weight": 1.0,
+        "normalized_weight": 0.3333333333333333,
+        "assigned_mass_kg": 0.0749885,
+        "target_label": "bp_mod_fpga",
+        "target_coordinates": [
+          0.0,
+          0.08575,
+          0.05445
+        ],
+        "resolved_distance": 0.0070500016987323725,
+        "connected_cbush_links": [
+          {
+            "element_id": 300019,
+            "property_id": 20,
+            "other_node": 3000,
+            "line_number": 1350
+          }
+        ],
+        "connected_partner_nodes": [
+          3000
+        ],
+        "connected_pbush_property_ids": [
+          20
+        ],
+        "pbush_property_summaries": {
+          "20": "PBUSH    20      K       1.+9    1.+9    1.+9           1000000.1000000."
+        },
+        "dynamic_relevance_assessment": "Primary no-effect cause: this CONM2 is written after ENDDATA and is therefore outside the bulk data Nastran actually solves. Even after fixing that bug, the chosen node sits on rig region 12_RIG-V1_yp and is tied through very stiff PBUSH-20 contact links, so it is likely a lower-sensitivity location than an explicit backplane/interconnect path."
+      },
+      {
+        "conm2_id": 9700002,
+        "node_id": 402,
+        "mass": 0.0749885,
+        "node_exists": true,
+        "grid_line_number": 2202,
+        "in_rbe2": false,
+        "spc_constrained": false,
+        "line_number_in_bdf": 2828,
+        "after_enddata": true,
+        "x": -1.8688961489e-09,
+        "y": 0.085749998688698,
+        "z": 0.091500001698732,
+        "region_name": "12_RIG-V1_yp",
+        "group_name": "12_RIG-V1_yp",
+        "raw_weight": 1.0,
+        "normalized_weight": 0.3333333333333333,
+        "assigned_mass_kg": 0.07498850000000003,
+        "target_label": "bp_fpga_proc",
+        "target_coordinates": [
+          0.0,
+          0.08575,
+          0.08445
+        ],
+        "resolved_distance": 0.0070500016987323725,
+        "connected_cbush_links": [
+          {
+            "element_id": 400019,
+            "property_id": 20,
+            "other_node": 4000,
+            "line_number": 1404
+          }
+        ],
+        "connected_partner_nodes": [
+          4000
+        ],
+        "connected_pbush_property_ids": [
+          20
+        ],
+        "pbush_property_summaries": {
+          "20": "PBUSH    20      K       1.+9    1.+9    1.+9           1000000.1000000."
+        },
+        "dynamic_relevance_assessment": "Primary no-effect cause: this CONM2 is written after ENDDATA and is therefore outside the bulk data Nastran actually solves. Even after fixing that bug, the chosen node sits on rig region 12_RIG-V1_yp and is tied through very stiff PBUSH-20 contact links, so it is likely a lower-sensitivity location than an explicit backplane/interconnect path."
+      }
+    ],
+    "assessment": "The variant BDF is different and does contain the three intended CONM2 cards, but they were appended after ENDDATA e43856d8. Nastran therefore read the same 2817 bulk-data records in both runs and ignored the injected masses. This explains why the .f06 files are identical even though the BDF hashes differ."
+  },
+  "conm2_node_audit": [
+    {
+      "conm2_id": 9700000,
+      "node_id": 204,
+      "mass": 0.0749885,
+      "node_exists": true,
+      "grid_line_number": 2026,
+      "in_rbe2": false,
+      "spc_constrained": false,
+      "line_number_in_bdf": 2826,
+      "after_enddata": true,
+      "x": 0.0,
+      "y": 0.085749998688698,
+      "z": 0.031500000506639,
+      "region_name": "12_RIG-V1_yp",
+      "group_name": "12_RIG-V1_yp",
+      "raw_weight": 1.0,
+      "normalized_weight": 0.3333333333333333,
+      "assigned_mass_kg": 0.0749885,
+      "target_label": "bp_psu_mod",
+      "target_coordinates": [
+        0.0,
+        0.08575,
+        0.0238
+      ],
+      "resolved_distance": 0.007700000506639112,
+      "connected_cbush_links": [
+        {
+          "element_id": 200020,
+          "property_id": 20,
+          "other_node": 2000,
+          "line_number": 1298
+        }
+      ],
+      "connected_partner_nodes": [
+        2000
+      ],
+      "connected_pbush_property_ids": [
+        20
+      ],
+      "pbush_property_summaries": {
+        "20": "PBUSH    20      K       1.+9    1.+9    1.+9           1000000.1000000."
+      },
+      "dynamic_relevance_assessment": "Primary no-effect cause: this CONM2 is written after ENDDATA and is therefore outside the bulk data Nastran actually solves. Even after fixing that bug, the chosen node sits on rig region 12_RIG-V1_yp and is tied through very stiff PBUSH-20 contact links, so it is likely a lower-sensitivity location than an explicit backplane/interconnect path."
+    },
+    {
+      "conm2_id": 9700001,
+      "node_id": 302,
+      "mass": 0.0749885,
+      "node_exists": true,
+      "grid_line_number": 2112,
+      "in_rbe2": false,
+      "spc_constrained": false,
+      "line_number_in_bdf": 2827,
+      "after_enddata": true,
+      "x": -1.8688961489e-09,
+      "y": 0.085749998688698,
+      "z": 0.061500001698732,
+      "region_name": "12_RIG-V1_yp",
+      "group_name": "12_RIG-V1_yp",
+      "raw_weight": 1.0,
+      "normalized_weight": 0.3333333333333333,
+      "assigned_mass_kg": 0.0749885,
+      "target_label": "bp_mod_fpga",
+      "target_coordinates": [
+        0.0,
+        0.08575,
+        0.05445
+      ],
+      "resolved_distance": 0.0070500016987323725,
+      "connected_cbush_links": [
+        {
+          "element_id": 300019,
+          "property_id": 20,
+          "other_node": 3000,
+          "line_number": 1350
+        }
+      ],
+      "connected_partner_nodes": [
+        3000
+      ],
+      "connected_pbush_property_ids": [
+        20
+      ],
+      "pbush_property_summaries": {
+        "20": "PBUSH    20      K       1.+9    1.+9    1.+9           1000000.1000000."
+      },
+      "dynamic_relevance_assessment": "Primary no-effect cause: this CONM2 is written after ENDDATA and is therefore outside the bulk data Nastran actually solves. Even after fixing that bug, the chosen node sits on rig region 12_RIG-V1_yp and is tied through very stiff PBUSH-20 contact links, so it is likely a lower-sensitivity location than an explicit backplane/interconnect path."
+    },
+    {
+      "conm2_id": 9700002,
+      "node_id": 402,
+      "mass": 0.0749885,
+      "node_exists": true,
+      "grid_line_number": 2202,
+      "in_rbe2": false,
+      "spc_constrained": false,
+      "line_number_in_bdf": 2828,
+      "after_enddata": true,
+      "x": -1.8688961489e-09,
+      "y": 0.085749998688698,
+      "z": 0.091500001698732,
+      "region_name": "12_RIG-V1_yp",
+      "group_name": "12_RIG-V1_yp",
+      "raw_weight": 1.0,
+      "normalized_weight": 0.3333333333333333,
+      "assigned_mass_kg": 0.07498850000000003,
+      "target_label": "bp_fpga_proc",
+      "target_coordinates": [
+        0.0,
+        0.08575,
+        0.08445
+      ],
+      "resolved_distance": 0.0070500016987323725,
+      "connected_cbush_links": [
+        {
+          "element_id": 400019,
+          "property_id": 20,
+          "other_node": 4000,
+          "line_number": 1404
+        }
+      ],
+      "connected_partner_nodes": [
+        4000
+      ],
+      "connected_pbush_property_ids": [
+        20
+      ],
+      "pbush_property_summaries": {
+        "20": "PBUSH    20      K       1.+9    1.+9    1.+9           1000000.1000000."
+      },
+      "dynamic_relevance_assessment": "Primary no-effect cause: this CONM2 is written after ENDDATA and is therefore outside the bulk data Nastran actually solves. Even after fixing that bug, the chosen node sits on rig region 12_RIG-V1_yp and is tied through very stiff PBUSH-20 contact links, so it is likely a lower-sensitivity location than an explicit backplane/interconnect path."
+    }
+  ],
+  "pipeline_failure_hypotheses_ranked": [
+    {
+      "rank": 1,
+      "hypothesis": "B",
+      "title": "The variant modifies the BDF, but the execution chain effectively solves the same baseline bulk data because the injected CONM2 cards are outside the solved deck.",
+      "likelihood": "very_high",
+      "evidence_for": [
+        "Variant CONM2 cards are located after ENDDATA in runs/029.../SFEM_EUE.bdf.",
+        "Both solver logs report the same 2817 JID records read and the same 2742 DOF.",
+        "The resulting .f06 SHA256 is identical even though the BDF SHA256 differs.",
+        "mass_summary.json for 029 increases mass because the manual mass parser scans the whole text file and counts post-ENDDATA CONM2 cards."
+      ],
+      "evidence_against": [
+        "None of the artifact-provenance checks contradict this explanation."
+      ]
+    },
+    {
+      "rank": 2,
+      "hypothesis": "Cross-run output reuse or parser path mix-up.",
+      "likelihood": "low",
+      "evidence_for": [
+        "The .f06 content is byte-identical between runs."
+      ],
+      "evidence_against": [
+        "Each run has a different run_dir, different Current Dir in sfem_eue.log, and different output file paths in nastran_execution.json.",
+        "The .f04, .h5 and .log hashes differ between runs, which is inconsistent with a wholesale artifact copy/overwrite bug.",
+        "sweep_engine.py builds the comparison snapshot directly from each fresh run_payload, not from a cached baseline file."
+      ]
+    },
+    {
+      "rank": 3,
+      "hypothesis": "The compare report is using cached modal data instead of each run result.",
+      "likelihood": "very_low",
+      "evidence_for": [
+        "The compare JSON reports identical modal metrics."
+      ],
+      "evidence_against": [
+        "sweep_engine.py: run_backplane_compare() calls run_single_case() twice and snapshots each returned run payload directly.",
+        "The compare artifact run IDs match 028 and 029 and its modal values match each run manifest payload."
+      ]
+    }
+  ],
+  "physical_modeling_hypotheses_ranked": [
+    {
+      "rank": 1,
+      "hypothesis": "C",
+      "title": "The chosen CONM2 support nodes are on a stiff rig/interface line and may be dynamically low-sensitivity even after the pipeline bug is fixed.",
+      "likelihood": "medium",
+      "evidence_for": [
+        "All three resolved nodes belong to region/group 12_RIG-V1_yp, not to an explicit backplane/interconnect region.",
+        "Each chosen node is tied through CBUSH property 20 to partner nodes 2000/3000/4000.",
+        "PBUSH 20 uses translational stiffness 1e9 in the BDF, which is effectively very stiff for a local contact surrogate."
+      ],
+      "evidence_against": [
+        "This cannot explain the current identical .f06 by itself because the primary current issue is that the CONM2 cards are not inside the solved bulk data."
+      ]
+    },
+    {
+      "rank": 2,
+      "hypothesis": "D",
+      "title": "A pure CONM2 representation is physically incomplete because real backplanes contribute not only mass but also a stiffness/load path between modules.",
+      "likelihood": "medium",
+      "evidence_for": [
+        "Real backplanes can alter both inertia and coupling stiffness between adjacent modules.",
+        "The current equivalent representation adds only lumped mass and no structural path."
+      ],
+      "evidence_against": [
+        "The current A/B did not actually test this physical limitation yet because Nastran ignored the injected CONM2 cards."
+      ]
+    },
+    {
+      "rank": 3,
+      "hypothesis": "A",
+      "title": "The variant is solved correctly and simply has no appreciable modal effect on the first 10 modes.",
+      "likelihood": "very_low_for_current_evidence",
+      "evidence_for": [
+        "If a future corrected run still yields nearly identical modes, this would become plausible."
+      ],
+      "evidence_against": [
+        "The current variant was not actually solved with active CONM2 mass because the cards sit after ENDDATA."
+      ]
+    }
+  ],
+  "most_likely_explanation": "The original 028/029 A/B was invalid because of the ENDDATA pipeline bug. After the fix, the new 030/031 A/B shows that the pipeline now works correctly and that the chosen equivalent backplane mass produces a small but real modal effect.",
+  "recommended_next_experiment": "The pipeline bug is closed. The next experiment should stay on the physics side: keep the same modal parameters, but test better support_nodes on the intended backplane/interconnect path or activate a richer local equivalent representation if you want to assess whether stiffness/load-path effects matter.",
+  "recommended_code_fix": "Implemented. Keep the new ENDDATA guards and consider extending the comparison artifact to include provenance hashes and JID-record counts directly so future forensic checks are immediate.",
+  "accepted_bug_diagnosis": "Equivalent backplane CONM2 cards were inserted after ENDDATA when the deck ended with a suffixed line such as ENDDATA e43856d8. MSC Nastran ignored those cards, but the manual mass parser still counted them because it scanned past ENDDATA.",
+  "fix_applied": [
+    {
+      "file": "src/bdf_editor.py",
+      "changes": [
+        "Added ENDDATA prefix detection so insertion works for ENDDATA and ENDDATA <suffix>.",
+        "Equivalent-mass cards are now inserted immediately before the first ENDDATA-prefixed line.",
+        "If no ENDDATA exists, the injector appends at EOF and records a traceability warning.",
+        "Backplane metadata reader now stops at ENDDATA so post-ENDDATA garbage is not treated as active solver data."
+      ]
+    },
+    {
+      "file": "src/mass_calculator.py",
+      "changes": [
+        "Manual mass parsing now stops at ENDDATA and ignores any trailing text/cards.",
+        "This keeps mass_summary.json aligned with the actual bulk data solved by Nastran."
+      ]
+    }
+  ],
+  "tests_added": [
+    {
+      "file": "tests/test_bdf_editor.py",
+      "tests": [
+        "test_apply_backplane_equivalent_mass_inserts_before_enddata_with_suffix",
+        "test_apply_backplane_equivalent_mass_without_enddata_appends_at_eof_and_warns"
+      ]
+    },
+    {
+      "file": "tests/test_mass_calculator.py",
+      "tests": [
+        "test_mass_summary_ignores_post_enddata_equivalent_mass_cards_and_metadata",
+        "test_equivalent_backplane_insertion_with_enddata_suffix_stays_consistent_with_mass_audit"
+      ]
+    }
+  ],
+  "test_suite_result": {
+    "command": "& \"$env:LOCALAPPDATA\\Programs\\Python\\Python313\\python.exe\" -m pytest",
+    "result": "45 passed"
+  },
+  "post_fix_validation": {
+    "baseline_run_id": "030_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+    "variant_run_id": "031_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+    "comparison_artifact_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\reports\\backplane_equivalent_mass_compare_030_Al1.601_PCB1.000_ALE0.534_PCBE1.000__031_Al1.601_PCB1.000_ALE0.534_PCBE1.000.json",
+    "comparison_artifact_created_at": "2026-04-17T17:17:46.236441+02:00",
+    "same_config_as_pre_fix_ab": true,
+    "artifact_audit": {
+      "baseline": {
+        "run_id": "030_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "run_dir": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\030_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "generated_bdf_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\030_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\SFEM_EUE.bdf",
+        "generated_bdf_sha256": "6556F9C35CF17411A798243748918479FB519F191E123F400E8E0696D5419CB4",
+        "result_f06_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\030_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\sfem_eue.f06",
+        "result_f06_sha256": "13441CCCAF5EA4AD56A7D353E8F9865704A42BC9FF136663ADAC8F5385B133E5",
+        "status": "success",
+        "accepted": false,
+        "reject_reasons": [
+          "outside_frequency_gate"
+        ],
+        "frequencies_model_hz": {
+          "1": 135.7204,
+          "2": 191.3088,
+          "3": 232.4594,
+          "4": 244.9485,
+          "5": 248.2648,
+          "6": 249.5862,
+          "7": 294.4368,
+          "8": 328.9451,
+          "9": 369.429,
+          "10": 382.7021
+        },
+        "pairing_signature": [
+          {
+            "reference_mode": 1,
+            "model_mode": 2
+          },
+          {
+            "reference_mode": 2,
+            "model_mode": 3
+          },
+          {
+            "reference_mode": 3,
+            "model_mode": 6
+          },
+          {
+            "reference_mode": 4,
+            "model_mode": 5
+          },
+          {
+            "reference_mode": 5,
+            "model_mode": 4
+          },
+          {
+            "reference_mode": 6,
+            "model_mode": 1
+          },
+          {
+            "reference_mode": 7,
+            "model_mode": 9
+          },
+          {
+            "reference_mode": 8,
+            "model_mode": 7
+          },
+          {
+            "reference_mode": 9,
+            "model_mode": 10
+          },
+          {
+            "reference_mode": 10,
+            "model_mode": 8
+          }
+        ],
+        "modal_metrics": {
+          "mean_mac": 0.44662059654222863,
+          "worst_mac": 0.0018782742699327,
+          "mean_relative_frequency_error": 0.14039252916127984,
+          "max_relative_frequency_error": 0.5800138942827656
+        },
+        "mass_summary": {
+          "total_mass": 3.809806499996813,
+          "imputation_residual_mass": 0.0,
+          "backplane_equivalent_mass": {
+            "enabled": false,
+            "strategy": null,
+            "dependent_node_policy": null,
+            "total_mass_kg": 0.0,
+            "total_assigned_mass_kg": 0.0,
+            "region_name": null,
+            "assignments": [],
+            "warnings": []
+          },
+          "warnings": [
+            "unmapped_mass_detected",
+            "mass_compensation_detected: positive=['Backplane modules'], negative=['H-PSU module', 'MOD module', 'FPGA module', 'PROC module']"
+          ],
+          "budget_imputation_warnings": [
+            "mass_compensation_detected: positive=['MOD module'], negative=['H-PSU module', 'Backplane modules']"
+          ]
+        },
+        "solver_log": {
+          "current_dir": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\030_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+          "cmd_line": "C:\\Program Files\\MSC.Software\\NaPa_SE\\20252\\Nastran\\msc20252\\win64i8\\nastran.exe SFEM_EUE.bdf prog=edu auth=edu bat=no",
+          "jid_records_read": [
+            2817,
+            16
+          ],
+          "degrees_of_freedom": 2742
+        }
+      },
+      "variant": {
+        "run_id": "031_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "run_dir": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\031_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "generated_bdf_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\031_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\SFEM_EUE.bdf",
+        "generated_bdf_sha256": "10DDF27A4E853BF1A9F2CF5DA3916C3EF1EBB8B69F14C3B0A72FCD5BEF96011E",
+        "result_f06_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\031_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\sfem_eue.f06",
+        "result_f06_sha256": "7AC2B174DD97CFB98EABEDAC1CCED880087CE45D18707757ABA219606E360B23",
+        "status": "success",
+        "accepted": false,
+        "reject_reasons": [
+          "outside_frequency_gate"
+        ],
+        "frequencies_model_hz": {
+          "1": 135.7204,
+          "2": 191.3085,
+          "3": 232.4594,
+          "4": 244.9464,
+          "5": 248.2647,
+          "6": 249.5862,
+          "7": 294.4363,
+          "8": 328.9451,
+          "9": 369.429,
+          "10": 382.7021
+        },
+        "pairing_signature": [
+          {
+            "reference_mode": 1,
+            "model_mode": 2
+          },
+          {
+            "reference_mode": 2,
+            "model_mode": 3
+          },
+          {
+            "reference_mode": 3,
+            "model_mode": 6
+          },
+          {
+            "reference_mode": 4,
+            "model_mode": 5
+          },
+          {
+            "reference_mode": 5,
+            "model_mode": 4
+          },
+          {
+            "reference_mode": 6,
+            "model_mode": 1
+          },
+          {
+            "reference_mode": 7,
+            "model_mode": 9
+          },
+          {
+            "reference_mode": 8,
+            "model_mode": 7
+          },
+          {
+            "reference_mode": 9,
+            "model_mode": 10
+          },
+          {
+            "reference_mode": 10,
+            "model_mode": 8
+          }
+        ],
+        "modal_metrics": {
+          "mean_mac": 0.4467712884642667,
+          "worst_mac": 0.001877858634277975,
+          "mean_relative_frequency_error": 0.14039357980234524,
+          "max_relative_frequency_error": 0.5800138942827656
+        },
+        "mass_summary": {
+          "total_mass": 4.0347719999968135,
+          "imputation_residual_mass": 0.22496549999999998,
+          "backplane_equivalent_mass": {
+            "enabled": true,
+            "strategy": "concentrated",
+            "dependent_node_policy": "warn",
+            "total_mass_kg": 0.2249655,
+            "total_assigned_mass_kg": 0.22496550000000004,
+            "region_name": "07_equivalent_backplane_mass",
+            "assignments": [
+              {
+                "element_id": 9700000,
+                "node_id": 204,
+                "node_coordinates": [
+                  0.0,
+                  0.085749998688698,
+                  0.031500000506639
+                ],
+                "region_name": "12_RIG-V1_yp",
+                "group_name": "12_RIG-V1_yp",
+                "raw_weight": 1.0,
+                "normalized_weight": 0.3333333333333333,
+                "assigned_mass_kg": 0.0749885,
+                "source": "target_location",
+                "label": "bp_psu_mod",
+                "target_coordinates": [
+                  0.0,
+                  0.08575,
+                  0.0238
+                ],
+                "resolved_distance": 0.007700000506639112
+              },
+              {
+                "element_id": 9700001,
+                "node_id": 302,
+                "node_coordinates": [
+                  -1.8688961489e-09,
+                  0.085749998688698,
+                  0.061500001698732
+                ],
+                "region_name": "12_RIG-V1_yp",
+                "group_name": "12_RIG-V1_yp",
+                "raw_weight": 1.0,
+                "normalized_weight": 0.3333333333333333,
+                "assigned_mass_kg": 0.0749885,
+                "source": "target_location",
+                "label": "bp_mod_fpga",
+                "target_coordinates": [
+                  0.0,
+                  0.08575,
+                  0.05445
+                ],
+                "resolved_distance": 0.0070500016987323725
+              },
+              {
+                "element_id": 9700002,
+                "node_id": 402,
+                "node_coordinates": [
+                  -1.8688961489e-09,
+                  0.085749998688698,
+                  0.091500001698732
+                ],
+                "region_name": "12_RIG-V1_yp",
+                "group_name": "12_RIG-V1_yp",
+                "raw_weight": 1.0,
+                "normalized_weight": 0.3333333333333333,
+                "assigned_mass_kg": 0.07498850000000003,
+                "source": "target_location",
+                "label": "bp_fpga_proc",
+                "target_coordinates": [
+                  0.0,
+                  0.08575,
+                  0.08445
+                ],
+                "resolved_distance": 0.0070500016987323725
+              }
+            ],
+            "warnings": []
+          },
+          "warnings": [
+            "unmapped_mass_detected"
+          ],
+          "budget_imputation_warnings": [
+            "budget_imputation_residual_detected"
+          ]
+        },
+        "solver_log": {
+          "current_dir": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\031_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+          "cmd_line": "C:\\Program Files\\MSC.Software\\NaPa_SE\\20252\\Nastran\\msc20252\\win64i8\\nastran.exe SFEM_EUE.bdf prog=edu auth=edu bat=no",
+          "jid_records_read": [
+            2828,
+            16
+          ],
+          "degrees_of_freedom": 2742
+        }
+      }
+    },
+    "bdf_and_solver_validation": {
+      "variant_bdf_layout": {
+        "path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\031_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\SFEM_EUE.bdf",
+        "enddata_line_number": 2828,
+        "conm2_lines": [
+          {
+            "line_number": 2825,
+            "line": "CONM2,9700000,204,0,7.4988500000E-02"
+          },
+          {
+            "line_number": 2826,
+            "line": "CONM2,9700001,302,0,7.4988500000E-02"
+          },
+          {
+            "line_number": 2827,
+            "line": "CONM2,9700002,402,0,7.4988500000E-02"
+          }
+        ],
+        "all_conm2_before_enddata": true
+      },
+      "same_bdf_sha256": false,
+      "same_f06_sha256": false,
+      "baseline_jid_records_read": [
+        2817,
+        16
+      ],
+      "variant_jid_records_read": [
+        2828,
+        16
+      ],
+      "records_read_changed": true,
+      "assessment": "The fix is validated at pipeline level: the variant CONM2 cards are now physically located before ENDDATA, MSC Nastran reads more JID records for the variant deck (2817 -> 2828), and the variant .f06 SHA256 is no longer identical to the baseline."
+    },
+    "modal_result_check": {
+      "baseline_frequencies_model_hz": {
+        "1": 135.7204,
+        "2": 191.3088,
+        "3": 232.4594,
+        "4": 244.9485,
+        "5": 248.2648,
+        "6": 249.5862,
+        "7": 294.4368,
+        "8": 328.9451,
+        "9": 369.429,
+        "10": 382.7021
+      },
+      "variant_frequencies_model_hz": {
+        "1": 135.7204,
+        "2": 191.3085,
+        "3": 232.4594,
+        "4": 244.9464,
+        "5": 248.2647,
+        "6": 249.5862,
+        "7": 294.4363,
+        "8": 328.9451,
+        "9": 369.429,
+        "10": 382.7021
+      },
+      "delta_summary": {
+        "frequencies_changed": true,
+        "pairing_signature_changed": false,
+        "mean_mac_delta": 0.00015069192203809312,
+        "worst_mac_delta": -4.1563565472495755e-07,
+        "mean_relative_frequency_error_delta": 1.0506410653976506e-06,
+        "max_relative_frequency_error_delta": 0.0,
+        "baseline_reject_reasons": [
+          "outside_frequency_gate"
+        ],
+        "variant_reject_reasons": [
+          "outside_frequency_gate"
+        ]
+      },
+      "assessment": "After the fix, the modal outputs are no longer byte-identical. The effect is real but small: several frequencies shift slightly, mean MAC changes by a small amount, worst MAC changes slightly, and the pairing signature remains the same. The reject reason still remains outside_frequency_gate for both runs."
+    },
+    "mass_result_check": {
+      "baseline_total_mass": 3.809806499996813,
+      "variant_total_mass": 4.0347719999968135,
+      "baseline_imputation_residual_mass": 0.0,
+      "variant_imputation_residual_mass": 0.22496549999999998,
+      "assessment": "The variant mass is now consistently visible both in the solved BDF and in mass_summary.json. The functional imputation residual remains because equivalent backplane mass is intentionally tracked as an added unmapped residual in the current mass-budget logic."
+    },
+    "result_summary": {
+      "f06_changed": true,
+      "frequencies_changed": true,
+      "pairing_signature_changed": false,
+      "effect_size_assessment": "small_but_real"
+    }
+  },
+  "final_assessment": {
+    "pipeline_status": "fixed_and_validated",
+    "physics_status": "now_ready_for_interpretation",
+    "conclusion": "The major inconsistency was a pipeline bug. Once fixed, the same A/B experiment no longer collapses to identical .f06 output. The remaining effect at the current target locations is small, so the next discussion can move from debugging to physical representativeness."
+  }
+}

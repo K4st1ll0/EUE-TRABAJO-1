@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Run Reports</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f3f6f8;
+        --card: #ffffff;
+        --ink: #12202d;
+        --muted: #5e7285;
+        --line: #dbe4ea;
+        --accent: #0f766e;
+        --shadow: 0 18px 48px rgba(15, 23, 42, 0.08);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        padding: 28px;
+        background: radial-gradient(circle at top left, #dbeef0, transparent 34%), var(--bg);
+        color: var(--ink);
+        font: 15px/1.5 "Aptos", "Trebuchet MS", sans-serif;
+      }
+      .shell {
+        max-width: 1240px;
+        margin: 0 auto;
+        display: grid;
+        gap: 16px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+        padding: 24px;
+      }
+      .grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+      h1, h2 {
+        margin-top: 0;
+        font-family: Georgia, "Times New Roman", serif;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th, td {
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+      }
+      th {
+        color: var(--muted);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      a { color: var(--accent); text-decoration: none; }
+      .mono { font-family: Consolas, "Courier New", monospace; font-size: 13px; }
+      .pill {
+        display: inline-flex;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-weight: 700;
+      }
+      .pill.true { background: #d1fae5; color: #065f46; }
+      .pill.false { background: #fee2e2; color: #991b1b; }
+      .muted { color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="card">
+        <h1>Hist&oacute;rico de Corridas</h1>
+        <p class="muted">Indice actualizado en 2026-04-17T18:34:57.024666+02:00. El JSON trazable vive junto a este HTML como <span class="mono">runs_index.json</span>.</p>
+        <p class="muted">Baseline activo de masa: <span class="mono">NOMINAL</span>. Las corridas ajustadas contra <span class="mono">BASIC</span> se muestran como hist&oacute;ricas.</p>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Mejor Run Aceptada</h2>
+          <p class="muted">Todav&iacute;a no hay corridas aceptadas.</p>
+        </article>
+
+        <article class="card">
+          <h2>Mejor Run Global</h2>
+          <table>
+            <tbody>
+              <tr><td>Run ID</td><td class="mono">007_Al1.601_PCB1.000_ALE0.534_PCBE1.000</td></tr>
+              <tr><td>Preset</td><td>density_opt_aluminum_stage1</td></tr>
+              <tr><td>Accepted</td><td><span class="pill False">False</span></td></tr>
+              <tr><td>Mass target</td><td>NOMINAL</td></tr>
+              <tr><td>Baseline</td><td>active</td></tr>
+              <tr><td>Ranking</td><td>n/a</td></tr>
+              <tr><td>Score robust</td><td>n/a</td></tr>
+              <tr><td>Score legacy</td><td>n/a</td></tr>
+            </tbody>
+          </table>
+        </article>
+      </section>
+
+      <section class="card">
+        <h2>Tabla de Corridas</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Run ID</th>
+              <th>Preset</th>
+              <th>Status</th>
+              <th>Accepted</th>
+              <th>Mass target</th>
+              <th>Baseline</th>
+              <th>Ranking</th>
+              <th>Score robust</th>
+              <th>Score legacy</th>
+              <th>Report</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="mono">041_Al1.601_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>manual</td>
+              <td>success</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>hierarchical</td>
+              <td>0.510429</td>
+              <td>0.782191</td>
+              <td>
+                <a href="../runs/041_Al1.601_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">040_Al1.601_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>manual</td>
+              <td>success</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>hierarchical</td>
+              <td>0.553221</td>
+              <td>0.838215</td>
+              <td>
+                <a href="../runs/040_Al1.601_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">039_Al1.601_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>manual</td>
+              <td>success</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>hierarchical</td>
+              <td>0.188061</td>
+              <td>0.588478</td>
+              <td>
+                <a href="../runs/039_Al1.601_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">038_Al1.601_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>manual</td>
+              <td>success</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>hierarchical</td>
+              <td>0.188061</td>
+              <td>0.588478</td>
+              <td>
+                <a href="../runs/038_Al1.601_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">037_Al1.601_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>manual</td>
+              <td>success</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>hierarchical</td>
+              <td>0.481158</td>
+              <td>0.705386</td>
+              <td>
+                <a href="../runs/037_Al1.601_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">036_Al1.601_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>manual</td>
+              <td>success</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>hierarchical</td>
+              <td>0.188061</td>
+              <td>0.588478</td>
+              <td>
+                <a href="../runs/036_Al1.601_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">035_Al1.601_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>manual</td>
+              <td>success</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>hierarchical</td>
+              <td>0.205267</td>
+              <td>0.581505</td>
+              <td>
+                <a href="../runs/035_Al1.601_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">034_Al1.601_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>manual</td>
+              <td>success</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>hierarchical</td>
+              <td>0.188061</td>
+              <td>0.588478</td>
+              <td>
+                <a href="../runs/034_Al1.601_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">033_Al1.601_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>manual</td>
+              <td>success</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>hierarchical</td>
+              <td>0.188069</td>
+              <td>0.594481</td>
+              <td>
+                <a href="../runs/033_Al1.601_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">032_Al1.601_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>manual</td>
+              <td>success</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>hierarchical</td>
+              <td>0.188061</td>
+              <td>0.588478</td>
+              <td>
+                <a href="../runs/032_Al1.601_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">031_Al1.601_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>manual</td>
+              <td>success</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>hierarchical</td>
+              <td>0.188055</td>
+              <td>0.594232</td>
+              <td>
+                <a href="../runs/031_Al1.601_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">030_Al1.601_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>manual</td>
+              <td>success</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>hierarchical</td>
+              <td>0.188061</td>
+              <td>0.588478</td>
+              <td>
+                <a href="../runs/030_Al1.601_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">029_Al1.601_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>manual</td>
+              <td>success</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>hierarchical</td>
+              <td>0.188061</td>
+              <td>0.594382</td>
+              <td>
+                <a href="../runs/029_Al1.601_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">028_Al1.601_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>manual</td>
+              <td>success</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>hierarchical</td>
+              <td>0.188061</td>
+              <td>0.588478</td>
+              <td>
+                <a href="../runs/028_Al1.601_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">027_Al1.601_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>manual</td>
+              <td>failed</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>
+                <a href="../runs/027_Al1.601_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">026_Al1.601_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>manual</td>
+              <td>failed</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>
+                <a href="../runs/026_Al1.601_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">025_Al1.601_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>manual</td>
+              <td>success</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>hierarchical</td>
+              <td>0.188061</td>
+              <td>0.588478</td>
+              <td>
+                <a href="../runs/025_Al1.601_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">024_Al1.601_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>manual</td>
+              <td>success</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>hierarchical</td>
+              <td>0.188061</td>
+              <td>0.588478</td>
+              <td>
+                <a href="../runs/024_Al1.601_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">023_Al1.601_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>manual</td>
+              <td>success</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>hierarchical</td>
+              <td>0.188061</td>
+              <td>0.588478</td>
+              <td>
+                <a href="../runs/023_Al1.601_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">022_Al1.601_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>manual</td>
+              <td>success</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>hierarchical</td>
+              <td>0.188061</td>
+              <td>0.588478</td>
+              <td>
+                <a href="../runs/022_Al1.601_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">021_Al1.601_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>manual</td>
+              <td>success</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>hierarchical</td>
+              <td>0.188061</td>
+              <td>0.588478</td>
+              <td>
+                <a href="../runs/021_Al1.601_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">020_Al1.601_PCB1.020_ALE0.534_PCBE1.000</td>
+              <td>density_opt_pcb_stage2</td>
+              <td>dry_run</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>
+                <a href="../runs/020_Al1.601_PCB1.020_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">019_Al1.601_PCB1.010_ALE0.534_PCBE1.000</td>
+              <td>density_opt_pcb_stage2</td>
+              <td>dry_run</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>
+                <a href="../runs/019_Al1.601_PCB1.010_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">018_Al1.601_PCB1.005_ALE0.534_PCBE1.000</td>
+              <td>density_opt_pcb_stage2</td>
+              <td>dry_run</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>
+                <a href="../runs/018_Al1.601_PCB1.005_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">017_Al1.601_PCB1.001_ALE0.534_PCBE1.000</td>
+              <td>density_opt_pcb_stage2</td>
+              <td>dry_run</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>
+                <a href="../runs/017_Al1.601_PCB1.001_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">016_Al1.601_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>density_opt_pcb_stage2</td>
+              <td>dry_run</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>
+                <a href="../runs/016_Al1.601_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">015_Al1.601_PCB0.999_ALE0.534_PCBE1.000</td>
+              <td>density_opt_pcb_stage2</td>
+              <td>dry_run</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>
+                <a href="../runs/015_Al1.601_PCB0.999_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">014_Al1.601_PCB0.995_ALE0.534_PCBE1.000</td>
+              <td>density_opt_pcb_stage2</td>
+              <td>dry_run</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>
+                <a href="../runs/014_Al1.601_PCB0.995_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">013_Al1.601_PCB0.990_ALE0.534_PCBE1.000</td>
+              <td>density_opt_pcb_stage2</td>
+              <td>dry_run</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>
+                <a href="../runs/013_Al1.601_PCB0.990_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">012_Al1.601_PCB0.980_ALE0.534_PCBE1.000</td>
+              <td>density_opt_pcb_stage2</td>
+              <td>dry_run</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>
+                <a href="../runs/012_Al1.601_PCB0.980_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">011_Al1.620_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>density_opt_aluminum_stage1</td>
+              <td>dry_run</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>
+                <a href="../runs/011_Al1.620_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">010_Al1.610_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>density_opt_aluminum_stage1</td>
+              <td>dry_run</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>
+                <a href="../runs/010_Al1.610_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">009_Al1.605_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>density_opt_aluminum_stage1</td>
+              <td>dry_run</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>
+                <a href="../runs/009_Al1.605_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">008_Al1.602_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>density_opt_aluminum_stage1</td>
+              <td>dry_run</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>
+                <a href="../runs/008_Al1.602_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">007_Al1.601_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>density_opt_aluminum_stage1</td>
+              <td>dry_run</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>
+                <a href="../runs/007_Al1.601_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">006_Al1.600_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>density_opt_aluminum_stage1</td>
+              <td>dry_run</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>
+                <a href="../runs/006_Al1.600_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">005_Al1.590_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>density_opt_aluminum_stage1</td>
+              <td>dry_run</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>
+                <a href="../runs/005_Al1.590_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">004_Al1.580_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>density_opt_aluminum_stage1</td>
+              <td>dry_run</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>
+                <a href="../runs/004_Al1.580_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">003_Al1.550_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>density_opt_aluminum_stage1</td>
+              <td>dry_run</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>
+                <a href="../runs/003_Al1.550_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">002_Al1.500_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>density_opt_aluminum_stage1</td>
+              <td>dry_run</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>
+                <a href="../runs/002_Al1.500_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="mono">001_Al1.450_PCB1.000_ALE0.534_PCBE1.000</td>
+              <td>density_opt_aluminum_stage1</td>
+              <td>dry_run</td>
+              <td><span class="pill False">False</span></td>
+              <td>NOMINAL</td>
+              <td>active</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>n/a</td>
+              <td>
+                <a href="../runs/001_Al1.450_PCB1.000_ALE0.534_PCBE1.000/report.html">Abrir</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,1521 @@
+{
+  "generated_at": "2026-04-17T20:05:00+02:00",
+  "ia_context": {
+    "source_path": "C:/Users/Pablo Castillo/Desktop/MUSE/SEGUNDO CUATRIMESTRE/ESTRUCTURAS/EUE-TRABAJO-1/Trabajo_EUE_25-26/06_Codigo/reports/IA.json",
+    "latest_valid_backplane_ab": {
+      "baseline_run_id": "030_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+      "variant_run_id": "031_Al1.601_PCB1.000_ALE0.534_PCBE1.000"
+    },
+    "current_focus": "No accepted modal run exists yet; the project focus remains modal-fit convergence with functional mass already traceable.",
+    "traceability_note": "This file assumes the ENDDATA pipeline bug is closed and uses the valid post-fix A/B as the physical baseline for the next experiments."
+  },
+  "geometry_observations": [
+    {
+      "observation": "The post-fix A/B proved that equivalent backplane mass now enters the solver, but the modal effect is small.",
+      "evidence": "Runs 030/031 produced different BDF and F06 artifacts, with small but real frequency and MAC changes."
+    },
+    {
+      "observation": "The current target_locations resolved to nodes 204, 302 and 402 on the outer line 12_RIG-V1_yp.",
+      "evidence": "Those nodes belong to the rigid/interface-side line and are linked through PBUSH 20 contact springs."
+    },
+    {
+      "observation": "A better board-side physical path already exists in the model: nodes 1000-2000, 2000-3000 and 3000-4000.",
+      "evidence": "Their z-midpoints match the three target backplane elevations almost exactly, while the only offset is about +4 mm in y."
+    }
+  ],
+  "candidate_node_sets": [
+    {
+      "id": "board_edge_contact_centers",
+      "support_nodes": [
+        {
+          "node_id": 1000,
+          "label": "psu_board_edge_center",
+          "coordinates": [
+            0.0,
+            0.081749998,
+            0.00815
+          ],
+          "regions": [
+            "09_A_t-boards-PSU",
+            "21_CBUSH_CONTACT"
+          ]
+        },
+        {
+          "node_id": 2000,
+          "label": "mod_board_edge_center",
+          "coordinates": [
+            0.0,
+            0.081749998,
+            0.03945
+          ],
+          "regions": [
+            "09_B_t-boards-MOD",
+            "21_CBUSH_CONTACT"
+          ]
+        },
+        {
+          "node_id": 3000,
+          "label": "fpga_board_edge_center",
+          "coordinates": [
+            0.0,
+            0.081749998,
+            0.06945
+          ],
+          "regions": [
+            "09_D_t-boards-FPGA",
+            "21_CBUSH_CONTACT"
+          ]
+        },
+        {
+          "node_id": 4000,
+          "label": "proc_board_edge_center",
+          "coordinates": [
+            0.0,
+            0.081749998,
+            0.09945
+          ],
+          "regions": [
+            "09_C_t-boards-PROC",
+            "21_CBUSH_CONTACT"
+          ]
+        }
+      ],
+      "mass_split_weights": [
+        0.5,
+        1.0,
+        1.0,
+        0.5
+      ],
+      "interface_mapping": [
+        {
+          "interface": "psu_mod",
+          "nodes": [
+            1000,
+            2000
+          ]
+        },
+        {
+          "interface": "mod_fpga",
+          "nodes": [
+            2000,
+            3000
+          ]
+        },
+        {
+          "interface": "fpga_proc",
+          "nodes": [
+            3000,
+            4000
+          ]
+        }
+      ],
+      "expected_modal_sensitivity": "medium",
+      "rationale": "Best fidelity-first mass-only experiment. These nodes sit on the board-side contact line rather than on the rigid V1 bar line, and the current target_locations are almost exact z-midpoints of these board-edge pairs.",
+      "pros": [
+        "Physically closest to the intended inter-module landing path without adding new stiffness assumptions.",
+        "Small, clean YAML-only change; no code changes required.",
+        "Keeps the experiment interpretable because only the support-node choice changes."
+      ],
+      "cons": [
+        "Still attached through PBUSH 20 contact links, so sensitivity may remain partially muted.",
+        "Central nodes 2000 and 3000 carry mass from two adjacent interfaces, which is simple but slightly idealized."
+      ]
+    },
+    {
+      "id": "board_inner_centers",
+      "support_nodes": [
+        {
+          "node_id": 1003,
+          "label": "psu_board_inner_center",
+          "coordinates": [
+            0.0,
+            0.041625999,
+            0.00815
+          ],
+          "regions": [
+            "09_A_t-boards-PSU"
+          ]
+        },
+        {
+          "node_id": 2003,
+          "label": "mod_board_inner_center",
+          "coordinates": [
+            0.0,
+            0.041625999,
+            0.03945
+          ],
+          "regions": [
+            "09_B_t-boards-MOD"
+          ]
+        },
+        {
+          "node_id": 3003,
+          "label": "fpga_board_inner_center",
+          "coordinates": [
+            0.0,
+            0.041625999,
+            0.06945
+          ],
+          "regions": [
+            "09_D_t-boards-FPGA"
+          ]
+        },
+        {
+          "node_id": 4003,
+          "label": "proc_board_inner_center",
+          "coordinates": [
+            0.0,
+            0.041625999,
+            0.09945
+          ],
+          "regions": [
+            "09_C_t-boards-PROC"
+          ]
+        }
+      ],
+      "mass_split_weights": [
+        0.5,
+        1.0,
+        1.0,
+        0.5
+      ],
+      "interface_mapping": [
+        {
+          "interface": "psu_mod",
+          "nodes": [
+            1003,
+            2003
+          ]
+        },
+        {
+          "interface": "mod_fpga",
+          "nodes": [
+            2003,
+            3003
+          ]
+        },
+        {
+          "interface": "fpga_proc",
+          "nodes": [
+            3003,
+            4003
+          ]
+        }
+      ],
+      "expected_modal_sensitivity": "high",
+      "rationale": "Sensitivity upper-bound for a pure mass-only model. These nodes are on deformable board regions and have no PBUSH 20 contact attachment, so added inertia should couple more strongly into local/module modes.",
+      "pros": [
+        "Maximizes the chance of seeing a modal response from pure equivalent mass alone.",
+        "Cleanly isolates whether mass-only can matter if placed on flexible board nodes."
+      ],
+      "cons": [
+        "Less faithful geometrically to a real backplane path because the nodes sit deeper inside each board.",
+        "If this set moves the modes a lot, it may represent an upper bound rather than the best physical model."
+      ]
+    },
+    {
+      "id": "symmetric_interface_pairs",
+      "support_nodes": [
+        {
+          "node_id": 203,
+          "label": "psu_mod_pair_pos_x",
+          "coordinates": [
+            0.026687497,
+            0.085749999,
+            0.031500001
+          ],
+          "regions": [
+            "01_t-wall-delgadas",
+            "06_t-rig-base",
+            "07_t-bandejas",
+            "14_RIG-H3_yp",
+            "21_CBUSH_CONTACT"
+          ]
+        },
+        {
+          "node_id": 210,
+          "label": "psu_mod_pair_neg_x",
+          "coordinates": [
+            -0.026687497,
+            0.085749999,
+            0.031500001
+          ],
+          "regions": [
+            "01_t-wall-delgadas",
+            "06_t-rig-base",
+            "07_t-bandejas",
+            "14_RIG-H3_yp",
+            "21_CBUSH_CONTACT"
+          ]
+        },
+        {
+          "node_id": 301,
+          "label": "mod_fpga_pair_pos_x",
+          "coordinates": [
+            0.026687497,
+            0.085749999,
+            0.061500002
+          ],
+          "regions": [
+            "01_t-wall-delgadas",
+            "07_t-bandejas_FPGA",
+            "14_RIG-H3_yp",
+            "21_CBUSH_CONTACT"
+          ]
+        },
+        {
+          "node_id": 308,
+          "label": "mod_fpga_pair_neg_x",
+          "coordinates": [
+            -0.026687497,
+            0.085749999,
+            0.061500002
+          ],
+          "regions": [
+            "01_t-wall-delgadas",
+            "07_t-bandejas_FPGA",
+            "14_RIG-H3_yp",
+            "21_CBUSH_CONTACT"
+          ]
+        },
+        {
+          "node_id": 401,
+          "label": "fpga_proc_pair_pos_x",
+          "coordinates": [
+            0.026687497,
+            0.085749999,
+            0.091500002
+          ],
+          "regions": [
+            "01_t-wall-delgadas",
+            "07_t-bandejas",
+            "14_RIG-H3_yp",
+            "21_CBUSH_CONTACT"
+          ]
+        },
+        {
+          "node_id": 408,
+          "label": "fpga_proc_pair_neg_x",
+          "coordinates": [
+            -0.026687497,
+            0.085749999,
+            0.091500002
+          ],
+          "regions": [
+            "01_t-wall-delgadas",
+            "07_t-bandejas",
+            "14_RIG-H3_yp",
+            "21_CBUSH_CONTACT"
+          ]
+        }
+      ],
+      "mass_split_weights": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interface_mapping": [
+        {
+          "interface": "psu_mod",
+          "nodes": [
+            203,
+            210
+          ]
+        },
+        {
+          "interface": "mod_fpga",
+          "nodes": [
+            301,
+            308
+          ]
+        },
+        {
+          "interface": "fpga_proc",
+          "nodes": [
+            401,
+            408
+          ]
+        }
+      ],
+      "expected_modal_sensitivity": "high",
+      "rationale": "Good compromise if the goal is to amplify modal leverage without jumping fully to board-interior nodes. The off-axis pairs spread inertia laterally and can excite torsional/asymmetric content more than a single centerline node per interface.",
+      "pros": [
+        "Still near the nominal backplane elevation and y-location.",
+        "Likely more sensitive than a single centerline point because each interface gets a plus/minus x pair."
+      ],
+      "cons": [
+        "Still linked through PBUSH 20 contact points.",
+        "Includes thin-wall/tray participation, so the meaning is less clean than a pure board-side experiment."
+      ]
+    },
+    {
+      "id": "tray_centerline",
+      "support_nodes": [
+        {
+          "node_id": 228,
+          "label": "psu_mod_tray_center",
+          "coordinates": [
+            0.0,
+            0.041625999,
+            0.0315
+          ],
+          "regions": [
+            "07_t-bandejas",
+            "16_RIG-H5"
+          ]
+        },
+        {
+          "node_id": 328,
+          "label": "mod_fpga_tray_center",
+          "coordinates": [
+            0.0,
+            0.041625999,
+            0.0615
+          ],
+          "regions": [
+            "07_t-bandejas_FPGA",
+            "16_RIG-H5"
+          ]
+        },
+        {
+          "node_id": 428,
+          "label": "fpga_proc_tray_center",
+          "coordinates": [
+            0.0,
+            0.041625999,
+            0.0915
+          ],
+          "regions": [
+            "07_t-bandejas",
+            "16_RIG-H5"
+          ]
+        }
+      ],
+      "mass_split_weights": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interface_mapping": [
+        {
+          "interface": "psu_mod",
+          "nodes": [
+            228
+          ]
+        },
+        {
+          "interface": "mod_fpga",
+          "nodes": [
+            328
+          ]
+        },
+        {
+          "interface": "fpga_proc",
+          "nodes": [
+            428
+          ]
+        }
+      ],
+      "expected_modal_sensitivity": "medium_high",
+      "rationale": "Simple shelf/tray-dominated alternative. These nodes avoid the rigid V1 line and have no PBUSH 20 contact links, so they provide a clean test of whether the tray/support path is what really governs the backplane effect.",
+      "pros": [
+        "Very small and interpretable 3-node experiment.",
+        "No repeated nodes and no PBUSH 20 attachment."
+      ],
+      "cons": [
+        "May represent tray mass more than a true connector/backplane path.",
+        "Less direct than the board-edge contact-line candidates."
+      ]
+    }
+  ],
+  "rationale": {
+    "what_experiment_first_and_why": {
+      "recommended_first_experiment": "board_edge_contact_centers",
+      "why": "It is the best fidelity-first step. It moves the equivalent mass off the overly rigid 12_RIG-V1_yp line and onto explicit board-side contact nodes, while keeping the experiment mass-only, reversible and easy to interpret. It is the smallest physical change that directly targets the accepted weakness of runs 030/031."
+    },
+    "mass_only_vs_mass_plus_stiffness": {
+      "mass_only_pros": [
+        "Best for isolating inertia effects with minimal modeling assumptions.",
+        "Very easy to compare against the existing 030/031 experiment.",
+        "Keeps interpretation clean because the only variable is where the equivalent mass lands."
+      ],
+      "mass_only_cons": [
+        "Real backplanes are not just mass; they also provide some structural path between adjacent modules.",
+        "If the chosen nodes are still too stiff, a pure CONM2 model may underpredict the real modal effect."
+      ],
+      "mass_plus_rigidity_pros": [
+        "Adds the missing physical mechanism: coupling/load path between modules.",
+        "More likely to affect interface-sensitive modes if backplanes in reality do carry some stiffness."
+      ],
+      "mass_plus_rigidity_cons": [
+        "Introduces uncertain stiffness parameters, so interpretation is less clean unless the stiffness is swept in a structured way.",
+        "Needs a small code extension and additional reporting metadata."
+      ]
+    },
+    "key_geometric_link": {
+      "statement": "The current target_locations align almost exactly with the z-midpoints of board-edge center pairs (1000-2000), (2000-3000) and (3000-4000).",
+      "numerical_detail": [
+        {
+          "segment": "psu_mod",
+          "target_minus_pair_midpoint": [
+            0.0,
+            0.004000002,
+            -1e-09
+          ]
+        },
+        {
+          "segment": "mod_fpga",
+          "target_minus_pair_midpoint": [
+            0.0,
+            0.004000002,
+            0.0
+          ]
+        },
+        {
+          "segment": "fpga_proc",
+          "target_minus_pair_midpoint": [
+            0.0,
+            0.004000002,
+            0.0
+          ]
+        }
+      ]
+    }
+  },
+  "expected_modal_sensitivity": [
+    {
+      "rank": 1,
+      "candidate_id": "board_inner_centers",
+      "assessment": "Highest expected sensitivity for pure mass-only because the nodes are on deformable board regions without PBUSH 20 attachment."
+    },
+    {
+      "rank": 2,
+      "candidate_id": "symmetric_interface_pairs",
+      "assessment": "High expected sensitivity because the mass is spread laterally and can influence torsional/asymmetric content."
+    },
+    {
+      "rank": 3,
+      "candidate_id": "tray_centerline",
+      "assessment": "Medium-high sensitivity with a clean tray/shelf interpretation and no PBUSH 20 attachment."
+    },
+    {
+      "rank": 4,
+      "candidate_id": "board_edge_contact_centers",
+      "assessment": "Moderate sensitivity, but best physical fidelity among mass-only options."
+    }
+  ],
+  "recommended_experiment_order": [
+    {
+      "step": 1,
+      "candidate_id": "board_edge_contact_centers",
+      "objective": "Best-fidelity mass-only rerun that directly addresses the rigid-line issue from 030/031.",
+      "decision_value": "If this already produces a larger effect than 031, the problem was mainly node choice rather than missing stiffness.",
+      "status": "completed",
+      "result": "small_but_real_and_stronger_than_030_031"
+    },
+    {
+      "step": 2,
+      "candidate_id": "board_inner_centers",
+      "objective": "Sensitivity upper bound for pure mass-only.",
+      "decision_value": "If even this barely changes the modes, mass-only is probably too weak a representation for the backplane effect.",
+      "status": "completed",
+      "result": "high_sensitivity_but_not_useful_for_correlation"
+    },
+    {
+      "step": 3,
+      "candidate_id": "symmetric_interface_pairs",
+      "objective": "Probe whether lateral spread and torsional leverage matter.",
+      "decision_value": "If this moves the modes more than the centerline sets, the effect is likely sensitive to inertia distribution, not just total added mass.",
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "candidate_id": "tray_centerline",
+      "objective": "Alternative shelf/tray interpretation with a very small node set.",
+      "decision_value": "Useful as a clean fallback comparison if board-based sets are noisy or too aggressive.",
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "candidate_id": "midpoint_bridge_mass_plus_stiffness",
+      "objective": "Move from inertia-only to a minimal local equivalent that also carries a structural path.",
+      "decision_value": "Only do this after the mass-only node sweep, so any added effect can be attributed to stiffness/load-path rather than to a better node choice alone.",
+      "status": "completed",
+      "result": "all_tested_stiffness_levels_created_three_near_zero_bridge_local_modes"
+    },
+    {
+      "step": 6,
+      "candidate_id": "midpoint_bridge_mass_plus_stiffness_stabilized",
+      "objective": "Keep the same midpoint bridge geometry and mass, but remove the artificial bridge-local modes before another stiffness sweep.",
+      "decision_value": "If the stabilized bridge still improves nothing, the backplane equivalent path is probably not the dominant missing physics in the current modal mismatch.",
+      "status": "next_recommended"
+    }
+  ],
+  "experiment_history": [
+    {
+      "candidate_set": "board_edge_contact_centers",
+      "baseline_run_id": "032_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+      "variant_run_id": "033_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+      "effect_summary": {
+        "mean_abs_frequency_shift_hz": 0.00097,
+        "max_abs_frequency_shift_hz": 0.0071,
+        "pairing_signature_changed": false,
+        "mean_mac_delta": -9.769851073437863e-05,
+        "worst_mac_delta": 4.2669023604126853e-07,
+        "mean_relative_frequency_error_delta": 2.9392662329319474e-06
+      },
+      "decision": "Localization matters, but correlation does not improve; continue one last mass-only test on a more deformable node set."
+    },
+    {
+      "candidate_set": "board_inner_centers",
+      "baseline_run_id": "034_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+      "variant_run_id": "035_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+      "effect_summary": {
+        "mean_abs_frequency_shift_hz": 6.01313,
+        "max_abs_frequency_shift_hz": 15.2097,
+        "pairing_signature_changed": true,
+        "mean_mac_delta": 0.01739596419195144,
+        "worst_mac_delta": 0.00041793349665776667,
+        "mean_relative_frequency_error_delta": 0.01807517961169333
+      },
+      "decision": "Mass-only has enough leverage to move the modes, but the response is not useful for correlation; escalate to mass plus stiffness."
+    },
+    {
+      "candidate_set": "midpoint_bridge_mass_plus_stiffness_low",
+      "baseline_run_id": "036_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+      "variant_run_id": "037_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+      "effect_summary": {
+        "mean_abs_frequency_shift_hz": 112.57123,
+        "max_abs_frequency_shift_hz": 232.4594,
+        "pairing_signature_changed": true,
+        "mean_mac_delta": -0.038206594439186725,
+        "worst_mac_delta": 0.0007551806262409938,
+        "mean_relative_frequency_error_delta": 0.29118631411198015,
+        "first_three_local_mode_frequencies_hz": [
+          1.029435e-06,
+          2.962666e-06,
+          2.974307e-06
+        ]
+      },
+      "decision": "Bridge topology runs, but low stiffness creates three near-zero local modes and is not suitable for modal correlation."
+    },
+    {
+      "candidate_set": "midpoint_bridge_mass_plus_stiffness_medium",
+      "baseline_run_id": "039_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+      "variant_run_id": "041_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+      "effect_summary": {
+        "mean_abs_frequency_shift_hz": 108.10759,
+        "max_abs_frequency_shift_hz": 232.45939,
+        "pairing_signature_changed": true,
+        "mean_mac_delta": -0.11870047493410513,
+        "worst_mac_delta": 3.5319809816442005e-08,
+        "mean_relative_frequency_error_delta": 0.2764328808459662,
+        "first_three_local_mode_frequencies_hz": [
+          6.040847e-06,
+          6.048469e-06,
+          6.063685e-06
+        ]
+      },
+      "decision": "Medium stiffness behaves similarly: same parasitic local modes, poor correlation, no acceptable variant yet."
+    },
+    {
+      "candidate_set": "midpoint_bridge_mass_plus_stiffness_high",
+      "baseline_run_id": "038_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+      "variant_run_id": "040_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+      "effect_summary": {
+        "mean_abs_frequency_shift_hz": 108.10521,
+        "max_abs_frequency_shift_hz": 232.45935,
+        "pairing_signature_changed": true,
+        "mean_mac_delta": -0.17472703041899246,
+        "worst_mac_delta": -0.0008869906411302954,
+        "mean_relative_frequency_error_delta": 0.2764235839759043,
+        "first_three_local_mode_frequencies_hz": [
+          4.340859e-05,
+          4.340859e-05,
+          5.132566e-05
+        ]
+      },
+      "decision": "High stiffness is the least intrusive on the retained global branch, but still invalidates the top-10 modal set with three artificial near-zero modes."
+    }
+  ],
+  "line_b_mass_plus_rigidity_design": {
+    "recommended_variant": "midpoint_bridge_mass_plus_stiffness",
+    "concept": "For each backplane segment, create one dummy midpoint GRID at the nominal target_location, place one CONM2 with one-third of the total backplane mass there, and connect that midpoint to the adjacent module-side board-edge nodes with two CBUSH elements using a dedicated PBUSH property.",
+    "segments": [
+      {
+        "label": "psu_mod",
+        "midpoint_coordinates": [
+          0.0,
+          0.08575,
+          0.0238
+        ],
+        "endpoint_nodes": [
+          1000,
+          2000
+        ],
+        "segment_mass_kg": 0.0749885
+      },
+      {
+        "label": "mod_fpga",
+        "midpoint_coordinates": [
+          0.0,
+          0.08575,
+          0.05445
+        ],
+        "endpoint_nodes": [
+          2000,
+          3000
+        ],
+        "segment_mass_kg": 0.0749885
+      },
+      {
+        "label": "fpga_proc",
+        "midpoint_coordinates": [
+          0.0,
+          0.08575,
+          0.08445
+        ],
+        "endpoint_nodes": [
+          3000,
+          4000
+        ],
+        "segment_mass_kg": 0.0749885
+      }
+    ],
+    "stiffness_sweep_recommendation": [
+      {
+        "label": "low",
+        "pbush_translational_k": [
+          100000.0,
+          100000.0,
+          100000.0
+        ],
+        "why": "Puts the local connector flexibility inside the modal band of interest and gives a conservative lower-bound coupling."
+      },
+      {
+        "label": "medium",
+        "pbush_translational_k": [
+          1000000.0,
+          1000000.0,
+          1000000.0
+        ],
+        "why": "Still much softer than the existing PBUSH 20 contact links, but stiff enough to create a meaningful inter-module path."
+      },
+      {
+        "label": "high",
+        "pbush_translational_k": [
+          10000000.0,
+          10000000.0,
+          10000000.0
+        ],
+        "why": "Upper bracket before approaching the very stiff contact regime already present elsewhere in the model."
+      }
+    ],
+    "why_this_is_minimal_and_defensible": [
+      "It keeps the current mass target unchanged and uses the already accepted target_locations as the geometric anchor.",
+      "It introduces only three dummy nodes, three CONM2 cards and six CBUSH cards plus one new PBUSH property.",
+      "It avoids touching global densities, Young's moduli, plate thicknesses, mesh or boundary conditions."
+    ],
+    "fallback_variant": {
+      "label": "direct_board_bridge_cbush",
+      "concept": "Skip midpoint dummy nodes and connect board-edge node pairs directly with CBUSH, while keeping the equivalent mass split over nodes 1000, 2000, 3000 and 4000.",
+      "tradeoff": "Less code and fewer cards, but less geometrically explicit and less clean because mass and coupling are collocated on the host structural nodes."
+    },
+    "observed_issue_after_first_sweep": {
+      "statement": "All three tested translational-only midpoint-bridge variants introduce three near-zero local modes before the original structural branch.",
+      "evidence": {
+        "low_first_three_modes_hz": [
+          1.029435e-06,
+          2.962666e-06,
+          2.974307e-06
+        ],
+        "medium_first_three_modes_hz": [
+          6.040847e-06,
+          6.048469e-06,
+          6.063685e-06
+        ],
+        "high_first_three_modes_hz": [
+          4.340859e-05,
+          4.340859e-05,
+          5.132566e-05
+        ]
+      },
+      "technical_interpretation": "The midpoint dummy GRID nodes create a bridge-local mechanism in the current translational-only coupling definition. Stiffness magnitude changes the retained global branch only slightly; the dominant problem is the extra local mode family entering the first 10 modes."
+    }
+  },
+  "minimal_code_changes_needed": {
+    "line_a": [
+      "No code changes required. Reuse the current backplane_equivalent_mass config and replace target_locations with explicit support_nodes plus mass_split_weights."
+    ],
+    "line_b": [
+      "Add a new backplane equivalent strategy such as midpoint_bridge or local_bridge in config validation.",
+      "Extend bdf_editor insertion to generate GRID, CONM2, PBUSH and CBUSH cards for each interface segment before ENDDATA.",
+      "Record the inserted endpoint nodes, midpoint coordinates, stiffness values and generated card IDs in run_manifest.json, mass_summary.json and report.html.",
+      "Add regression tests for insertion order, exact mass conservation and traceability of the new local bridge cards."
+    ],
+    "line_b_follow_up": [
+      "Keep the midpoint-bridge strategy but regularize the dummy-node DOFs so it does not inject three artificial near-zero modes into the first 10 model modes.",
+      "Options to test: add explicit rotational regularization for the bridge node, or replace the current midpoint GRID coupling with a topology that does not leave a parasitic local mechanism.",
+      "Do not retune global materials before this local bridge topology is stabilized."
+    ]
+  },
+  "executed_experiment": {
+    "status": "completed",
+    "type": "mass_plus_stiffness",
+    "strategy": "midpoint-bridge",
+    "campaign": "stiffness_sweep",
+    "mass_fixed_kg": 0.2249655,
+    "bridge_geometry": {
+      "target_locations": [
+        {
+          "label": "bp_psu_mod",
+          "coordinates": [
+            0.0,
+            0.08575,
+            0.0238
+          ],
+          "endpoint_node_ids": [
+            1000,
+            2000
+          ]
+        },
+        {
+          "label": "bp_mod_fpga",
+          "coordinates": [
+            0.0,
+            0.08575,
+            0.05445
+          ],
+          "endpoint_node_ids": [
+            2000,
+            3000
+          ]
+        },
+        {
+          "label": "bp_fpga_proc",
+          "coordinates": [
+            0.0,
+            0.08575,
+            0.08445
+          ],
+          "endpoint_node_ids": [
+            3000,
+            4000
+          ]
+        }
+      ]
+    },
+    "variants": [
+      {
+        "label": "low",
+        "config_dir": "C:/Users/Pablo Castillo/Desktop/MUSE/SEGUNDO CUATRIMESTRE/ESTRUCTURAS/EUE-TRABAJO-1/Trabajo_EUE_25-26/06_Codigo/configs_backplane_bridge_low_20260417",
+        "baseline_run_id": "036_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "variant_run_id": "037_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "comparison_artifact": "C:/Users/Pablo Castillo/Desktop/MUSE/SEGUNDO CUATRIMESTRE/ESTRUCTURAS/EUE-TRABAJO-1/Trabajo_EUE_25-26/06_Codigo/reports/backplane_equivalent_mass_compare_036_Al1.601_PCB1.000_ALE0.534_PCBE1.000__037_Al1.601_PCB1.000_ALE0.534_PCBE1.000.json",
+        "translational_stiffness_n_per_m": [
+          100000.0,
+          100000.0,
+          100000.0
+        ]
+      },
+      {
+        "label": "medium",
+        "config_dir": "C:/Users/Pablo Castillo/Desktop/MUSE/SEGUNDO CUATRIMESTRE/ESTRUCTURAS/EUE-TRABAJO-1/Trabajo_EUE_25-26/06_Codigo/configs_backplane_bridge_medium_20260417",
+        "baseline_run_id": "039_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "variant_run_id": "041_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "comparison_artifact": "C:/Users/Pablo Castillo/Desktop/MUSE/SEGUNDO CUATRIMESTRE/ESTRUCTURAS/EUE-TRABAJO-1/Trabajo_EUE_25-26/06_Codigo/reports/backplane_equivalent_mass_compare_039_Al1.601_PCB1.000_ALE0.534_PCBE1.000__041_Al1.601_PCB1.000_ALE0.534_PCBE1.000.json",
+        "translational_stiffness_n_per_m": [
+          1000000.0,
+          1000000.0,
+          1000000.0
+        ]
+      },
+      {
+        "label": "high",
+        "config_dir": "C:/Users/Pablo Castillo/Desktop/MUSE/SEGUNDO CUATRIMESTRE/ESTRUCTURAS/EUE-TRABAJO-1/Trabajo_EUE_25-26/06_Codigo/configs_backplane_bridge_high_20260417",
+        "baseline_run_id": "038_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "variant_run_id": "040_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "comparison_artifact": "C:/Users/Pablo Castillo/Desktop/MUSE/SEGUNDO CUATRIMESTRE/ESTRUCTURAS/EUE-TRABAJO-1/Trabajo_EUE_25-26/06_Codigo/reports/backplane_equivalent_mass_compare_038_Al1.601_PCB1.000_ALE0.534_PCBE1.000__040_Al1.601_PCB1.000_ALE0.534_PCBE1.000.json",
+        "translational_stiffness_n_per_m": [
+          10000000.0,
+          10000000.0,
+          10000000.0
+        ]
+      }
+    ]
+  },
+  "executed_experiment_result": {
+    "campaign_assessment": "all_variants_produced_bridge_local_modes_before_the_original_global_branch",
+    "bridge_local_modes_detected": true,
+    "detected_local_mode_count": 3,
+    "local_mode_frequency_band_hz": {
+      "low": [
+        1.029435e-06,
+        2.962666e-06,
+        2.974307e-06
+      ],
+      "medium": [
+        6.040847e-06,
+        6.048469e-06,
+        6.063685e-06
+      ],
+      "high": [
+        4.340859e-05,
+        4.340859e-05,
+        5.132566e-05
+      ]
+    },
+    "variant_results": [
+      {
+        "path": "C:/Users/Pablo Castillo/Desktop/MUSE/SEGUNDO CUATRIMESTRE/ESTRUCTURAS/EUE-TRABAJO-1/Trabajo_EUE_25-26/06_Codigo/reports/backplane_equivalent_mass_compare_036_Al1.601_PCB1.000_ALE0.534_PCBE1.000__037_Al1.601_PCB1.000_ALE0.534_PCBE1.000.json",
+        "baseline_run_id": "036_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "variant_run_id": "037_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "stiffness": [
+          100000.0,
+          100000.0,
+          100000.0
+        ],
+        "pairing_changed": true,
+        "pairing_signature_variant": [
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            3,
+            10
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            5,
+            8
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            8,
+            3
+          ],
+          [
+            9,
+            4
+          ],
+          [
+            10,
+            6
+          ]
+        ],
+        "delta_by_mode_hz": {
+          "1": -135.7204,
+          "2": -191.3088,
+          "3": -232.4594,
+          "4": -109.2281,
+          "5": -56.9579,
+          "6": -17.1268,
+          "7": -49.5149,
+          "8": -80.6874,
+          "9": -119.8463,
+          "10": -132.8623
+        },
+        "mean_abs_delta_hz": 112.57123,
+        "max_abs_delta_hz": 232.4594,
+        "mean_mac": 0.4084140021030419,
+        "mean_mac_delta": -0.038206594439186725,
+        "worst_mac": 0.0026334548961736938,
+        "worst_mac_delta": 0.0007551806262409938,
+        "mean_relative_frequency_error": 0.43157884327325996,
+        "mean_relative_frequency_error_delta": 0.29118631411198015,
+        "max_relative_frequency_error": 0.9999999968144185,
+        "max_relative_frequency_error_delta": 0.4199861025316529,
+        "reject_reasons": [
+          "outside_frequency_gate"
+        ],
+        "variant_frequencies_model_hz": {
+          "1": 1.029435e-06,
+          "2": 2.962666e-06,
+          "3": 2.974307e-06,
+          "4": 135.7204,
+          "5": 191.3069,
+          "6": 232.4594,
+          "7": 244.9219,
+          "8": 248.2577,
+          "9": 249.5827,
+          "10": 249.8398
+        },
+        "first_three_local_mode_frequencies_hz": [
+          1.029435e-06,
+          2.962666e-06,
+          2.974307e-06
+        ],
+        "label": "low",
+        "assessment": "Soft bridge. Produces three almost-zero local bridge modes and drags the whole pairing away from the global branch."
+      },
+      {
+        "path": "C:/Users/Pablo Castillo/Desktop/MUSE/SEGUNDO CUATRIMESTRE/ESTRUCTURAS/EUE-TRABAJO-1/Trabajo_EUE_25-26/06_Codigo/reports/backplane_equivalent_mass_compare_039_Al1.601_PCB1.000_ALE0.534_PCBE1.000__041_Al1.601_PCB1.000_ALE0.534_PCBE1.000.json",
+        "baseline_run_id": "039_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "variant_run_id": "041_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "stiffness": [
+          1000000.0,
+          1000000.0,
+          1000000.0
+        ],
+        "pairing_changed": true,
+        "pairing_signature_variant": [
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            3,
+            9
+          ],
+          [
+            4,
+            8
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            8,
+            10
+          ],
+          [
+            9,
+            1
+          ],
+          [
+            10,
+            4
+          ]
+        ],
+        "delta_by_mode_hz": {
+          "1": -135.7204,
+          "2": -191.3088,
+          "3": -232.4594,
+          "4": -109.2281,
+          "5": -56.9559,
+          "6": -17.1268,
+          "7": -49.488,
+          "8": -80.6803,
+          "9": -119.8427,
+          "10": -88.2655
+        },
+        "mean_abs_delta_hz": 108.10759,
+        "max_abs_delta_hz": 232.45939,
+        "mean_mac": 0.3279201216081235,
+        "mean_mac_delta": -0.11870047493410513,
+        "worst_mac": 0.0018783095897425164,
+        "worst_mac_delta": 3.5319809816442005e-08,
+        "mean_relative_frequency_error": 0.416825410007246,
+        "mean_relative_frequency_error_delta": 0.2764328808459662,
+        "max_relative_frequency_error": 0.9999999829280096,
+        "max_relative_frequency_error_delta": 0.419986088645244,
+        "reject_reasons": [
+          "too_many_bad_pairs",
+          "outside_frequency_gate"
+        ],
+        "variant_frequencies_model_hz": {
+          "1": 6.040847e-06,
+          "2": 6.048469e-06,
+          "3": 6.063685e-06,
+          "4": 135.7204,
+          "5": 191.3089,
+          "6": 232.4594,
+          "7": 244.9488,
+          "8": 248.2648,
+          "9": 249.5863,
+          "10": 294.4366
+        },
+        "first_three_local_mode_frequencies_hz": [
+          6.040847e-06,
+          6.048469e-06,
+          6.063685e-06
+        ],
+        "label": "medium",
+        "assessment": "Still produces three almost-zero bridge-local modes. Less damaging than high in mean MAC, but still unusable for correlation."
+      },
+      {
+        "path": "C:/Users/Pablo Castillo/Desktop/MUSE/SEGUNDO CUATRIMESTRE/ESTRUCTURAS/EUE-TRABAJO-1/Trabajo_EUE_25-26/06_Codigo/reports/backplane_equivalent_mass_compare_038_Al1.601_PCB1.000_ALE0.534_PCBE1.000__040_Al1.601_PCB1.000_ALE0.534_PCBE1.000.json",
+        "baseline_run_id": "038_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "variant_run_id": "040_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "stiffness": [
+          10000000.0,
+          10000000.0,
+          10000000.0
+        ],
+        "pairing_changed": true,
+        "pairing_signature_variant": [
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            3,
+            9
+          ],
+          [
+            4,
+            8
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            8,
+            10
+          ],
+          [
+            9,
+            1
+          ],
+          [
+            10,
+            4
+          ]
+        ],
+        "delta_by_mode_hz": {
+          "1": -135.7204,
+          "2": -191.3088,
+          "3": -232.4593,
+          "4": -109.2279,
+          "5": -56.9485,
+          "6": -17.1268,
+          "7": -49.4748,
+          "8": -80.6787,
+          "9": -119.8416,
+          "10": -88.2653
+        },
+        "mean_abs_delta_hz": 108.10521,
+        "max_abs_delta_hz": 232.45935,
+        "mean_mac": 0.2718935661232362,
+        "mean_mac_delta": -0.17472703041899246,
+        "worst_mac": 0.0009912836288024046,
+        "worst_mac_delta": -0.0008869906411302954,
+        "mean_relative_frequency_error": 0.4168161131371841,
+        "mean_relative_frequency_error_delta": 0.2764235839759043,
+        "max_relative_frequency_error": 0.9999998773233233,
+        "max_relative_frequency_error_delta": 0.4199859830405577,
+        "reject_reasons": [
+          "too_many_bad_pairs",
+          "outside_frequency_gate"
+        ],
+        "variant_frequencies_model_hz": {
+          "1": 4.340859e-05,
+          "2": 4.340859e-05,
+          "3": 5.132566e-05,
+          "4": 135.7206,
+          "5": 191.3163,
+          "6": 232.4594,
+          "7": 244.962,
+          "8": 248.2664,
+          "9": 249.5874,
+          "10": 294.4368
+        },
+        "first_three_local_mode_frequencies_hz": [
+          4.340859e-05,
+          4.340859e-05,
+          5.132566e-05
+        ],
+        "label": "high",
+        "assessment": "Stiffest tested bridge. Pushes the local bridge modes slightly upward and leaves the retained global branch closest to baseline, but the parasitic low modes remain."
+      }
+    ],
+    "best_tested_variant_label": "high",
+    "best_tested_variant_assessment": "Least intrusive on the retained global branch because it pushes the bridge-local modes highest, but still not acceptable as-is for modal correlation.",
+    "why_no_variant_met_success_criteria": "None of the tested stiffness levels maintained or improved correlation under the current top-10 modal pipeline. All three introduce three near-zero artificial local modes, change the pairing signature, and worsen mean relative frequency error versus the board_inner_centers mass-only case."
+  },
+  "comparison_against_prior_valid_ab": {
+    "reference_experiments": [
+      {
+        "label": "030_031",
+        "baseline_run_id": "030_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "variant_run_id": "031_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "candidate_description": "target_locations resolved onto rigid-line nodes 204, 302, 402",
+        "pairing_signature_changed": false,
+        "mean_abs_frequency_shift_hz": 0.0003,
+        "max_abs_frequency_shift_hz": 0.0021,
+        "mean_mac_delta": 0.00015069192203809312,
+        "worst_mac_delta": -4.1563565472495755e-07,
+        "mean_relative_frequency_error_delta": 1.0506410653976506e-06
+      },
+      {
+        "label": "032_033",
+        "baseline_run_id": "032_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "variant_run_id": "033_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "candidate_description": "board_edge_contact_centers",
+        "pairing_signature_changed": false,
+        "mean_abs_frequency_shift_hz": 0.00097,
+        "max_abs_frequency_shift_hz": 0.0071,
+        "mean_mac_delta": -9.769851073437863e-05,
+        "worst_mac_delta": 4.2669023604126853e-07,
+        "mean_relative_frequency_error_delta": 2.9392662329319474e-06
+      },
+      {
+        "label": "034_035",
+        "baseline_run_id": "034_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "variant_run_id": "035_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "candidate_description": "board_inner_centers",
+        "pairing_signature_changed": true,
+        "mean_abs_frequency_shift_hz": 6.01313,
+        "max_abs_frequency_shift_hz": 15.2097,
+        "mean_mac_delta": 0.01739596419195144,
+        "worst_mac_delta": 0.00041793349665776667,
+        "mean_relative_frequency_error_delta": 0.01807517961169333
+      }
+    ],
+    "midpoint_bridge_sweep": [
+      {
+        "path": "C:/Users/Pablo Castillo/Desktop/MUSE/SEGUNDO CUATRIMESTRE/ESTRUCTURAS/EUE-TRABAJO-1/Trabajo_EUE_25-26/06_Codigo/reports/backplane_equivalent_mass_compare_036_Al1.601_PCB1.000_ALE0.534_PCBE1.000__037_Al1.601_PCB1.000_ALE0.534_PCBE1.000.json",
+        "baseline_run_id": "036_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "variant_run_id": "037_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "stiffness": [
+          100000.0,
+          100000.0,
+          100000.0
+        ],
+        "pairing_changed": true,
+        "pairing_signature_variant": [
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            3,
+            10
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            5,
+            8
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            8,
+            3
+          ],
+          [
+            9,
+            4
+          ],
+          [
+            10,
+            6
+          ]
+        ],
+        "delta_by_mode_hz": {
+          "1": -135.7204,
+          "2": -191.3088,
+          "3": -232.4594,
+          "4": -109.2281,
+          "5": -56.9579,
+          "6": -17.1268,
+          "7": -49.5149,
+          "8": -80.6874,
+          "9": -119.8463,
+          "10": -132.8623
+        },
+        "mean_abs_delta_hz": 112.57123,
+        "max_abs_delta_hz": 232.4594,
+        "mean_mac": 0.4084140021030419,
+        "mean_mac_delta": -0.038206594439186725,
+        "worst_mac": 0.0026334548961736938,
+        "worst_mac_delta": 0.0007551806262409938,
+        "mean_relative_frequency_error": 0.43157884327325996,
+        "mean_relative_frequency_error_delta": 0.29118631411198015,
+        "max_relative_frequency_error": 0.9999999968144185,
+        "max_relative_frequency_error_delta": 0.4199861025316529,
+        "reject_reasons": [
+          "outside_frequency_gate"
+        ],
+        "variant_frequencies_model_hz": {
+          "1": 1.029435e-06,
+          "2": 2.962666e-06,
+          "3": 2.974307e-06,
+          "4": 135.7204,
+          "5": 191.3069,
+          "6": 232.4594,
+          "7": 244.9219,
+          "8": 248.2577,
+          "9": 249.5827,
+          "10": 249.8398
+        },
+        "first_three_local_mode_frequencies_hz": [
+          1.029435e-06,
+          2.962666e-06,
+          2.974307e-06
+        ],
+        "label": "low",
+        "assessment": "Soft bridge. Produces three almost-zero local bridge modes and drags the whole pairing away from the global branch."
+      },
+      {
+        "path": "C:/Users/Pablo Castillo/Desktop/MUSE/SEGUNDO CUATRIMESTRE/ESTRUCTURAS/EUE-TRABAJO-1/Trabajo_EUE_25-26/06_Codigo/reports/backplane_equivalent_mass_compare_039_Al1.601_PCB1.000_ALE0.534_PCBE1.000__041_Al1.601_PCB1.000_ALE0.534_PCBE1.000.json",
+        "baseline_run_id": "039_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "variant_run_id": "041_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "stiffness": [
+          1000000.0,
+          1000000.0,
+          1000000.0
+        ],
+        "pairing_changed": true,
+        "pairing_signature_variant": [
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            3,
+            9
+          ],
+          [
+            4,
+            8
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            8,
+            10
+          ],
+          [
+            9,
+            1
+          ],
+          [
+            10,
+            4
+          ]
+        ],
+        "delta_by_mode_hz": {
+          "1": -135.7204,
+          "2": -191.3088,
+          "3": -232.4594,
+          "4": -109.2281,
+          "5": -56.9559,
+          "6": -17.1268,
+          "7": -49.488,
+          "8": -80.6803,
+          "9": -119.8427,
+          "10": -88.2655
+        },
+        "mean_abs_delta_hz": 108.10759,
+        "max_abs_delta_hz": 232.45939,
+        "mean_mac": 0.3279201216081235,
+        "mean_mac_delta": -0.11870047493410513,
+        "worst_mac": 0.0018783095897425164,
+        "worst_mac_delta": 3.5319809816442005e-08,
+        "mean_relative_frequency_error": 0.416825410007246,
+        "mean_relative_frequency_error_delta": 0.2764328808459662,
+        "max_relative_frequency_error": 0.9999999829280096,
+        "max_relative_frequency_error_delta": 0.419986088645244,
+        "reject_reasons": [
+          "too_many_bad_pairs",
+          "outside_frequency_gate"
+        ],
+        "variant_frequencies_model_hz": {
+          "1": 6.040847e-06,
+          "2": 6.048469e-06,
+          "3": 6.063685e-06,
+          "4": 135.7204,
+          "5": 191.3089,
+          "6": 232.4594,
+          "7": 244.9488,
+          "8": 248.2648,
+          "9": 249.5863,
+          "10": 294.4366
+        },
+        "first_three_local_mode_frequencies_hz": [
+          6.040847e-06,
+          6.048469e-06,
+          6.063685e-06
+        ],
+        "label": "medium",
+        "assessment": "Still produces three almost-zero bridge-local modes. Less damaging than high in mean MAC, but still unusable for correlation."
+      },
+      {
+        "path": "C:/Users/Pablo Castillo/Desktop/MUSE/SEGUNDO CUATRIMESTRE/ESTRUCTURAS/EUE-TRABAJO-1/Trabajo_EUE_25-26/06_Codigo/reports/backplane_equivalent_mass_compare_038_Al1.601_PCB1.000_ALE0.534_PCBE1.000__040_Al1.601_PCB1.000_ALE0.534_PCBE1.000.json",
+        "baseline_run_id": "038_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "variant_run_id": "040_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+        "stiffness": [
+          10000000.0,
+          10000000.0,
+          10000000.0
+        ],
+        "pairing_changed": true,
+        "pairing_signature_variant": [
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            3,
+            9
+          ],
+          [
+            4,
+            8
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            8,
+            10
+          ],
+          [
+            9,
+            1
+          ],
+          [
+            10,
+            4
+          ]
+        ],
+        "delta_by_mode_hz": {
+          "1": -135.7204,
+          "2": -191.3088,
+          "3": -232.4593,
+          "4": -109.2279,
+          "5": -56.9485,
+          "6": -17.1268,
+          "7": -49.4748,
+          "8": -80.6787,
+          "9": -119.8416,
+          "10": -88.2653
+        },
+        "mean_abs_delta_hz": 108.10521,
+        "max_abs_delta_hz": 232.45935,
+        "mean_mac": 0.2718935661232362,
+        "mean_mac_delta": -0.17472703041899246,
+        "worst_mac": 0.0009912836288024046,
+        "worst_mac_delta": -0.0008869906411302954,
+        "mean_relative_frequency_error": 0.4168161131371841,
+        "mean_relative_frequency_error_delta": 0.2764235839759043,
+        "max_relative_frequency_error": 0.9999998773233233,
+        "max_relative_frequency_error_delta": 0.4199859830405577,
+        "reject_reasons": [
+          "too_many_bad_pairs",
+          "outside_frequency_gate"
+        ],
+        "variant_frequencies_model_hz": {
+          "1": 4.340859e-05,
+          "2": 4.340859e-05,
+          "3": 5.132566e-05,
+          "4": 135.7206,
+          "5": 191.3163,
+          "6": 232.4594,
+          "7": 244.962,
+          "8": 248.2664,
+          "9": 249.5874,
+          "10": 294.4368
+        },
+        "first_three_local_mode_frequencies_hz": [
+          4.340859e-05,
+          4.340859e-05,
+          5.132566e-05
+        ],
+        "label": "high",
+        "assessment": "Stiffest tested bridge. Pushes the local bridge modes slightly upward and leaves the retained global branch closest to baseline, but the parasitic low modes remain."
+      }
+    ],
+    "assessment": "Compared with 030/031, 032/033 and 034/035, the midpoint-bridge sweep is far more energetic but in a non-useful way. The added stiffness path does not simply tune the global modes: it inserts a new bridge-local mode family into the first 10 model modes. That means the current bridge topology, not the chosen stiffness magnitude alone, is dominating the result."
+  },
+  "decision_after_execution": {
+    "localization_of_mass_matters": true,
+    "mass_only_phase_closed": true,
+    "mass_plus_stiffness_path_runs_in_solver": true,
+    "bridge_local_modes_detected": true,
+    "does_any_variant_improve_correlation_overall": false,
+    "decision": "stabilize_bridge_definition_before_more_stiffness_tuning",
+    "why": "The midpoint-bridge implementation is solver-valid and traceable, but all tested stiffness levels inject three near-zero local modes and poison the first 10 mode set. The right next step is to stabilize the dummy-node/coupling definition before interpreting stiffness sensitivity as physics."
+  },
+  "next_recommended_experiment_after_execution": {
+    "candidate_set": "midpoint_bridge_mass_plus_stiffness_stabilized",
+    "type": "mass_plus_stiffness",
+    "strategy": "midpoint-bridge",
+    "why": "Keep the same midpoint geometry, mass target and endpoint nodes, but remove the parasitic bridge-local modes by regularizing the midpoint node DOFs or changing the coupling topology. Only after that should another stiffness sweep be used to judge whether local backplane stiffness improves correlation."
+  }
+}

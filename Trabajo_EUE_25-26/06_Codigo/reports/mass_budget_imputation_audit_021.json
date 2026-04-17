@@ -1,0 +1,769 @@
+{
+  "run_id": "021_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+  "audit_run_label": "021",
+  "generated_bdf": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\021_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\SFEM_EUE.bdf",
+  "config_source": "live project_config.yaml",
+  "config_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\configs\\project_config.yaml",
+  "mass_source_of_truth": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\021_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\mass_summary.json",
+  "target_basis": "nominal",
+  "target_mass": 3.8098065,
+  "subset_rows": [
+    {
+      "label": "H-PSU module",
+      "target_mass": 0.912546,
+      "computed_mass": 0.7010742397083402,
+      "delta_mass": -0.21147176029165982,
+      "relative_delta": -0.23173819214774907
+    },
+    {
+      "label": "MOD module",
+      "target_mass": 0.822639,
+      "computed_mass": 0.5467707658411152,
+      "delta_mass": -0.27586823415888484,
+      "relative_delta": -0.3353454360404562
+    },
+    {
+      "label": "FPGA module",
+      "target_mass": 0.870768,
+      "computed_mass": 0.5467707658411152,
+      "delta_mass": -0.3239972341588848,
+      "relative_delta": -0.37208215524558186
+    },
+    {
+      "label": "PROC module",
+      "target_mass": 0.978888,
+      "computed_mass": 0.5467707658411152,
+      "delta_mass": -0.4321172341588848,
+      "relative_delta": -0.441436848913139
+    },
+    {
+      "label": "Backplane modules",
+      "target_mass": 0.2249655,
+      "computed_mass": 0.4704541027463629,
+      "delta_mass": 0.2454886027463629,
+      "relative_delta": 1.0912277782431656
+    }
+  ],
+  "subset_warnings": [
+    "unmapped_mass_detected",
+    "mass_compensation_detected: positive=['Backplane modules'], negative=['H-PSU module', 'MOD module', 'FPGA module', 'PROC module']"
+  ],
+  "subset_rows_invariant_vs_before": true,
+  "budget_imputation_rows": [
+    {
+      "label": "H-PSU module",
+      "target_mass": 0.912546,
+      "imputed_mass": 0.8655017717800048,
+      "delta_mass": -0.04704422821999521,
+      "relative_delta": -0.05155271977521704
+    },
+    {
+      "label": "MOD module",
+      "target_mass": 0.822639,
+      "imputed_mass": 0.8922182783417292,
+      "delta_mass": 0.06957927834172917,
+      "relative_delta": 0.0845805734249521
+    },
+    {
+      "label": "FPGA module",
+      "target_mass": 0.870768,
+      "imputed_mass": 0.9048941237153793,
+      "delta_mass": 0.034126123715379264,
+      "relative_delta": 0.03919083351177267
+    },
+    {
+      "label": "PROC module",
+      "target_mass": 0.978888,
+      "imputed_mass": 0.9928888522924755,
+      "delta_mass": 0.014000852292475496,
+      "relative_delta": 0.014302813286581811
+    },
+    {
+      "label": "Backplane modules",
+      "target_mass": 0.2249655,
+      "imputed_mass": 0.15430347386722493,
+      "delta_mass": -0.07066202613277509,
+      "relative_delta": -0.3141016117261317
+    }
+  ],
+  "budget_imputation_warnings": [
+    "mass_compensation_detected: positive=['MOD module'], negative=['H-PSU module', 'Backplane modules']"
+  ],
+  "budget_imputation_notes": [
+    "z_band_split is an approximate geometric rule based on z-bands.",
+    "rig base -> Backplane modules is a working functional hypothesis, not a geometrically demonstrated truth."
+  ],
+  "imputation_residual_mass": 0.0,
+  "family_rows": [
+    {
+      "label": "PSU board",
+      "contribution_count": 32,
+      "computed_mass": 0.5467707658411152,
+      "detail_rows": [
+        {
+          "family_label": "PSU board",
+          "region_name": "09_A_t-boards-PSU",
+          "property_id": 25,
+          "material_id": 2,
+          "element_count": 32,
+          "mass_contribution": 0.5467707658411152,
+          "element_types": {
+            "CQUAD4": 32
+          }
+        }
+      ]
+    },
+    {
+      "label": "MOD board",
+      "contribution_count": 32,
+      "computed_mass": 0.5467707658411152,
+      "detail_rows": [
+        {
+          "family_label": "MOD board",
+          "region_name": "09_B_t-boards-MOD",
+          "property_id": 26,
+          "material_id": 3,
+          "element_count": 32,
+          "mass_contribution": 0.5467707658411152,
+          "element_types": {
+            "CQUAD4": 32
+          }
+        }
+      ]
+    },
+    {
+      "label": "FPGA board",
+      "contribution_count": 32,
+      "computed_mass": 0.5467707658411152,
+      "detail_rows": [
+        {
+          "family_label": "FPGA board",
+          "region_name": "09_D_t-boards-FPGA",
+          "property_id": 28,
+          "material_id": 5,
+          "element_count": 32,
+          "mass_contribution": 0.5467707658411152,
+          "element_types": {
+            "CQUAD4": 32
+          }
+        }
+      ]
+    },
+    {
+      "label": "PROC board",
+      "contribution_count": 32,
+      "computed_mass": 0.5467707658411152,
+      "detail_rows": [
+        {
+          "family_label": "PROC board",
+          "region_name": "09_C_t-boards-PROC",
+          "property_id": 27,
+          "material_id": 4,
+          "element_count": 32,
+          "mass_contribution": 0.5467707658411152,
+          "element_types": {
+            "CQUAD4": 32
+          }
+        }
+      ]
+    },
+    {
+      "label": "FPGA tray",
+      "contribution_count": 32,
+      "computed_mass": 0.1176135256865908,
+      "detail_rows": [
+        {
+          "family_label": "FPGA tray",
+          "region_name": "07_t-bandejas_FPGA",
+          "property_id": 29,
+          "material_id": 6,
+          "element_count": 32,
+          "mass_contribution": 0.11761352568659077,
+          "element_types": {
+            "CQUAD4": 32
+          }
+        }
+      ]
+    },
+    {
+      "label": "common trays",
+      "contribution_count": 96,
+      "computed_mass": 0.3528405770597722,
+      "detail_rows": [
+        {
+          "family_label": "common trays",
+          "region_name": "07_t-bandejas",
+          "property_id": 24,
+          "material_id": 1,
+          "element_count": 96,
+          "mass_contribution": 0.35284057705977206,
+          "element_types": {
+            "CQUAD4": 96
+          }
+        }
+      ]
+    },
+    {
+      "label": "rig base",
+      "contribution_count": 8,
+      "computed_mass": 0.15430347386722493,
+      "detail_rows": [
+        {
+          "family_label": "rig base",
+          "region_name": "06_t-rig-base",
+          "property_id": 23,
+          "material_id": 1,
+          "element_count": 8,
+          "mass_contribution": 0.15430347386722493,
+          "element_types": {
+            "CQUAD4": 8
+          }
+        }
+      ]
+    },
+    {
+      "label": "top cover",
+      "contribution_count": 64,
+      "computed_mass": 0.08400966696537156,
+      "detail_rows": [
+        {
+          "family_label": "top cover",
+          "region_name": "05_t-tapa",
+          "property_id": 22,
+          "material_id": 1,
+          "element_count": 64,
+          "mass_contribution": 0.08400966696537156,
+          "element_types": {
+            "CQUAD4": 64
+          }
+        }
+      ]
+    },
+    {
+      "label": "thin walls",
+      "contribution_count": 88,
+      "computed_mass": 0.2804980365856433,
+      "detail_rows": [
+        {
+          "family_label": "thin walls",
+          "region_name": "01_t-wall-delgadas",
+          "property_id": 21,
+          "material_id": 1,
+          "element_count": 88,
+          "mass_contribution": 0.2804980365856433,
+          "element_types": {
+            "CQUAD4": 88
+          }
+        }
+      ]
+    },
+    {
+      "label": "corner/frame bars",
+      "contribution_count": 452,
+      "computed_mass": 0.6334581564677495,
+      "detail_rows": [
+        {
+          "family_label": "corner/frame bars",
+          "region_name": "11_ESQ_xp_yp",
+          "property_id": 17,
+          "material_id": 1,
+          "element_count": 126,
+          "mass_contribution": 0.1292887705824729,
+          "element_types": {
+            "CBAR": 126
+          }
+        },
+        {
+          "family_label": "corner/frame bars",
+          "region_name": "11_ESQ_xp_yp",
+          "property_id": 15,
+          "material_id": 1,
+          "element_count": 36,
+          "mass_contribution": 0.08927557699850831,
+          "element_types": {
+            "CBAR": 36
+          }
+        },
+        {
+          "family_label": "corner/frame bars",
+          "region_name": "11_ESQ_xp_yp",
+          "property_id": 16,
+          "material_id": 1,
+          "element_count": 32,
+          "mass_contribution": 0.07935606829228396,
+          "element_types": {
+            "CBAR": 32
+          }
+        },
+        {
+          "family_label": "corner/frame bars",
+          "region_name": "11_ESQ_xp_yp",
+          "property_id": 13,
+          "material_id": 1,
+          "element_count": 24,
+          "mass_contribution": 0.07785792521058575,
+          "element_types": {
+            "CBAR": 24
+          }
+        },
+        {
+          "family_label": "corner/frame bars",
+          "region_name": "11_ESQ_xp_yp",
+          "property_id": 14,
+          "material_id": 1,
+          "element_count": 20,
+          "mass_contribution": 0.06228634006191799,
+          "element_types": {
+            "CBAR": 20
+          }
+        },
+        {
+          "family_label": "corner/frame bars",
+          "region_name": "11_ESQ_xp_yp",
+          "property_id": 18,
+          "material_id": 1,
+          "element_count": 122,
+          "mass_contribution": 0.026084699867194795,
+          "element_types": {
+            "CBAR": 122
+          }
+        },
+        {
+          "family_label": "corner/frame bars",
+          "region_name": "11_ESQ_xp_yp",
+          "property_id": 12,
+          "material_id": 1,
+          "element_count": 8,
+          "mass_contribution": 0.016850918205275112,
+          "element_types": {
+            "CBAR": 8
+          }
+        },
+        {
+          "family_label": "corner/frame bars",
+          "region_name": "11_ESQ_xp_yp",
+          "property_id": 11,
+          "material_id": 1,
+          "element_count": 8,
+          "mass_contribution": 0.01685091820527511,
+          "element_types": {
+            "CBAR": 8
+          }
+        },
+        {
+          "family_label": "corner/frame bars",
+          "region_name": "11_ESQ_xp_yp",
+          "property_id": 5,
+          "material_id": 1,
+          "element_count": 13,
+          "mass_contribution": 0.014859338274836957,
+          "element_types": {
+            "CBAR": 13
+          }
+        },
+        {
+          "family_label": "corner/frame bars",
+          "region_name": "11_ESQ_xp_yp",
+          "property_id": 6,
+          "material_id": 1,
+          "element_count": 13,
+          "mass_contribution": 0.014859338274836957,
+          "element_types": {
+            "CBAR": 13
+          }
+        },
+        {
+          "family_label": "corner/frame bars",
+          "region_name": "11_ESQ_xp_yp",
+          "property_id": 7,
+          "material_id": 1,
+          "element_count": 13,
+          "mass_contribution": 0.014859338137034222,
+          "element_types": {
+            "CBAR": 13
+          }
+        },
+        {
+          "family_label": "corner/frame bars",
+          "region_name": "11_ESQ_xp_yp",
+          "property_id": 8,
+          "material_id": 1,
+          "element_count": 13,
+          "mass_contribution": 0.014859338137034222,
+          "element_types": {
+            "CBAR": 13
+          }
+        },
+        {
+          "family_label": "corner/frame bars",
+          "region_name": "11_ESQ_xp_yp",
+          "property_id": 9,
+          "material_id": 1,
+          "element_count": 4,
+          "mass_contribution": 0.013226235173641835,
+          "element_types": {
+            "CBAR": 4
+          }
+        },
+        {
+          "family_label": "corner/frame bars",
+          "region_name": "11_ESQ_xp_yp",
+          "property_id": 10,
+          "material_id": 1,
+          "element_count": 4,
+          "mass_contribution": 0.013226235173641835,
+          "element_types": {
+            "CBAR": 4
+          }
+        },
+        {
+          "family_label": "corner/frame bars",
+          "region_name": "11_ESQ_xp_yp",
+          "property_id": 1,
+          "material_id": 1,
+          "element_count": 4,
+          "mass_contribution": 0.012429278968302392,
+          "element_types": {
+            "CBAR": 4
+          }
+        },
+        {
+          "family_label": "corner/frame bars",
+          "region_name": "11_ESQ_xp_yp",
+          "property_id": 2,
+          "material_id": 1,
+          "element_count": 4,
+          "mass_contribution": 0.012429278968302392,
+          "element_types": {
+            "CBAR": 4
+          }
+        },
+        {
+          "family_label": "corner/frame bars",
+          "region_name": "11_ESQ_xp_yp",
+          "property_id": 3,
+          "material_id": 1,
+          "element_count": 4,
+          "mass_contribution": 0.012429278968302392,
+          "element_types": {
+            "CBAR": 4
+          }
+        },
+        {
+          "family_label": "corner/frame bars",
+          "region_name": "11_ESQ_xp_yp",
+          "property_id": 4,
+          "material_id": 1,
+          "element_count": 4,
+          "mass_contribution": 0.012429278968302392,
+          "element_types": {
+            "CBAR": 4
+          }
+        }
+      ]
+    },
+    {
+      "label": "real backplane parts",
+      "contribution_count": 0,
+      "computed_mass": 0,
+      "detail_rows": []
+    },
+    {
+      "label": "unmapped residual",
+      "contribution_count": 0,
+      "computed_mass": 0,
+      "detail_rows": []
+    }
+  ],
+  "family_budget_allocations": [
+    {
+      "family_label": "PSU board",
+      "mode": "direct",
+      "target_label": "H-PSU module",
+      "mass_contribution": 0.5467707658411152
+    },
+    {
+      "family_label": "MOD board",
+      "mode": "direct",
+      "target_label": "MOD module",
+      "mass_contribution": 0.5467707658411152
+    },
+    {
+      "family_label": "FPGA board",
+      "mode": "direct",
+      "target_label": "FPGA module",
+      "mass_contribution": 0.5467707658411152
+    },
+    {
+      "family_label": "PROC board",
+      "mode": "direct",
+      "target_label": "PROC module",
+      "mass_contribution": 0.5467707658411152
+    },
+    {
+      "family_label": "FPGA tray",
+      "mode": "direct",
+      "target_label": "FPGA module",
+      "mass_contribution": 0.1176135256865908
+    },
+    {
+      "family_label": "common trays",
+      "mode": "z_band_split",
+      "target_label": "H-PSU module",
+      "mass_contribution": 0.11761352568659054
+    },
+    {
+      "family_label": "common trays",
+      "mode": "z_band_split",
+      "target_label": "MOD module",
+      "mass_contribution": 0.11761352568659088
+    },
+    {
+      "family_label": "common trays",
+      "mode": "z_band_split",
+      "target_label": "PROC module",
+      "mass_contribution": 0.11761352568659077
+    },
+    {
+      "family_label": "rig base",
+      "mode": "direct",
+      "target_label": "Backplane modules",
+      "mass_contribution": 0.15430347386722493
+    },
+    {
+      "family_label": "top cover",
+      "mode": "proportional",
+      "target_label": "H-PSU module",
+      "mass_contribution": 0.021385240112624788
+    },
+    {
+      "family_label": "top cover",
+      "mode": "proportional",
+      "target_label": "MOD module",
+      "mass_contribution": 0.019278296700669932
+    },
+    {
+      "family_label": "top cover",
+      "mode": "proportional",
+      "target_label": "FPGA module",
+      "mass_contribution": 0.020406185290812805
+    },
+    {
+      "family_label": "top cover",
+      "mode": "proportional",
+      "target_label": "PROC module",
+      "mass_contribution": 0.02293994486126404
+    },
+    {
+      "family_label": "thin walls",
+      "mode": "z_band_split",
+      "target_label": "FPGA module",
+      "mass_contribution": 0.07344420964080974
+    },
+    {
+      "family_label": "thin walls",
+      "mode": "z_band_split",
+      "target_label": "H-PSU module",
+      "mass_contribution": 0.05551393661238773
+    },
+    {
+      "family_label": "thin walls",
+      "mode": "z_band_split",
+      "target_label": "MOD module",
+      "mass_contribution": 0.07344421158580897
+    },
+    {
+      "family_label": "thin walls",
+      "mode": "z_band_split",
+      "target_label": "PROC module",
+      "mass_contribution": 0.07809567874663689
+    },
+    {
+      "family_label": "corner/frame bars",
+      "mode": "z_band_split",
+      "target_label": "FPGA module",
+      "mass_contribution": 0.14665943725605068
+    },
+    {
+      "family_label": "corner/frame bars",
+      "mode": "z_band_split",
+      "target_label": "H-PSU module",
+      "mass_contribution": 0.12421830352728655
+    },
+    {
+      "family_label": "corner/frame bars",
+      "mode": "z_band_split",
+      "target_label": "MOD module",
+      "mass_contribution": 0.13511147852754418
+    },
+    {
+      "family_label": "corner/frame bars",
+      "mode": "z_band_split",
+      "target_label": "PROC module",
+      "mass_contribution": 0.2274689371568686
+    },
+    {
+      "family_label": "real backplane parts",
+      "mode": "direct",
+      "target_label": "Backplane modules",
+      "mass_contribution": 0
+    }
+  ],
+  "comparison": {
+    "before": {
+      "budget_imputation_rows": [
+        {
+          "label": "H-PSU module",
+          "target_mass": 0.912546,
+          "imputed_mass": 0.8655017717800048,
+          "delta_mass": -0.04704422821999521,
+          "relative_delta": -0.05155271977521704
+        },
+        {
+          "label": "MOD module",
+          "target_mass": 0.822639,
+          "imputed_mass": 0.8922182783417292,
+          "delta_mass": 0.06957927834172917,
+          "relative_delta": 0.0845805734249521
+        },
+        {
+          "label": "FPGA module",
+          "target_mass": 0.870768,
+          "imputed_mass": 0.9048941237153793,
+          "delta_mass": 0.034126123715379264,
+          "relative_delta": 0.03919083351177267
+        },
+        {
+          "label": "PROC module",
+          "target_mass": 0.978888,
+          "imputed_mass": 0.9928888522924755,
+          "delta_mass": 0.014000852292475496,
+          "relative_delta": 0.014302813286581811
+        },
+        {
+          "label": "Backplane modules",
+          "target_mass": 0.2249655,
+          "imputed_mass": 0.15430347386722493,
+          "delta_mass": -0.07066202613277509,
+          "relative_delta": -0.3141016117261317
+        }
+      ],
+      "imputation_residual_mass": 0.0,
+      "budget_imputation_warnings": [
+        "mass_compensation_detected: positive=['MOD module'], negative=['H-PSU module', 'Backplane modules']"
+      ]
+    },
+    "after": {
+      "budget_imputation_rows": [
+        {
+          "label": "H-PSU module",
+          "target_mass": 0.912546,
+          "imputed_mass": 0.8655017717800048,
+          "delta_mass": -0.04704422821999521,
+          "relative_delta": -0.05155271977521704
+        },
+        {
+          "label": "MOD module",
+          "target_mass": 0.822639,
+          "imputed_mass": 0.8922182783417292,
+          "delta_mass": 0.06957927834172917,
+          "relative_delta": 0.0845805734249521
+        },
+        {
+          "label": "FPGA module",
+          "target_mass": 0.870768,
+          "imputed_mass": 0.9048941237153793,
+          "delta_mass": 0.034126123715379264,
+          "relative_delta": 0.03919083351177267
+        },
+        {
+          "label": "PROC module",
+          "target_mass": 0.978888,
+          "imputed_mass": 0.9928888522924755,
+          "delta_mass": 0.014000852292475496,
+          "relative_delta": 0.014302813286581811
+        },
+        {
+          "label": "Backplane modules",
+          "target_mass": 0.2249655,
+          "imputed_mass": 0.15430347386722493,
+          "delta_mass": -0.07066202613277509,
+          "relative_delta": -0.3141016117261317
+        }
+      ],
+      "imputation_residual_mass": 0.0,
+      "budget_imputation_warnings": [
+        "mass_compensation_detected: positive=['MOD module'], negative=['H-PSU module', 'Backplane modules']"
+      ]
+    },
+    "delta": {
+      "budget_imputation_rows": [
+        {
+          "label": "H-PSU module",
+          "target_mass": 0.912546,
+          "before_imputed_mass": 0.8655017717800048,
+          "after_imputed_mass": 0.8655017717800048,
+          "imputed_mass_delta": 0.0,
+          "before_delta_mass": -0.04704422821999521,
+          "after_delta_mass": -0.04704422821999521,
+          "delta_mass_delta": 0.0,
+          "before_relative_delta": -0.05155271977521704,
+          "after_relative_delta": -0.05155271977521704
+        },
+        {
+          "label": "MOD module",
+          "target_mass": 0.822639,
+          "before_imputed_mass": 0.8922182783417292,
+          "after_imputed_mass": 0.8922182783417292,
+          "imputed_mass_delta": 0.0,
+          "before_delta_mass": 0.06957927834172917,
+          "after_delta_mass": 0.06957927834172917,
+          "delta_mass_delta": 0.0,
+          "before_relative_delta": 0.0845805734249521,
+          "after_relative_delta": 0.0845805734249521
+        },
+        {
+          "label": "FPGA module",
+          "target_mass": 0.870768,
+          "before_imputed_mass": 0.9048941237153793,
+          "after_imputed_mass": 0.9048941237153793,
+          "imputed_mass_delta": 0.0,
+          "before_delta_mass": 0.034126123715379264,
+          "after_delta_mass": 0.034126123715379264,
+          "delta_mass_delta": 0.0,
+          "before_relative_delta": 0.03919083351177267,
+          "after_relative_delta": 0.03919083351177267
+        },
+        {
+          "label": "PROC module",
+          "target_mass": 0.978888,
+          "before_imputed_mass": 0.9928888522924755,
+          "after_imputed_mass": 0.9928888522924755,
+          "imputed_mass_delta": 0.0,
+          "before_delta_mass": 0.014000852292475496,
+          "after_delta_mass": 0.014000852292475496,
+          "delta_mass_delta": 0.0,
+          "before_relative_delta": 0.014302813286581811,
+          "after_relative_delta": 0.014302813286581811
+        },
+        {
+          "label": "Backplane modules",
+          "target_mass": 0.2249655,
+          "before_imputed_mass": 0.15430347386722493,
+          "after_imputed_mass": 0.15430347386722493,
+          "imputed_mass_delta": 0.0,
+          "before_delta_mass": -0.07066202613277509,
+          "after_delta_mass": -0.07066202613277509,
+          "delta_mass_delta": 0.0,
+          "before_relative_delta": -0.3141016117261317,
+          "after_relative_delta": -0.3141016117261317
+        }
+      ],
+      "imputation_residual_mass": 0.0,
+      "budget_imputation_warnings": {
+        "added": [],
+        "removed": []
+      }
+    }
+  }
+}

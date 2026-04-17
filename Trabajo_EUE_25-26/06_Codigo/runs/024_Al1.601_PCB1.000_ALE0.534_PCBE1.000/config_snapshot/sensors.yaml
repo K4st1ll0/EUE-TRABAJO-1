@@ -1,0 +1,27 @@
+reference_order_source: "SET 102 from reference F06, approved for phi_ref order"
+
+sensors:
+  - name: center_top_cover
+    label: Centro tapa superior
+    model_node_id: 486
+    model_coordinates: [-2.7269125E-09, 1.6306574E-09, 0.1234]
+    reference_point_id: 52018382
+
+  - name: corner_xp_yp_top_cover
+    label: Esquina X+Y+ tapa superior
+    model_node_id: 452
+    model_coordinates: [-0.10925, 0.085749999, 0.1234]
+    reference_point_id: 52001152
+
+  - name: pcb_mod_quadrant_xn_yp
+    label: Centro cuadrante X-Y+ PCB MOD
+    model_node_id: 2040
+    model_coordinates: [-0.053375002, -0.041625999, 0.039450001]
+    reference_point_id: 52098820
+
+  - name: fpga_lateral_xp
+    label: Lateral X+ de FPGA
+    model_node_id: 402
+    model_coordinates: [-1.8688961E-09, 0.085749999, 0.091499999]
+    reference_point_id: 52763676
+

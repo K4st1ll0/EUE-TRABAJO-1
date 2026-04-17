@@ -1,0 +1,114 @@
+{
+  "source_bdf": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\05_Modelo_FEM\\SFEM_EUE.bdf",
+  "generated_bdf": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\009_Al1.605_PCB1.000_ALE0.534_PCBE1.000\\SFEM_EUE.bdf",
+  "modifications": [
+    {
+      "mat1_id": 1,
+      "field_name": "rho",
+      "parameter_name": "aluminum_density_factor",
+      "material_group": "aluminum",
+      "original_value": 2800.0,
+      "new_value": 4494.0,
+      "factor_applied": 1.605
+    },
+    {
+      "mat1_id": 1,
+      "field_name": "E",
+      "parameter_name": "aluminum_E_factor",
+      "material_group": "aluminum",
+      "original_value": 70999998000.0,
+      "new_value": 37885598932.799995,
+      "factor_applied": 0.5336
+    },
+    {
+      "mat1_id": 2,
+      "field_name": "rho",
+      "parameter_name": "pcb_density_factor",
+      "material_group": "pcb",
+      "original_value": 9929.2266,
+      "new_value": 9929.2266,
+      "factor_applied": 1.0
+    },
+    {
+      "mat1_id": 2,
+      "field_name": "E",
+      "parameter_name": "pcb_E_factor",
+      "material_group": "pcb",
+      "original_value": 80000000000.0,
+      "new_value": 80000000000.0,
+      "factor_applied": 1.0
+    },
+    {
+      "mat1_id": 3,
+      "field_name": "rho",
+      "parameter_name": "pcb_density_factor",
+      "material_group": "pcb",
+      "original_value": 9929.2266,
+      "new_value": 9929.2266,
+      "factor_applied": 1.0
+    },
+    {
+      "mat1_id": 3,
+      "field_name": "E",
+      "parameter_name": "pcb_E_factor",
+      "material_group": "pcb",
+      "original_value": 80000000000.0,
+      "new_value": 80000000000.0,
+      "factor_applied": 1.0
+    },
+    {
+      "mat1_id": 4,
+      "field_name": "rho",
+      "parameter_name": "pcb_density_factor",
+      "material_group": "pcb",
+      "original_value": 9929.2266,
+      "new_value": 9929.2266,
+      "factor_applied": 1.0
+    },
+    {
+      "mat1_id": 4,
+      "field_name": "E",
+      "parameter_name": "pcb_E_factor",
+      "material_group": "pcb",
+      "original_value": 80000000000.0,
+      "new_value": 80000000000.0,
+      "factor_applied": 1.0
+    },
+    {
+      "mat1_id": 5,
+      "field_name": "rho",
+      "parameter_name": "pcb_density_factor",
+      "material_group": "pcb",
+      "original_value": 9929.2266,
+      "new_value": 9929.2266,
+      "factor_applied": 1.0
+    },
+    {
+      "mat1_id": 5,
+      "field_name": "E",
+      "parameter_name": "pcb_E_factor",
+      "material_group": "pcb",
+      "original_value": 40000000000.0,
+      "new_value": 40000000000.0,
+      "factor_applied": 1.0
+    },
+    {
+      "mat1_id": 6,
+      "field_name": "rho",
+      "parameter_name": "aluminum_density_factor",
+      "material_group": "aluminum",
+      "original_value": 2800.0,
+      "new_value": 4494.0,
+      "factor_applied": 1.605
+    },
+    {
+      "mat1_id": 6,
+      "field_name": "E",
+      "parameter_name": "aluminum_E_factor",
+      "material_group": "aluminum",
+      "original_value": 70999998000.0,
+      "new_value": 37885598932.799995,
+      "factor_applied": 0.5336
+    }
+  ]
+}

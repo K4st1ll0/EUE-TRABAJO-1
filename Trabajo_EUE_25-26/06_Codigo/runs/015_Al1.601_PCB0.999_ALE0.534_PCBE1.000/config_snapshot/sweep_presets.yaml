@@ -1,0 +1,50 @@
+presets:
+  aluminum_e_fine:
+    description: Fine sweep around the current aluminum E candidate with frozen densities.
+    fixed_parameters:
+      aluminum_density_factor: 1.149256275
+      pcb_density_factor: 0.9277072359650675
+      pcb_E_factor: 1.0
+    varying_parameters:
+      aluminum_E_factor:
+        mode: list
+        values:
+          - 0.528
+          - 0.530
+          - 0.532
+          - 0.5336
+          - 0.534
+          - 0.536
+          - 0.538
+          - 0.540
+
+  aluminum_e_refine_local:
+    description: Deterministic local refinement around the best run found in aluminum_e_fine.
+    select_from_presets:
+      - aluminum_e_fine
+    fixed_parameters:
+      aluminum_density_factor: 1.149256275
+      pcb_density_factor: 0.9277072359650675
+      pcb_E_factor: 1.0
+    varying_parameters:
+      aluminum_E_factor:
+        mode: centered_range
+        half_window: 0.002
+        step: 0.0005
+
+  pcb_e_confirm:
+    description: Short confirmation sweep on pcb_E_factor using the best aluminum tuning context.
+    select_from_presets:
+      - aluminum_e_refine_local
+      - aluminum_e_fine
+    fixed_parameters_from_best_run:
+      - aluminum_density_factor
+      - pcb_density_factor
+      - aluminum_E_factor
+    varying_parameters:
+      pcb_E_factor:
+        mode: list
+        values:
+          - 0.97
+          - 1.0
+          - 1.03

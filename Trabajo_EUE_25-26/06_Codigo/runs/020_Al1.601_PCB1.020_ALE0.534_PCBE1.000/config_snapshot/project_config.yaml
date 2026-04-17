@@ -1,0 +1,91 @@
+project:
+  name: MSC Nastran FEM Automation
+
+paths:
+  bdf_input: ../05_Modelo_FEM/SFEM_EUE.bdf
+  reference_frequencies_f06: ../01_DFEM-de-referencia/02_Resultados-modos-propios-globales.f06
+  reference_vectors_f06: ../01_DFEM-de-referencia/01_Resultados-autovectores-acelerometros.f06
+  runs_dir: runs
+  reports_dir: reports
+
+nastran:
+  executable: C:/Program Files/MSC.Software/NaPa_SE/20252/Nastran/msc20252/win64i8/nastran.exe
+  arguments:
+    - prog=edu
+    - auth=edu
+    - bat=no
+
+analysis:
+  num_modes: 10
+  dry_run: false
+
+pairing:
+  freq_gate: 0.20
+  alpha_freq: 0.15
+  huge_penalty: 1000000.0
+  bad_pair_mac_threshold: 0.10
+  warning_pair_mac_threshold: 0.30
+
+acceptance:
+  max_bad_pairs_allowed: 1
+  reject_if_any_pair_outside_gate: true
+  min_valid_modes: 10
+
+scoring:
+  mode: weighted_error
+  weights:
+    mac: 1.0
+    frequency: 0.25
+    mass: 0.10
+
+ranking:
+  mode: hierarchical
+  robust_weights:
+    mac: 0.05
+    bad_pair_fraction: 0.20
+
+mass:
+  target_kg: 3.8098065
+  budget_workbook: ../04_Mass-Budget/MUSE_25-26_EUE_Mass Budget.xlsx
+  budget_sheet: Mass Budget
+  budget_basis: nominal
+  compensation_warning_thresholds:
+    total_relative_delta_within: 0.01
+    subset_relative_delta_exceeds: 0.05
+  subsets:
+    - label: H-PSU module
+      target_kg: 0.912546
+      regions:
+        - 09_A_t-boards-PSU
+        - 06_t-rig-base
+    - label: MOD module
+      target_kg: 0.822639
+      regions:
+        - 09_B_t-boards-MOD
+    - label: FPGA module
+      target_kg: 0.870768
+      regions:
+        - 09_D_t-boards-FPGA
+    - label: PROC module
+      target_kg: 0.978888
+      regions:
+        - 09_C_t-boards-PROC
+    - label: Backplane modules
+      target_kg: 0.2249655
+      regions:
+        - 07_t-bandejas
+        - 07_t-bandejas_FPGA
+
+mode_family_labels:
+  reference:
+    1: top_cover
+    2: fpga
+    3: psu
+    4: mod
+    5: fpga
+    6: proc
+    7: fpga
+    8: fpga
+    9: top_cover
+    10: top_cover_plus_mod
+  model: {}

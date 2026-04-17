@@ -1,0 +1,382 @@
+{
+  "run_id": "021_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+  "bdf_path": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\Trabajo_EUE_25-26\\06_Codigo\\runs\\021_Al1.601_PCB1.000_ALE0.534_PCBE1.000\\SFEM_EUE.bdf",
+  "total_contribution_mass": 3.809806499996813,
+  "subset_summary": {
+    "H-PSU module": {
+      "target_mass": 0.912546,
+      "computed_mass": 0.7010742397083402,
+      "element_count": 40,
+      "grouped_rows": [
+        {
+          "region_name": "09_A_t-boards-PSU",
+          "property_id": 25,
+          "material_id": 2,
+          "element_count": 32,
+          "mass_contribution": 0.5467707658411152,
+          "element_types": {
+            "CQUAD4": 32
+          }
+        },
+        {
+          "region_name": "06_t-rig-base",
+          "property_id": 23,
+          "material_id": 1,
+          "element_count": 8,
+          "mass_contribution": 0.15430347386722493,
+          "element_types": {
+            "CQUAD4": 8
+          }
+        }
+      ]
+    },
+    "MOD module": {
+      "target_mass": 0.822639,
+      "computed_mass": 0.5467707658411152,
+      "element_count": 32,
+      "grouped_rows": [
+        {
+          "region_name": "09_B_t-boards-MOD",
+          "property_id": 26,
+          "material_id": 3,
+          "element_count": 32,
+          "mass_contribution": 0.5467707658411152,
+          "element_types": {
+            "CQUAD4": 32
+          }
+        }
+      ]
+    },
+    "FPGA module": {
+      "target_mass": 0.870768,
+      "computed_mass": 0.5467707658411152,
+      "element_count": 32,
+      "grouped_rows": [
+        {
+          "region_name": "09_D_t-boards-FPGA",
+          "property_id": 28,
+          "material_id": 5,
+          "element_count": 32,
+          "mass_contribution": 0.5467707658411152,
+          "element_types": {
+            "CQUAD4": 32
+          }
+        }
+      ]
+    },
+    "PROC module": {
+      "target_mass": 0.978888,
+      "computed_mass": 0.5467707658411152,
+      "element_count": 32,
+      "grouped_rows": [
+        {
+          "region_name": "09_C_t-boards-PROC",
+          "property_id": 27,
+          "material_id": 4,
+          "element_count": 32,
+          "mass_contribution": 0.5467707658411152,
+          "element_types": {
+            "CQUAD4": 32
+          }
+        }
+      ]
+    },
+    "Backplane modules": {
+      "target_mass": 0.2249655,
+      "computed_mass": 0.47045410274636296,
+      "element_count": 128,
+      "grouped_rows": [
+        {
+          "region_name": "07_t-bandejas",
+          "property_id": 24,
+          "material_id": 1,
+          "element_count": 96,
+          "mass_contribution": 0.35284057705977206,
+          "element_types": {
+            "CQUAD4": 96
+          }
+        },
+        {
+          "region_name": "07_t-bandejas_FPGA",
+          "property_id": 29,
+          "material_id": 6,
+          "element_count": 32,
+          "mass_contribution": 0.11761352568659077,
+          "element_types": {
+            "CQUAD4": 32
+          }
+        }
+      ]
+    }
+  },
+  "unmapped_total_mass": 0.9979658600187644,
+  "unmapped_element_count": 604,
+  "unmapped_grouped_rows": [
+    {
+      "region_name": "01_t-wall-delgadas",
+      "property_id": 21,
+      "material_id": 1,
+      "element_count": 88,
+      "mass_contribution": 0.2804980365856433,
+      "element_types": {
+        "CQUAD4": 88
+      }
+    },
+    {
+      "region_name": "11_ESQ_xp_yp",
+      "property_id": 17,
+      "material_id": 1,
+      "element_count": 126,
+      "mass_contribution": 0.1292887705824729,
+      "element_types": {
+        "CBAR": 126
+      }
+    },
+    {
+      "region_name": "11_ESQ_xp_yp",
+      "property_id": 15,
+      "material_id": 1,
+      "element_count": 36,
+      "mass_contribution": 0.08927557699850831,
+      "element_types": {
+        "CBAR": 36
+      }
+    },
+    {
+      "region_name": "05_t-tapa",
+      "property_id": 22,
+      "material_id": 1,
+      "element_count": 64,
+      "mass_contribution": 0.08400966696537156,
+      "element_types": {
+        "CQUAD4": 64
+      }
+    },
+    {
+      "region_name": "11_ESQ_xp_yp",
+      "property_id": 16,
+      "material_id": 1,
+      "element_count": 32,
+      "mass_contribution": 0.07935606829228396,
+      "element_types": {
+        "CBAR": 32
+      }
+    },
+    {
+      "region_name": "11_ESQ_xp_yp",
+      "property_id": 13,
+      "material_id": 1,
+      "element_count": 24,
+      "mass_contribution": 0.07785792521058575,
+      "element_types": {
+        "CBAR": 24
+      }
+    },
+    {
+      "region_name": "11_ESQ_xp_yp",
+      "property_id": 14,
+      "material_id": 1,
+      "element_count": 20,
+      "mass_contribution": 0.06228634006191799,
+      "element_types": {
+        "CBAR": 20
+      }
+    },
+    {
+      "region_name": "11_ESQ_xp_yp",
+      "property_id": 18,
+      "material_id": 1,
+      "element_count": 122,
+      "mass_contribution": 0.026084699867194795,
+      "element_types": {
+        "CBAR": 122
+      }
+    },
+    {
+      "region_name": "11_ESQ_xp_yp",
+      "property_id": 12,
+      "material_id": 1,
+      "element_count": 8,
+      "mass_contribution": 0.016850918205275112,
+      "element_types": {
+        "CBAR": 8
+      }
+    },
+    {
+      "region_name": "11_ESQ_xp_yp",
+      "property_id": 11,
+      "material_id": 1,
+      "element_count": 8,
+      "mass_contribution": 0.01685091820527511,
+      "element_types": {
+        "CBAR": 8
+      }
+    },
+    {
+      "region_name": "11_ESQ_xp_yp",
+      "property_id": 5,
+      "material_id": 1,
+      "element_count": 13,
+      "mass_contribution": 0.014859338274836957,
+      "element_types": {
+        "CBAR": 13
+      }
+    },
+    {
+      "region_name": "11_ESQ_xp_yp",
+      "property_id": 6,
+      "material_id": 1,
+      "element_count": 13,
+      "mass_contribution": 0.014859338274836957,
+      "element_types": {
+        "CBAR": 13
+      }
+    },
+    {
+      "region_name": "11_ESQ_xp_yp",
+      "property_id": 7,
+      "material_id": 1,
+      "element_count": 13,
+      "mass_contribution": 0.014859338137034222,
+      "element_types": {
+        "CBAR": 13
+      }
+    },
+    {
+      "region_name": "11_ESQ_xp_yp",
+      "property_id": 8,
+      "material_id": 1,
+      "element_count": 13,
+      "mass_contribution": 0.014859338137034222,
+      "element_types": {
+        "CBAR": 13
+      }
+    },
+    {
+      "region_name": "11_ESQ_xp_yp",
+      "property_id": 9,
+      "material_id": 1,
+      "element_count": 4,
+      "mass_contribution": 0.013226235173641835,
+      "element_types": {
+        "CBAR": 4
+      }
+    },
+    {
+      "region_name": "11_ESQ_xp_yp",
+      "property_id": 10,
+      "material_id": 1,
+      "element_count": 4,
+      "mass_contribution": 0.013226235173641835,
+      "element_types": {
+        "CBAR": 4
+      }
+    },
+    {
+      "region_name": "11_ESQ_xp_yp",
+      "property_id": 1,
+      "material_id": 1,
+      "element_count": 4,
+      "mass_contribution": 0.012429278968302392,
+      "element_types": {
+        "CBAR": 4
+      }
+    },
+    {
+      "region_name": "11_ESQ_xp_yp",
+      "property_id": 2,
+      "material_id": 1,
+      "element_count": 4,
+      "mass_contribution": 0.012429278968302392,
+      "element_types": {
+        "CBAR": 4
+      }
+    },
+    {
+      "region_name": "11_ESQ_xp_yp",
+      "property_id": 3,
+      "material_id": 1,
+      "element_count": 4,
+      "mass_contribution": 0.012429278968302392,
+      "element_types": {
+        "CBAR": 4
+      }
+    },
+    {
+      "region_name": "11_ESQ_xp_yp",
+      "property_id": 4,
+      "material_id": 1,
+      "element_count": 4,
+      "mass_contribution": 0.012429278968302392,
+      "element_types": {
+        "CBAR": 4
+      }
+    }
+  ],
+  "backplane_top_rows": [
+    {
+      "region_name": "07_t-bandejas",
+      "property_id": 24,
+      "material_id": 1,
+      "element_count": 96,
+      "mass_contribution": 0.35284057705977206,
+      "element_types": {
+        "CQUAD4": 96
+      }
+    },
+    {
+      "region_name": "07_t-bandejas_FPGA",
+      "property_id": 29,
+      "material_id": 6,
+      "element_count": 32,
+      "mass_contribution": 0.11761352568659077,
+      "element_types": {
+        "CQUAD4": 32
+      }
+    }
+  ],
+  "mod_fpga_proc_same_signature": {
+    "mod_vs_fpga": false,
+    "mod_vs_proc": false,
+    "fpga_vs_proc": false
+  },
+  "mod_fpga_proc_rows": {
+    "MOD module": [
+      {
+        "region_name": "09_B_t-boards-MOD",
+        "property_id": 26,
+        "material_id": 3,
+        "element_count": 32,
+        "mass_contribution": 0.5467707658411152,
+        "element_types": {
+          "CQUAD4": 32
+        }
+      }
+    ],
+    "FPGA module": [
+      {
+        "region_name": "09_D_t-boards-FPGA",
+        "property_id": 28,
+        "material_id": 5,
+        "element_count": 32,
+        "mass_contribution": 0.5467707658411152,
+        "element_types": {
+          "CQUAD4": 32
+        }
+      }
+    ],
+    "PROC module": [
+      {
+        "region_name": "09_C_t-boards-PROC",
+        "property_id": 27,
+        "material_id": 4,
+        "element_count": 32,
+        "mass_contribution": 0.5467707658411152,
+        "element_types": {
+          "CQUAD4": 32
+        }
+      }
+    ]
+  },
+  "unsupported_extra_mass_rows": []
+}

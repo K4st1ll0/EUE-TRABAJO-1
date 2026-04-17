@@ -1,0 +1,592 @@
+{
+  "comparison_type": "backplane_equivalent_mass",
+  "created_at": "2026-04-17T18:34:57.360136+02:00",
+  "parameter_values": {
+    "aluminum_density_factor": 1.601347715575,
+    "pcb_density_factor": 1.0,
+    "aluminum_E_factor": 0.5336,
+    "pcb_E_factor": 1.0
+  },
+  "baseline": {
+    "run_id": "038_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+    "accepted": false,
+    "reject_reasons": [
+      "outside_frequency_gate"
+    ],
+    "frequencies_reference_hz": {
+      "1": 206.1324,
+      "2": 248.08,
+      "3": 256.2762,
+      "4": 269.9397,
+      "5": 290.9781,
+      "6": 323.1545,
+      "7": 335.852,
+      "8": 341.6364,
+      "9": 353.8455,
+      "10": 367.4374
+    },
+    "frequencies_model_hz": {
+      "1": 135.7204,
+      "2": 191.3088,
+      "3": 232.4594,
+      "4": 244.9485,
+      "5": 248.2648,
+      "6": 249.5862,
+      "7": 294.4368,
+      "8": 328.9451,
+      "9": 369.429,
+      "10": 382.7021
+    },
+    "pairing_final": [
+      {
+        "reference_mode": 1,
+        "model_mode": 2,
+        "reference_frequency_hz": 206.1324,
+        "model_frequency_hz": 191.3088,
+        "relative_frequency_error": 0.07191300348707917,
+        "mac": 0.7620789685344995,
+        "outside_gate": false,
+        "bad_pair": false,
+        "warning_pair": false,
+        "suspicious": false,
+        "suspicious_reason": null,
+        "reference_family_label": "top_cover",
+        "model_family_label": null
+      },
+      {
+        "reference_mode": 2,
+        "model_mode": 3,
+        "reference_frequency_hz": 248.08,
+        "model_frequency_hz": 232.4594,
+        "relative_frequency_error": 0.06296597871654315,
+        "mac": 0.0018782742699327,
+        "outside_gate": false,
+        "bad_pair": true,
+        "warning_pair": true,
+        "suspicious": false,
+        "suspicious_reason": null,
+        "reference_family_label": "fpga",
+        "model_family_label": null
+      },
+      {
+        "reference_mode": 3,
+        "model_mode": 6,
+        "reference_frequency_hz": 256.2762,
+        "model_frequency_hz": 249.5862,
+        "relative_frequency_error": 0.026104648032084236,
+        "mac": 0.22965306713012398,
+        "outside_gate": false,
+        "bad_pair": false,
+        "warning_pair": true,
+        "suspicious": false,
+        "suspicious_reason": null,
+        "reference_family_label": "psu",
+        "model_family_label": null
+      },
+      {
+        "reference_mode": 4,
+        "model_mode": 5,
+        "reference_frequency_hz": 269.9397,
+        "model_frequency_hz": 248.2648,
+        "relative_frequency_error": 0.08029534003334822,
+        "mac": 0.9990892171335832,
+        "outside_gate": false,
+        "bad_pair": false,
+        "warning_pair": false,
+        "suspicious": false,
+        "suspicious_reason": null,
+        "reference_family_label": "mod",
+        "model_family_label": null
+      },
+      {
+        "reference_mode": 5,
+        "model_mode": 4,
+        "reference_frequency_hz": 290.9781,
+        "model_frequency_hz": 244.9485,
+        "relative_frequency_error": 0.15818922454988876,
+        "mac": 0.5375125433956487,
+        "outside_gate": false,
+        "bad_pair": false,
+        "warning_pair": false,
+        "suspicious": false,
+        "suspicious_reason": null,
+        "reference_family_label": "fpga",
+        "model_family_label": null
+      },
+      {
+        "reference_mode": 6,
+        "model_mode": 1,
+        "reference_frequency_hz": 323.1545,
+        "model_frequency_hz": 135.7204,
+        "relative_frequency_error": 0.5800138942827656,
+        "mac": 0.2810504600025072,
+        "outside_gate": true,
+        "bad_pair": false,
+        "warning_pair": true,
+        "suspicious": false,
+        "suspicious_reason": null,
+        "reference_family_label": "proc",
+        "model_family_label": null
+      },
+      {
+        "reference_mode": 7,
+        "model_mode": 9,
+        "reference_frequency_hz": 335.852,
+        "model_frequency_hz": 369.429,
+        "relative_frequency_error": 0.0999755844836416,
+        "mac": 0.22935415520628663,
+        "outside_gate": false,
+        "bad_pair": false,
+        "warning_pair": true,
+        "suspicious": false,
+        "suspicious_reason": null,
+        "reference_family_label": "fpga",
+        "model_family_label": null
+      },
+      {
+        "reference_mode": 8,
+        "model_mode": 7,
+        "reference_frequency_hz": 341.6364,
+        "model_frequency_hz": 294.4368,
+        "relative_frequency_error": 0.13815740945636934,
+        "mac": 0.13909492810333138,
+        "outside_gate": false,
+        "bad_pair": false,
+        "warning_pair": true,
+        "suspicious": false,
+        "suspicious_reason": null,
+        "reference_family_label": "fpga",
+        "model_family_label": null
+      },
+      {
+        "reference_mode": 9,
+        "model_mode": 10,
+        "reference_frequency_hz": 353.8455,
+        "model_frequency_hz": 382.7021,
+        "relative_frequency_error": 0.0815514115623908,
+        "mac": 0.48673925053813266,
+        "outside_gate": false,
+        "bad_pair": false,
+        "warning_pair": false,
+        "suspicious": false,
+        "suspicious_reason": null,
+        "reference_family_label": "top_cover",
+        "model_family_label": null
+      },
+      {
+        "reference_mode": 10,
+        "model_mode": 8,
+        "reference_frequency_hz": 367.4374,
+        "model_frequency_hz": 328.9451,
+        "relative_frequency_error": 0.10475879700868773,
+        "mac": 0.7997551011082406,
+        "outside_gate": false,
+        "bad_pair": false,
+        "warning_pair": false,
+        "suspicious": false,
+        "suspicious_reason": null,
+        "reference_family_label": "top_cover_plus_mod",
+        "model_family_label": null
+      }
+    ],
+    "mean_mac": 0.44662059654222863,
+    "worst_mac": 0.0018782742699327,
+    "mean_relative_frequency_error": 0.14039252916127984,
+    "max_relative_frequency_error": 0.5800138942827656,
+    "backplane_equivalent_mass": {
+      "enabled": false,
+      "strategy": null,
+      "dependent_node_policy": null,
+      "total_mass_kg": 0.0,
+      "total_assigned_mass_kg": 0.0,
+      "region_name": null,
+      "assignments": [],
+      "bridge_segments": [],
+      "warnings": []
+    }
+  },
+  "variant": {
+    "run_id": "040_Al1.601_PCB1.000_ALE0.534_PCBE1.000",
+    "accepted": false,
+    "reject_reasons": [
+      "too_many_bad_pairs",
+      "outside_frequency_gate"
+    ],
+    "frequencies_reference_hz": {
+      "1": 206.1324,
+      "2": 248.08,
+      "3": 256.2762,
+      "4": 269.9397,
+      "5": 290.9781,
+      "6": 323.1545,
+      "7": 335.852,
+      "8": 341.6364,
+      "9": 353.8455,
+      "10": 367.4374
+    },
+    "frequencies_model_hz": {
+      "1": 4.340859e-05,
+      "2": 4.340859e-05,
+      "3": 5.132566e-05,
+      "4": 135.7206,
+      "5": 191.3163,
+      "6": 232.4594,
+      "7": 244.962,
+      "8": 248.2664,
+      "9": 249.5874,
+      "10": 294.4368
+    },
+    "pairing_final": [
+      {
+        "reference_mode": 1,
+        "model_mode": 5,
+        "reference_frequency_hz": 206.1324,
+        "model_frequency_hz": 191.3163,
+        "relative_frequency_error": 0.07187661910500232,
+        "mac": 0.7558884129680465,
+        "outside_gate": false,
+        "bad_pair": false,
+        "warning_pair": false,
+        "suspicious": false,
+        "suspicious_reason": null,
+        "reference_family_label": "top_cover",
+        "model_family_label": null
+      },
+      {
+        "reference_mode": 2,
+        "model_mode": 6,
+        "reference_frequency_hz": 248.08,
+        "model_frequency_hz": 232.4594,
+        "relative_frequency_error": 0.06296597871654315,
+        "mac": 0.0018783394166538992,
+        "outside_gate": false,
+        "bad_pair": true,
+        "warning_pair": true,
+        "suspicious": false,
+        "suspicious_reason": null,
+        "reference_family_label": "fpga",
+        "model_family_label": null
+      },
+      {
+        "reference_mode": 3,
+        "model_mode": 9,
+        "reference_frequency_hz": 256.2762,
+        "model_frequency_hz": 249.5874,
+        "relative_frequency_error": 0.026099965584006686,
+        "mac": 0.22965705182919874,
+        "outside_gate": false,
+        "bad_pair": false,
+        "warning_pair": true,
+        "suspicious": false,
+        "suspicious_reason": null,
+        "reference_family_label": "psu",
+        "model_family_label": null
+      },
+      {
+        "reference_mode": 4,
+        "model_mode": 8,
+        "reference_frequency_hz": 269.9397,
+        "model_frequency_hz": 248.2664,
+        "relative_frequency_error": 0.08028941278366987,
+        "mac": 0.9990907429499031,
+        "outside_gate": false,
+        "bad_pair": false,
+        "warning_pair": false,
+        "suspicious": false,
+        "suspicious_reason": null,
+        "reference_family_label": "mod",
+        "model_family_label": null
+      },
+      {
+        "reference_mode": 5,
+        "model_mode": 7,
+        "reference_frequency_hz": 290.9781,
+        "model_frequency_hz": 244.962,
+        "relative_frequency_error": 0.15814282930571064,
+        "mac": 0.5379566538127685,
+        "outside_gate": false,
+        "bad_pair": false,
+        "warning_pair": false,
+        "suspicious": false,
+        "suspicious_reason": null,
+        "reference_family_label": "fpga",
+        "model_family_label": null
+      },
+      {
+        "reference_mode": 6,
+        "model_mode": 2,
+        "reference_frequency_hz": 323.1545,
+        "model_frequency_hz": 4.340859e-05,
+        "relative_frequency_error": 0.9999998656723332,
+        "mac": 0.03436716456772287,
+        "outside_gate": true,
+        "bad_pair": true,
+        "warning_pair": true,
+        "suspicious": false,
+        "suspicious_reason": null,
+        "reference_family_label": "proc",
+        "model_family_label": null
+      },
+      {
+        "reference_mode": 7,
+        "model_mode": 3,
+        "reference_frequency_hz": 335.852,
+        "model_frequency_hz": 5.132566e-05,
+        "relative_frequency_error": 0.9999998471777449,
+        "mac": 0.004989203981117377,
+        "outside_gate": true,
+        "bad_pair": true,
+        "warning_pair": true,
+        "suspicious": false,
+        "suspicious_reason": null,
+        "reference_family_label": "fpga",
+        "model_family_label": null
+      },
+      {
+        "reference_mode": 8,
+        "model_mode": 10,
+        "reference_frequency_hz": 341.6364,
+        "model_frequency_hz": 294.4368,
+        "relative_frequency_error": 0.13815740945636934,
+        "mac": 0.14006136570506236,
+        "outside_gate": false,
+        "bad_pair": false,
+        "warning_pair": true,
+        "suspicious": false,
+        "suspicious_reason": null,
+        "reference_family_label": "fpga",
+        "model_family_label": null
+      },
+      {
+        "reference_mode": 9,
+        "model_mode": 1,
+        "reference_frequency_hz": 353.8455,
+        "model_frequency_hz": 4.340859e-05,
+        "relative_frequency_error": 0.9999998773233233,
+        "mac": 0.0009912836288024046,
+        "outside_gate": true,
+        "bad_pair": true,
+        "warning_pair": true,
+        "suspicious": false,
+        "suspicious_reason": null,
+        "reference_family_label": "top_cover",
+        "model_family_label": null
+      },
+      {
+        "reference_mode": 10,
+        "model_mode": 4,
+        "reference_frequency_hz": 367.4374,
+        "model_frequency_hz": 135.7206,
+        "relative_frequency_error": 0.6306293262471376,
+        "mac": 0.014055442373086266,
+        "outside_gate": true,
+        "bad_pair": true,
+        "warning_pair": true,
+        "suspicious": false,
+        "suspicious_reason": null,
+        "reference_family_label": "top_cover_plus_mod",
+        "model_family_label": null
+      }
+    ],
+    "mean_mac": 0.2718935661232362,
+    "worst_mac": 0.0009912836288024046,
+    "mean_relative_frequency_error": 0.4168161131371841,
+    "max_relative_frequency_error": 0.9999998773233233,
+    "backplane_equivalent_mass": {
+      "enabled": true,
+      "strategy": "midpoint-bridge",
+      "dependent_node_policy": "warn",
+      "total_mass_kg": 0.2249655,
+      "total_assigned_mass_kg": 0.22496550000000004,
+      "region_name": "07_equivalent_backplane_mass",
+      "assignments": [
+        {
+          "element_id": 9700000,
+          "node_id": 9900000,
+          "node_coordinates": [
+            0.0,
+            0.08575,
+            0.0238
+          ],
+          "region_name": "07_equivalent_backplane_mass",
+          "group_name": "07_equivalent_backplane_mass",
+          "raw_weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "assigned_mass_kg": 0.0749885,
+          "source": "bridge_midpoint",
+          "label": "bp_psu_mod",
+          "target_coordinates": [
+            0.0,
+            0.08575,
+            0.0238
+          ],
+          "resolved_distance": 0.0
+        },
+        {
+          "element_id": 9700001,
+          "node_id": 9900001,
+          "node_coordinates": [
+            0.0,
+            0.08575,
+            0.05445
+          ],
+          "region_name": "07_equivalent_backplane_mass",
+          "group_name": "07_equivalent_backplane_mass",
+          "raw_weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "assigned_mass_kg": 0.0749885,
+          "source": "bridge_midpoint",
+          "label": "bp_mod_fpga",
+          "target_coordinates": [
+            0.0,
+            0.08575,
+            0.05445
+          ],
+          "resolved_distance": 0.0
+        },
+        {
+          "element_id": 9700002,
+          "node_id": 9900002,
+          "node_coordinates": [
+            0.0,
+            0.08575,
+            0.08445
+          ],
+          "region_name": "07_equivalent_backplane_mass",
+          "group_name": "07_equivalent_backplane_mass",
+          "raw_weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "assigned_mass_kg": 0.07498850000000003,
+          "source": "bridge_midpoint",
+          "label": "bp_fpga_proc",
+          "target_coordinates": [
+            0.0,
+            0.08575,
+            0.08445
+          ],
+          "resolved_distance": 0.0
+        }
+      ],
+      "bridge_segments": [
+        {
+          "label": "bp_psu_mod",
+          "midpoint_node_id": 9900000,
+          "midpoint_coordinates": [
+            0.0,
+            0.08575,
+            0.0238
+          ],
+          "endpoint_node_ids": [
+            1000,
+            2000
+          ],
+          "endpoint_node_coordinates": [
+            [
+              0.0,
+              0.081749998033047,
+              0.00815000012517
+            ],
+            [
+              0.0,
+              0.081749998033047,
+              0.03945000012517
+            ]
+          ],
+          "endpoint_regions": [
+            "09_A_t-boards-PSU",
+            "09_B_t-boards-MOD"
+          ],
+          "pbush_property_id": 9800000,
+          "cbush_element_ids": [
+            9700003,
+            9700004
+          ],
+          "translational_stiffness_n_per_m": [
+            10000000.0,
+            10000000.0,
+            10000000.0
+          ]
+        },
+        {
+          "label": "bp_mod_fpga",
+          "midpoint_node_id": 9900001,
+          "midpoint_coordinates": [
+            0.0,
+            0.08575,
+            0.05445
+          ],
+          "endpoint_node_ids": [
+            2000,
+            3000
+          ],
+          "endpoint_node_coordinates": [
+            [
+              0.0,
+              0.081749998033047,
+              0.03945000012517
+            ],
+            [
+              0.0,
+              0.081749998033047,
+              0.06945000012517
+            ]
+          ],
+          "endpoint_regions": [
+            "09_B_t-boards-MOD",
+            "09_D_t-boards-FPGA"
+          ],
+          "pbush_property_id": 9800000,
+          "cbush_element_ids": [
+            9700005,
+            9700006
+          ],
+          "translational_stiffness_n_per_m": [
+            10000000.0,
+            10000000.0,
+            10000000.0
+          ]
+        },
+        {
+          "label": "bp_fpga_proc",
+          "midpoint_node_id": 9900002,
+          "midpoint_coordinates": [
+            0.0,
+            0.08575,
+            0.08445
+          ],
+          "endpoint_node_ids": [
+            3000,
+            4000
+          ],
+          "endpoint_node_coordinates": [
+            [
+              0.0,
+              0.081749998033047,
+              0.06945000012517
+            ],
+            [
+              0.0,
+              0.081749998033047,
+              0.09945000012517
+            ]
+          ],
+          "endpoint_regions": [
+            "09_D_t-boards-FPGA",
+            "09_C_t-boards-PROC"
+          ],
+          "pbush_property_id": 9800000,
+          "cbush_element_ids": [
+            9700007,
+            9700008
+          ],
+          "translational_stiffness_n_per_m": [
+            10000000.0,
+            10000000.0,
+            10000000.0
+          ]
+        }
+      ],
+      "warnings": []
+    }
+  }
+}
