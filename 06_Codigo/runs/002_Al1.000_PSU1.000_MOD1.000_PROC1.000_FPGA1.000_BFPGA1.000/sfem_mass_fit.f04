@@ -1,0 +1,89 @@
+1
+ MACHINE                          MODEL                 OPERATING SYSTEM       MSC Nastran       BUILD DATE         RUN DATE
+ Intel                            Intel(R) Core(TM) i7  Windows 11 10.0 26200      i8 V2025.2    MAR  3, 2026       APR 17, 2026
+
+ 
+                               ===    M S C   N a s t r a n           E X E C U T I O N   S U M M A R Y    ===
+
+ Day_Time  Elapsed     I/O_Mb      Del_Mb     CPU_Sec    Del_CPU    Subroutine
+ 
+ 23:35:59     0:00        0.0         0.0        -0.0       -0.0    SEMTRN   BGN
+ 23:35:59     0:00        0.0         0.0        -0.0        0.0    SEMTRN   END
+ 23:35:59     0:00        0.0         0.0         0.0        0.0    DBINIT   BGN
+      ** CURRENT PROJECT ID = ' "BLANK" '  ** CURRENT VERSION ID =          1
+
+     S U M M A R Y   O F   F I L E   A S S I G N M E N T   F O R   T H E   P R I M A R Y   D A T A B A S E   ( DBSNO     1, V2025.2 )
+
+    ASSIGNED PHYSICAL FILE NAME (/ORIGINAL)      LOGICAL NAME     DBSET        STATUS    BUFFSIZE     CLUSTER SIZE      TIME STAMP
+    ---------------------------------------      ------------     -----        ------    --------     ------------     ------------
+    c:/scratch/sfem_mass_fit.T3560_40.MASTER     MASTER           MASTER       NEW           8193           1          260417233559
+    c:/scratch/sfem_mass_fit.T3560_40.DBALL      DBALL            DBALL        NEW           8193           1          260417233560
+    c:/scratch/sfem_mass_fit.T3560_40.OBJSCR     OBJSCR           OBJSCR       NEW           8193           1          260417233561
+               **** MEM FILE ****                * N/A *          SCRATCH 
+    c:/.../sfem_mass_fit.T3560_40.SCRATCH        SCRATCH          SCRATCH      NEW           8193           1          260417233562
+    c:/scratch/sfem_mass_fit.T3560_40.SCR300     SCR300           SCRATCH      NEW           8193           1          260417233563
+ 23:35:59     0:00        1.0         1.0         0.1        0.0    DBINIT   END
+ 23:35:59     0:00        1.0         0.0         0.1        0.0    XCSA     BGN
+ 23:35:59     0:00        1.0         0.0         0.1        0.0    XCSA     END
+ 23:35:59     0:00        1.0         0.0         0.1        0.0    CGPI     BGN
+ 23:35:59     0:00        1.0         0.0         0.1        0.0    CGPI     END
+ 23:35:59     0:00        1.0         0.0         0.1        0.0    CGPI     END
+ 23:35:59     0:00        1.0         0.0         0.1        0.0    PEXIT                   BEGN
+ 23:35:59     0:00        1.0         0.0         0.1        0.0    PEXIT                   END 
+
+*** SUMMARY OF COMPONENT SERVICES USAGE ACTIVITY ***
+
+           SERVICE                         LOAD  IMPLEMENTATION    GENERIC             COMPONENT  
+            NAME                           COUNT    LANGUAGE     LIBRARY NAME         LIBRARY NAME 
+
+SCA.Framework.ErrorPolicyManager             1       C++         SCAKernel            SCAKernel                                 
+SCA.Framework.Logger                         1       C++         SCAKernel            SCAKernel                                 
+SCA.Framework.MessageDispatcher              1       C++         SCA/...spatcher_31_5 c:/p...amework/MessageDispatcher_31_5.dll 
+SCA.Framework.ResourceManager                1       C++         SCAKernel            SCAKernel                                 
+SCA.Framework.SecurityManager                1       C++         SCAKernel            SCAKernel                                 
+SCA.Framework.ServiceManager                 9       C++         SCAKernel            SCAKernel                                 
+SCA.Framework.SharedLibraryManager           4       C++         SCAKernel            SCAKernel                                 
+SCA.Framework.TextTranslation                3       C++         SCAKernel            SCAKernel                                 
+SCA.MDSolver.System.PrintServer              2       C++         SCA/...ntServer_31_5 c:/p...Solver/System/PrintServer_31_5.dll 
+
+ *** TOTAL DISK USAGE STATISTICS ***
+
+ +------------- MAXIMUM DISK USAGE -------------+
+    HIWATER               SUB_DMAP        DMAP
+       (MB)   DAY_TIME      NAME         MODULE
+      0.875   23:35:59    PREFACE     0  PREFACE 
+
+
+ *** DATABASE USAGE STATISTICS ***
+ 
+ +---------------- LOGICAL DBSETS ----------------+   +------------------------------ DBSET FILES -----------------------------+
+  DBSET     ALLOCATED  BLOCKSIZE       USED   USED     FILE      ALLOCATED  ALLOCATED    HIWATER       HIWATER  I/O TRANSFERRED
+             (BLOCKS)    (WORDS)   (BLOCKS)      %                (BLOCKS)       (GB)   (BLOCKS)          (GB)             (GB)
+ 
+  MASTER        25000       8192         14   0.06     MASTER        25000       1.53         14         0.001            0.000
+  DBALL        500000       8192          5   0.00     DBALL        500000      30.52          5         0.000            0.000
+  OBJSCR        25000       8192          4   0.02     OBJSCR        25000       1.53          4         0.000            0.000
+  SCRATCH     1000100       8192          7   0.00    (MEMFILE         100       0.01          7         0.000            0.000)
+                                                       SCRATCH      500000      30.52          1         0.000            0.000
+                                                       SCR300       500000      30.52          1         0.000            0.000
+                                                                                                                 ==============
+                                                                                                          TOTAL:          0.001
+ 
+ *** BUFFER POOL AND SCRATCH 300 USAGE STATISTICS ***
+ 
+ +----------------- BUFFER POOL -----------------+      +-------------------------- SCRATCH 300 --------------------------+ 
+   OPTION        BLOCKS      BLOCKS      BLOCKS           OPTION    HIWATER               SUB_DMAP        DMAP     OPN/CLS
+  SELECTED     ALLOCATED     REUSED     RELEASED         SELECTED  (BLOCKS)   DAY_TIME      NAME         MODULE    COUNTER
+   BPOOL4          1824          65           0              2           1    23:35:59    PREFACE     0  PREFACE       0
+
+
+ *** SUMMARY OF PHYSICAL FILE I/O ACTIVITY ***
+
+ ASSIGNED PHYSICAL FILE NAME                                   RECL (BYTES)  READ/WRITE COUNTS   WSIZE  (WNUM)  MAP-I/O CNT
+ ------------------------------------------------------------  -----------  -------------------  -------------  -----------
+ c:/scratch/sfem_mass_fit.T3560_40.SCRATCH                           65536          0/1             256KB ( 4)            1 (M)
+ c:/scratch/sfem_mass_fit.T3560_40.OBJSCR                            65536          2/4             256KB ( 4)            1 (M)
+ c:/scratch/sfem_mass_fit.T3560_40.MASTER                            65536          2/4             256KB ( 4)            1 (M)
+ c:/scratch/sfem_mass_fit.T3560_40.DBALL                             65536          2/4             256KB ( 4)            1 (M)
+ c:/scratch/sfem_mass_fit.T3560_40.SCR300                            65536          0/1             256KB ( 4)            1 (M)
+ 

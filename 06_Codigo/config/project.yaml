@@ -1,0 +1,334 @@
+project:
+  name: EUE mass-fit
+  phase: Fase 1 y Fase 2 - ajuste de masas y correlacion modal
+
+paths:
+  base_bdf: ../05_FEM/SFEM_EUE.bdf
+  job_name: sfem_mass_fit
+  runs_dir: runs
+  reports_dir: reports/runs
+  handoff_dir: handoff
+
+runner:
+  command: '"C:\Program Files\MSC.Software\NaPa_SE\20252\Nastran\msc20252\win64i8\nastran.exe" "{bdf}" prog=edu auth=edu bat=no'
+  dry_run: false
+  timeout_seconds: 600
+
+materials:
+  - id: 1
+    name: Al_7075-T7351
+    tag: Al
+    base_rho: 2800.0
+    role: common_structural_contribution
+    comparison_targets: []
+    interpretation: Variable estructural comun usada para ayudar al cierre de la masa total cuando los controles parciales ya estan dentro de banda.
+  - id: 2
+    name: PCB_PSU
+    tag: PSU
+    base_rho: 9929.2266
+    role: direct_mass_budget_reference
+    comparison_targets: [H-PSU module]
+    interpretation: Control operativo directo para la restriccion H-PSU module.
+  - id: 3
+    name: PCB_MOD
+    tag: MOD
+    base_rho: 9929.2266
+    role: direct_mass_budget_reference
+    comparison_targets: [MOD module]
+    interpretation: Control operativo directo para la restriccion MOD module.
+  - id: 4
+    name: PCB_PROC
+    tag: PROC
+    base_rho: 9929.2266
+    role: direct_mass_budget_reference
+    comparison_targets: [PROC module]
+    interpretation: Control operativo directo para la restriccion PROC module.
+  - id: 5
+    name: PCB_FPGA
+    tag: FPGA
+    base_rho: 9929.2266
+    role: direct_mass_budget_reference
+    comparison_targets: [FPGA module]
+    interpretation: Control operativo directo para la parte electronica del modulo FPGA.
+  - id: 6
+    name: Bandeja_FPGA
+    tag: BFPGA
+    base_rho: 2800.0
+    role: shared_mass_budget_reference
+    comparison_targets: [FPGA module, Backplane modules]
+    interpretation: Variable compartida entre el control FPGA y el control Backplane modules; representa masa estructural comun en ambas zonas segun la hipotesis actual.
+
+targets:
+  mass_budget_targets_g:
+    H-PSU module: 913.0
+    MOD module: 823.0
+    FPGA module: 871.0
+    PROC module: 979.0
+    Backplane modules: 225.0
+  total_mass_g: 3810.0
+
+physical_assumptions:
+  model_units: SI (m, kg, s); los reportes convierten la masa a gramos
+  notes:
+    - Solo se modifican las densidades rho de las MAT1 1 a 6.
+    - No se toca E, nu, espesores, PBUSH, geometria, malla, SPC ni RBE2.
+    - Las seis densidades MAT1 se tratan como variables independientes y no se agrupan por similitud numerica.
+    - El mass budget se usa como conjunto de restricciones operativas con bandas de tolerancia del 5%.
+    - Los controles parciales se calculan directamente sobre masas por material; PSU, MOD y PROC usan control directo, FPGA comparte Bandeja_FPGA y Backplane modules depende de Bandeja_FPGA.
+    - Bandeja_FPGA se interpreta como una variable con impacto compartido entre la bandeja FPGA y la zona de backplanes.
+    - Al_7075-T7351 ayuda a cerrar la masa total cuando existe slack disponible sin romper las restricciones parciales.
+    - CBUSH, PBUSH, RBE2, MPC y SPC se consideran masa nula en esta fase.
+
+mass_fit_controls:
+  psu:
+    label: H-PSU module
+    direct_materials: [PCB_PSU]
+    shared_materials: []
+  mod:
+    label: MOD module
+    direct_materials: [PCB_MOD]
+    shared_materials: []
+  proc:
+    label: PROC module
+    direct_materials: [PCB_PROC]
+    shared_materials: []
+  fpga:
+    label: FPGA module
+    direct_materials: [PCB_FPGA]
+    shared_materials:
+      - name: Bandeja_FPGA
+        weight: 1.0
+  backplanes:
+    label: Backplane modules
+    direct_materials: []
+    shared_materials:
+      - name: Bandeja_FPGA
+        weight: 1.0
+
+mass_fit_targets:
+  psu:
+    label: H-PSU module
+    target_g: 913.0
+    tolerance_fraction: 0.05
+  mod:
+    label: MOD module
+    target_g: 823.0
+    tolerance_fraction: 0.05
+  fpga:
+    label: FPGA module
+    target_g: 871.0
+    tolerance_fraction: 0.05
+  proc:
+    label: PROC module
+    target_g: 979.0
+    tolerance_fraction: 0.05
+  backplanes:
+    label: Backplane modules
+    target_g: 225.0
+    tolerance_fraction: 0.05
+  total:
+    label: Total mass
+    target_g: 3810.0
+    tolerance_fraction: 0.05
+
+search_strategy:
+  method: feasibility_with_slack
+  explicit_list: []
+  linspace_range:
+    default:
+      start: 0.85
+      stop: 1.15
+      count: 5
+    per_material: {}
+  cartesian_grid:
+    default_factors: [0.95, 1.0, 1.05]
+    per_material: {}
+    max_combinations: 150
+  coordinate_descent_simple:
+    candidate_factors: [0.85, 0.925, 1.0, 1.075, 1.15]
+    max_passes: 2
+    variable_order:
+      - Al_7075-T7351
+      - PCB_PSU
+      - PCB_MOD
+      - PCB_PROC
+      - PCB_FPGA
+      - Bandeja_FPGA
+    start_from_best_existing: true
+  feasibility_with_slack:
+    max_passes: 6
+    binary_search_steps: 18
+    control_improvement_tolerance: 0.0001
+    max_persisted_candidates: 4
+    persist_intermediate_runs: true
+    run_nastran_for_accepted_candidates: true
+    start_from_best_existing: true
+    variable_order:
+      - PCB_PSU
+      - PCB_MOD
+      - PCB_PROC
+      - PCB_FPGA
+      - Bandeja_FPGA
+      - Al_7075-T7351
+    factor_bounds:
+      default:
+        min: 0.5
+        max: 3.5
+      per_material: {}
+
+score:
+  weights:
+    unsatisfied_constraints: 1000.0
+    max_normalized_violation: 100.0
+    total_mass_rel_error: 10.0
+    change_from_baseline: 1.0
+    failure_penalty: 10000.0
+
+sensitivity:
+  local_variation_fraction: 0.05
+
+modal:
+  base_mass_run_name: 005_Al0.500_PSU1.586_MOD1.430_PROC1.701_FPGA1.102_BFPGA3.063
+  num_modes: 10
+  mac_good_threshold: 0.8
+  frequency_error_good_threshold: 0.05
+  pairing_frequency_penalty_weight: 0.25
+  result_source_preference: [.f06]
+  reference:
+    path: ../01_DFEM-de-referencia/01_Resultados-autovectores-acelerometros.f06
+    source_type: nastran_f06_real_eigenvectors
+    rationale: Fuente elegida porque contiene las 10 primeras frecuencias y los autovectores en los nodos de medida del modelo detallado de referencia.
+    measurement_points:
+      - label: Punto de referencia 52018382
+        source_node_id: 52018382
+        target_node_id: 2040
+      - label: Punto de referencia 52001152
+        source_node_id: 52001152
+        target_node_id: 402
+      - label: Punto de referencia 52098820
+        source_node_id: 52098820
+        target_node_id: 486
+      - label: Punto de referencia 52763676
+        source_node_id: 52763676
+        target_node_id: 452
+    notes:
+      - Se prioriza esta fuente frente al fichero de modos globales porque incluye directamente los puntos medidos usados para el MAC.
+      - La referencia no expone nombres fisicos de punto; el mapeo entre los IDs del modelo detallado y los cuatro puntos canonicos del SFEM se fija explicitamente en esta config.
+      - El mapeo actual se congelo tras comparar las 24 permutaciones posibles contra la modal baseline 006 y escoger la que maximizaba la correlacion emparejada manteniendo un criterio trazable y repetible.
+      - La interpretacion actual toma T1, T2 y T3 reales en los nodos canonicos 486, 452, 2040 y 402 del SFEM.
+  measurement_points:
+    - label: Centro tapa superior
+      node_id: 486
+      coordinates: [-2.7269125e-09, 1.6306574e-09, 0.1234]
+    - label: Esquina X+Y+ tapa superior
+      node_id: 452
+      coordinates: [-0.10925, 0.085749999, 0.1234]
+    - label: Centro cuadrante X-Y+ PCB MOD
+      node_id: 2040
+      coordinates: [-0.053375002, -0.041625999, 0.039450001]
+    - label: Lateral X+ de FPGA
+      node_id: 402
+      coordinates: [-1.8688961e-09, 0.085749999, 0.091499999]
+  modal_vector_order:
+    - label: T1_486
+      node_id: 486
+      component: T1
+    - label: T2_486
+      node_id: 486
+      component: T2
+    - label: T3_486
+      node_id: 486
+      component: T3
+    - label: T1_452
+      node_id: 452
+      component: T1
+    - label: T2_452
+      node_id: 452
+      component: T2
+    - label: T3_452
+      node_id: 452
+      component: T3
+    - label: T1_2040
+      node_id: 2040
+      component: T1
+    - label: T2_2040
+      node_id: 2040
+      component: T2
+    - label: T3_2040
+      node_id: 2040
+      component: T3
+    - label: T1_402
+      node_id: 402
+      component: T1
+    - label: T2_402
+      node_id: 402
+      component: T2
+    - label: T3_402
+      node_id: 402
+      component: T3
+  ranking_weights:
+    mean_mac: 4.0
+    worst_mac: 2.0
+    mean_frequency_error: 2.0
+    worst_frequency_error: 1.0
+    threshold_hits: 1.0
+  diagnostics:
+    reference_run_name: ""
+    dominant_dofs_per_mode: 3
+    problematic_top_n: 3
+    good:
+      mac_min: 0.80
+      frequency_error_max: 0.05
+    acceptable:
+      mac_min: 0.60
+      frequency_error_max: 0.20
+  fit:
+    method: youngs_modulus_one_at_a_time
+    candidate_factors: [0.95, 1.05]
+    variable_order:
+      - Al_7075-T7351
+      - PCB_PSU
+      - PCB_MOD
+      - PCB_PROC
+      - PCB_FPGA
+      - Bandeja_FPGA
+    launch_nastran: true
+  local_fit:
+    method: modal_local_grid_refinement
+    launch_nastran: true
+    reference_modal_fit_run_name: ""
+    primary_grid:
+      PCB_FPGA: [0.90, 0.95, 1.00]
+      PCB_MOD: [0.95, 1.00, 1.05]
+    secondary_stage:
+      enabled: true
+      trigger: if_primary_completed
+      shared_material: Bandeja_FPGA
+      factors: [0.95, 1.00, 1.05]
+  balanced_local_fit:
+    method: modal_balanced_local_grid_refinement
+    launch_nastran: true
+    reference_balanced_run_name: 023_Al0.500_PSU1.586_MOD1.430_PROC1.701_FPGA1.102_BFPGA3.063_EMOD0.950_EFPGA0.950
+    primary_grid:
+      PCB_MOD: [0.90, 0.95, 1.00]
+      PCB_FPGA: [0.90, 0.95, 1.00]
+  local_sensitivity:
+    method: modal_local_sensitivity
+    launch_nastran: true
+    perturbation_fraction: 0.02
+    materials:
+      - PCB_MOD
+      - PCB_FPGA
+      - Bandeja_FPGA
+      - Al_7075-T7351
+  targeted_fit:
+    method: modal_targeted_micro_refinement
+    launch_nastran: true
+    max_candidates: 5
+    max_parameter_moves_per_candidate: 2
+
+limits:
+  max_runs: 40
+
+naming:
+  decimals: 3

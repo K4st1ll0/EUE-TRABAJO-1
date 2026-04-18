@@ -1,0 +1,141 @@
+MSC Nastran V2025.2 (Intel Windows 11  10.0 26200) Control File: 
+----------------------------------------------------------------- 
+Nastran BUFFSIZE=8193 $(c:/program files/msc.software/napa_se/20252/nastran/conf/nast20252.rcf[2])
+JID='c:/users/pablo castillo/desktop/muse/segundo cuatrimestre/estructuras/eue-trabajo-1/06_codigo/runs/018_al0.500_psu1.586_mod1.430_proc1.701_fpga1.102_bfpga3.063_ebfpga0.950/sfem_mass_fit.bdf'
+OUT='./sfem_mass_fit'
+MEM=1144MB      $ 
+PMEM=0+
+MACH='Intel'
+OPER='Windows 11 '
+OSV='10.0 26200'
+MODEL='Intel(R) Core(TM) i7-8550U CPU (DESKTOP-0MNNQU5)'
+NPROC='8'
+CONFIG=6
+NPROC=8
+symbol=DELDIR='c:/program files/msc.software/napa_se/20252/nastran/msc20252/nast/del' $(program default)
+symbol=DEMODIR='c:/program files/msc.software/napa_se/20252/nastran/msc20252/nast/demo' $(program default)
+symbol=SSSALTERDIR='c:/program files/msc.software/napa_se/20252/nastran/msc20252/nast/sssalter' $(program default)
+symbol=TPLDIR='c:/program files/msc.software/napa_se/20252/nastran/msc20252/nast/tpl' $(program default)
+SDIR='c:/scratch/sfem_mass_fit.T3640_26'
+DBS='c:/scratch/sfem_mass_fit.T3640_26'
+SCR='yes'
+SMEM=100
+BPOOL=114MB
+DMPMEM=0
+NEWDEL='c:/program files/msc.software/napa_se/20252/nastran/msc20252/win64i8/SSS'
+DEL='MSCDEF'
+SPOTWELD=''
+EMENGPU=''
+UDR=''
+DML=MSCDEF
+SDL=MSCDEF
+AUTH='edu'
+AUTHQUE=20
+MSGCAT='c:/program files/msc.software/napa_se/20252/nastran/msc20252/win64i8/analysis.msg'
+MSGDEST='f06'
+PROG=edu
+NEWS='c:/program files/msc.software/napa_se/20252/nastran/msc20252/nast/news.txt'
+----------------------------------------------------------------- 
+MSC_ISHELLPATH=c:\users\pablo castillo\desktop\muse\segundo cuatrimestre\estructuras\eue-trabajo-1\06_codigo\runs\018_al0.500_psu1.586_mod1.430_proc1.701_fpga1.102_bfpga3.063_ebfpga0.950 
+MSC_JIDPATH= 
+PATH=c:\program files\msc.software\napa_se\20252\nastran\msc20252\win64i8\nvidia;c:\program files\msc.software\napa_se\20252\nastran\msc20252\win64i8\intel\bin64;c:\program files\msc.software\napa_se\20252\nastran\msc20252\win64i8\lib;c:\program files\msc.software\napa_se\20252\nastran\msc20252\win64i8;C:\Users\Pablo Castillo\.codex\tmp\arg0\codex-arg0xovJDF;C:\Users\Pablo Castillo\AppData\Local\Programs\Microsoft VS Code;C:\Program Files\MSC.Software\NaPa_SE\20252\Patran\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\MATLAB\R2025b\bin;C:\Program Files\MATLAB\R2023a\runtime\win64;C:\Program Files\MATLAB\R2023a\bin;C:\Program Files\Git\cmd;C:\Program Files\Graphviz\bin;C:\Program Files\Gpg4win\..\GnuPG\bin;C:\Program Files\dotnet\;C:\Users\Pablo Castillo\AppData\Local\Programs\Python\Launcher\;C:\Users\Pablo Castillo\AppData\Local\Microsoft\WindowsApps;C:\Users\Pablo Castillo\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Graphviz\bin;;c:\Users\Pablo Castillo\.vscode\extensions\openai.chatgpt-26.415.20818-win32-x64\bin\windows-x86_64 
+SCA_SERVICE_CATALOG=c:\program files\msc.software\napa_se\20252\nastran\msc20252\res\SCAServiceCatalog.xml 
+SCA_RESOURCE_DIR=c:\program files\msc.software\napa_se\20252\nastran\msc20252\res 
+Cmd Line:    C:\Program Files\MSC.Software\NaPa_SE\20252\Nastran\msc20252\win64i8\nastran.exe C:\Users\Pablo Castillo\Desktop\MUSE\SEGUNDO CUATRIMESTRE\ESTRUCTURAS\EUE-TRABAJO-1\06_Codigo\runs\018_Al0.500_PSU1.586_MOD1.430_PROC1.701_FPGA1.102_BFPGA3.063_EBFPGA0.950\sfem_mass_fit.bdf prog=edu auth=edu bat=no 
+Current Dir: C:\Users\Pablo Castillo\Desktop\MUSE\SEGUNDO CUATRIMESTRE\ESTRUCTURAS\EUE-TRABAJO-1\06_Codigo\runs\018_Al0.500_PSU1.586_MOD1.430_PROC1.701_FPGA1.102_BFPGA3.063_EBFPGA0.950 
+Time Cmd:    c:\program files\msc.software\napa_se\20252\nastran\msc20252\win64i8\msctime 
+Executable:  c:\program files\msc.software\napa_se\20252\nastran\msc20252\win64i8\analysis.exe 
+Arch= Kywd:  [Not specified]  
+MSC_MSG:     stderr  
+FPE:         yes  
+----------------------------------------------------------------- 
+Current resource limits:
+ Physical memory:                     8048 MB
+ Physical memory available:           1417 MB
+ Paging file size:                   19312 MB
+ Paging file size available:          6449 MB
+ Virtual memory:                 134217727 MB
+ Virtual memory available:       134213507 MB
+----------------------------------------------------------------- 
+System configuration:
+ Hostname:         DESKTOP-0MNNQU5
+ Architecture:     win64i8
+ Platform:         Intel Windows 11  10.0 26200
+ Model:            Intel(R) Core(TM) i7-8550U CPU
+ Clock freq.:      2859 MHz
+ Number of CPUs:   8
+ Number of CPUs:   0 ( limited by PBS )
+ Executable:       standard
+ Raw model ID:     6
+ Config number:    6
+ Physical memory:  8048 MB
+ Virtual memory:   19312 MB
+ Numeric format:   64-bit little-endian IEEE.
+ Bytes per word:   8
+ Disk block size:  512 bytes (64 words)
+ Remote shell cmd: "c:/program files/msc.software/napa_se/20252/nastran/msc20252/win64i8/mscrmtcmd.exe" (Windows non-CCS nodes, UNIX)
+                   <ccs_cmd> (Windows CCS nodes)
+----------------------------------------------------------------- 
+MSC Nastran started  Sat Apr 18 03:53:26 Hdvr 2026 
+ 03:53:29  Beginning Analysis
+allococ:DynamicOpenCore: Executive System  memory area size in words =35788772
+allococ:DynamicOpenCore: Functional Module memory area size in words =114157596
+allococ:DynamicOpenCore: Executive System  memory area size allocated in bytes =286310216
+allococ:DynamicOpenCore: Functional Module memory area size allocated in bytes =913260808
+SCA Kernel 31.5.3ba13ba7 successfully initialized
+BLAS/LAPACK .dll "c:\program files\msc.software\napa_se\20252\nastran\msc20252\win64i8\libimalloc.dll" has been loaded.
+BLAS/LAPACK .dll "c:\program files\msc.software\napa_se\20252\nastran\msc20252\win64i8\lib\mkl_core.2.dll" has been loaded.
+BLAS/LAPACK .dll "c:\program files\msc.software\napa_se\20252\nastran\msc20252\win64i8\lib\mkl_intel_thread.2.dll" has been loaded.
+BLAS/LAPACK .dll "c:\program files\msc.software\napa_se\20252\nastran\msc20252\win64i8\lib\mkl_rt.2.dll" has been loaded.
+BLAS/LAPACK .dll "c:\program files\msc.software\napa_se\20252\nastran\msc20252\win64i8\MSCblas.dll" has been loaded.
+
+ 03:53:29  MSC Authorization Information - Checkout Successful (1016, 0)
+ 03:53:29  -------------------------------------------------------------
+ 03:53:29  Acquired 1 license for Student Edition Nastran
+
+
+Beginning bulk data processing using the IFPStar component.
+For more information on IFPStar, please see KB article KB8019200
+on our support pages, at http://simcompanion.hexagon.com.
+
+ 03:53:29  2823 records read from JID file "c:/users/pablo castillo/desktop/muse/segundo cuatrimestre/estructuras/eue-trabajo-1/06_codigo/runs/018_al0.500_psu1.586_mod1.430_proc1.701_fpga1.102_bfpga3.063_ebfpga0.950/sfem_mass_fit.bdf"
+
+Processing of bulk data entries is complete.
+
+ 03:53:29  Finite element model generation started.
+ 03:53:29  Finite element model generated 2742 degrees of freedom.
+ 03:53:29  Finite element model generation successfully completed.
+ 03:53:29  Application of Loads and Boundary Conditions to the finite element model started.
+ 03:53:29  Application of Loads and Boundary Conditions to the finite element model successfully completed.
+ 03:53:29  Solution of the system equations for normal modes started.
+ 03:53:29  Solution of the system equations for normal modes successfully completed.
+ 03:53:29  Normal modes analysis completed.
+ 03:53:29  16 records read from JID file "c:/users/pablo castillo/desktop/muse/segundo cuatrimestre/estructuras/eue-trabajo-1/06_codigo/runs/018_al0.500_psu1.586_mod1.430_proc1.701_fpga1.102_bfpga3.063_ebfpga0.950/sfem_mass_fit.bdf"
+ 03:53:29  NSEXIT: EXIT(0)
+ 03:53:29  Analysis complete  0
+Real:        0.898 seconds ( 0:00:00.898)
+User:        0.593 seconds ( 0:00:00.593)
+Sys:         0.421 seconds ( 0:00:00.421)
+ ==================================================
+ OS Major Version:             10
+ OS Minor Version:             0
+ OS Build Number:              26200 Windows 11 
+ Model:                        Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz  
+ Number of processors:         8
+ Page size:                    4096
+ Processor type:               8664
+ Minimum application address:  10000
+ Maximum application address:  fffeffff
+ Active processor mask:        255
+ Nsocket:                      1
+ Ncore:                        4  ( 1 X 4 )
+ HyperThreading:               On
+ Ram:                          8048 Mb
+ ==================================================
+ Time Summary                 CPU       Wall   ( Time in Seconds )
+ Consider using SOLVE=AUTO if you have not.
+ =====================================================
+ Detailed performance information can be found in the 
+ "MSC Nastran High Performance Computing User's Guide"
+ =====================================================
+MSC Nastran finished Sat Apr 18 03:53:30 Hdvr 2026 

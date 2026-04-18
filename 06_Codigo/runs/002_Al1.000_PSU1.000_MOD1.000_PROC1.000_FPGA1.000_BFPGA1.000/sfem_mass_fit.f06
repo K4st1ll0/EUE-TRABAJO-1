@@ -1,0 +1,192 @@
+1
+ 
+ 
+ 
+ 
+                      Warning: This computer program is protected by copyright law and international treaties.       
+                  Unauthorized use, reproduction or distribution of this computer program, or any portion of it, may 
+                                          result in severe civil and criminal penalties.                             
+                         Copyright (C) 2026 Hexagon AB and/or its subsidiaries. All rights reserved.                 
+ 
+ 
+                                              * * * * * * * * * * * * * * * * * * * *
+                                              * * * * * * * * * * * * * * * * * * * *
+                                              * *                                 * *
+                                              * *           Hexagon AB            * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *      M S C   N a s t r a n      * *
+                                              * *                                 * *
+                                              * *  S T U D E N T   E D I T I O N  * *
+                                              * *                                 * *
+                                              * *     Version 2025.2-bad99147     * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *          MAR  3, 2026           * *
+                                              * *                                 * *
+                                              * *              Intel              * *
+                                              * *MODEL Intel(R) Core(TM) i7-8550U * *
+                                              * *      Windows 11 10.0 26200      * *
+                                              * *        Compiled for 8664        * *
+                                              * *                                 * *
+                                              * * * * * * * * * * * * * * * * * * * *
+                                              * * * * * * * * * * * * * * * * * * * *
+
+ 
+ 
+                                                 This Student Edition version is  
+                                                    valid until NOV 15, 2027.     
+ 
+ 
+                  This program is being distributed as part of the Hexagon AB Student Edition. Use of this program   
+                     or its results at a commercial installation, for commercial purposes, or for production work    
+                                             I S   S T R I C T L Y  P R O H I B I T E D.                             
+                  ==================================== FOR EDUCATIONAL USE ONLY =====================================
+ 
+ 
+1News file
+  
+               Welcome to MSC Nastran 2025.2
+  
+   MSC Nastran brings powerful new features and enhancements for engineering
+   solutions in several releases through the year. Key enhancements in
+   Version 2025.2 are summarized below. Additional details can be found in
+   the MSC Nastran Version 2025.2 Release Guide.
+  
+     MSC Nastran 2025.2 Features and Enhancements
+  
+     Aeroelasticity
+     - Mach1+ New Supersonic Panel Method now available in all aeroelasticity
+       solutions
+  
+     SOL 400 Nonlinear (NLPERF) New Features and Enhancements
+     - GPFORCE and ESE output for Nonlinear Statics and Nonlinear Transient
+       analysis
+     - Nonlinear transient analysis support
+     - Enforced motion (SPCD/SPCR) with the Arc-Length Method
+     - Contact support with the Arc-Length Method
+     - Arbitrary DOF combination for all rigid elements
+     - MSC Nastran (NLSTATIC) -Adams Co-simulation enabled
+     - Improved contact output control
+     - Element formulation summary output
+     - Expanded total energy report
+     - CGAP contact result output
+  
+     SOL 400 Nonlinear (CNLS)
+     - MSC Nastran-scFlow Co-Simulation supports multiple interface group
+       definitions
+  
+     High Performance Computing (HPC)
+     - MUMPS linear solver added for frequency and transient response
+     - UMFPack unsymmetric solver retired
+  
+     SOL 200 NEO Topology Optimization Enhancements
+     - Dynamic response optimization with displacement (FRDISP) constraints
+     - Enhanced optimizer for natural frequency/eigenvalue constraints
+     - Maximum displacement constraint for design and non-design regions
+  
+     Linear
+     - Linear Gap element introduced in SOL 101 (Statics)
+     - Angled double-sided PBARL/PBEAML stiffener definition
+  
+     Frequency Analysis
+     - MONPNT3 monitor point supported added in SOL 111 Random Response analysis
+     - Frequency-dependent scaling for PBUSH via PBUSHT tables
+     - Option to export structural damping matrix to AVL EXB file.
+  
+1    Rotor Dynamics
+     - DMIG rotor matrices input at unit speed allowing frequency dependent
+       and speed scaling entry for all rotor dynamic analysis. Supported in
+       complex eigenvalue analysis and unbalance response in linear and
+       nonlinear frequency and time domains
+     - Bush element supports 6x6 frequency-dependent stiffness and damping
+  
+     Documentation
+     - The complete documentation set is provided in a separate installer and
+       when installed is available at: MSC_DOC_DIR/doc/pdf_nastran directory,
+       where MSC_DOC_DIR is the directory where documentation was installed.
+       This help set includes cross references between documents, and links to
+       how-to videos, and example files
+  
+     Individual MSC Nastran documents are available for download from the
+       Simcompanion Website at:
+       http://simcompanion.hexagon.com/
+  
+     The documentation set includes the following:
+  
+         1.  MSC Nastran 2025.2 Installation and Operations Guide
+         2.  MSC Nastran 2025.2 Quick Reference Guide
+         3.  MSC Nastran 2025.2 Release Guide
+         4.  MSC Nastran 2025.2 Linear Statics Analysis User's Guide
+         5.  MSC Nastran 2025.2 Dynamic Analysis User's Guide
+         6.  MSC Nastran 2025.2 Superelements User's Guide
+         7.  MSC Nastran 2025.2 Rotor Dynamics User's Guide
+         8.  MSC Nastran 2025.2 Demonstration Problems Manual
+         9.  MSC Nastran 2025.2 MSC Nastran Embedded Fatigue User's Guide
+        10.  MSC Nastran 2025.2 Design Sensitivity and Optimization
+        11.  MSC Nastran 2025.2 Nonlinear User's Guide SOL 400
+        12.  MSC Nastran 2025.2 DMAP Programmer's Guide
+        13.  MSC Nastran 2025.2 High Performance Computing User's Guide
+        14.  MSC Nastran 2025.2 New Verification Manual
+        15.  MSC Nastran 2025.2 DEMATD Guide
+        16.  MSC Nastran 2025.2 Explicit Nonlinear (SOL 700) User's Guide
+        17.  MSC Nastran 2025.2 ACMS User's Guide
+  
+   Please refer to  MSC_DOC_DIR/doc/pdf_nastran/nastran_library.pdf
+   for the complete document set:
+  
+   Additional information about the release can be found at the MSC Nastran
+   Product Support page: http://simcompanion.hexagon.com
+  
+   The support page provides links to these valuable information:
+      * A searchable Knowledge Base containing examples and answers to thousands
+        of frequently asked questions written by MSC Software subject-matter
+        experts.
+      * Peer-to-peer Discussion Forums enabling you to post questions for your
+        MSC Software products and receive answers from other users worldwide.
+1     * A list of known issues with the product and any workarounds.
+      * Instructions on how to contact technical support
+      * A mechanism for sending us product feedback or enhancement requests.
+      * Hardware and software requirements.
+      * Examples and Tutorials
+      * and much more.
+  
+   For information on training, please visit our Training web site
+  
+      https://hexagon.com/support-success/manufacturing-intelligence/
+      design-engineering-support/training-materials
+  
+ *** USER WARNING MESSAGE 333 (GETLIN)
+     THE BEGIN BULK STATEMENT IS MISSING. A BEGIN BULK STATEMENT WILL BE INSERTED BY THE PROGRAM
+1                                                       **STUDENT EDITION*    APRIL  17, 2026  MSC Nastran  3/ 3/26   PAGE     1
+                                                                                                                                    
+0        N A S T R A N    F I L E    A N D    S Y S T E M    P A R A M E T E R    E C H O                                           
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     NASTRAN BUFFSIZE=8193 $(C:/PROGRAM FILES/MSC.SOFTWARE/NAPA_SE/20252/NASTRAN/CONF
+     $ MSC.NASTRAN INPUT FILE CREATED ON MARCH     22, 2023 AT 09:54:42 BY           
+     $ PATRAN 2021.4                                                                 
+     $                                                                               
+     $ USING NASTRAN DEFAULT VALUES FOR RESVEC                                       
+     $ DIRECT TEXT INPUT FOR THIS SUBCASE                                            
+     $ DIRECT TEXT INPUT FOR BULK DATA                                               
+     $ ELEMENTS AND ELEMENT PROPERTIES FOR REGION : 01_T-WALL-DELGADAS               
+1                                                       **STUDENT EDITION*    APRIL  17, 2026  MSC Nastran  3/ 3/26   PAGE     2
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    E C H O                                                             
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     CEND       $ GENERATED BY GETLIN                                                        
+ *** USER INFORMATION MESSAGE 480 (XSEMIN)
+     JOB TERMINATED DUE TO LACK OF SOL, COMPILE, OR LINK CARDS IN THE EXECUTIVE CONTROL SECTION.
+ 
+ No PARAM values were set in the Control File.
+ 
+1                                        * * * END OF JOB * * *
+ 
+ 
+No Symbolic Replacement variables or values were specified.
+

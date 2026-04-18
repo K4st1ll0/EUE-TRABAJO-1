@@ -1,0 +1,29 @@
+$ command
+"C:\Program Files\MSC.Software\NaPa_SE\20252\Nastran\msc20252\win64i8\nastran.exe" "C:\Users\Pablo Castillo\Desktop\MUSE\SEGUNDO CUATRIMESTRE\ESTRUCTURAS\EUE-TRABAJO-1\06_Codigo\runs\007_Al0.500_PSU1.586_MOD1.430_PROC1.701_FPGA1.102_BFPGA3.063\sfem_mass_fit.bdf" prog=edu auth=edu bat=no
+
+$ stdout
+MSC Nastran V2025.2 (Intel Windows 11  10.0 26200) Sat Apr 18 03:51:50 2026
+MSC Nastran beginning job sfem_mass_fit.
+MSC Nastran started  Sat Apr 18 03:51:51 Hdvr 2026
+MSC Nastran finished Sat Apr 18 03:51:57 Hdvr 2026
+MSC Nastran job sfem_mass_fit completed.
+
+
+$ stderr
+
+*** USER WARNING MESSAGE (pgm: nastran, fn: decode_keyword)
+    batch=no     ([4])
+
+    This keyword is not available on this platform.
+
+*** SYSTEM INFORMATION MESSAGE (pgm: nastran, fn: validate_authorize)
+    Switching to Student Edition. Not for commercial use.
+
+*** SYSTEM INFORMATION MESSAGE (pgm: nastran, fn: estimate_job_requirements)
+    Starting ESTIMATE, please wait...
+
+*** USER INFORMATION MESSAGE (pgm: nastran, fn: estimate_job_requirements)
+    Estimated DOF=2502
+    Estimated memory=1144.7MB
+    Estimated disk=28.6MB
+

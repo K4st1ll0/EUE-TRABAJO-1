@@ -1,0 +1,2292 @@
+{
+  "run_name": "001_Al1.000_PSU1.000_MOD1.000_PROC1.000_FPGA1.000_BFPGA1.000",
+  "run_index": 1,
+  "timestamp": "2026-04-17T23:17:54+02:00",
+  "status": "dry_run_completed",
+  "strategy": "baseline",
+  "is_baseline_reference": true,
+  "input_bdf": "C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\02_SFEM-de-apoyo\\SFEM_EUE.bdf",
+  "generated_bdf": "runs/001_Al1.000_PSU1.000_MOD1.000_PROC1.000_FPGA1.000_BFPGA1.000/sfem_mass_fit.bdf",
+  "run_json_path": "runs/001_Al1.000_PSU1.000_MOD1.000_PROC1.000_FPGA1.000_BFPGA1.000/run.json",
+  "report_paths": {
+    "master": "reports/runs/001_Al1.000_PSU1.000_MOD1.000_PROC1.000_FPGA1.000_BFPGA1.000/report.html",
+    "run_local": "runs/001_Al1.000_PSU1.000_MOD1.000_PROC1.000_FPGA1.000_BFPGA1.000/report.html"
+  },
+  "parameter_factors": {
+    "Al_7075-T7351": 1.0,
+    "PCB_PSU": 1.0,
+    "PCB_MOD": 1.0,
+    "PCB_PROC": 1.0,
+    "PCB_FPGA": 1.0,
+    "Bandeja_FPGA": 1.0
+  },
+  "factor_signature": "Al_7075-T7351=1.000000|PCB_PSU=1.000000|PCB_MOD=1.000000|PCB_PROC=1.000000|PCB_FPGA=1.000000|Bandeja_FPGA=1.000000",
+  "nastran_command": "nastran.exe \"C:\\Users\\Pablo Castillo\\Desktop\\MUSE\\SEGUNDO CUATRIMESTRE\\ESTRUCTURAS\\EUE-TRABAJO-1\\06_Codigo\\runs\\001_Al1.000_PSU1.000_MOD1.000_PROC1.000_FPGA1.000_BFPGA1.000\\sfem_mass_fit.bdf\"",
+  "material_updates": [
+    {
+      "material_id": 1,
+      "material_name": "Al_7075-T7351",
+      "rho_original": 2800.0,
+      "rho_new": 2800.0,
+      "factor": 1.0,
+      "line_numbers": [
+        1741,
+        1742
+      ]
+    },
+    {
+      "material_id": 2,
+      "material_name": "PCB_PSU",
+      "rho_original": 9929.2266,
+      "rho_new": 9929.2266,
+      "factor": 1.0,
+      "line_numbers": [
+        1745,
+        1746
+      ]
+    },
+    {
+      "material_id": 3,
+      "material_name": "PCB_MOD",
+      "rho_original": 9929.2266,
+      "rho_new": 9929.2266,
+      "factor": 1.0,
+      "line_numbers": [
+        1749,
+        1750
+      ]
+    },
+    {
+      "material_id": 4,
+      "material_name": "PCB_PROC",
+      "rho_original": 9929.2266,
+      "rho_new": 9929.2266,
+      "factor": 1.0,
+      "line_numbers": [
+        1753,
+        1754
+      ]
+    },
+    {
+      "material_id": 5,
+      "material_name": "PCB_FPGA",
+      "rho_original": 9929.2266,
+      "rho_new": 9929.2266,
+      "factor": 1.0,
+      "line_numbers": [
+        1757,
+        1758
+      ]
+    },
+    {
+      "material_id": 6,
+      "material_name": "Bandeja_FPGA",
+      "rho_original": 2800.0,
+      "rho_new": 2800.0,
+      "factor": 1.0,
+      "line_numbers": [
+        1761,
+        1762
+      ]
+    }
+  ],
+  "masses_by_material_g": {
+    "Al_7075-T7351": 939.901994,
+    "PCB_PSU": 546.770766,
+    "PCB_MOD": 546.770766,
+    "PCB_PROC": 546.770766,
+    "PCB_FPGA": 546.770766,
+    "Bandeja_FPGA": 73.446588
+  },
+  "total_mass_g": 3200.431646,
+  "target_total_mass_g": 3810.0,
+  "mass_errors": {
+    "target_total_mass_g": 3810.0,
+    "target_mass_budget_sum_g": 3811.0,
+    "target_mass_budget_minus_total_g": 1.0,
+    "total_mass_error_g": -609.568354,
+    "total_mass_rel_error": 0.15999169,
+    "total_mass_signed_error_percent": -15.9991694,
+    "total_mass_absolute_error_percent": 15.9991694,
+    "mass_budget_error_g": {
+      "H-PSU module": -366.229234,
+      "MOD module": -276.229234,
+      "PROC module": -432.229234,
+      "FPGA module": -250.782646,
+      "Backplane modules": -151.553412,
+      "Total mass": -609.568354
+    },
+    "mass_budget_rel_errors": {
+      "H-PSU module": 0.40112731,
+      "MOD module": 0.33563698,
+      "PROC module": 0.44150075,
+      "FPGA module": 0.28792497,
+      "Backplane modules": 0.67357072,
+      "Total mass": 0.15999169
+    },
+    "parsed_nastran_total_mass_g": null,
+    "internal_vs_parsed_nastran_delta_g": null
+  },
+  "score": 7248.7413569,
+  "score_components": {
+    "unsatisfied_constraints": 6,
+    "max_normalized_violation": 12.4714144,
+    "total_mass_rel_error": 0.15999169,
+    "change_from_baseline_l1": 0.0,
+    "failure_penalty_applied": 0.0
+  },
+  "internal_mass": {
+    "masses_by_material_g": {
+      "Al_7075-T7351": 939.901994,
+      "PCB_PSU": 546.770766,
+      "PCB_MOD": 546.770766,
+      "PCB_PROC": 546.770766,
+      "PCB_FPGA": 546.770766,
+      "Bandeja_FPGA": 73.446588
+    },
+    "model_mass_contributions": [
+      {
+        "material_id": 1,
+        "material_name": "Al_7075-T7351",
+        "role": "common_structural_contribution",
+        "assignment_kind": "common_structural",
+        "controls": [],
+        "mass_g": 939.901994,
+        "interpretation": "Variable estructural comun usada para ayudar al cierre de la masa total cuando los controles parciales ya estan dentro de banda."
+      },
+      {
+        "material_id": 2,
+        "material_name": "PCB_PSU",
+        "role": "direct_mass_budget_reference",
+        "assignment_kind": "direct_control",
+        "controls": [
+          "psu"
+        ],
+        "mass_g": 546.770766,
+        "interpretation": "Control operativo directo para la restriccion H-PSU module."
+      },
+      {
+        "material_id": 3,
+        "material_name": "PCB_MOD",
+        "role": "direct_mass_budget_reference",
+        "assignment_kind": "direct_control",
+        "controls": [
+          "mod"
+        ],
+        "mass_g": 546.770766,
+        "interpretation": "Control operativo directo para la restriccion MOD module."
+      },
+      {
+        "material_id": 4,
+        "material_name": "PCB_PROC",
+        "role": "direct_mass_budget_reference",
+        "assignment_kind": "direct_control",
+        "controls": [
+          "proc"
+        ],
+        "mass_g": 546.770766,
+        "interpretation": "Control operativo directo para la restriccion PROC module."
+      },
+      {
+        "material_id": 5,
+        "material_name": "PCB_FPGA",
+        "role": "direct_mass_budget_reference",
+        "assignment_kind": "direct_control",
+        "controls": [
+          "fpga"
+        ],
+        "mass_g": 546.770766,
+        "interpretation": "Control operativo directo para la parte electronica del modulo FPGA."
+      },
+      {
+        "material_id": 6,
+        "material_name": "Bandeja_FPGA",
+        "role": "shared_mass_budget_reference",
+        "assignment_kind": "shared_control",
+        "controls": [
+          "backplanes",
+          "fpga"
+        ],
+        "mass_g": 73.446588,
+        "interpretation": "Variable compartida entre el control FPGA y el control Backplane modules; representa masa estructural comun en ambas zonas segun la hipotesis actual."
+      }
+    ],
+    "direct_control_materials_g": {
+      "PCB_PSU": 546.770766,
+      "PCB_MOD": 546.770766,
+      "PCB_PROC": 546.770766,
+      "PCB_FPGA": 546.770766
+    },
+    "shared_control_materials_g": {
+      "Bandeja_FPGA": 73.446588
+    },
+    "common_structural_materials_g": {
+      "Al_7075-T7351": 939.901994
+    },
+    "direct_reference_mass_g": 2187.083064,
+    "shared_mass_g": 73.446588,
+    "unassigned_mass_g": 939.901994,
+    "unassigned_materials_g": {
+      "Al_7075-T7351": 939.901994
+    },
+    "masses_by_property_type_g": {
+      "PBARL": 395.578141,
+      "PSHELL": 2804.853503
+    },
+    "masses_by_property_g": [
+      {
+        "property_type": "PBARL",
+        "property_id": 5,
+        "label": "11_ESQ_xp_yp",
+        "material_id": 1,
+        "material_name": "Al_7075-T7351",
+        "mass_g": 7.761761
+      },
+      {
+        "property_type": "PBARL",
+        "property_id": 6,
+        "label": "11_ESQ_xn_yp",
+        "material_id": 1,
+        "material_name": "Al_7075-T7351",
+        "mass_g": 7.761761
+      },
+      {
+        "property_type": "PBARL",
+        "property_id": 7,
+        "label": "11_ESQ_xn_yn",
+        "material_id": 1,
+        "material_name": "Al_7075-T7351",
+        "mass_g": 7.761761
+      },
+      {
+        "property_type": "PBARL",
+        "property_id": 8,
+        "label": "11_ESQ_xp_yn",
+        "material_id": 1,
+        "material_name": "Al_7075-T7351",
+        "mass_g": 7.761761
+      },
+      {
+        "property_type": "PBARL",
+        "property_id": 9,
+        "label": "12_RIG-V1_xp",
+        "material_id": 1,
+        "material_name": "Al_7075-T7351",
+        "mass_g": 9.27927
+      },
+      {
+        "property_type": "PBARL",
+        "property_id": 10,
+        "label": "12_RIG-V1_xn",
+        "material_id": 1,
+        "material_name": "Al_7075-T7351",
+        "mass_g": 9.27927
+      },
+      {
+        "property_type": "PBARL",
+        "property_id": 11,
+        "label": "12_RIG-V1_yp",
+        "material_id": 1,
+        "material_name": "Al_7075-T7351",
+        "mass_g": 9.27927
+      },
+      {
+        "property_type": "PBARL",
+        "property_id": 12,
+        "label": "12_RIG-V1_yn",
+        "material_id": 1,
+        "material_name": "Al_7075-T7351",
+        "mass_g": 9.27927
+      },
+      {
+        "property_type": "PBARL",
+        "property_id": 13,
+        "label": "13_RIG-H1_xp",
+        "material_id": 1,
+        "material_name": "Al_7075-T7351",
+        "mass_g": 8.25944
+      },
+      {
+        "property_type": "PBARL",
+        "property_id": 14,
+        "label": "13_RIG-H1_xn",
+        "material_id": 1,
+        "material_name": "Al_7075-T7351",
+        "mass_g": 8.25944
+      },
+      {
+        "property_type": "PBARL",
+        "property_id": 15,
+        "label": "13_RIG-H1_yp",
+        "material_id": 1,
+        "material_name": "Al_7075-T7351",
+        "mass_g": 10.52296
+      },
+      {
+        "property_type": "PBARL",
+        "property_id": 16,
+        "label": "13_RIG-H1_yn",
+        "material_id": 1,
+        "material_name": "Al_7075-T7351",
+        "mass_g": 10.52296
+      },
+      {
+        "property_type": "PBARL",
+        "property_id": 17,
+        "label": "14_RIG-H3_xp",
+        "material_id": 1,
+        "material_name": "Al_7075-T7351",
+        "mass_g": 48.620249
+      },
+      {
+        "property_type": "PBARL",
+        "property_id": 18,
+        "label": "14_RIG-H3_xn",
+        "material_id": 1,
+        "material_name": "Al_7075-T7351",
+        "mass_g": 38.896199
+      },
+      {
+        "property_type": "PBARL",
+        "property_id": 19,
+        "label": "14_RIG-H3_yp",
+        "material_id": 1,
+        "material_name": "Al_7075-T7351",
+        "mass_g": 55.750276
+      },
+      {
+        "property_type": "PBARL",
+        "property_id": 20,
+        "label": "14_RIG-H3_yn",
+        "material_id": 1,
+        "material_name": "Al_7075-T7351",
+        "mass_g": 49.555801
+      },
+      {
+        "property_type": "PBARL",
+        "property_id": 21,
+        "label": "16_RIG-H5",
+        "material_id": 1,
+        "material_name": "Al_7075-T7351",
+        "mass_g": 80.737475
+      },
+      {
+        "property_type": "PBARL",
+        "property_id": 22,
+        "label": "17_RIG-H6",
+        "material_id": 1,
+        "material_name": "Al_7075-T7351",
+        "mass_g": 16.289217
+      },
+      {
+        "property_type": "PSHELL",
+        "property_id": 1,
+        "label": "01_t-wall-delgadas",
+        "material_id": 1,
+        "material_name": "Al_7075-T7351",
+        "mass_g": 175.163729
+      },
+      {
+        "property_type": "PSHELL",
+        "property_id": 2,
+        "label": "05_t-tapa",
+        "material_id": 1,
+        "material_name": "Al_7075-T7351",
+        "mass_g": 52.461852
+      },
+      {
+        "property_type": "PSHELL",
+        "property_id": 3,
+        "label": "06_t-rig-base",
+        "material_id": 1,
+        "material_name": "Al_7075-T7351",
+        "mass_g": 96.358506
+      },
+      {
+        "property_type": "PSHELL",
+        "property_id": 4,
+        "label": "07_t-bandejas",
+        "material_id": 1,
+        "material_name": "Al_7075-T7351",
+        "mass_g": 220.339764
+      },
+      {
+        "property_type": "PSHELL",
+        "property_id": 23,
+        "label": "09_A_t-boards-PSU",
+        "material_id": 2,
+        "material_name": "PCB_PSU",
+        "mass_g": 546.770766
+      },
+      {
+        "property_type": "PSHELL",
+        "property_id": 25,
+        "label": "09_B_t-boards-MOD",
+        "material_id": 3,
+        "material_name": "PCB_MOD",
+        "mass_g": 546.770766
+      },
+      {
+        "property_type": "PSHELL",
+        "property_id": 26,
+        "label": "09_C_t-boards-PROC",
+        "material_id": 4,
+        "material_name": "PCB_PROC",
+        "mass_g": 546.770766
+      },
+      {
+        "property_type": "PSHELL",
+        "property_id": 27,
+        "label": "09_D_t-boards-FPGA",
+        "material_id": 5,
+        "material_name": "PCB_FPGA",
+        "mass_g": 546.770766
+      },
+      {
+        "property_type": "PSHELL",
+        "property_id": 29,
+        "label": "07_t-bandejas_FPGA",
+        "material_id": 6,
+        "material_name": "Bandeja_FPGA",
+        "mass_g": 73.446588
+      }
+    ],
+    "total_mass_g": 3200.431646,
+    "element_counts": {
+      "shells": 416,
+      "bars": 452
+    },
+    "card_counts": {
+      "CBAR": 452,
+      "CBUSH": 116,
+      "CORD2R": 1,
+      "CQUAD4": 416,
+      "GRID": 457,
+      "MAT1": 6,
+      "PBARL": 18,
+      "PBUSH": 2,
+      "PSHELL": 9,
+      "RBE2": 8,
+      "SPC1": 1
+    },
+    "unsupported_cards": [],
+    "coverage_review": {
+      "supported_mass_cards_found": {
+        "MAT1": 6,
+        "PSHELL": 9,
+        "PBARL": 18,
+        "CQUAD4": 416,
+        "CBAR": 452
+      },
+      "zero_mass_assumed_cards_found": {
+        "PBUSH": 2,
+        "CBUSH": 116,
+        "RBE2": 8,
+        "SPC1": 1
+      },
+      "limitations": [
+        "El estimador no cubre elementos concentrados, solidos, compuestos o tarjetas NSM genericas si se anaden en futuras versiones del modelo.",
+        "PBUSH/CBUSH, RBE2 y SPC se tratan como contribucion de masa nula para este modelo actual.",
+        "No se han detectado otras tarjetas de masa relevantes fuera del alcance actual en este BDF."
+      ]
+    },
+    "warnings": [],
+    "mass_fit_controls": [
+      {
+        "control_key": "psu",
+        "label": "H-PSU module",
+        "kind": "partial",
+        "target_g": 913.0,
+        "tolerance_fraction": 0.05,
+        "lower_bound_g": 867.35,
+        "upper_bound_g": 958.65,
+        "actual_g": 546.770766,
+        "direct_mass_g": 546.770766,
+        "shared_mass_g": 0,
+        "direct_breakdown_g": {
+          "PCB_PSU": 546.770766
+        },
+        "shared_breakdown_g": {},
+        "direct_materials": [
+          "PCB_PSU"
+        ],
+        "shared_materials": [],
+        "within_band": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 411.879234,
+        "lower_gap_g": 320.579234,
+        "upper_gap_g": 0.0,
+        "violation_g": 320.579234,
+        "normalized_violation": 7.0225462,
+        "center_error_g": -366.229234,
+        "normalized_target_error": 0.40112731
+      },
+      {
+        "control_key": "mod",
+        "label": "MOD module",
+        "kind": "partial",
+        "target_g": 823.0,
+        "tolerance_fraction": 0.05,
+        "lower_bound_g": 781.85,
+        "upper_bound_g": 864.15,
+        "actual_g": 546.770766,
+        "direct_mass_g": 546.770766,
+        "shared_mass_g": 0,
+        "direct_breakdown_g": {
+          "PCB_MOD": 546.770766
+        },
+        "shared_breakdown_g": {},
+        "direct_materials": [
+          "PCB_MOD"
+        ],
+        "shared_materials": [],
+        "within_band": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 317.379234,
+        "lower_gap_g": 235.079234,
+        "upper_gap_g": 0.0,
+        "violation_g": 235.079234,
+        "normalized_violation": 5.71273959,
+        "center_error_g": -276.229234,
+        "normalized_target_error": 0.33563698
+      },
+      {
+        "control_key": "proc",
+        "label": "PROC module",
+        "kind": "partial",
+        "target_g": 979.0,
+        "tolerance_fraction": 0.05,
+        "lower_bound_g": 930.05,
+        "upper_bound_g": 1027.95,
+        "actual_g": 546.770766,
+        "direct_mass_g": 546.770766,
+        "shared_mass_g": 0,
+        "direct_breakdown_g": {
+          "PCB_PROC": 546.770766
+        },
+        "shared_breakdown_g": {},
+        "direct_materials": [
+          "PCB_PROC"
+        ],
+        "shared_materials": [],
+        "within_band": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 481.179234,
+        "lower_gap_g": 383.279234,
+        "upper_gap_g": 0.0,
+        "violation_g": 383.279234,
+        "normalized_violation": 7.83001499,
+        "center_error_g": -432.229234,
+        "normalized_target_error": 0.44150075
+      },
+      {
+        "control_key": "fpga",
+        "label": "FPGA module",
+        "kind": "partial",
+        "target_g": 871.0,
+        "tolerance_fraction": 0.05,
+        "lower_bound_g": 827.45,
+        "upper_bound_g": 914.55,
+        "actual_g": 620.217354,
+        "direct_mass_g": 546.770766,
+        "shared_mass_g": 73.446588,
+        "direct_breakdown_g": {
+          "PCB_FPGA": 546.770766
+        },
+        "shared_breakdown_g": {
+          "Bandeja_FPGA": 73.446588
+        },
+        "direct_materials": [
+          "PCB_FPGA"
+        ],
+        "shared_materials": [
+          {
+            "name": "Bandeja_FPGA",
+            "weight": 1.0
+          }
+        ],
+        "within_band": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 294.332646,
+        "lower_gap_g": 207.232646,
+        "upper_gap_g": 0.0,
+        "violation_g": 207.232646,
+        "normalized_violation": 4.75849933,
+        "center_error_g": -250.782646,
+        "normalized_target_error": 0.28792497
+      },
+      {
+        "control_key": "backplanes",
+        "label": "Backplane modules",
+        "kind": "partial",
+        "target_g": 225.0,
+        "tolerance_fraction": 0.05,
+        "lower_bound_g": 213.75,
+        "upper_bound_g": 236.25,
+        "actual_g": 73.446588,
+        "direct_mass_g": 0,
+        "shared_mass_g": 73.446588,
+        "direct_breakdown_g": {},
+        "shared_breakdown_g": {
+          "Bandeja_FPGA": 73.446588
+        },
+        "direct_materials": [],
+        "shared_materials": [
+          {
+            "name": "Bandeja_FPGA",
+            "weight": 1.0
+          }
+        ],
+        "within_band": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 162.803412,
+        "lower_gap_g": 140.303412,
+        "upper_gap_g": 0.0,
+        "violation_g": 140.303412,
+        "normalized_violation": 12.4714144,
+        "center_error_g": -151.553412,
+        "normalized_target_error": 0.67357072
+      },
+      {
+        "control_key": "total",
+        "label": "Total mass",
+        "kind": "total",
+        "target_g": 3810.0,
+        "tolerance_fraction": 0.05,
+        "lower_bound_g": 3619.5,
+        "upper_bound_g": 4000.5,
+        "actual_g": 3200.431646,
+        "direct_mass_g": 3200.431646,
+        "shared_mass_g": 0.0,
+        "direct_breakdown_g": {},
+        "shared_breakdown_g": {},
+        "direct_materials": [],
+        "shared_materials": [],
+        "within_band": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 800.068354,
+        "lower_gap_g": 419.068354,
+        "upper_gap_g": 0.0,
+        "violation_g": 419.068354,
+        "normalized_violation": 2.19983388,
+        "center_error_g": -609.568354,
+        "normalized_target_error": 0.15999169
+      }
+    ],
+    "mass_budget_comparison": [
+      {
+        "control_key": "psu",
+        "target_item": "H-PSU module",
+        "target_g": 913.0,
+        "lower_bound_g": 867.35,
+        "upper_bound_g": 958.65,
+        "direct_mass_g": 546.770766,
+        "shared_mass_g": 0,
+        "actual_g": 546.770766,
+        "delta_g": -366.229234,
+        "rel_error": 0.40112731,
+        "signed_error_percent": -40.112731,
+        "absolute_error_percent": 40.112731,
+        "within_band": false,
+        "within_tolerance_5pct": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 411.879234,
+        "direct_materials": [
+          "PCB_PSU"
+        ],
+        "shared_materials": [],
+        "actual_definition": "Direct contribution",
+        "comparison_type": "operational_control",
+        "note": "Control operativo directo."
+      },
+      {
+        "control_key": "mod",
+        "target_item": "MOD module",
+        "target_g": 823.0,
+        "lower_bound_g": 781.85,
+        "upper_bound_g": 864.15,
+        "direct_mass_g": 546.770766,
+        "shared_mass_g": 0,
+        "actual_g": 546.770766,
+        "delta_g": -276.229234,
+        "rel_error": 0.33563698,
+        "signed_error_percent": -33.56369793,
+        "absolute_error_percent": 33.56369793,
+        "within_band": false,
+        "within_tolerance_5pct": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 317.379234,
+        "direct_materials": [
+          "PCB_MOD"
+        ],
+        "shared_materials": [],
+        "actual_definition": "Direct contribution",
+        "comparison_type": "operational_control",
+        "note": "Control operativo directo."
+      },
+      {
+        "control_key": "proc",
+        "target_item": "PROC module",
+        "target_g": 979.0,
+        "lower_bound_g": 930.05,
+        "upper_bound_g": 1027.95,
+        "direct_mass_g": 546.770766,
+        "shared_mass_g": 0,
+        "actual_g": 546.770766,
+        "delta_g": -432.229234,
+        "rel_error": 0.44150075,
+        "signed_error_percent": -44.15007497,
+        "absolute_error_percent": 44.15007497,
+        "within_band": false,
+        "within_tolerance_5pct": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 481.179234,
+        "direct_materials": [
+          "PCB_PROC"
+        ],
+        "shared_materials": [],
+        "actual_definition": "Direct contribution",
+        "comparison_type": "operational_control",
+        "note": "Control operativo directo."
+      },
+      {
+        "control_key": "fpga",
+        "target_item": "FPGA module",
+        "target_g": 871.0,
+        "lower_bound_g": 827.45,
+        "upper_bound_g": 914.55,
+        "direct_mass_g": 546.770766,
+        "shared_mass_g": 73.446588,
+        "actual_g": 620.217354,
+        "delta_g": -250.782646,
+        "rel_error": 0.28792497,
+        "signed_error_percent": -28.79249667,
+        "absolute_error_percent": 28.79249667,
+        "within_band": false,
+        "within_tolerance_5pct": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 294.332646,
+        "direct_materials": [
+          "PCB_FPGA"
+        ],
+        "shared_materials": [
+          {
+            "name": "Bandeja_FPGA",
+            "weight": 1.0
+          }
+        ],
+        "actual_definition": "Direct contribution + shared contribution",
+        "comparison_type": "operational_control",
+        "note": "Control operativo con contribucion directa y masa compartida."
+      },
+      {
+        "control_key": "backplanes",
+        "target_item": "Backplane modules",
+        "target_g": 225.0,
+        "lower_bound_g": 213.75,
+        "upper_bound_g": 236.25,
+        "direct_mass_g": 0,
+        "shared_mass_g": 73.446588,
+        "actual_g": 73.446588,
+        "delta_g": -151.553412,
+        "rel_error": 0.67357072,
+        "signed_error_percent": -67.357072,
+        "absolute_error_percent": 67.357072,
+        "within_band": false,
+        "within_tolerance_5pct": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 162.803412,
+        "direct_materials": [],
+        "shared_materials": [
+          {
+            "name": "Bandeja_FPGA",
+            "weight": 1.0
+          }
+        ],
+        "actual_definition": "Shared contribution",
+        "comparison_type": "operational_control",
+        "note": "Control operativo con contribucion directa y masa compartida."
+      },
+      {
+        "control_key": "total",
+        "target_item": "Total mass",
+        "target_g": 3810.0,
+        "lower_bound_g": 3619.5,
+        "upper_bound_g": 4000.5,
+        "direct_mass_g": 3200.431646,
+        "shared_mass_g": 0.0,
+        "actual_g": 3200.431646,
+        "delta_g": -609.568354,
+        "rel_error": 0.15999169,
+        "signed_error_percent": -15.9991694,
+        "absolute_error_percent": 15.9991694,
+        "within_band": false,
+        "within_tolerance_5pct": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 800.068354,
+        "direct_materials": [],
+        "shared_materials": [],
+        "actual_definition": "Total model mass",
+        "comparison_type": "operational_control",
+        "note": "Restriccion global de masa total."
+      }
+    ],
+    "mass_budget_comparison_rows": [
+      {
+        "control_key": "psu",
+        "target_item": "H-PSU module",
+        "target_g": 913.0,
+        "lower_bound_g": 867.35,
+        "upper_bound_g": 958.65,
+        "direct_mass_g": 546.770766,
+        "shared_mass_g": 0,
+        "actual_g": 546.770766,
+        "delta_g": -366.229234,
+        "rel_error": 0.40112731,
+        "signed_error_percent": -40.112731,
+        "absolute_error_percent": 40.112731,
+        "within_band": false,
+        "within_tolerance_5pct": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 411.879234,
+        "direct_materials": [
+          "PCB_PSU"
+        ],
+        "shared_materials": [],
+        "actual_definition": "Direct contribution",
+        "comparison_type": "operational_control",
+        "note": "Control operativo directo."
+      },
+      {
+        "control_key": "mod",
+        "target_item": "MOD module",
+        "target_g": 823.0,
+        "lower_bound_g": 781.85,
+        "upper_bound_g": 864.15,
+        "direct_mass_g": 546.770766,
+        "shared_mass_g": 0,
+        "actual_g": 546.770766,
+        "delta_g": -276.229234,
+        "rel_error": 0.33563698,
+        "signed_error_percent": -33.56369793,
+        "absolute_error_percent": 33.56369793,
+        "within_band": false,
+        "within_tolerance_5pct": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 317.379234,
+        "direct_materials": [
+          "PCB_MOD"
+        ],
+        "shared_materials": [],
+        "actual_definition": "Direct contribution",
+        "comparison_type": "operational_control",
+        "note": "Control operativo directo."
+      },
+      {
+        "control_key": "proc",
+        "target_item": "PROC module",
+        "target_g": 979.0,
+        "lower_bound_g": 930.05,
+        "upper_bound_g": 1027.95,
+        "direct_mass_g": 546.770766,
+        "shared_mass_g": 0,
+        "actual_g": 546.770766,
+        "delta_g": -432.229234,
+        "rel_error": 0.44150075,
+        "signed_error_percent": -44.15007497,
+        "absolute_error_percent": 44.15007497,
+        "within_band": false,
+        "within_tolerance_5pct": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 481.179234,
+        "direct_materials": [
+          "PCB_PROC"
+        ],
+        "shared_materials": [],
+        "actual_definition": "Direct contribution",
+        "comparison_type": "operational_control",
+        "note": "Control operativo directo."
+      },
+      {
+        "control_key": "fpga",
+        "target_item": "FPGA module",
+        "target_g": 871.0,
+        "lower_bound_g": 827.45,
+        "upper_bound_g": 914.55,
+        "direct_mass_g": 546.770766,
+        "shared_mass_g": 73.446588,
+        "actual_g": 620.217354,
+        "delta_g": -250.782646,
+        "rel_error": 0.28792497,
+        "signed_error_percent": -28.79249667,
+        "absolute_error_percent": 28.79249667,
+        "within_band": false,
+        "within_tolerance_5pct": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 294.332646,
+        "direct_materials": [
+          "PCB_FPGA"
+        ],
+        "shared_materials": [
+          {
+            "name": "Bandeja_FPGA",
+            "weight": 1.0
+          }
+        ],
+        "actual_definition": "Direct contribution + shared contribution",
+        "comparison_type": "operational_control",
+        "note": "Control operativo con contribucion directa y masa compartida."
+      },
+      {
+        "control_key": "backplanes",
+        "target_item": "Backplane modules",
+        "target_g": 225.0,
+        "lower_bound_g": 213.75,
+        "upper_bound_g": 236.25,
+        "direct_mass_g": 0,
+        "shared_mass_g": 73.446588,
+        "actual_g": 73.446588,
+        "delta_g": -151.553412,
+        "rel_error": 0.67357072,
+        "signed_error_percent": -67.357072,
+        "absolute_error_percent": 67.357072,
+        "within_band": false,
+        "within_tolerance_5pct": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 162.803412,
+        "direct_materials": [],
+        "shared_materials": [
+          {
+            "name": "Bandeja_FPGA",
+            "weight": 1.0
+          }
+        ],
+        "actual_definition": "Shared contribution",
+        "comparison_type": "operational_control",
+        "note": "Control operativo con contribucion directa y masa compartida."
+      },
+      {
+        "control_key": "total",
+        "target_item": "Total mass",
+        "target_g": 3810.0,
+        "lower_bound_g": 3619.5,
+        "upper_bound_g": 4000.5,
+        "direct_mass_g": 3200.431646,
+        "shared_mass_g": 0.0,
+        "actual_g": 3200.431646,
+        "delta_g": -609.568354,
+        "rel_error": 0.15999169,
+        "signed_error_percent": -15.9991694,
+        "absolute_error_percent": 15.9991694,
+        "within_band": false,
+        "within_tolerance_5pct": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 800.068354,
+        "direct_materials": [],
+        "shared_materials": [],
+        "actual_definition": "Total model mass",
+        "comparison_type": "operational_control",
+        "note": "Restriccion global de masa total."
+      }
+    ]
+  },
+  "nastran": {
+    "mode": "dry-run",
+    "success": true,
+    "exit_code": null,
+    "timed_out": false,
+    "duration_seconds": 0.004,
+    "parsed_total_mass_g": null
+  },
+  "cross_checks": {
+    "internal_total_mass_g": 3200.431646,
+    "parsed_nastran_total_mass_g": null,
+    "internal_vs_parsed_nastran_delta_g": null
+  },
+  "output_files": [
+    "runs/001_Al1.000_PSU1.000_MOD1.000_PROC1.000_FPGA1.000_BFPGA1.000/runner.log",
+    "runs/001_Al1.000_PSU1.000_MOD1.000_PROC1.000_FPGA1.000_BFPGA1.000/sfem_mass_fit.bdf"
+  ],
+  "logs": {
+    "runner_log": "runs/001_Al1.000_PSU1.000_MOD1.000_PROC1.000_FPGA1.000_BFPGA1.000/runner.log"
+  },
+  "notes": [
+    "Baseline run con factores 1.0 en las seis densidades.",
+    "Dry run enabled in config.runner.dry_run. Nastran was not launched."
+  ],
+  "duration_seconds": 0.256,
+  "exception": null,
+  "unassigned_mass_g": 939.901994,
+  "model_mass_contributions": [
+    {
+      "material_id": 1,
+      "material_name": "Al_7075-T7351",
+      "role": "common_structural_contribution",
+      "assignment_kind": "common_structural",
+      "controls": [],
+      "mass_g": 939.901994,
+      "interpretation": "Variable estructural comun usada para ayudar al cierre de la masa total cuando los controles parciales ya estan dentro de banda."
+    },
+    {
+      "material_id": 2,
+      "material_name": "PCB_PSU",
+      "role": "direct_mass_budget_reference",
+      "assignment_kind": "direct_control",
+      "controls": [
+        "psu"
+      ],
+      "mass_g": 546.770766,
+      "interpretation": "Control operativo directo para la restriccion H-PSU module."
+    },
+    {
+      "material_id": 3,
+      "material_name": "PCB_MOD",
+      "role": "direct_mass_budget_reference",
+      "assignment_kind": "direct_control",
+      "controls": [
+        "mod"
+      ],
+      "mass_g": 546.770766,
+      "interpretation": "Control operativo directo para la restriccion MOD module."
+    },
+    {
+      "material_id": 4,
+      "material_name": "PCB_PROC",
+      "role": "direct_mass_budget_reference",
+      "assignment_kind": "direct_control",
+      "controls": [
+        "proc"
+      ],
+      "mass_g": 546.770766,
+      "interpretation": "Control operativo directo para la restriccion PROC module."
+    },
+    {
+      "material_id": 5,
+      "material_name": "PCB_FPGA",
+      "role": "direct_mass_budget_reference",
+      "assignment_kind": "direct_control",
+      "controls": [
+        "fpga"
+      ],
+      "mass_g": 546.770766,
+      "interpretation": "Control operativo directo para la parte electronica del modulo FPGA."
+    },
+    {
+      "material_id": 6,
+      "material_name": "Bandeja_FPGA",
+      "role": "shared_mass_budget_reference",
+      "assignment_kind": "shared_control",
+      "controls": [
+        "backplanes",
+        "fpga"
+      ],
+      "mass_g": 73.446588,
+      "interpretation": "Variable compartida entre el control FPGA y el control Backplane modules; representa masa estructural comun en ambas zonas segun la hipotesis actual."
+    }
+  ],
+  "mass_budget_comparison": [
+    {
+      "control_key": "psu",
+      "target_item": "H-PSU module",
+      "target_g": 913.0,
+      "lower_bound_g": 867.35,
+      "upper_bound_g": 958.65,
+      "direct_mass_g": 546.770766,
+      "shared_mass_g": 0,
+      "actual_g": 546.770766,
+      "delta_g": -366.229234,
+      "rel_error": 0.40112731,
+      "signed_error_percent": -40.112731,
+      "absolute_error_percent": 40.112731,
+      "within_band": false,
+      "within_tolerance_5pct": false,
+      "slack_down_g": 0.0,
+      "slack_up_g": 411.879234,
+      "direct_materials": [
+        "PCB_PSU"
+      ],
+      "shared_materials": [],
+      "actual_definition": "Direct contribution",
+      "comparison_type": "operational_control",
+      "note": "Control operativo directo."
+    },
+    {
+      "control_key": "mod",
+      "target_item": "MOD module",
+      "target_g": 823.0,
+      "lower_bound_g": 781.85,
+      "upper_bound_g": 864.15,
+      "direct_mass_g": 546.770766,
+      "shared_mass_g": 0,
+      "actual_g": 546.770766,
+      "delta_g": -276.229234,
+      "rel_error": 0.33563698,
+      "signed_error_percent": -33.56369793,
+      "absolute_error_percent": 33.56369793,
+      "within_band": false,
+      "within_tolerance_5pct": false,
+      "slack_down_g": 0.0,
+      "slack_up_g": 317.379234,
+      "direct_materials": [
+        "PCB_MOD"
+      ],
+      "shared_materials": [],
+      "actual_definition": "Direct contribution",
+      "comparison_type": "operational_control",
+      "note": "Control operativo directo."
+    },
+    {
+      "control_key": "proc",
+      "target_item": "PROC module",
+      "target_g": 979.0,
+      "lower_bound_g": 930.05,
+      "upper_bound_g": 1027.95,
+      "direct_mass_g": 546.770766,
+      "shared_mass_g": 0,
+      "actual_g": 546.770766,
+      "delta_g": -432.229234,
+      "rel_error": 0.44150075,
+      "signed_error_percent": -44.15007497,
+      "absolute_error_percent": 44.15007497,
+      "within_band": false,
+      "within_tolerance_5pct": false,
+      "slack_down_g": 0.0,
+      "slack_up_g": 481.179234,
+      "direct_materials": [
+        "PCB_PROC"
+      ],
+      "shared_materials": [],
+      "actual_definition": "Direct contribution",
+      "comparison_type": "operational_control",
+      "note": "Control operativo directo."
+    },
+    {
+      "control_key": "fpga",
+      "target_item": "FPGA module",
+      "target_g": 871.0,
+      "lower_bound_g": 827.45,
+      "upper_bound_g": 914.55,
+      "direct_mass_g": 546.770766,
+      "shared_mass_g": 73.446588,
+      "actual_g": 620.217354,
+      "delta_g": -250.782646,
+      "rel_error": 0.28792497,
+      "signed_error_percent": -28.79249667,
+      "absolute_error_percent": 28.79249667,
+      "within_band": false,
+      "within_tolerance_5pct": false,
+      "slack_down_g": 0.0,
+      "slack_up_g": 294.332646,
+      "direct_materials": [
+        "PCB_FPGA"
+      ],
+      "shared_materials": [
+        {
+          "name": "Bandeja_FPGA",
+          "weight": 1.0
+        }
+      ],
+      "actual_definition": "Direct contribution + shared contribution",
+      "comparison_type": "operational_control",
+      "note": "Control operativo con contribucion directa y masa compartida."
+    },
+    {
+      "control_key": "backplanes",
+      "target_item": "Backplane modules",
+      "target_g": 225.0,
+      "lower_bound_g": 213.75,
+      "upper_bound_g": 236.25,
+      "direct_mass_g": 0,
+      "shared_mass_g": 73.446588,
+      "actual_g": 73.446588,
+      "delta_g": -151.553412,
+      "rel_error": 0.67357072,
+      "signed_error_percent": -67.357072,
+      "absolute_error_percent": 67.357072,
+      "within_band": false,
+      "within_tolerance_5pct": false,
+      "slack_down_g": 0.0,
+      "slack_up_g": 162.803412,
+      "direct_materials": [],
+      "shared_materials": [
+        {
+          "name": "Bandeja_FPGA",
+          "weight": 1.0
+        }
+      ],
+      "actual_definition": "Shared contribution",
+      "comparison_type": "operational_control",
+      "note": "Control operativo con contribucion directa y masa compartida."
+    },
+    {
+      "control_key": "total",
+      "target_item": "Total mass",
+      "target_g": 3810.0,
+      "lower_bound_g": 3619.5,
+      "upper_bound_g": 4000.5,
+      "direct_mass_g": 3200.431646,
+      "shared_mass_g": 0.0,
+      "actual_g": 3200.431646,
+      "delta_g": -609.568354,
+      "rel_error": 0.15999169,
+      "signed_error_percent": -15.9991694,
+      "absolute_error_percent": 15.9991694,
+      "within_band": false,
+      "within_tolerance_5pct": false,
+      "slack_down_g": 0.0,
+      "slack_up_g": 800.068354,
+      "direct_materials": [],
+      "shared_materials": [],
+      "actual_definition": "Total model mass",
+      "comparison_type": "operational_control",
+      "note": "Restriccion global de masa total."
+    }
+  ],
+  "direct_reference_mass_g": 2187.083064,
+  "shared_mass_g": 73.446588,
+  "unassigned_materials_g": {
+    "Al_7075-T7351": 939.901994
+  },
+  "mass_fit": {
+    "strategy": "feasibility_with_slack",
+    "feasible": false,
+    "constraint_count": 6,
+    "constraints_satisfied_count": 0,
+    "unsatisfied_constraints_count": 6,
+    "control_values_g": {
+      "psu": 546.770766,
+      "mod": 546.770766,
+      "proc": 546.770766,
+      "fpga": 620.217354,
+      "backplanes": 73.446588,
+      "total": 3200.431646
+    },
+    "control_rows": [
+      {
+        "control_key": "psu",
+        "label": "H-PSU module",
+        "kind": "partial",
+        "target_g": 913.0,
+        "tolerance_fraction": 0.05,
+        "lower_bound_g": 867.35,
+        "upper_bound_g": 958.65,
+        "actual_g": 546.770766,
+        "direct_mass_g": 546.770766,
+        "shared_mass_g": 0,
+        "direct_breakdown_g": {
+          "PCB_PSU": 546.770766
+        },
+        "shared_breakdown_g": {},
+        "direct_materials": [
+          "PCB_PSU"
+        ],
+        "shared_materials": [],
+        "within_band": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 411.879234,
+        "lower_gap_g": 320.579234,
+        "upper_gap_g": 0.0,
+        "violation_g": 320.579234,
+        "normalized_violation": 7.0225462,
+        "center_error_g": -366.229234,
+        "normalized_target_error": 0.40112731
+      },
+      {
+        "control_key": "mod",
+        "label": "MOD module",
+        "kind": "partial",
+        "target_g": 823.0,
+        "tolerance_fraction": 0.05,
+        "lower_bound_g": 781.85,
+        "upper_bound_g": 864.15,
+        "actual_g": 546.770766,
+        "direct_mass_g": 546.770766,
+        "shared_mass_g": 0,
+        "direct_breakdown_g": {
+          "PCB_MOD": 546.770766
+        },
+        "shared_breakdown_g": {},
+        "direct_materials": [
+          "PCB_MOD"
+        ],
+        "shared_materials": [],
+        "within_band": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 317.379234,
+        "lower_gap_g": 235.079234,
+        "upper_gap_g": 0.0,
+        "violation_g": 235.079234,
+        "normalized_violation": 5.71273959,
+        "center_error_g": -276.229234,
+        "normalized_target_error": 0.33563698
+      },
+      {
+        "control_key": "proc",
+        "label": "PROC module",
+        "kind": "partial",
+        "target_g": 979.0,
+        "tolerance_fraction": 0.05,
+        "lower_bound_g": 930.05,
+        "upper_bound_g": 1027.95,
+        "actual_g": 546.770766,
+        "direct_mass_g": 546.770766,
+        "shared_mass_g": 0,
+        "direct_breakdown_g": {
+          "PCB_PROC": 546.770766
+        },
+        "shared_breakdown_g": {},
+        "direct_materials": [
+          "PCB_PROC"
+        ],
+        "shared_materials": [],
+        "within_band": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 481.179234,
+        "lower_gap_g": 383.279234,
+        "upper_gap_g": 0.0,
+        "violation_g": 383.279234,
+        "normalized_violation": 7.83001499,
+        "center_error_g": -432.229234,
+        "normalized_target_error": 0.44150075
+      },
+      {
+        "control_key": "fpga",
+        "label": "FPGA module",
+        "kind": "partial",
+        "target_g": 871.0,
+        "tolerance_fraction": 0.05,
+        "lower_bound_g": 827.45,
+        "upper_bound_g": 914.55,
+        "actual_g": 620.217354,
+        "direct_mass_g": 546.770766,
+        "shared_mass_g": 73.446588,
+        "direct_breakdown_g": {
+          "PCB_FPGA": 546.770766
+        },
+        "shared_breakdown_g": {
+          "Bandeja_FPGA": 73.446588
+        },
+        "direct_materials": [
+          "PCB_FPGA"
+        ],
+        "shared_materials": [
+          {
+            "name": "Bandeja_FPGA",
+            "weight": 1.0
+          }
+        ],
+        "within_band": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 294.332646,
+        "lower_gap_g": 207.232646,
+        "upper_gap_g": 0.0,
+        "violation_g": 207.232646,
+        "normalized_violation": 4.75849933,
+        "center_error_g": -250.782646,
+        "normalized_target_error": 0.28792497
+      },
+      {
+        "control_key": "backplanes",
+        "label": "Backplane modules",
+        "kind": "partial",
+        "target_g": 225.0,
+        "tolerance_fraction": 0.05,
+        "lower_bound_g": 213.75,
+        "upper_bound_g": 236.25,
+        "actual_g": 73.446588,
+        "direct_mass_g": 0,
+        "shared_mass_g": 73.446588,
+        "direct_breakdown_g": {},
+        "shared_breakdown_g": {
+          "Bandeja_FPGA": 73.446588
+        },
+        "direct_materials": [],
+        "shared_materials": [
+          {
+            "name": "Bandeja_FPGA",
+            "weight": 1.0
+          }
+        ],
+        "within_band": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 162.803412,
+        "lower_gap_g": 140.303412,
+        "upper_gap_g": 0.0,
+        "violation_g": 140.303412,
+        "normalized_violation": 12.4714144,
+        "center_error_g": -151.553412,
+        "normalized_target_error": 0.67357072
+      },
+      {
+        "control_key": "total",
+        "label": "Total mass",
+        "kind": "total",
+        "target_g": 3810.0,
+        "tolerance_fraction": 0.05,
+        "lower_bound_g": 3619.5,
+        "upper_bound_g": 4000.5,
+        "actual_g": 3200.431646,
+        "direct_mass_g": 3200.431646,
+        "shared_mass_g": 0.0,
+        "direct_breakdown_g": {},
+        "shared_breakdown_g": {},
+        "direct_materials": [],
+        "shared_materials": [],
+        "within_band": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 800.068354,
+        "lower_gap_g": 419.068354,
+        "upper_gap_g": 0.0,
+        "violation_g": 419.068354,
+        "normalized_violation": 2.19983388,
+        "center_error_g": -609.568354,
+        "normalized_target_error": 0.15999169
+      }
+    ],
+    "mass_budget_comparison_rows": [
+      {
+        "control_key": "psu",
+        "target_item": "H-PSU module",
+        "target_g": 913.0,
+        "lower_bound_g": 867.35,
+        "upper_bound_g": 958.65,
+        "direct_mass_g": 546.770766,
+        "shared_mass_g": 0,
+        "actual_g": 546.770766,
+        "delta_g": -366.229234,
+        "rel_error": 0.40112731,
+        "signed_error_percent": -40.112731,
+        "absolute_error_percent": 40.112731,
+        "within_band": false,
+        "within_tolerance_5pct": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 411.879234,
+        "direct_materials": [
+          "PCB_PSU"
+        ],
+        "shared_materials": [],
+        "actual_definition": "Direct contribution",
+        "comparison_type": "operational_control",
+        "note": "Control operativo directo."
+      },
+      {
+        "control_key": "mod",
+        "target_item": "MOD module",
+        "target_g": 823.0,
+        "lower_bound_g": 781.85,
+        "upper_bound_g": 864.15,
+        "direct_mass_g": 546.770766,
+        "shared_mass_g": 0,
+        "actual_g": 546.770766,
+        "delta_g": -276.229234,
+        "rel_error": 0.33563698,
+        "signed_error_percent": -33.56369793,
+        "absolute_error_percent": 33.56369793,
+        "within_band": false,
+        "within_tolerance_5pct": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 317.379234,
+        "direct_materials": [
+          "PCB_MOD"
+        ],
+        "shared_materials": [],
+        "actual_definition": "Direct contribution",
+        "comparison_type": "operational_control",
+        "note": "Control operativo directo."
+      },
+      {
+        "control_key": "proc",
+        "target_item": "PROC module",
+        "target_g": 979.0,
+        "lower_bound_g": 930.05,
+        "upper_bound_g": 1027.95,
+        "direct_mass_g": 546.770766,
+        "shared_mass_g": 0,
+        "actual_g": 546.770766,
+        "delta_g": -432.229234,
+        "rel_error": 0.44150075,
+        "signed_error_percent": -44.15007497,
+        "absolute_error_percent": 44.15007497,
+        "within_band": false,
+        "within_tolerance_5pct": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 481.179234,
+        "direct_materials": [
+          "PCB_PROC"
+        ],
+        "shared_materials": [],
+        "actual_definition": "Direct contribution",
+        "comparison_type": "operational_control",
+        "note": "Control operativo directo."
+      },
+      {
+        "control_key": "fpga",
+        "target_item": "FPGA module",
+        "target_g": 871.0,
+        "lower_bound_g": 827.45,
+        "upper_bound_g": 914.55,
+        "direct_mass_g": 546.770766,
+        "shared_mass_g": 73.446588,
+        "actual_g": 620.217354,
+        "delta_g": -250.782646,
+        "rel_error": 0.28792497,
+        "signed_error_percent": -28.79249667,
+        "absolute_error_percent": 28.79249667,
+        "within_band": false,
+        "within_tolerance_5pct": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 294.332646,
+        "direct_materials": [
+          "PCB_FPGA"
+        ],
+        "shared_materials": [
+          {
+            "name": "Bandeja_FPGA",
+            "weight": 1.0
+          }
+        ],
+        "actual_definition": "Direct contribution + shared contribution",
+        "comparison_type": "operational_control",
+        "note": "Control operativo con contribucion directa y masa compartida."
+      },
+      {
+        "control_key": "backplanes",
+        "target_item": "Backplane modules",
+        "target_g": 225.0,
+        "lower_bound_g": 213.75,
+        "upper_bound_g": 236.25,
+        "direct_mass_g": 0,
+        "shared_mass_g": 73.446588,
+        "actual_g": 73.446588,
+        "delta_g": -151.553412,
+        "rel_error": 0.67357072,
+        "signed_error_percent": -67.357072,
+        "absolute_error_percent": 67.357072,
+        "within_band": false,
+        "within_tolerance_5pct": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 162.803412,
+        "direct_materials": [],
+        "shared_materials": [
+          {
+            "name": "Bandeja_FPGA",
+            "weight": 1.0
+          }
+        ],
+        "actual_definition": "Shared contribution",
+        "comparison_type": "operational_control",
+        "note": "Control operativo con contribucion directa y masa compartida."
+      },
+      {
+        "control_key": "total",
+        "target_item": "Total mass",
+        "target_g": 3810.0,
+        "lower_bound_g": 3619.5,
+        "upper_bound_g": 4000.5,
+        "direct_mass_g": 3200.431646,
+        "shared_mass_g": 0.0,
+        "actual_g": 3200.431646,
+        "delta_g": -609.568354,
+        "rel_error": 0.15999169,
+        "signed_error_percent": -15.9991694,
+        "absolute_error_percent": 15.9991694,
+        "within_band": false,
+        "within_tolerance_5pct": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 800.068354,
+        "direct_materials": [],
+        "shared_materials": [],
+        "actual_definition": "Total model mass",
+        "comparison_type": "operational_control",
+        "note": "Restriccion global de masa total."
+      }
+    ],
+    "adjusted_material_mass_rows": [
+      {
+        "material_id": 1,
+        "material": "Al_7075-T7351",
+        "density_factor": 1.0,
+        "final_density": 2800.0,
+        "final_mass_g": 939.901994,
+        "associated_budget_item": "Total mass closure / common structural",
+        "associated_target_g": null,
+        "associated_target_items": [],
+        "association_type": "common_structural",
+        "association_note": "Common structural contribution used to help the total mass closure.",
+        "signed_error_percent": null,
+        "absolute_error_percent": null
+      },
+      {
+        "material_id": 2,
+        "material": "PCB_PSU",
+        "density_factor": 1.0,
+        "final_density": 9929.2266,
+        "final_mass_g": 546.770766,
+        "associated_budget_item": "H-PSU module",
+        "associated_target_g": 913.0,
+        "associated_target_items": [
+          {
+            "label": "H-PSU module",
+            "target_g": 913.0
+          }
+        ],
+        "association_type": "direct_control",
+        "association_note": "Direct operational contribution to H-PSU module.",
+        "signed_error_percent": -40.112731,
+        "absolute_error_percent": 40.112731
+      },
+      {
+        "material_id": 3,
+        "material": "PCB_MOD",
+        "density_factor": 1.0,
+        "final_density": 9929.2266,
+        "final_mass_g": 546.770766,
+        "associated_budget_item": "MOD module",
+        "associated_target_g": 823.0,
+        "associated_target_items": [
+          {
+            "label": "MOD module",
+            "target_g": 823.0
+          }
+        ],
+        "association_type": "direct_control",
+        "association_note": "Direct operational contribution to MOD module.",
+        "signed_error_percent": -33.56369793,
+        "absolute_error_percent": 33.56369793
+      },
+      {
+        "material_id": 4,
+        "material": "PCB_PROC",
+        "density_factor": 1.0,
+        "final_density": 9929.2266,
+        "final_mass_g": 546.770766,
+        "associated_budget_item": "PROC module",
+        "associated_target_g": 979.0,
+        "associated_target_items": [
+          {
+            "label": "PROC module",
+            "target_g": 979.0
+          }
+        ],
+        "association_type": "direct_control",
+        "association_note": "Direct operational contribution to PROC module.",
+        "signed_error_percent": -44.15007497,
+        "absolute_error_percent": 44.15007497
+      },
+      {
+        "material_id": 5,
+        "material": "PCB_FPGA",
+        "density_factor": 1.0,
+        "final_density": 9929.2266,
+        "final_mass_g": 546.770766,
+        "associated_budget_item": "FPGA module",
+        "associated_target_g": 871.0,
+        "associated_target_items": [
+          {
+            "label": "FPGA module",
+            "target_g": 871.0
+          }
+        ],
+        "association_type": "direct_control",
+        "association_note": "Direct FPGA contribution; the full FPGA control also includes the shared contribution of Bandeja_FPGA.",
+        "signed_error_percent": -37.22494076,
+        "absolute_error_percent": 37.22494076
+      },
+      {
+        "material_id": 6,
+        "material": "Bandeja_FPGA",
+        "density_factor": 1.0,
+        "final_density": 2800.0,
+        "final_mass_g": 73.446588,
+        "associated_budget_item": "FPGA module + Backplane modules (shared contribution)",
+        "associated_target_g": null,
+        "associated_target_items": [
+          {
+            "label": "FPGA module",
+            "target_g": 871.0
+          },
+          {
+            "label": "Backplane modules",
+            "target_g": 225.0
+          }
+        ],
+        "association_type": "shared_control",
+        "association_note": "Shared contribution across multiple operational controls; no single signed error is forced on this row.",
+        "signed_error_percent": null,
+        "absolute_error_percent": null
+      }
+    ],
+    "total_mass_signed_error_percent": -15.9991694,
+    "total_mass_absolute_error_percent": 15.9991694,
+    "controls_by_key": {
+      "psu": {
+        "control_key": "psu",
+        "label": "H-PSU module",
+        "kind": "partial",
+        "target_g": 913.0,
+        "tolerance_fraction": 0.05,
+        "lower_bound_g": 867.35,
+        "upper_bound_g": 958.65,
+        "actual_g": 546.770766,
+        "direct_mass_g": 546.770766,
+        "shared_mass_g": 0,
+        "direct_breakdown_g": {
+          "PCB_PSU": 546.770766
+        },
+        "shared_breakdown_g": {},
+        "direct_materials": [
+          "PCB_PSU"
+        ],
+        "shared_materials": [],
+        "within_band": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 411.879234,
+        "lower_gap_g": 320.579234,
+        "upper_gap_g": 0.0,
+        "violation_g": 320.579234,
+        "normalized_violation": 7.0225462,
+        "center_error_g": -366.229234,
+        "normalized_target_error": 0.40112731
+      },
+      "mod": {
+        "control_key": "mod",
+        "label": "MOD module",
+        "kind": "partial",
+        "target_g": 823.0,
+        "tolerance_fraction": 0.05,
+        "lower_bound_g": 781.85,
+        "upper_bound_g": 864.15,
+        "actual_g": 546.770766,
+        "direct_mass_g": 546.770766,
+        "shared_mass_g": 0,
+        "direct_breakdown_g": {
+          "PCB_MOD": 546.770766
+        },
+        "shared_breakdown_g": {},
+        "direct_materials": [
+          "PCB_MOD"
+        ],
+        "shared_materials": [],
+        "within_band": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 317.379234,
+        "lower_gap_g": 235.079234,
+        "upper_gap_g": 0.0,
+        "violation_g": 235.079234,
+        "normalized_violation": 5.71273959,
+        "center_error_g": -276.229234,
+        "normalized_target_error": 0.33563698
+      },
+      "proc": {
+        "control_key": "proc",
+        "label": "PROC module",
+        "kind": "partial",
+        "target_g": 979.0,
+        "tolerance_fraction": 0.05,
+        "lower_bound_g": 930.05,
+        "upper_bound_g": 1027.95,
+        "actual_g": 546.770766,
+        "direct_mass_g": 546.770766,
+        "shared_mass_g": 0,
+        "direct_breakdown_g": {
+          "PCB_PROC": 546.770766
+        },
+        "shared_breakdown_g": {},
+        "direct_materials": [
+          "PCB_PROC"
+        ],
+        "shared_materials": [],
+        "within_band": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 481.179234,
+        "lower_gap_g": 383.279234,
+        "upper_gap_g": 0.0,
+        "violation_g": 383.279234,
+        "normalized_violation": 7.83001499,
+        "center_error_g": -432.229234,
+        "normalized_target_error": 0.44150075
+      },
+      "fpga": {
+        "control_key": "fpga",
+        "label": "FPGA module",
+        "kind": "partial",
+        "target_g": 871.0,
+        "tolerance_fraction": 0.05,
+        "lower_bound_g": 827.45,
+        "upper_bound_g": 914.55,
+        "actual_g": 620.217354,
+        "direct_mass_g": 546.770766,
+        "shared_mass_g": 73.446588,
+        "direct_breakdown_g": {
+          "PCB_FPGA": 546.770766
+        },
+        "shared_breakdown_g": {
+          "Bandeja_FPGA": 73.446588
+        },
+        "direct_materials": [
+          "PCB_FPGA"
+        ],
+        "shared_materials": [
+          {
+            "name": "Bandeja_FPGA",
+            "weight": 1.0
+          }
+        ],
+        "within_band": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 294.332646,
+        "lower_gap_g": 207.232646,
+        "upper_gap_g": 0.0,
+        "violation_g": 207.232646,
+        "normalized_violation": 4.75849933,
+        "center_error_g": -250.782646,
+        "normalized_target_error": 0.28792497
+      },
+      "backplanes": {
+        "control_key": "backplanes",
+        "label": "Backplane modules",
+        "kind": "partial",
+        "target_g": 225.0,
+        "tolerance_fraction": 0.05,
+        "lower_bound_g": 213.75,
+        "upper_bound_g": 236.25,
+        "actual_g": 73.446588,
+        "direct_mass_g": 0,
+        "shared_mass_g": 73.446588,
+        "direct_breakdown_g": {},
+        "shared_breakdown_g": {
+          "Bandeja_FPGA": 73.446588
+        },
+        "direct_materials": [],
+        "shared_materials": [
+          {
+            "name": "Bandeja_FPGA",
+            "weight": 1.0
+          }
+        ],
+        "within_band": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 162.803412,
+        "lower_gap_g": 140.303412,
+        "upper_gap_g": 0.0,
+        "violation_g": 140.303412,
+        "normalized_violation": 12.4714144,
+        "center_error_g": -151.553412,
+        "normalized_target_error": 0.67357072
+      },
+      "total": {
+        "control_key": "total",
+        "label": "Total mass",
+        "kind": "total",
+        "target_g": 3810.0,
+        "tolerance_fraction": 0.05,
+        "lower_bound_g": 3619.5,
+        "upper_bound_g": 4000.5,
+        "actual_g": 3200.431646,
+        "direct_mass_g": 3200.431646,
+        "shared_mass_g": 0.0,
+        "direct_breakdown_g": {},
+        "shared_breakdown_g": {},
+        "direct_materials": [],
+        "shared_materials": [],
+        "within_band": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 800.068354,
+        "lower_gap_g": 419.068354,
+        "upper_gap_g": 0.0,
+        "violation_g": 419.068354,
+        "normalized_violation": 2.19983388,
+        "center_error_g": -609.568354,
+        "normalized_target_error": 0.15999169
+      }
+    },
+    "violated_controls": [
+      "psu",
+      "mod",
+      "proc",
+      "fpga",
+      "backplanes",
+      "total"
+    ],
+    "satisfied_controls": [],
+    "max_normalized_violation": 12.4714144,
+    "total_mass_rel_error": 0.15999169,
+    "total_mass_error_g": -609.568354,
+    "change_from_baseline_l1": 0.0,
+    "ranking_key": [
+      6,
+      12.4714144,
+      0.15999169,
+      0.0
+    ],
+    "most_limiting_control": {
+      "control_key": "backplanes",
+      "label": "Backplane modules",
+      "normalized_violation": 12.4714144,
+      "center_error_g": -151.553412
+    },
+    "most_limiting_variable": {
+      "material_name": "Bandeja_FPGA",
+      "pressure": 17.22991373,
+      "breakdown": {
+        "Al_7075-T7351": 2.19983388,
+        "Bandeja_FPGA": 17.22991373,
+        "PCB_FPGA": 4.75849933,
+        "PCB_MOD": 5.71273959,
+        "PCB_PROC": 7.83001499,
+        "PCB_PSU": 7.0225462
+      }
+    },
+    "control_summary_table": [
+      {
+        "control_key": "psu",
+        "label": "H-PSU module",
+        "target_g": 913.0,
+        "lower_bound_g": 867.35,
+        "upper_bound_g": 958.65,
+        "actual_g": 546.770766,
+        "within_band": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 411.879234,
+        "normalized_violation": 7.0225462
+      },
+      {
+        "control_key": "mod",
+        "label": "MOD module",
+        "target_g": 823.0,
+        "lower_bound_g": 781.85,
+        "upper_bound_g": 864.15,
+        "actual_g": 546.770766,
+        "within_band": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 317.379234,
+        "normalized_violation": 5.71273959
+      },
+      {
+        "control_key": "proc",
+        "label": "PROC module",
+        "target_g": 979.0,
+        "lower_bound_g": 930.05,
+        "upper_bound_g": 1027.95,
+        "actual_g": 546.770766,
+        "within_band": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 481.179234,
+        "normalized_violation": 7.83001499
+      },
+      {
+        "control_key": "fpga",
+        "label": "FPGA module",
+        "target_g": 871.0,
+        "lower_bound_g": 827.45,
+        "upper_bound_g": 914.55,
+        "actual_g": 620.217354,
+        "within_band": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 294.332646,
+        "normalized_violation": 4.75849933
+      },
+      {
+        "control_key": "backplanes",
+        "label": "Backplane modules",
+        "target_g": 225.0,
+        "lower_bound_g": 213.75,
+        "upper_bound_g": 236.25,
+        "actual_g": 73.446588,
+        "within_band": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 162.803412,
+        "normalized_violation": 12.4714144
+      },
+      {
+        "control_key": "total",
+        "label": "Total mass",
+        "target_g": 3810.0,
+        "lower_bound_g": 3619.5,
+        "upper_bound_g": 4000.5,
+        "actual_g": 3200.431646,
+        "within_band": false,
+        "slack_down_g": 0.0,
+        "slack_up_g": 800.068354,
+        "normalized_violation": 2.19983388
+      }
+    ]
+  },
+  "mass_budget_comparison_rows": [
+    {
+      "control_key": "psu",
+      "target_item": "H-PSU module",
+      "target_g": 913.0,
+      "lower_bound_g": 867.35,
+      "upper_bound_g": 958.65,
+      "direct_mass_g": 546.770766,
+      "shared_mass_g": 0,
+      "actual_g": 546.770766,
+      "delta_g": -366.229234,
+      "rel_error": 0.40112731,
+      "signed_error_percent": -40.112731,
+      "absolute_error_percent": 40.112731,
+      "within_band": false,
+      "within_tolerance_5pct": false,
+      "slack_down_g": 0.0,
+      "slack_up_g": 411.879234,
+      "direct_materials": [
+        "PCB_PSU"
+      ],
+      "shared_materials": [],
+      "actual_definition": "Direct contribution",
+      "comparison_type": "operational_control",
+      "note": "Control operativo directo."
+    },
+    {
+      "control_key": "mod",
+      "target_item": "MOD module",
+      "target_g": 823.0,
+      "lower_bound_g": 781.85,
+      "upper_bound_g": 864.15,
+      "direct_mass_g": 546.770766,
+      "shared_mass_g": 0,
+      "actual_g": 546.770766,
+      "delta_g": -276.229234,
+      "rel_error": 0.33563698,
+      "signed_error_percent": -33.56369793,
+      "absolute_error_percent": 33.56369793,
+      "within_band": false,
+      "within_tolerance_5pct": false,
+      "slack_down_g": 0.0,
+      "slack_up_g": 317.379234,
+      "direct_materials": [
+        "PCB_MOD"
+      ],
+      "shared_materials": [],
+      "actual_definition": "Direct contribution",
+      "comparison_type": "operational_control",
+      "note": "Control operativo directo."
+    },
+    {
+      "control_key": "proc",
+      "target_item": "PROC module",
+      "target_g": 979.0,
+      "lower_bound_g": 930.05,
+      "upper_bound_g": 1027.95,
+      "direct_mass_g": 546.770766,
+      "shared_mass_g": 0,
+      "actual_g": 546.770766,
+      "delta_g": -432.229234,
+      "rel_error": 0.44150075,
+      "signed_error_percent": -44.15007497,
+      "absolute_error_percent": 44.15007497,
+      "within_band": false,
+      "within_tolerance_5pct": false,
+      "slack_down_g": 0.0,
+      "slack_up_g": 481.179234,
+      "direct_materials": [
+        "PCB_PROC"
+      ],
+      "shared_materials": [],
+      "actual_definition": "Direct contribution",
+      "comparison_type": "operational_control",
+      "note": "Control operativo directo."
+    },
+    {
+      "control_key": "fpga",
+      "target_item": "FPGA module",
+      "target_g": 871.0,
+      "lower_bound_g": 827.45,
+      "upper_bound_g": 914.55,
+      "direct_mass_g": 546.770766,
+      "shared_mass_g": 73.446588,
+      "actual_g": 620.217354,
+      "delta_g": -250.782646,
+      "rel_error": 0.28792497,
+      "signed_error_percent": -28.79249667,
+      "absolute_error_percent": 28.79249667,
+      "within_band": false,
+      "within_tolerance_5pct": false,
+      "slack_down_g": 0.0,
+      "slack_up_g": 294.332646,
+      "direct_materials": [
+        "PCB_FPGA"
+      ],
+      "shared_materials": [
+        {
+          "name": "Bandeja_FPGA",
+          "weight": 1.0
+        }
+      ],
+      "actual_definition": "Direct contribution + shared contribution",
+      "comparison_type": "operational_control",
+      "note": "Control operativo con contribucion directa y masa compartida."
+    },
+    {
+      "control_key": "backplanes",
+      "target_item": "Backplane modules",
+      "target_g": 225.0,
+      "lower_bound_g": 213.75,
+      "upper_bound_g": 236.25,
+      "direct_mass_g": 0,
+      "shared_mass_g": 73.446588,
+      "actual_g": 73.446588,
+      "delta_g": -151.553412,
+      "rel_error": 0.67357072,
+      "signed_error_percent": -67.357072,
+      "absolute_error_percent": 67.357072,
+      "within_band": false,
+      "within_tolerance_5pct": false,
+      "slack_down_g": 0.0,
+      "slack_up_g": 162.803412,
+      "direct_materials": [],
+      "shared_materials": [
+        {
+          "name": "Bandeja_FPGA",
+          "weight": 1.0
+        }
+      ],
+      "actual_definition": "Shared contribution",
+      "comparison_type": "operational_control",
+      "note": "Control operativo con contribucion directa y masa compartida."
+    },
+    {
+      "control_key": "total",
+      "target_item": "Total mass",
+      "target_g": 3810.0,
+      "lower_bound_g": 3619.5,
+      "upper_bound_g": 4000.5,
+      "direct_mass_g": 3200.431646,
+      "shared_mass_g": 0.0,
+      "actual_g": 3200.431646,
+      "delta_g": -609.568354,
+      "rel_error": 0.15999169,
+      "signed_error_percent": -15.9991694,
+      "absolute_error_percent": 15.9991694,
+      "within_band": false,
+      "within_tolerance_5pct": false,
+      "slack_down_g": 0.0,
+      "slack_up_g": 800.068354,
+      "direct_materials": [],
+      "shared_materials": [],
+      "actual_definition": "Total model mass",
+      "comparison_type": "operational_control",
+      "note": "Restriccion global de masa total."
+    }
+  ],
+  "adjusted_material_mass_rows": [
+    {
+      "material_id": 1,
+      "material": "Al_7075-T7351",
+      "density_factor": 1.0,
+      "final_density": 2800.0,
+      "final_mass_g": 939.901994,
+      "associated_budget_item": "Total mass closure / common structural",
+      "associated_target_g": null,
+      "associated_target_items": [],
+      "association_type": "common_structural",
+      "association_note": "Common structural contribution used to help the total mass closure.",
+      "signed_error_percent": null,
+      "absolute_error_percent": null
+    },
+    {
+      "material_id": 2,
+      "material": "PCB_PSU",
+      "density_factor": 1.0,
+      "final_density": 9929.2266,
+      "final_mass_g": 546.770766,
+      "associated_budget_item": "H-PSU module",
+      "associated_target_g": 913.0,
+      "associated_target_items": [
+        {
+          "label": "H-PSU module",
+          "target_g": 913.0
+        }
+      ],
+      "association_type": "direct_control",
+      "association_note": "Direct operational contribution to H-PSU module.",
+      "signed_error_percent": -40.112731,
+      "absolute_error_percent": 40.112731
+    },
+    {
+      "material_id": 3,
+      "material": "PCB_MOD",
+      "density_factor": 1.0,
+      "final_density": 9929.2266,
+      "final_mass_g": 546.770766,
+      "associated_budget_item": "MOD module",
+      "associated_target_g": 823.0,
+      "associated_target_items": [
+        {
+          "label": "MOD module",
+          "target_g": 823.0
+        }
+      ],
+      "association_type": "direct_control",
+      "association_note": "Direct operational contribution to MOD module.",
+      "signed_error_percent": -33.56369793,
+      "absolute_error_percent": 33.56369793
+    },
+    {
+      "material_id": 4,
+      "material": "PCB_PROC",
+      "density_factor": 1.0,
+      "final_density": 9929.2266,
+      "final_mass_g": 546.770766,
+      "associated_budget_item": "PROC module",
+      "associated_target_g": 979.0,
+      "associated_target_items": [
+        {
+          "label": "PROC module",
+          "target_g": 979.0
+        }
+      ],
+      "association_type": "direct_control",
+      "association_note": "Direct operational contribution to PROC module.",
+      "signed_error_percent": -44.15007497,
+      "absolute_error_percent": 44.15007497
+    },
+    {
+      "material_id": 5,
+      "material": "PCB_FPGA",
+      "density_factor": 1.0,
+      "final_density": 9929.2266,
+      "final_mass_g": 546.770766,
+      "associated_budget_item": "FPGA module",
+      "associated_target_g": 871.0,
+      "associated_target_items": [
+        {
+          "label": "FPGA module",
+          "target_g": 871.0
+        }
+      ],
+      "association_type": "direct_control",
+      "association_note": "Direct FPGA contribution; the full FPGA control also includes the shared contribution of Bandeja_FPGA.",
+      "signed_error_percent": -37.22494076,
+      "absolute_error_percent": 37.22494076
+    },
+    {
+      "material_id": 6,
+      "material": "Bandeja_FPGA",
+      "density_factor": 1.0,
+      "final_density": 2800.0,
+      "final_mass_g": 73.446588,
+      "associated_budget_item": "FPGA module + Backplane modules (shared contribution)",
+      "associated_target_g": null,
+      "associated_target_items": [
+        {
+          "label": "FPGA module",
+          "target_g": 871.0
+        },
+        {
+          "label": "Backplane modules",
+          "target_g": 225.0
+        }
+      ],
+      "association_type": "shared_control",
+      "association_note": "Shared contribution across multiple operational controls; no single signed error is forced on this row.",
+      "signed_error_percent": null,
+      "absolute_error_percent": null
+    }
+  ],
+  "total_mass_signed_error_percent": -15.9991694,
+  "total_mass_absolute_error_percent": 15.9991694,
+  "paired_mode_diagnostics": [],
+  "problematic_modes": {}
+}

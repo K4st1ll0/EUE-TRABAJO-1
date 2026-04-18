@@ -1,0 +1,112 @@
+<!doctype html><html lang='es'><head><meta charset='utf-8'><title>001_Al1.000_PSU1.000_MOD1.000_PROC1.000_FPGA1.000_BFPGA1.000</title><style>
+body { background: #f6f4ee; color: #1f2430; font-family: "Segoe UI", Arial, sans-serif; margin: 0; }
+.page { max-width: 1200px; margin: 0 auto; padding: 32px 24px 48px; }
+h1, h2, h3 { margin: 0 0 12px; color: #18202b; }
+h1 { font-size: 30px; }
+h2 { font-size: 20px; margin-top: 28px; }
+h3 { font-size: 16px; margin-top: 20px; }
+p { line-height: 1.5; }
+.grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin: 18px 0 8px; }
+.card { background: #ffffff; border: 1px solid #d7d1c4; border-radius: 12px; padding: 16px 18px; box-shadow: 0 8px 24px rgba(24, 32, 43, 0.05); }
+.label { display: block; color: #6c756f; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+.value { font-size: 24px; font-weight: 600; }
+.warning { background: #fff0c8; border: 1px solid #d7b964; border-radius: 12px; padding: 16px 18px; margin: 18px 0; }
+.muted { color: #5c645f; }
+table { width: 100%; border-collapse: collapse; background: #ffffff; border: 1px solid #d7d1c4; border-radius: 12px; overflow: hidden; margin: 12px 0 20px; }
+th, td { padding: 11px 12px; border-bottom: 1px solid #e8e2d6; text-align: left; vertical-align: top; }
+th { background: #ece4d6; font-size: 13px; color: #3d4651; }
+tr.best { background: #eef6ea; }
+tr.failed { background: #fff2ef; }
+tr.feasible { background: #eef6ea; }
+code { background: #efe8db; padding: 2px 6px; border-radius: 6px; }
+pre { background: #ffffff; border: 1px solid #d7d1c4; border-radius: 12px; padding: 16px; overflow-x: auto; white-space: pre-wrap; }
+a { color: #0a5c70; text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul { padding-left: 18px; }
+.pill { display: inline-block; padding: 4px 8px; border-radius: 999px; font-size: 12px; background: #ece4d6; color: #3c4957; }
+.cell-good { background: #e8f3e6; }
+.cell-warn { background: #fff5d7; }
+.cell-bad { background: #fbe7e3; }
+.summary-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); margin: 18px 0 8px; }
+.multiline { line-height: 1.45; }
+@media (max-width: 720px) {
+  .page { padding: 24px 16px 36px; }
+  h1 { font-size: 24px; }
+  th, td { font-size: 13px; padding: 9px 10px; }
+}
+</style></head><body>
+    <div class="page">
+      <p><a href="../../handoff/index.html">Volver al reporte maestro</a></p>
+      <h1>001_Al1.000_PSU1.000_MOD1.000_PROC1.000_FPGA1.000_BFPGA1.000</h1>
+      <p class="muted">Run index 1 | 2026-04-17T23:17:54+02:00 | <span class="pill">dry_run_completed</span></p>
+      <div class="grid">
+        <div class="card"><span class="label">Strategy</span><div class="value">baseline</div></div>
+        <div class="card"><span class="label">Feasible</span><div class="value">no</div></div>
+        <div class="card"><span class="label">Constraints</span><div class="value">0 / 6</div></div>
+        <div class="card"><span class="label">Total Mass [g]</span><div class="value">3200.432</div></div>
+        <div class="card"><span class="label">Total Mass Signed Error</span><div class="value">-16.00%</div></div>
+        <div class="card"><span class="label">Total Mass Absolute Error</span><div class="value">16.00%</div></div>
+      </div>
+
+      <h2>Physical Interpretation</h2>
+      <ul><li>Las seis densidades MAT1 son variables independientes y se ajustan con bandas de tolerancia del +/-5%.</li><li>PSU, MOD y PROC se controlan directamente con PCB_PSU, PCB_MOD y PCB_PROC.</li><li>FPGA combina la masa de PCB_FPGA con la contribucion compartida de Bandeja_FPGA.</li><li>Backplane modules se controla principalmente con Bandeja_FPGA.</li><li>Al_7075-T7351 se usa para cerrar la masa total cuando existe slack sin romper restricciones parciales.</li></ul>
+
+      <h2>Run Summary</h2>
+      <table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>Generated BDF</td><td>runs/001_Al1.000_PSU1.000_MOD1.000_PROC1.000_FPGA1.000_BFPGA1.000/sfem_mass_fit.bdf</td></tr><tr><td>Input BDF</td><td>C:\Users\Pablo Castillo\Desktop\MUSE\SEGUNDO CUATRIMESTRE\ESTRUCTURAS\EUE-TRABAJO-1\02_SFEM-de-apoyo\SFEM_EUE.bdf</td></tr><tr><td>Nastran command</td><td><code>nastran.exe &quot;C:\Users\Pablo Castillo\Desktop\MUSE\SEGUNDO CUATRIMESTRE\ESTRUCTURAS\EUE-TRABAJO-1\06_Codigo\runs\001_Al1.000_PSU1.000_MOD1.000_PROC1.000_FPGA1.000_BFPGA1.000\sfem_mass_fit.bdf&quot;</code></td></tr><tr><td>Runner mode</td><td>dry-run</td></tr><tr><td>Runner log</td><td><a href="runner.log">runs/001_Al1.000_PSU1.000_MOD1.000_PROC1.000_FPGA1.000_BFPGA1.000/runner.log</a></td></tr><tr><td>Master report</td><td>reports/runs/001_Al1.000_PSU1.000_MOD1.000_PROC1.000_FPGA1.000_BFPGA1.000/report.html</td></tr><tr><td>Mirror report</td><td>runs/001_Al1.000_PSU1.000_MOD1.000_PROC1.000_FPGA1.000_BFPGA1.000/report.html</td></tr><tr><td>Most limiting variable</td><td>Bandeja_FPGA</td></tr><tr><td>Modal status</td><td>n/a</td></tr><tr><td>Changed E factors</td><td>baseline E</td></tr></tbody></table>
+
+      
+
+      <h2>Mass-Fit Constraints</h2>
+      <table><thead><tr><th>Control</th><th>Target [g]</th><th>Lower [g]</th><th>Upper [g]</th><th>Actual [g]</th><th>Within band</th><th>Slack down [g]</th><th>Slack up [g]</th></tr></thead><tbody><tr><td>H-PSU module</td><td>913.000</td><td>867.350</td><td>958.650</td><td>546.771</td><td>no</td><td>0.000</td><td>411.879</td></tr><tr><td>MOD module</td><td>823.000</td><td>781.850</td><td>864.150</td><td>546.771</td><td>no</td><td>0.000</td><td>317.379</td></tr><tr><td>PROC module</td><td>979.000</td><td>930.050</td><td>1027.950</td><td>546.771</td><td>no</td><td>0.000</td><td>481.179</td></tr><tr><td>FPGA module</td><td>871.000</td><td>827.450</td><td>914.550</td><td>620.217</td><td>no</td><td>0.000</td><td>294.333</td></tr><tr><td>Backplane modules</td><td>225.000</td><td>213.750</td><td>236.250</td><td>73.447</td><td>no</td><td>0.000</td><td>162.803</td></tr><tr><td>Total mass</td><td>3810.000</td><td>3619.500</td><td>4000.500</td><td>3200.432</td><td>no</td><td>0.000</td><td>800.068</td></tr></tbody></table>
+
+      <h2>Accepted Iterations</h2>
+      <table><thead><tr><th>Pass</th><th>Feasible</th><th>Constraints</th><th>Most limiting variable</th><th>Ranking key</th><th>Step reasons</th></tr></thead><tbody><tr><td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td><td>No internal history persisted for this run.</td></tr></tbody></table>
+
+      <h2>Last Proportional Correction</h2>
+      <table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>No correction</td><td>n/a</td></tr></tbody></table>
+
+      <h2>Mass By MAT1</h2>
+      <table><thead><tr><th>Material</th><th>MAT1</th><th>Rho factor</th><th>E factor</th><th>Rho base</th><th>Rho new</th><th>E base</th><th>E new</th><th>Mass [g]</th></tr></thead><tbody><tr><td>Al_7075-T7351</td><td>1</td><td>1.000</td><td>n/a</td><td>2800.000000</td><td>2800.000000</td><td>n/a</td><td>n/a</td><td>939.902</td></tr><tr><td>PCB_PSU</td><td>2</td><td>1.000</td><td>n/a</td><td>9929.226600</td><td>9929.226600</td><td>n/a</td><td>n/a</td><td>546.771</td></tr><tr><td>PCB_MOD</td><td>3</td><td>1.000</td><td>n/a</td><td>9929.226600</td><td>9929.226600</td><td>n/a</td><td>n/a</td><td>546.771</td></tr><tr><td>PCB_PROC</td><td>4</td><td>1.000</td><td>n/a</td><td>9929.226600</td><td>9929.226600</td><td>n/a</td><td>n/a</td><td>546.771</td></tr><tr><td>PCB_FPGA</td><td>5</td><td>1.000</td><td>n/a</td><td>9929.226600</td><td>9929.226600</td><td>n/a</td><td>n/a</td><td>546.771</td></tr><tr><td>Bandeja_FPGA</td><td>6</td><td>1.000</td><td>n/a</td><td>2800.000000</td><td>2800.000000</td><td>n/a</td><td>n/a</td><td>73.447</td></tr></tbody></table>
+
+      <h2>Mass Budget Comparison</h2>
+      <table><thead><tr><th>Budget item</th><th>Target mass [g]</th><th>Actual mass [g]</th><th>Signed error [%]</th><th>Absolute error [%]</th><th>Within +/-5%</th></tr></thead><tbody><tr><td>H-PSU module<br><span class='muted'>PCB_PSU</span></td><td>913.000</td><td>546.771</td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>-40.11%</span></td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>40.11%</span></td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>no</span></td></tr><tr><td>MOD module<br><span class='muted'>PCB_MOD</span></td><td>823.000</td><td>546.771</td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>-33.56%</span></td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>33.56%</span></td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>no</span></td></tr><tr><td>PROC module<br><span class='muted'>PCB_PROC</span></td><td>979.000</td><td>546.771</td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>-44.15%</span></td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>44.15%</span></td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>no</span></td></tr><tr><td>FPGA module<br><span class='muted'>PCB_FPGA + Bandeja_FPGA shared</span></td><td>871.000</td><td>620.217</td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>-28.79%</span></td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>28.79%</span></td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>no</span></td></tr><tr><td>Backplane modules<br><span class='muted'>Bandeja_FPGA shared</span></td><td>225.000</td><td>73.447</td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>-67.36%</span></td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>67.36%</span></td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>no</span></td></tr><tr><td>Total mass<br><span class='muted'>total model mass</span></td><td>3810.000</td><td>3200.432</td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>-16.00%</span></td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>16.00%</span></td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>no</span></td></tr></tbody></table>
+
+      <h2>Adjusted Material Mass Breakdown</h2>
+      <table><thead><tr><th>Material</th><th>Density factor</th><th>Final density</th><th>Final mass [g]</th><th>Associated budget item</th><th>Associated target [g]</th><th>Signed error [%]</th><th>Absolute error [%]</th></tr></thead><tbody><tr><td>Al_7075-T7351</td><td>1.000</td><td>2800.000000</td><td>939.902</td><td>Total mass closure / common structural</td><td>n/a</td><td>n/a</td><td>n/a</td></tr><tr><td>PCB_PSU</td><td>1.000</td><td>9929.226600</td><td>546.771</td><td>H-PSU module</td><td>913.000</td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>-40.11%</span></td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>40.11%</span></td></tr><tr><td>PCB_MOD</td><td>1.000</td><td>9929.226600</td><td>546.771</td><td>MOD module</td><td>823.000</td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>-33.56%</span></td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>33.56%</span></td></tr><tr><td>PCB_PROC</td><td>1.000</td><td>9929.226600</td><td>546.771</td><td>PROC module</td><td>979.000</td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>-44.15%</span></td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>44.15%</span></td></tr><tr><td>PCB_FPGA</td><td>1.000</td><td>9929.226600</td><td>546.771</td><td>FPGA module</td><td>871.000</td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>-37.22%</span></td><td><span class='cell-bad' style='display:inline-block; padding:3px 8px; border-radius:6px;'>37.22%</span></td></tr><tr><td>Bandeja_FPGA</td><td>1.000</td><td>2800.000000</td><td>73.447</td><td>FPGA module + Backplane modules (shared contribution)</td><td>n/a (shared contribution)</td><td>n/a</td><td>n/a</td></tr></tbody></table>
+
+      <h2>Mass By Property Type</h2>
+      <table><thead><tr><th>Property type</th><th>Mass [g]</th></tr></thead><tbody><tr><td>PBARL</td><td>395.578</td></tr><tr><td>PSHELL</td><td>2804.854</td></tr></tbody></table>
+
+      <h2>Mass By Property Contribution</h2>
+      <table><thead><tr><th>Type</th><th>Property</th><th>Label</th><th>Material</th><th>Mass [g]</th></tr></thead><tbody><tr><td>PBARL</td><td>5</td><td>11_ESQ_xp_yp</td><td>Al_7075-T7351</td><td>7.762</td></tr><tr><td>PBARL</td><td>6</td><td>11_ESQ_xn_yp</td><td>Al_7075-T7351</td><td>7.762</td></tr><tr><td>PBARL</td><td>7</td><td>11_ESQ_xn_yn</td><td>Al_7075-T7351</td><td>7.762</td></tr><tr><td>PBARL</td><td>8</td><td>11_ESQ_xp_yn</td><td>Al_7075-T7351</td><td>7.762</td></tr><tr><td>PBARL</td><td>9</td><td>12_RIG-V1_xp</td><td>Al_7075-T7351</td><td>9.279</td></tr><tr><td>PBARL</td><td>10</td><td>12_RIG-V1_xn</td><td>Al_7075-T7351</td><td>9.279</td></tr><tr><td>PBARL</td><td>11</td><td>12_RIG-V1_yp</td><td>Al_7075-T7351</td><td>9.279</td></tr><tr><td>PBARL</td><td>12</td><td>12_RIG-V1_yn</td><td>Al_7075-T7351</td><td>9.279</td></tr><tr><td>PBARL</td><td>13</td><td>13_RIG-H1_xp</td><td>Al_7075-T7351</td><td>8.259</td></tr><tr><td>PBARL</td><td>14</td><td>13_RIG-H1_xn</td><td>Al_7075-T7351</td><td>8.259</td></tr><tr><td>PBARL</td><td>15</td><td>13_RIG-H1_yp</td><td>Al_7075-T7351</td><td>10.523</td></tr><tr><td>PBARL</td><td>16</td><td>13_RIG-H1_yn</td><td>Al_7075-T7351</td><td>10.523</td></tr><tr><td>PBARL</td><td>17</td><td>14_RIG-H3_xp</td><td>Al_7075-T7351</td><td>48.620</td></tr><tr><td>PBARL</td><td>18</td><td>14_RIG-H3_xn</td><td>Al_7075-T7351</td><td>38.896</td></tr><tr><td>PBARL</td><td>19</td><td>14_RIG-H3_yp</td><td>Al_7075-T7351</td><td>55.750</td></tr><tr><td>PBARL</td><td>20</td><td>14_RIG-H3_yn</td><td>Al_7075-T7351</td><td>49.556</td></tr><tr><td>PBARL</td><td>21</td><td>16_RIG-H5</td><td>Al_7075-T7351</td><td>80.737</td></tr><tr><td>PBARL</td><td>22</td><td>17_RIG-H6</td><td>Al_7075-T7351</td><td>16.289</td></tr><tr><td>PSHELL</td><td>1</td><td>01_t-wall-delgadas</td><td>Al_7075-T7351</td><td>175.164</td></tr><tr><td>PSHELL</td><td>2</td><td>05_t-tapa</td><td>Al_7075-T7351</td><td>52.462</td></tr><tr><td>PSHELL</td><td>3</td><td>06_t-rig-base</td><td>Al_7075-T7351</td><td>96.359</td></tr><tr><td>PSHELL</td><td>4</td><td>07_t-bandejas</td><td>Al_7075-T7351</td><td>220.340</td></tr><tr><td>PSHELL</td><td>23</td><td>09_A_t-boards-PSU</td><td>PCB_PSU</td><td>546.771</td></tr><tr><td>PSHELL</td><td>25</td><td>09_B_t-boards-MOD</td><td>PCB_MOD</td><td>546.771</td></tr><tr><td>PSHELL</td><td>26</td><td>09_C_t-boards-PROC</td><td>PCB_PROC</td><td>546.771</td></tr><tr><td>PSHELL</td><td>27</td><td>09_D_t-boards-FPGA</td><td>PCB_FPGA</td><td>546.771</td></tr><tr><td>PSHELL</td><td>29</td><td>07_t-bandejas_FPGA</td><td>Bandeja_FPGA</td><td>73.447</td></tr></tbody></table>
+
+      <h2>Model Mass Contributions</h2>
+      <table><thead><tr><th>Material</th><th>Contribution class</th><th>Controls</th><th>Mass [g]</th><th>Interpretation</th></tr></thead><tbody><tr><td>Al_7075-T7351</td><td>common_structural</td><td>n/a</td><td>939.902</td><td>Variable estructural comun usada para ayudar al cierre de la masa total cuando los controles parciales ya estan dentro de banda.</td></tr><tr><td>PCB_PSU</td><td>direct_control</td><td>psu</td><td>546.771</td><td>Control operativo directo para la restriccion H-PSU module.</td></tr><tr><td>PCB_MOD</td><td>direct_control</td><td>mod</td><td>546.771</td><td>Control operativo directo para la restriccion MOD module.</td></tr><tr><td>PCB_PROC</td><td>direct_control</td><td>proc</td><td>546.771</td><td>Control operativo directo para la restriccion PROC module.</td></tr><tr><td>PCB_FPGA</td><td>direct_control</td><td>fpga</td><td>546.771</td><td>Control operativo directo para la parte electronica del modulo FPGA.</td></tr><tr><td>Bandeja_FPGA</td><td>shared_control</td><td>backplanes, fpga</td><td>73.447</td><td>Variable compartida entre el control FPGA y el control Backplane modules; representa masa estructural comun en ambas zonas segun la hipotesis actual.</td></tr></tbody></table>
+
+      <h2>Operational Control Breakdown</h2>
+      <table><thead><tr><th>Control</th><th>Target [g]</th><th>Lower [g]</th><th>Upper [g]</th><th>Actual [g]</th><th>Within band</th><th>Slack down [g]</th><th>Slack up [g]</th></tr></thead><tbody><tr><td>H-PSU module</td><td>913.000</td><td>867.350</td><td>958.650</td><td>546.771</td><td>no</td><td>0.000</td><td>411.879</td></tr><tr><td>MOD module</td><td>823.000</td><td>781.850</td><td>864.150</td><td>546.771</td><td>no</td><td>0.000</td><td>317.379</td></tr><tr><td>PROC module</td><td>979.000</td><td>930.050</td><td>1027.950</td><td>546.771</td><td>no</td><td>0.000</td><td>481.179</td></tr><tr><td>FPGA module</td><td>871.000</td><td>827.450</td><td>914.550</td><td>620.217</td><td>no</td><td>0.000</td><td>294.333</td></tr><tr><td>Backplane modules</td><td>225.000</td><td>213.750</td><td>236.250</td><td>73.447</td><td>no</td><td>0.000</td><td>162.803</td></tr><tr><td>Total mass</td><td>3810.000</td><td>3619.500</td><td>4000.500</td><td>3200.432</td><td>no</td><td>0.000</td><td>800.068</td></tr></tbody></table>
+
+      <h2>Common Structural Mass</h2>
+      <table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>Direct control mass [g]</td><td>2187.083</td></tr><tr><td>Shared mass [g]</td><td>73.447</td></tr><tr><td>Common structural mass [g]</td><td>939.902</td></tr><tr><td>Total mass [g]</td><td>3200.432</td></tr></tbody></table>
+      <table><thead><tr><th>Material</th><th>Mass [g]</th></tr></thead><tbody><tr><td>Al_7075-T7351</td><td>939.902</td></tr></tbody></table>
+
+      <h2>Score Breakdown</h2>
+      <table><thead><tr><th>Component</th><th>Value</th></tr></thead><tbody><tr><td>Unsatisfied constraints</td><td>6</td></tr><tr><td>Max normalized violation</td><td>12.471414</td></tr><tr><td>Total mass rel. error</td><td>16.00%</td></tr><tr><td>Change from baseline L1</td><td>0.000000</td></tr><tr><td>Failure penalty</td><td>0.000</td></tr></tbody></table>
+
+      <h2>Internal Mass Estimator</h2>
+      <table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>Shell elements</td><td>416</td></tr><tr><td>Bar elements</td><td>452</td></tr><tr><td>Supported mass cards found</td><td>{&quot;MAT1&quot;: 6, &quot;PSHELL&quot;: 9, &quot;PBARL&quot;: 18, &quot;CQUAD4&quot;: 416, &quot;CBAR&quot;: 452}</td></tr><tr><td>Zero-mass assumptions</td><td>{&quot;PBUSH&quot;: 2, &quot;CBUSH&quot;: 116, &quot;RBE2&quot;: 8, &quot;SPC1&quot;: 1}</td></tr><tr><td>Unsupported cards seen</td><td>ninguna</td></tr></tbody></table>
+      <ul><li>Sin warnings del estimador interno.</li></ul>
+      <ul><li>El estimador no cubre elementos concentrados, solidos, compuestos o tarjetas NSM genericas si se anaden en futuras versiones del modelo.</li><li>PBUSH/CBUSH, RBE2 y SPC se tratan como contribucion de masa nula para este modelo actual.</li><li>No se han detectado otras tarjetas de masa relevantes fuera del alcance actual en este BDF.</li></ul>
+
+      
+
+      <h2>Logs And Files</h2>
+      <ul><li><a href="runner.log">runs/001_Al1.000_PSU1.000_MOD1.000_PROC1.000_FPGA1.000_BFPGA1.000/runner.log</a></li><li><a href="sfem_mass_fit.bdf">runs/001_Al1.000_PSU1.000_MOD1.000_PROC1.000_FPGA1.000_BFPGA1.000/sfem_mass_fit.bdf</a></li></ul>
+
+      <h2>Notes</h2>
+      <ul><li>Baseline run con factores 1.0 en las seis densidades.</li><li>Dry run enabled in config.runner.dry_run. Nastran was not launched.</li></ul>
+
+      <h2>Exception</h2>
+      <pre>None</pre>
+    </div>
+    </body></html>
